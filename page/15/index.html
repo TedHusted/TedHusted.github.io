@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Currents</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Business analysis, software engineering, continuous delivery.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Currents">
+<meta property="og:url" content="http://TedHusted.github.io/page/15/index.html">
+<meta property="og:site_name" content="Currents">
+<meta property="og:description" content="Business analysis, software engineering, continuous delivery.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Currents">
+<meta name="twitter:description" content="Business analysis, software engineering, continuous delivery.">
+  
+    <link rel="alternate" href="/atom.xml" title="Currents" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Currents</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Getting there from here</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://TedHusted.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-looking-forward-looking-back" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2006/05/28/looking-forward-looking-back/" class="article-date">
+  <time datetime="2006-05-28T09:00:00.000Z" itemprop="datePublished">2006-05-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Essays/">Essays</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/05/28/looking-forward-looking-back/">Looking Forward, Looking Back</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>With <a href="http://struts.apache.org/2.x/" target="_blank" rel="external">WebWork2 out of the incubator</a>, and this being the sixth anniversary of the creation of the first Apache Struts codebase (Memorial Day weekend), I thought it might be time to reflect on some of the things that Apache Struts, as a project, has been doing right, as well as some things that we might do better.</p>
+<p>NOTE: These are my own personal observations. Other committers may have different viewpoints (and probably do!).</p>
+<h5 id="Documentation-Documentation-Documentation"><a href="#Documentation-Documentation-Documentation" class="headerlink" title="Documentation, Documentation, Documentation"></a>Documentation, Documentation, Documentation</h5><p>One thing we have always done well – or least better than most – is documentation. When I stumbled onto the project in the summer of 2000, there was already a concise introduction to the framework in place, as well as a working example application (the infamous MailReader). Since then, the end-user documentation has continued to grow and mature. For developers, one hallmark of Apache Struts has always been detailed JavaDocs and commit logs.</p>
+<p>Although sometimes criticized for a lack of documentation, the WebWork 2 wiki is a treasure trove of information. For Struts 2, we’re extending and refining the WW2 base into a <a href="http://cwiki.apache.org/WW/home.html" target="_blank" rel="external">comprehensive documentation suite</a>. Open source products have always been “production quality”, and our documentation can be “bookstore quality” too. Following WebWork’s lead, we are maintaining the documentation in Confluence, and using a <a href="http://confluence.atlassian.com/display/CONFEXT/AutoExport+for+Confluence" target="_blank" rel="external">plugin</a> that automatically exports the pages as they are edited.</p>
+<p>An exciting aspect of documenting with Confluence is our custom “snippet” macro. The macro merges text from the source code directly into the Confluence wiki text. It’s a quick and easy way to “<a href="http://en.wikipedia.org/wiki/Single_source_publishing" target="_blank" rel="external">single-source</a>“ more of the documentation. Best of all, it encourages us to create better Javadocs and example applications, so that we can suck the source into the wiki.</p>
+<p>It would be great fun to apply the snippet macro to the Struts 1 docs too, since the codebase still bears the imprint of Craig’s very excellent JavaDocs. Personally, I think it is safe to say that the quantity and quality of Struts 1 documentation is one of the things that lead to its wild success.</p>
+<h5 id="Status-and-Summaries"><a href="#Status-and-Summaries" class="headerlink" title="Status and Summaries"></a>Status and Summaries</h5><p>One thing that we have not done well enough is to create and <em>maintain</em> current roadmaps for new features and changes. We have created roadmaps, but as “detours” arise, we forget to update the roadmap, and it gets out of synch with the nightly build.</p>
+<p>We also have not been very good about keeping the release notes up to date, so that updating the notes becomes yet-another chore that falls to the release manager.</p>
+<p>On the list, we often have extended development discussions that go on for weeks, even months. While those of us in the “thick of things” can follow along, it’s often hard for a newcomer to catch up. After six years, the advice to “read the dev@ list”, becomes a herculean task. Over the years, we have often made decisions like “the JSP taglib API will strictly observe HTML 4.01” in the midst of mailing list discussions, but, we usually don’t followup and document these decisions, outside of the thousands upon thousands of dev@ threads.</p>
+<p>I’d suggest that we try harder to maintain a coherent status report for the project, along the lines of <a href="http://svn.apache.org/viewvc/httpd/httpd/trunk/STATUS?view=markup" target="_blank" rel="external">what HTTPD does,</a> leveraging JIRA where we can. Regardless of format, I do think it’s important that the status report be something that can be automatically emailed to dev@ every month.</p>
+<h5 id="Stone-Soup"><a href="#Stone-Soup" class="headerlink" title="Stone Soup"></a>Stone Soup</h5><p>I think if one thing has held the project back, it’s the notion that the PMC ia suppose to be a steering committee, trying to decide what is best for other people. Committers (including myself) don’t always contribute some of the coolest bits that we use in our own applications. An ASF project should be like <a href="http://stonesoup.esd.ornl.gov/stonesoup.html" target="_blank" rel="external">stone soup</a>, we each throw what we have into the pot and share the wealth.</p>
+<p>Often, it seems that we don’t contribute some bits because we think our solution doesn’t have a broad-enough audience. One reading of the ASF maxim “<a href="http://jroller.com/page/TedHusted?entry=dogfood" target="_blank" rel="external">we eat our own dogfood</a>“ is that <em>we</em> are the audience. If we need it for own applications, then it follows someone else will too, and, ipso facto, it belongs in the product.</p>
+<p>When the ASF talks about a project’s <a href="http://jroller.com/page/TedHusted?entry=community" target="_blank" rel="external">community</a>, we are not talking about anyone who downloads the software. The ASF is talking about the people who contribute to the project through patches and posts. <strong>We are the community.</strong> If we need it, then it belongs in the product.</p>
+<p>I’m hoping that by creating packages like “extras” and opening the door to the idea of specialty subprojects, like Scripting, we might be able share more of our own solutions, without bloating the core distribution.</p>
+<h5 id="Best-Practices-and-Best-Practice-Examples"><a href="#Best-Practices-and-Best-Practice-Examples" class="headerlink" title="Best Practices and Best Practice Examples"></a>Best Practices and Best Practice Examples</h5><p>On the other hand, we’ve been much too reluctant to publish best practices, along with example applications that exhibit best practices. For Struts 1.3.x, the infamous MailReader application has been updated to demonstrate best practices and avoid “demonstration only” tangents. Moving forward, I would like to continue expanding the new “Cookbook” applications, to demonstrate common use cases, so that other example applications can be an example of the kind of applications that we ourselves write at our day jobs. For Struts 2, we’ve already started a <a href="http://svn.apache.org/viewvc/struts/sandbox/trunk/action2/PRACTICES.txt?view=markup" target="_blank" rel="external">list of best practices</a>, which I hope we will continue to refine and publish as part of the documentation.</p>
+<h5 id="Developer-Independence"><a href="#Developer-Independence" class="headerlink" title="Developer Independence"></a>Developer Independence</h5><p>Another weak area is reliance on key developers, both for work on the core framework as well as speciality packages, like the Validator and Tiles, and lately for key aspects of the infrastructure. Someone will start out doing a lot of the commits, and we fall into the habit of thinking that “so and so will take care of that”. Then “so-and-so” becomes busy with his or her day job, and, suddenly, we find that many new patches have not been committed. Usually, we have between one and zero active committers who are comfortable working with Tiles or the Validator. (With Struts 2, we’re liable to have the same problem with OGNL.)</p>
+<p>One tendency that contributes to this problem, I think, is that we don’t often share our work schedules with each other. We might mention off-hand that things are busy, but we don’t always stress that things might stay busy for (say) six or eight months. Aside from mentioning what we plan to do, it’s also important to mention what we plan <strong>not</strong> to do, so others can pick up the slack.</p>
+<h5 id="Going-Emeritus"><a href="#Going-Emeritus" class="headerlink" title="Going Emeritus"></a>Going Emeritus</h5><p>When an ASF developer knows that he or she won’t be able to contribute for some time (perhaps a year), it is helpful to announce that he or she is moving to “emeritus” status. Merit never expires, and an emeritus committer can reactivate his or her status upon request. But, if a committer is not going to be available for a while, it helpful to let the rest of us know. Again, so that others can pick up the slack. It’s not uncommon for Apache Struts committers to “fade away” without notice. Eventually, we do move inactive people to the emeritus column, but that’s not something we should have to do unilaterally.</p>
+<h5 id="Committer-Nominations"><a href="#Committer-Nominations" class="headerlink" title="Committer Nominations"></a>Committer Nominations</h5><p>IMHO, the first two things a new committer should do is volunteer to manage a release and start looking for another committer to nominate. Over the years, we’ve developed an image of the perfect nominee. The archetypical candidate has been someone who has been posting to the lists for at least six months, participated in development discussions in a helpful way, submitted several patches that were applied, and, most often, has created an independent Struts extension of his or her own. We’ve made some progress in breaking away from that mold this year, especially in terms of submitting a plethora of patches.</p>
+<p>As we move forward, I suggest that we take to heart the ASF criterion that a committer is someone who “we believe is devoted to the task and matches the human attitudes required to work well with others, especially in disagreement.” Patches are one way to make “welcome contributions” to the project, but there are others.</p>
+<h5 id="struts-sf-net"><a href="#struts-sf-net" class="headerlink" title="struts.sf.net"></a>struts.sf.net</h5><p>We started the Struts <a href="http://struts.sourceforge.net/" target="_blank" rel="external">sf.net site</a> some time ago, so that people could share example applications and extensions without setting up yet-another SF site or joining the ASF. The site has met with some success, and we’ve begun to use it as a staging ground for new extensions. But, we might try to promote it more, since it could also be a proving ground for new committers. (Of course, in terms of neglect, I’m the main culprit here, since I was the lunkhead who set up the site, but never cared for it properly. Many thanks to others like Don Brown and James Holmes for picking up the slack.)</p>
+<h5 id="Mailing-List-Demeanor"><a href="#Mailing-List-Demeanor" class="headerlink" title="Mailing List Demeanor"></a>Mailing List Demeanor</h5><p>From the beginning, the Apache Struts user list has always been patient and welcoming to “newbies”. Of all things, leaving the “welcome mat” out is probably what we have done the most right, and I hope we remain cordial in the future.</p>
+<p>Though, an important part of managing the user list is maintaining the separation of concerns between the user list and the dev list. Moving forward, we should continue to be quick and strict about keeping threads in the proper forum.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://TedHusted.github.io/2006/05/28/looking-forward-looking-back/" data-id="cizbl1w7v004nfcx39jhd32os" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Struts/">Apache Struts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-who-let-the-dogs-out" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2006/05/21/who-let-the-dogs-out/" class="article-date">
+  <time datetime="2006-05-21T09:00:00.000Z" itemprop="datePublished">2006-05-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Essays/">Essays</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/05/21/who-let-the-dogs-out/">Who let the dogs out?</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>There are open source teams that configure themselves much like a conventional closed-source team. The team has a clear hierarchy where someone has the final say, the team’s goal is to create software to benefit “users” and other “stakeholders”, and the team’s underlying objective is to acquire as many users and stakeholders as possible. Users are somebody else.</p>
+<p>The founding principle of an ASF team is that <em>we too are the users.</em> We create the software for our own use and benefit, and then we share the result with <em>other</em> users.</p>
+<p>We eat our own dog food, and we pass the bowl.</p>
+<p>Our participation in the team stems from our own external use of the team’s product. We use the product in our own day jobs, and we cordially invite others to do the same. The interest of team members will vary, depending on how things are going on the day job. Accordingly, we need a steady infux of new contributors. Attracting new users is our way of recruiting new contributors.<br>When an open source team is not comprised of users, and the object of the exercise is to create software for <em>other</em> people to use, dynamics like “competition” and “jingoism” do come into play for those teams, just like they do for conventional closed-source teams. But, at the foundation, we are not trying to mimic conventional teams.</p>
+<ul>
+<li>The point of the ASF is to foster projects where the participants are creating the software that they themselves <em>want</em> to use.<br>An <a href="http://jroller.com/page/TedHusted?entry=community" target="_blank" rel="external">ASF community</a> is not the set of all users and other stakeholders. An ASF community is the set of active participants who make concrete contributions to the code, documentation, and project infrastructure.</li>
+</ul>
+<p>We aren’t selling fish; we’re digging fishing holes.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://TedHusted.github.io/2006/05/21/who-let-the-dogs-out/" data-id="cizbl1wb1009tfcx3sin95b0c" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ASF/">ASF</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Open-Source/">Open Source</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-how-do-you-spell-community" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2006/05/14/how-do-you-spell-community/" class="article-date">
+  <time datetime="2006-05-14T09:00:00.000Z" itemprop="datePublished">2006-05-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Essays/">Essays</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/05/14/how-do-you-spell-community/">How do you spell Community?</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Some projects use the word <a href="http://dictionary.reference.com/search?q=community" target="_blank" rel="external">community</a> to be synonmyous with “<a href="http://dictionary.reference.com/search?q=stakeholders" target="_blank" rel="external">stakeholders</a>“. For example, Spring addresses its product announcements to “The Spring Community”. Evidentally, the committers are not the community, since they would not need to address these announcements to themselves! From this perspective, the “community” is somebody else.</p>
+<p>Other projects use the word community differently. At the ASF, we sometimes talk of a project “losing its community”. When we say that, we do <em>not</em> mean the software isn’t being used. We do <em>not</em> mean that the software has no stakeholders. We mean that there is no one that is actively contributing to the software. No one is applying patches. No one is answering posts to the mailing lists.</p>
+<p>In fact, the Apache HTTPD product was born because the NCSA server “lost its community”. The server’s primary developer, Rob McCool, left the NCSA in mid-1994, and the project stalled. People were still using the server, and users were circulating patches to correct this bug or add that feature. But, no one was creating a distribution that incorporated all the latest patches. In response, a small group of volunteers banded together to create the Apache HTTPD community, and the rest is <a href="http://httpd.apache.org/ABOUT_APACHE.html" target="_blank" rel="external">history</a>.</p>
+<p>People being people, we are not always consistent. Sometimes when ASF folk say community, we mean the set of stakeholders. Sometimes, when we say community, we mean the core group of contributors that apply the patches and answer posts to the mailing list.</p>
+<p>But regardless of how we use or misuse the word community, in the end, ASF committers still <a href="http://jroller.com/page/TedHusted?entry=dogfood" target="_blank" rel="external">eat our own dog food</a>. In the end, we are all trying to build the product that we want to use ourselves, in our own day jobs. Then we share the wealth, just in case other people might want to use the product too.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://TedHusted.github.io/2006/05/14/how-do-you-spell-community/" data-id="cizbl1w74003ifcx3xyli2kmd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Open-Source/">Open Source</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-what-to-do-if-your-code-has-few-if-any-tests" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2006/04/24/what-to-do-if-your-code-has-few-if-any-tests/" class="article-date">
+  <time datetime="2006-04-24T09:00:00.000Z" itemprop="datePublished">2006-04-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Events/">Events</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/04/24/what-to-do-if-your-code-has-few-if-any-tests/">What to Do if Your Code Has Few, If Any Tests?</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>What to Do if Your Code Has Few, If Any Tests?</li>
+<li>Agitar Webinar with Ted Husted</li>
+<li>7 a.m. and 5 p.m. PST on Wednesday 26 April<br>Everyone has worked on a code base that seems to work, but has almost no test assets. Maybe you?ve had some system-level tests or functional demos that provide a quick ?health check.? But you have nothing to validate functionality or test the corner cases. As a developer in this situation, you?re flying blind. That goes double if your code is a framework or application componentry.</li>
+</ul>
+<p>Ted Husted, member of the Apache Struts development team, had exactly this problem with the open source Struts framework. He?ll be presenting a webinar on his experiences with using Agitar to investigate the Struts 1.2 code base and automatically create a series of unit tests. The presentation will provide an overview of what a typical developer would experience, how they need to think about exploratory unit testing, and how to make the most quality progress with a body of code that has few if any tests.</p>
+<p>Registration for the 7 a.m. PST webinar, or the 5 p.m. PST one, is required.</p>
+<ul>
+<li><a href="http://www.elabs6.com/c.html?rtr=on&amp;s=dk2,pok,38g,crv,huhw,fgpm,fzl8" target="_blank" rel="external">Register for 7a PST webinar</a></li>
+<li><a href="http://www.elabs6.com/c.html?rtr=on&amp;s=dk2,pok,38g,lv0i,2on0,fgpm,fzl8" target="_blank" rel="external">Register for 5p PST webinar</a><br><strong>NOTE:</strong> Unlike Struts, the Agitator is <strong>not</strong> a free open source tool. The Agitator is intended for large-scale Java projects who would like to implement an automated developer testing program.</li>
+</ul>
+<p>For more information about Agitar Software, visit the www.Agitar.com website</p>
+<ul>
+<li>Agitar Software - <a href="http://www.agitar.com/" target="_blank" rel="external">http://www.agitar.com</a></li>
+<li>DevelopterTesting.com - <a href="http://www.developertesting.com%20/" target="_blank" rel="external">http://www.developertesting.com </a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://TedHusted.github.io/2006/04/24/what-to-do-if-your-code-has-few-if-any-tests/" data-id="cizbl1way009pfcx3pmn3xzt3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Programming/">Programming</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-action2-mailreader-how-sweet-it-is" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2006/04/02/action2-mailreader-how-sweet-it-is/" class="article-date">
+  <time datetime="2006-04-02T10:01:00.000Z" itemprop="datePublished">2006-04-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Reviews/">Reviews</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/04/02/action2-mailreader-how-sweet-it-is/">Action2 MailReader - How Sweet It Is</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>There’s a rough edge or two yet to file, but the<br><a href="http://planetstruts.org/action2-mailreader/" target="_blank" rel="external">Action2 MailReader is up and running</a>, along with it’s <a href="http://planetstruts.org/action2-mailreader/Tour.do" target="_blank" rel="external">very own tour</a>, and I’m ready to call it “code complete”. (<a href="http://svn.apache.org/viewcvs.cgi/struts/sandbox/trunk/action2/apps/mailreader/src/" target="_blank" rel="external">And here’s the code.</a>)</p>
+<p>I can’t say I very much enjoyed writing yet-another MailReader tour (this makes three), but it was a useful exersice. To do the tour, I had to review the code again, and I found better ways to do some things in the process.</p>
+<p>In porting both the MailReader and tour, I become more and more convinced that WebWork <strong>is</strong> Struts, only better. It’s everything we ever wanted in a 2.0 release, and more. As my new friend Claus Ibsen says, “I have the sweet eyes for WebWork.”</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://TedHusted.github.io/2006/04/02/action2-mailreader-how-sweet-it-is/" data-id="cizbl1w4p0005fcx3ampt3vox" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Struts/">Apache Struts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-roller-2-2-rc2-available" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2006/04/02/roller-2-2-rc2-available/" class="article-date">
+  <time datetime="2006-04-02T10:00:00.000Z" itemprop="datePublished">2006-04-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Events/">Events</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/04/02/roller-2-2-rc2-available/">Roller 2.2 RC2 Available</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>A new release candidate (RC) is ready for testing: Roller 2.2-rc2-incubating.</p>
+<p>You can get the new RC here:</p>
+<ul>
+<li><a href="http://people.apache.org/%7Esnoopdave/roller-2.2-rc/" target="_blank" rel="external">http://people.apache.org/~snoopdave/roller-2.2-rc/</a><br><a href="http://rollerweblogger.org/wiki/Wiki.jsp?page=Roller_2.2_WhatsNew" target="_blank" rel="external">And here’s what’s new in 2.2</a>, along with an updated User and install docs are in the same directory (thanks Anil)</li>
+</ul>
+<p>And these bugs found in RC1 were addressed (thanks Oscar and Axel):</p>
+<ul>
+<li><a href="http://opensource.atlassian.com/projects/roller/browse/ROL-1094" target="_blank" rel="external">ROL-1094 Error adding new subscription in plane</a></li>
+<li><a href="http://opensource.atlassian.com/projects/roller/browse/ROL-1096" target="_blank" rel="external">ROL-1096 Month view shows wrong month</a></li>
+<li><a href="http://opensource.atlassian.com/projects/roller/browse/ROL-1097" target="_blank" rel="external">ROL-1097 Problem with encoded HTML in titles in RSS feeds</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://TedHusted.github.io/2006/04/02/roller-2-2-rc2-available/" data-id="cizbl1w8x0068fcx3zmzzl6uv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Roller/">Apache Roller</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-myspace-powered-by-ibatis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2006/04/02/myspace-powered-by-ibatis/" class="article-date">
+  <time datetime="2006-04-02T10:00:00.000Z" itemprop="datePublished">2006-04-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Events/">Events</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/04/02/myspace-powered-by-ibatis/">MySpace - Powered by iBATIS</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>According to <a href="http://mail-archive.com/user-cs%40ibatis.apache.org/msg00803.html" target="_blank" rel="external">a post on the iBATIS.NET user list</a>:</p>
+<blockquote>
+<p>“MySpace.com is now running iBATIS for a good portion of its data access abstraction layer.”<br>Is MySpace a big deal?</p>
+</blockquote>
+<p><a href="http://weblogs.asp.net/scottgu/archive/2006/03/25/441074.aspx" target="_blank" rel="external">Scott Gu seems to thinks so.</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://TedHusted.github.io/2006/04/02/myspace-powered-by-ibatis/" data-id="cizbl1w81004zfcx3hmz6xwrd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Programming/">Programming</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-the-truth-with-jokes" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2006/04/01/the-truth-with-jokes/" class="article-date">
+  <time datetime="2006-04-01T11:00:00.000Z" itemprop="datePublished">2006-04-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Essays/">Essays</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/04/01/the-truth-with-jokes/">The Truth with Jokes</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>Q: Are ASF committers arrogant?</em></p>
+<p>A: Yes, we are.</p>
+<p><em>Q: Is the ASF a club? </em></p>
+<p>A: The ASF is a non-profit corporation, but, yes, it’s organized like a club. We have meetings, and minutes, and a board of directors. Just like your kid’s soccer club!</p>
+<p><em>Q: Is the ASF exclusive? </em></p>
+<p>A: Yes, it is. We exclude committership to “people that we believe are devoted to the task and match the human attitudes required to work well with others, especially in disagreement”. Even so, most projects manage to attract ten or twenty active committers. Very large projects, like Jakarta, have hundreds of committers. Of course, not all of these committers are arrogant. Some are merely smug.</p>
+<p><em>Q: Why not lower the bar to commit rights? Why not hand out write access to anyone who asks?</em></p>
+<p>A: It’s simpler for us to expect people to first submit patches. (And, of course, it’s all about us!) Just to play hard to get, we usually string people along this way for at least six months before offering commit access. Mainly, this is because creating accounts is a bother.</p>
+<p><em>Q: Why not change the system? </em></p>
+<p>A: The system works for us, where “us” is defined as thirty top-level ASF projects with almost two thousand ASF committers. Some projects, like Cocoon and Struts, were created here. Others, like iBATIS, Lucene, MyFaces, and Tapestry, began elsewhere and then joined the ASF. Some projects, like Ant and Tomcat, were created elsewhere and then reinvented here. Evidentally, arrogance loves company!</p>
+<p><em>Q: Don’t the people who download and use your products have rights too? </em></p>
+<p>A: Yes. Users have all those rights conveyed to them by the business-friendly Apache License. We like to say “business-friendly” in a smug way, because some other licenses are just plain mean.</p>
+<p><em>Q: But aren’t you creating software for use by the general public? Doesn’t that give the general public a stake in the project?</em></p>
+<p>A: The software is created and maintained by the development community for its own use, and then, just to neighborly, we share the product with the general public, at no charge. We do accepts tips, but only in the form of a patch.</p>
+<p><em>Q: Shouldn’t open source be more open than that?</em></p>
+<p>A: Our goal is to (deep breath) … foster an environment where people are able to collaborate on software development in a respectful, honest, technical-based way in order to create consistently high quality software that faithfully implements standards, while retaining security as a mandatory feature. (Whew!) After over a decade of experience working in open source, we believe the ASF process is the best way to nurture that environment. We also find it’s the best way to retain the trademark ASF arrogance.</p>
+<p><em>Q: Can other projects join the ASF?</em></p>
+<p>A: Yes, but they have to bend over, grab their ankles, and exclaim “Thank you Incubator! May we please have another?” while ripping out any dependency with an unsavory license. A podling can only embrace what it means to be an ASF project by stumbling through a haze of pain.</p>
+<p>(OK, here’s the joke:)</p>
+<p><em>Q: How many ASF committers does it take to change a lightbulb? </em></p>
+<p>A: Three. One to hold the bulb and two to turn the ladder while chanting “+1”.</p>
+<p>PS: Be sure to enjoy this special day!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://TedHusted.github.io/2006/04/01/the-truth-with-jokes/" data-id="cizbl1wag008qfcx3x97w6qmr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Struts/">Apache Struts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Satire/">Satire</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-action2-cookbook-sizzles" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2006/03/12/action2-cookbook-sizzles/" class="article-date">
+  <time datetime="2006-03-12T11:00:00.000Z" itemprop="datePublished">2006-03-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Reviews/">Reviews</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/03/12/action2-cookbook-sizzles/">Action2 Cookbook Sizzles</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>So far, there’s been only one thing I missed while setting up a new<br><a href="http://planetstruts.org/action2-cookbook/Home.jsp" target="_blank" rel="external">Struts Cookbook for Action 2</a>. An essential part of the Cookbook is displaying the source files used to code the example. In the Stuts Action 1.3 version, we were using the Bean tags to dynamically read the file into a page variable and then output it with the tags filtered. The Struts Bean tag idiom is:</p>
+<p>I couldn’t find an obvious way to do this with the WebWork tags and started a thread on the WebWork user list. After a post or two, we hit on the idea of using a WebWork result to display source code as plaintext. Before I had the chance to write it myself (in the Apache Way), WebWork committer Toby Jee posted a new PlainText result to the HEAD, which I happily plugged into my work in progress.</p>
+<p>The WebWork idiom moves all the references from the pages into the configuration file. The simplest example is a one-page “Hello World” recipe. The mapping for the PlainText result looks like this:</p>
+<pre>  
+/pages/Hello/Result.jsp
+/WEB-INF/classes/xwork-Hello.xml
+</pre>
+
+<p>In the page, the links are coded like this:</p>
+<h2 id="Server-Pages"><a href="#Server-Pages" class="headerlink" title="Server Pages"></a>Server Pages</h2><ul>
+<li><a>Result.jsp</a><br>The cool part, is that through use of namespaces, each example can have its own “View=Result” action. We need to refer to the namespace on on the Home page, but after that all the tags render themselves relative to the namespace. Here’s are the the home page links (one for the icon and another for the text):</li>
+</ul>
+<pre> namespace="/Hello" 
+Execute
+</pre>
+
+<p>But once we link into the “/Hello” namespace, the ww tags take care of injecting the rest of the path.</p>
+<p>Of course, any post-Struts-1.1 developer is going to be saying, “Oh, namespaces are modules!”, and you’d be right. Everything in WebWork is very much the same as Struts 1.x. Only better!</p>
+<p>If you reviewed the previous code snippet, you probably noticed the reference to “icon-open,jsp”. The Cookbook uses icons for navigation, which I removed to their own server pages and then brought back in using ww:include as needed. As a result, all the image markup is centralized and not scattered throughout the application.</p>
+<p>The new Cookbook also uses ww:include to post navigational header at the top of the pages. The nifty part is that the WW tags track the current namespaces. If we consistently name the entry action to each example “Open”, we can reuse the same menu link for every example/namespace. When the Hello namespace includes this snippet –</p>
+<p>– the action location renders as “/Hello/Open.do”. When the Simple namespace renders the same snippet, the location renders “/Simple/Open.do”. Quick, easy, effective.</p>
+<p>I’ll be heads-down on the Cookbook this week, and will surely post more about the Cookbook again next week. In the meantime, you can track the progress in the <a href="http://svn.apache.org/viewcvs.cgi/struts/sandbox/trunk/action2/apps/cookbook/src/" target="_blank" rel="external">Apache Struts sandbox</a>, and I’ll try to keep the <a href="http://planetstruts.org/action2-cookbook/Home.jsp" target="_blank" rel="external">online demo</a> fairly current.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://TedHusted.github.io/2006/03/12/action2-cookbook-sizzles/" data-id="cizbl1w4m0004fcx3pzkm3ubc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Struts/">Apache Struts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-action2-cookbook-is-off-the-backburner" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2006/03/05/action2-cookbook-is-off-the-backburner/" class="article-date">
+  <time datetime="2006-03-05T11:00:00.000Z" itemprop="datePublished">2006-03-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Reviews/">Reviews</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/03/05/action2-cookbook-is-off-the-backburner/">Action2 Cookbook is off the backburner</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I finally got a start a merging the Struts Action and WebWork 2.2 example applications. For Action 2, we might end up with something like</p>
+<ul>
+<li>Blank</li>
+<li>Cookbook or Showcase</li>
+<li>Portlet</li>
+<li>MailReader</li>
+<li><p>ShoppingCart<br>I checked in preliminary alpha versions of the Blank2 and Cookbook2 to the Apache Struts sandbox yesterday. Ultimately, the Cookbook would incorporate the <a href="http://www.blogger.com/%20http://opensource2.atlassian.com/confluence/oss/display/STRUTS/Application+Use+Cases" target="_blank" rel="external">use cases</a> in the WebWork ShowCase, the original Struts Examples, along with the new Struts Cookbook.</p>
+</li>
+<li><p><a href="http://strutsmentor.com/showcase/" target="_blank" rel="external">Showcase</a></p>
+</li>
+<li><a href="http://strutsmentor.com/struts-examples/" target="_blank" rel="external">Examples</a></li>
+<li><p><a href="http://strutsmentor.com/struts-cookbook/" target="_blank" rel="external">Cookbook</a><br>Once a working version of the Action2 Cookbook is up and running, a WebWork MailReader would be next. While building a new MailReader, I’d be sure to add generic versions of the use cases to the new Action2 Cookbook.</p>
+</li>
+<li><p><a href="http://strutsmentor.com/struts-mailreader/" target="_blank" rel="external">MailReader</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://TedHusted.github.io/2006/03/05/action2-cookbook-is-off-the-backburner/" data-id="cizbl1w4l0003fcx3mauytktr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Struts/">Apache Struts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/14/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/16/">__('next') &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Essays/">Essays</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Events/">Events</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Reviews/">Reviews</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorials/">Tutorials</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASF/">ASF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache-Roller/">Apache Roller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache-Struts/">Apache Struts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Business-Analysis/">Business Analysis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Continuous-Integration/">Continuous Integration</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Force-com/">Force.com</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Apps/">Google Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Code/">Google Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Wave/">Google Wave</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Home-Office/">Home Office</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hudson/">Hudson</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IIBA-Rochester/">IIBA Rochester</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jenkins/">Jenkins</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open-Source/">Open Source</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Productivity/">Productivity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Programming/">Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rochester-NY/">Rochester NY</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Salesforce/">Salesforce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Satire/">Satire</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Social-Media/">Social Media</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tour-de-Blog/">Tour de Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visualforce/">Visualforce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-Development/">Web Development</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/YUI/">YUI</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ASF/" style="font-size: 15.83px;">ASF</a> <a href="/tags/Ajax/" style="font-size: 18.33px;">Ajax</a> <a href="/tags/Apache-Roller/" style="font-size: 12.5px;">Apache Roller</a> <a href="/tags/Apache-Struts/" style="font-size: 20px;">Apache Struts</a> <a href="/tags/Business-Analysis/" style="font-size: 12.5px;">Business Analysis</a> <a href="/tags/Continuous-Integration/" style="font-size: 10px;">Continuous Integration</a> <a href="/tags/Force-com/" style="font-size: 10.83px;">Force.com</a> <a href="/tags/Google-Apps/" style="font-size: 11.67px;">Google Apps</a> <a href="/tags/Google-Code/" style="font-size: 10.83px;">Google Code</a> <a href="/tags/Google-Wave/" style="font-size: 11.67px;">Google Wave</a> <a href="/tags/Home-Office/" style="font-size: 10px;">Home Office</a> <a href="/tags/Hudson/" style="font-size: 10px;">Hudson</a> <a href="/tags/IIBA-Rochester/" style="font-size: 10.83px;">IIBA Rochester</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/Open-Source/" style="font-size: 15px;">Open Source</a> <a href="/tags/Productivity/" style="font-size: 17.5px;">Productivity</a> <a href="/tags/Programming/" style="font-size: 19.17px;">Programming</a> <a href="/tags/Rochester-NY/" style="font-size: 13.33px;">Rochester NY</a> <a href="/tags/Salesforce/" style="font-size: 16.67px;">Salesforce</a> <a href="/tags/Satire/" style="font-size: 12.5px;">Satire</a> <a href="/tags/Social-Media/" style="font-size: 13.33px;">Social Media</a> <a href="/tags/Tour-de-Blog/" style="font-size: 10.83px;">Tour de Blog</a> <a href="/tags/Visualforce/" style="font-size: 10px;">Visualforce</a> <a href="/tags/Web-Development/" style="font-size: 10px;">Web Development</a> <a href="/tags/YUI/" style="font-size: 14.17px;">YUI</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">November 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">August 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">July 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">February 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01/">January 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">December 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">September 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07/">July 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06/">June 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/01/">January 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/12/">December 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/09/">September 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/08/">August 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/07/">July 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/06/">June 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/05/">May 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/04/">April 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/03/">March 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/11/">November 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/10/">October 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/09/">September 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/06/">June 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/05/">May 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/04/">April 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/03/">March 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/02/">February 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/01/">January 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2004/04/">April 2004</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2003/04/">April 2003</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2012/05/05/a-nimble-introduction-to-force-com/">A Nimble Introduction to Force.com</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/26/office-data-silos-considered-harmful/">Office Data Silos Considered Harmful</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/07/failing-safe-with-the-apex-data-loader-for-salesforce/">Failing safe with the Apex Data Loader for Salesforce</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/04/salesforce-open-source-pioneer/">Salesforce – Open Source Pioneer</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/01/sun-goes-nova-cloud-intact/">Sun goes Nova. Cloud intact.</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

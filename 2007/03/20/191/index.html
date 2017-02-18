@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>191 | Currents</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Subversion Tips - SVN Redux
+When it comes to keeping track of each and every change to content, whether we like it or not, Subversion is a stern gatekeeper. But, when it comes to retagging a version o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="191">
+<meta property="og:url" content="http://TedHusted.github.io/2007/03/20/191/index.html">
+<meta property="og:site_name" content="Currents">
+<meta property="og:description" content="Subversion Tips - SVN Redux
+When it comes to keeping track of each and every change to content, whether we like it or not, Subversion is a stern gatekeeper. But, when it comes to retagging a version o">
+<meta property="og:updated_time" content="2017-02-18T02:25:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="191">
+<meta name="twitter:description" content="Subversion Tips - SVN Redux
+When it comes to keeping track of each and every change to content, whether we like it or not, Subversion is a stern gatekeeper. But, when it comes to retagging a version o">
+  
+    <link rel="alternate" href="/atom.xml" title="Currents" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Currents</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Getting there from here</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://TedHusted.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-191" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2007/03/20/191/" class="article-date">
+  <time datetime="2007-03-20T09:00:00.000Z" itemprop="datePublished">2007-03-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Uncategorized/">Uncategorized</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      191
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><span style="font-size:180%;">Subversion Tips - SVN Redux</span></p>
+<p>When it comes to keeping track of each and every change to content, whether we like it or not, <a href="http://subversion.tigris.org/" target="_blank" rel="external">Subversion</a> is a stern gatekeeper. But, when it comes to retagging a version or rewriting a log entry, Subversion is happy to accommodate us.</p>
+<h3 id="Retagging-a-version"><a href="#Retagging-a-version" class="headerlink" title="Retagging a version"></a>Retagging a version</h3><p>Through its global revision number, every Subversion commit creates a working tag. But, instead of tracking that version 2.0.7 of your product maps to Subversion revision r520258, it’s just as easy to create a tag. Later, if we need to make changes to that version without changing the head, we can convert the tag to a branch by checking it out and making a commit. </p>
+<p>Some projects like to keep tags as a permanent record, so we often create a repository with three subfolders: trunk, tags, and branches. This particular set of folders is not required, but it’s a convenient convention.  </p>
+<p>The easiest way to tag a revision is from the command line, using a command like</p>
+<pre><code>$ svn copy -r 520258
+https://svn.apache.org/repos/asf/struts/struts2/trunk
+https://svn.apache.org/repos/asf/struts/struts2/tags/STRUTS_2_0_7
+-m &quot;WW-1767 Tag r520258 as Struts 2.0.7&quot;
+`&lt;/pre&gt;
+
+On occasion, after tagging a version, we might find a minor problem before the bits are actually released, and we might want to tag it again. Not a problem for Subversion. The tags are folders in the repository, and we can rename or recopy tags as needed. But, Subversion can also add to a tag. If you try to recopy a tag by executing the previous example command using a new revision number, it won&apos;t overwrite the old tag, but merge the two together, and we end up with a mix of revisions. 
+
+That&apos;s not exactly what we want. Better to first delete the old tag
+
+&lt;pre&gt;`svn delete https://svn.apache.org/repos/asf/struts/struts2/tags/STRUTS_2_o_7
+-m &quot;WW-1767 Removing first try at 2.0.7.&quot;
+`&lt;/pre&gt;
+
+Then, retag the branch as before, specifying the new revision number. If we don&apos;t specify a revision number, Subversion will use the latest revision (or &quot;HEAD&quot;). In a multi-developer environment, it&apos;s safer to use the revision so there&apos;s no doubt as to what is being tagged. Of course, since this is Subversion, we can also go back and create a tag on any revision at any time. 
+
+### Rewriting a log entry 
+
+Verbose Subversion log entries is an excellent practice. A smart project will have a [developers mailing list](http://www.nabble.com/Struts---Dev-f205.html), and the Subversion alerts set to automatically post to the list. In this way, we can keep everyone in the loop as part of the everyday workflow. If we put any needed explanations in the log, we don&apos;t have to send out a special email or have a special conversation later. Very smart projects will also have [ViewVC](http://svn.apache.org/viewvc/struts/) hooked up, making it easy to browse prior revisions, view the DIFFs, and review the logs. 
+
+On occasion, we might fire off a commit with an inadequate or incorrect log. No worries, mate. With Subversion, we can update the log so that it reads like a good entry should. Again, the easiest way to amend a log entry is via the command line. Say for example, we left off the issue reference or maybe cited the wrong revision number. To update the log for revision 504523, we can change to the local working directory, and execute
+&lt;pre&gt;`$ svn propset --revprop -r 504523
+svn:log &quot;WW-1715 Branch for 2.0.x at Struts 2.0.6-SNAPSHOT r504196&quot;
+`&lt;/pre&gt;
+
+And Subversion will confirm the change
+&lt;pre&gt;`$ property &apos;svn:log&apos; set on repository revision 504523
+</code></pre><p>The change to the log won’t be echoed to the mailing list like a regular commit. If a log entry is changed, the best practice would be to send a message to the developers list to document the change. (“If it didn’t happen on the list, it didn’t happen.”)</p>
+<p>While these aren’t everyday tips, on occasion, retagging a version or rewriting a log entry can help Subversion help us.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://TedHusted.github.io/2007/03/20/191/" data-id="cizamhl8v004ofmx31djwgkih" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2007/03/21/190/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          190
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2007/03/19/192/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">192</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Ajax/">Ajax</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Ajax/Apache-Way/">Apache Way</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Ajax/Apache-Way/dev/">dev</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Ajax/Apache-Way/dev/Struts/">Struts</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Apache-Way/">Apache Way</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Cloud/">Cloud</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Cloud/Google/">Google</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Cloud/Google/Wave/">Wave</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Cloud/Wave/">Wave</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/DevOps/">DevOps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DevOps/Force-com/">Force.com</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DevOps/Force-com/Salesforce/">Salesforce</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Force-com/">Force.com</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Open-Source/">Open Source</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Open-Source/Salesforce/">Salesforce</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Salesforce/">Salesforce</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Struts/">Struts</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/dev/">dev</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">November 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">August 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">July 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">February 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01/">January 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">December 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">September 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07/">July 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06/">June 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/01/">January 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/12/">December 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/09/">September 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/08/">August 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/07/">July 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/06/">June 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/05/">May 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/04/">April 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/03/">March 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/11/">November 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/10/">October 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/09/">September 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/06/">June 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/05/">May 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/04/">April 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/03/">March 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/02/">February 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/01/">January 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2004/04/">April 2004</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2003/04/">April 2003</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2012/05/05/a-nimble-introduction-to-force-com/">A Nimble Introduction to Force.com</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/26/office-data-silos-considered-harmful/">Office Data Silos Considered Harmful</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/07/failing-safe-with-the-apex-data-loader-for-salesforce/">Failing safe with the Apex Data Loader for Salesforce</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/04/salesforce-open-source-pioneer/">Salesforce – Open Source Pioneer</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/01/sun-goes-nova-cloud-intact/">Sun goes Nova. Cloud intact.</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>XXE and Subversion - My New Best Friends | Currents</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="I’m dabbling with the idea of using DocBook for technical writing projects. Word doesn’t agree with me, and I really want something I can check-in and diff. I finally took the time to visit XMLMind an">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XXE and Subversion - My New Best Friends">
+<meta property="og:url" content="http://TedHusted.github.io/2004/04/07/xxe-and-subversion-my-new-best-friends/index.html">
+<meta property="og:site_name" content="Currents">
+<meta property="og:description" content="I’m dabbling with the idea of using DocBook for technical writing projects. Word doesn’t agree with me, and I really want something I can check-in and diff. I finally took the time to visit XMLMind an">
+<meta property="og:updated_time" content="2017-02-18T21:35:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="XXE and Subversion - My New Best Friends">
+<meta name="twitter:description" content="I’m dabbling with the idea of using DocBook for technical writing projects. Word doesn’t agree with me, and I really want something I can check-in and diff. I finally took the time to visit XMLMind an">
+  
+    <link rel="alternate" href="/atom.xml" title="Currents" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Currents</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Getting there from here</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://TedHusted.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-xxe-and-subversion-my-new-best-friends" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2004/04/07/xxe-and-subversion-my-new-best-friends/" class="article-date">
+  <time datetime="2004-04-07T09:00:00.000Z" itemprop="datePublished">2004-04-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Reviews/">Reviews</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      XXE and Subversion - My New Best Friends
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I’m dabbling with the idea of using DocBook for technical writing projects. Word doesn’t agree with me, and I really want something I can check-in and diff. I finally took the time to visit XMLMind and take XXE for a spin (<a href="http://www.xmlmind.com/xmleditor/" target="_blank" rel="external">http://www.xmlmind.com/xmleditor/</a>). I was blow away. From the tutorial, it looks like the standard version will do what I need, but I’ll probably get the professional version, just to show my appreciation. It’s that good. :)</p>
+<p>Most everything I do ends up in an open CVS these days. But there are exceptions. Subversion is the new darling of the Apache Group, so I thought I’d take it for a spin too. The Subversion book seems quite good, but I just wanted to get a Subersion up and running on a local machine, so I could start playing with it. Between the book and a quick-start in the FAQ, I was able to get Subversion up and running in the afternoon (so I could check in my XXE-made XML that evening).</p>
+<p>Here’s quick step-by-step of what I did from download to first commit.</p>
+<p>0. Download and install Subversion - <a href="http://subversion.tigris.org/" target="_blank" rel="external">http://subversion.tigris.org/</a></p>
+<p>Accept the defaults. The Windows installer with setup the path and so forth, and be ready to go. The directory conventions follow Unix, but all instructions are for Windows.</p>
+<p>1. Create a repository</p>
+<p><pre>&gt; mkdir /var<br>&gt; mkkir /var/svn<br>&gt; svnadmin create /var/svn/cookbook</pre><br>2. Setup permissions</p>
+<p>edit /var/svn/cookbook/conf/svnserve.conf</p>
+<p><pre>[general]<br>anon-access = write</pre><br>3. Setup email notifications [TODO]</p>
+<p>install perl for windows, install modified scriptenable template</p>
+<p>4. Launch svn server</p>
+<p><pre>&gt; svnserver -d -r /var/svn</pre><br>5. Import content</p>
+<p><pre>&gt; svn import -m “Initial import” /projects/ORA/svn/readme.txt svn://localhost/cookbook/readme.txt</pre><br>6. Checkout content</p>
+<p><pre>[delete working directory]<br>&gt; svn checkout svn://localhost/cookbook<br>Checked out revision 1</pre><br>7. Commit changes</p>
+<p><pre>&gt; svn commit -m “Routine changes” svn://localhost/cookbook/readme.txt<br>Committed revision 2</pre><br>Try the <a href="http://tortoisesvn.tigris.org/" target="_blank" rel="external">Tortoise client</a> to get off the command line.</p>
+<p>See also <a href="http://www.onlamp.com/pub/a/onlamp/2002/10/31/subversion.htm" target="_blank" rel="external">http://www.onlamp.com/pub/a/onlamp/2002/10/31/subversion.htm</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://TedHusted.github.io/2004/04/07/xxe-and-subversion-my-new-best-friends/" data-id="cizbl1wb700a5fcx333jmnigu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Programming/">Programming</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2004/04/25/to-orm-or-to-map/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          To ORM or to Map?
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2004/04/03/nyc-java-opensource-conference/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">NYC Java OpenSource Conference</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Essays/">Essays</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Events/">Events</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Reviews/">Reviews</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorials/">Tutorials</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASF/">ASF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache-Roller/">Apache Roller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache-Struts/">Apache Struts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Business-Analysis/">Business Analysis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Continuous-Integration/">Continuous Integration</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Force-com/">Force.com</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Apps/">Google Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Code/">Google Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Wave/">Google Wave</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Home-Office/">Home Office</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hudson/">Hudson</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IIBA-Rochester/">IIBA Rochester</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jenkins/">Jenkins</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open-Source/">Open Source</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Productivity/">Productivity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Programming/">Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rochester-NY/">Rochester NY</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Salesforce/">Salesforce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Satire/">Satire</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Social-Media/">Social Media</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tour-de-Blog/">Tour de Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visualforce/">Visualforce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-Development/">Web Development</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/YUI/">YUI</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ASF/" style="font-size: 15.83px;">ASF</a> <a href="/tags/Ajax/" style="font-size: 18.33px;">Ajax</a> <a href="/tags/Apache-Roller/" style="font-size: 12.5px;">Apache Roller</a> <a href="/tags/Apache-Struts/" style="font-size: 20px;">Apache Struts</a> <a href="/tags/Business-Analysis/" style="font-size: 12.5px;">Business Analysis</a> <a href="/tags/Continuous-Integration/" style="font-size: 10px;">Continuous Integration</a> <a href="/tags/Force-com/" style="font-size: 10.83px;">Force.com</a> <a href="/tags/Google-Apps/" style="font-size: 11.67px;">Google Apps</a> <a href="/tags/Google-Code/" style="font-size: 10.83px;">Google Code</a> <a href="/tags/Google-Wave/" style="font-size: 11.67px;">Google Wave</a> <a href="/tags/Home-Office/" style="font-size: 10px;">Home Office</a> <a href="/tags/Hudson/" style="font-size: 10px;">Hudson</a> <a href="/tags/IIBA-Rochester/" style="font-size: 10.83px;">IIBA Rochester</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/Open-Source/" style="font-size: 15px;">Open Source</a> <a href="/tags/Productivity/" style="font-size: 17.5px;">Productivity</a> <a href="/tags/Programming/" style="font-size: 19.17px;">Programming</a> <a href="/tags/Rochester-NY/" style="font-size: 13.33px;">Rochester NY</a> <a href="/tags/Salesforce/" style="font-size: 16.67px;">Salesforce</a> <a href="/tags/Satire/" style="font-size: 12.5px;">Satire</a> <a href="/tags/Social-Media/" style="font-size: 13.33px;">Social Media</a> <a href="/tags/Tour-de-Blog/" style="font-size: 10.83px;">Tour de Blog</a> <a href="/tags/Visualforce/" style="font-size: 10px;">Visualforce</a> <a href="/tags/Web-Development/" style="font-size: 10px;">Web Development</a> <a href="/tags/YUI/" style="font-size: 14.17px;">YUI</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">November 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">August 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">July 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">February 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01/">January 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">December 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">September 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07/">July 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06/">June 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/01/">January 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/12/">December 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/09/">September 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/08/">August 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/07/">July 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/06/">June 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/05/">May 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/04/">April 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/03/">March 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/11/">November 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/10/">October 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/09/">September 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/06/">June 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/05/">May 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/04/">April 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/03/">March 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/02/">February 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/01/">January 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2004/04/">April 2004</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2003/04/">April 2003</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2012/05/05/a-nimble-introduction-to-force-com/">A Nimble Introduction to Force.com</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/26/office-data-silos-considered-harmful/">Office Data Silos Considered Harmful</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/07/failing-safe-with-the-apex-data-loader-for-salesforce/">Failing safe with the Apex Data Loader for Salesforce</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/04/salesforce-open-source-pioneer/">Salesforce – Open Source Pioneer</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/01/sun-goes-nova-cloud-intact/">Sun goes Nova. Cloud intact.</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>130 | Currents</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="YUI Test - The New Kid on Block
+One of the great features of the Ektron content management system platform is that it plays well with other technologies. At VanDamme Associates, we often mix custom Ja">
+<meta property="og:type" content="article">
+<meta property="og:title" content="130">
+<meta property="og:url" content="http://TedHusted.github.io/2008/09/23/130/index.html">
+<meta property="og:site_name" content="Currents">
+<meta property="og:description" content="YUI Test - The New Kid on Block
+One of the great features of the Ektron content management system platform is that it plays well with other technologies. At VanDamme Associates, we often mix custom Ja">
+<meta property="og:image" content="https://tedhusted.files.wordpress.com/2008/09/6bbdc-yui-test.png">
+<meta property="og:updated_time" content="2017-02-18T02:25:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="130">
+<meta name="twitter:description" content="YUI Test - The New Kid on Block
+One of the great features of the Ektron content management system platform is that it plays well with other technologies. At VanDamme Associates, we often mix custom Ja">
+<meta name="twitter:image" content="https://tedhusted.files.wordpress.com/2008/09/6bbdc-yui-test.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Currents" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Currents</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Getting there from here</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://TedHusted.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-130" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2008/09/23/130/" class="article-date">
+  <time datetime="2008-09-23T09:00:00.000Z" itemprop="datePublished">2008-09-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Uncategorized/">Uncategorized</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      130
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><span style="font-size:180%;">YUI Test - The New Kid on Block</span></p>
+<p>One of the great features of the <a href="http://ektron.com/" title="Ektron" target="_blank" rel="external">Ektron</a> content management system platform is that it plays well with other technologies. At <a href="http://www.vandamme.com/content.aspx?id=362" target="_blank" rel="external">VanDamme Associates</a>, we often mix custom JavaScript and AJAX elements into our Ektron solutions.</p>
+<p>Ektron itself is no stranger to AJAX, and it even bundles a tweaked version of JQuery in the standard distribution. One good tool for testing JavaScript, that <a href="http://dev.ektron.com/blogs.aspx?id=13568" target="_blank" rel="external">Ektron has blogged about</a>, is the venerable <a href="http://jsunit.org/" target="_blank" rel="external">JsUnit</a> framework. While JsUnit is a solid tool, there are drawbacks.</p>
+<ul>
+<li>Although JsUnit has been available since 2001, it’s still the love child of a sole developer.<br>JsUnit’s release schedule is irregular. (Release 2.2 has been in “beta” for over two years now.)</li>
+</ul>
+<h4 id="Look-Ahead"><a href="#Look-Ahead" class="headerlink" title="Look Ahead"></a>Look Ahead</h4><p>Happily, there’s a new kid on the block: <a href="http://developer.yahoo.com/yui/yuitest/" target="_blank" rel="external">YUI Test</a>. YT is bundled with the Yahoo! User Interface Library (YUI). To quote the YUI site:</p>
+<blockquote>
+<p>“<em>YUI Test is a testing framework for browser-based JavaScript solutions. Using YUI Test, you can easily add unit testing to your JavaScript solutions. While not a direct port from any specific xUnit framework,YUI Test does derive some characteristics from nUnit and JUnit.</em>“</p>
+</blockquote>
+<p>Key features of YUI Test include:</p>
+<ol>
+<li><p>Rapid creation of test cases through simple syntax.</p>
+</li>
+<li><p>Advanced failure detection for methods that throw errors.</p>
+</li>
+<li><p>Grouping of related test cases using test suites.</p>
+</li>
+<li><p>Asynchronous tests for testing events and Ajax communication.</p>
+</li>
+<li><p>DOM Event simulation in all A-grade browsers.</p>
+</li>
+</ol>
+<p>YUI Test has been available since July 2007 (YUI 2.3.0), and made “GA” grade in February 2008 (YUI 2.5.0). The YT framework was created by Yahoo! engineer <a href="http://www.nczonline.net/" target="_blank" rel="external">Nicholas C. Zakas</a>. It’s regularly released and maintained with the rest of the library, and its distributed under the library’s BSD license. (All together, there seem to be about sixteen developers on the YUI team, maintaining about thirty components).</p>
+<p>(!) Note that YUI Test can be used to test <strong>any</strong> JavaScript code – the application doesn’t need to be based on YUI to use YUI Test.</p>
+<p>One of the pleasures of YUI Test is that it can use the YUI TestLogger as a test harness.</p>
+<p><a href="http://developer.yahoo.com/yui/logger/" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2008/09/6bbdc-yui-test.png" alt=""></a></p>
+<p>TestLogger is a subclass of <a href="http://developer.yahoo.com/yui/logger/" target="_blank" rel="external">YUI Logger</a>, which can be used for general-purpose JavaScript logging and debugging, giving us two great capabilities in one flexible component. YUI Test can also be used in collaboration with the new YUI Profiler (another Zakas creation) to create performance-based tests.</p>
+<h4 id="Trip-the-Rift"><a href="#Trip-the-Rift" class="headerlink" title="Trip the Rift"></a>Trip the Rift</h4><p>Unit testing conventional, classical code often relies on exercising the “API Contract”. If we pass certain parameters to method, the method should return a certain result, or raise a certain exception.  Since, JavaScript is event-driven, in order to determine the outcome of a method, we often need to know what events it raises. Meanwhile, in an Ajax application, there can be a disconnect between when a method is called and when the event is ultimately reaised. YUI Test helps us bridge the gap with a “wait/resume” feature. A test can subscribe to an event, and call “resume” in the event handler. When the test reaches the point where an action might take an indeterminate amount of time, we can call “wait”, and the test continues when the event fires.</p>
+<p>For example, here’s a test that calls a time-consuming animiation routine. The test registers an event handler, starts the animation, and waits for the event to fire. When the animation completes, the test confirms that the routine accomplished the expected result.</p>
+<p><span style="font-family:courier new, monospace;"><div id="testLogger"></div></span> <span style="font-family:courier new, monospace;"><div id="testDiv" style="position:absolute;width:10px;height:10px;"></div></span> <span style="font-family:courier new, monospace;"></span> <span style="font-family:courier new, monospace;">    YAHOO.namespace(“example.yuitest”);</span> <span style="font-family:courier new, monospace;">    YAHOO.example.yuitest.AsyncTestCase = new YAHOO.tool.TestCase({</span>  <span style="font-family:courier new, monospace;">        name : “Animation Tests”,       </span> <span style="font-family:courier new, monospace;">       </span> <span style="font-family:courier new, monospace;">        testAnimation : function (){</span> <span style="font-family:courier new, monospace;">            var Assert = YAHOO.util.Assert;</span> <span style="font-family:courier new, monospace;">            var YUD = YAHOO.util.Dom;</span> <span style="font-family:courier new, monospace;">           </span> <span style="font-family:courier new, monospace;">            var myAnim = new YAHOO.util.Anim(‘testDiv’,</span></p>
+<pre><code>{ width: { to: 400 } }, 3, YAHOO.util.Easing.easeOut);&lt;/span&gt; &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;           &lt;/span&gt; &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;            myAnim.onComplete.subscribe(function(){&lt;/span&gt; &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;           &lt;/span&gt; &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;                this.resume(function(){               &lt;/span&gt; &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;                    Assert.areEqual(YUD.get(&quot;testDiv&quot;).offsetWidth,
+
+        400, &quot;Width of the DIV should be 400.&quot;);&lt;/span&gt; &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;                });&lt;/span&gt; &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;           &lt;/span&gt; &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;            }, this, true);&lt;/span&gt;  &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;            // Start the animation and wait for the resume function&lt;/span&gt; &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;            myAnim.animate();&lt;/span&gt; &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;            this.wait();       &lt;/span&gt; &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;        }&lt;/span&gt; &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;                   &lt;/span&gt; &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;    });&lt;/span&gt; &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;    &lt;/span&gt; &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;    YAHOO.util.Event.onDOMReady(function (){&lt;/span&gt; &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;        var logger = new YAHOO.tool.TestLogger(&quot;testLogger&quot;);&lt;/span&gt; &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;        YAHOO.tool.TestRunner.add(YAHOO.example.yuitest.AsyncTestCase);&lt;/span&gt;  &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;        // Run the tests when DOM is ready&lt;/span&gt; &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;        YAHOO.tool.TestRunner.run();&lt;/span&gt; &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;    });&lt;/span&gt;  &lt;span style=&quot;font-family:courier new, monospace;&quot;&gt;&lt;/span&gt;
+</code></pre><p>Not every test needs to use wait/resume, but, when we do, it’s an indispensible feature.</p>
+<h4 id="Be-Assertive"><a href="#Be-Assertive" class="headerlink" title="Be Assertive"></a>Be Assertive</h4><p>Asynchronous or not, essentially, unit testing is about making assertions. We unit test by invoking a method and passing in known parameters and observing the outcome. We might expect the method to return a simple value, or another object, like a Date Type, with certain attributes set to certain values. Or, we might expect the method to fail and raise an exception, or to succeed and raise and event.</p>
+<p>Since we’re talking JavaScript, YUI not only supports all the usual assertions, but type cohersion to boot.</p>
+<blockquote>
+<p><span style="font-family:courier new, monospace;"></span></p>
+<p>var oTestCase = new YAHOO.tool.TestCase({</p>
+<p> name: “TestCase Name”,</p>
+<p> testEqualityAsserts : function () {</p>
+<pre><code>var Assert = YAHOO.util.Assert;
+
+Assert.areEqual(5, 5);     //passes
+
+Assert.areEqual(5, &quot;5&quot;);     //passes
+
+Assert.areNotEqual(5, 6);  //passes
+
+Assert.areEqual(5, 6, &quot;Five was expected.&quot;); //fails
+</code></pre><p> }</p>
+<p>});</p>
+<p></p>
+</blockquote>
+<p>For more precise testing, YUI Test provides for Sameness Assertions.</p>
+<blockquote>
+<p><span style="font-family:courier new, monospace;"></span></p>
+<p>var oTestCase = new YAHOO.tool.TestCase({</p>
+<p> name: “TestCase Name”,</p>
+<p> testSamenessAsserts : function () {</p>
+<pre><code>var Assert = YAHOO.util.Assert;
+
+Assert.areSame(5, 5);      //passes
+
+Assert.areSame(5, &quot;5&quot;);    //fails
+
+Assert.areNotSame(5, 6);   //passes
+
+Assert.areNotSame(5, &quot;5&quot;); //passes
+
+Assert.areSame(5, 6, &quot;Five was expected.&quot;); //fails
+</code></pre><p> }</p>
+<p>});</p>
+<p></p>
+</blockquote>
+<p>Since JavaScript is loosely typed, asserting data types is a common need. YUI Test provides assertions for all the usual suspects; Array, Boolean, Function, Number, Object, String. To close the loop, an <span style="font-family:courier new, monospace;">isTypeOf</span> assertion interprets the data type as string.</p>
+<blockquote>
+<p><span style="font-family:courier new, monospace;"></span></p>
+<p>var oTestCase = new YAHOO.tool.TestCase({ </p>
+<p><span style="font-family:courier new, monospace;">        name: “TestCase Name”,</span></p>
+<p>   testTypeOf : function () {</p>
+<pre><code>var Assert = YAHOO.util.Assert;
+
+Assert.isTypeOf(&quot;string&quot;, &quot;Hello world&quot;);   //passes
+
+Assert.isTypeOf(&quot;number&quot;, 1);               //passes
+
+Assert.isTypeOf(&quot;boolean&quot;, true);           //passes
+
+Assert.isTypeOf(&quot;number&quot;, 1.5);             //passes
+
+Assert.isTypeOf(&quot;function&quot;, function(){});  //passes
+
+Assert.isTypeOf(&quot;object&quot;, {});              //passes
+
+Assert.isTypeOf(&quot;undefined&quot;, this.blah);    //passes
+</code></pre><p>Assert.isTypeOf(“number”, “Hello world”, “Value should be a number.”); //fails</p>
+<p> }</p>
+<p>});</p>
+<p></p>
+</blockquote>
+<p>A companion assertion, <span style="font-family:courier new, monospace;">isInstanceOf</span>, can be used to evaluate object types (Array, Function, Object).  Other assertions are available for evaluating JavaScript-isms like NaN, Undefined, and truthiness.</p>
+<p>Finally, YUI Test also supports date and time assertions, forced failures, skipping tests, and test suites.</p>
+<h4 id="Push-the-Envelope"><a href="#Push-the-Envelope" class="headerlink" title="Push the Envelope"></a>Push the Envelope</h4><p>Aside from exposing the usual xUnit API, YUI Test goes a step further, and provides support for <em>UserActions</em> and <em>Asyncronous Tests</em>.</p>
+<ul>
+<li><strong>User Actions</strong> are simulated user-initiated events that can be used to test how scripts react to mouse or keyboard events.</li>
+<li><strong>Asyncronous Tests</strong> can be programmed to pause for a certain amount of time (while an out of process action occurs), or to pause until an event handler in the test script calls a “resume” method.</li>
+</ul>
+<p>Whether you’ve outgrown JsUnit, or whether you’re finally ready to start unit testing JavaScript for the first time, be sure to give YUI Test a try.</p>
+<h4 id="More-about-YUI-Test"><a href="#More-about-YUI-Test" class="headerlink" title="More about YUI Test"></a>More about YUI Test</h4><ul>
+<li><a href="http://www.insideria.com/2008/05/writing-your-first-yui-applica.html" target="_blank" rel="external">Writing Your First YUI Application</a>, <a href="http://www.oreillynet.com/pub/au/3447" target="_blank" rel="external"><span style="color:rgb(0,102,204);">Eric Miraglia</span></a> (2008 May).</li>
+</ul>
+<h4 id="More-about-JsUnit"><a href="#More-about-JsUnit" class="headerlink" title="More about JsUnit"></a>More about JsUnit</h4><ul>
+<li><a href="http://www.litfuel.net/plush/?postid=117" title="Permanent Link: AJAX and Unit Testing - it" target="_blank" rel="external"><span style="color:rgb(0,102,204);">AJAX and Unit Testing - it’s time to mingle</span></a>, Jim Plush (2006 Feb),</li>
+<li><a href="http://www.litfuel.net/plush/?postid=154" title="Permanent Link: Ajax and Unit Testing Part Two, The Wrath of Mock" target="_blank" rel="external"><span style="color:rgb(0,102,204);">Ajax and Unit Testing Part Two, The Wrath of Mock</span></a>, Jim Plush (2006 Nov).</li>
+</ul>
+<h4 id="More-about-Open-Source-Testing-Tools"><a href="#More-about-Open-Source-Testing-Tools" class="headerlink" title="More about Open Source Testing Tools"></a>More about Open Source Testing Tools</h4><ul>
+<li><a href="http://www.opensourcetesting.org/" target="_blank" rel="external">Open Source Testing Tools Site</a>*   <a href="http://junit.sourceforge.net/doc/testinfected/testing.htm" target="_blank" rel="external">Test Infected - The Seminal Tutorial by Beck and Gamma</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://TedHusted.github.io/2008/09/23/130/" data-id="cizamhl70001efmx3efwviyf5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2008/09/29/128/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          128
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2008/09/16/133/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">133</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Ajax/">Ajax</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Ajax/Apache-Way/">Apache Way</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Ajax/Apache-Way/dev/">dev</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Ajax/Apache-Way/dev/Struts/">Struts</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Apache-Way/">Apache Way</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Cloud/">Cloud</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Cloud/Google/">Google</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Cloud/Google/Wave/">Wave</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Cloud/Wave/">Wave</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/DevOps/">DevOps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DevOps/Force-com/">Force.com</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DevOps/Force-com/Salesforce/">Salesforce</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Force-com/">Force.com</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Open-Source/">Open Source</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Open-Source/Salesforce/">Salesforce</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Salesforce/">Salesforce</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Struts/">Struts</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/dev/">dev</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">November 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">August 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">July 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">February 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01/">January 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">December 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">September 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07/">July 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06/">June 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/01/">January 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/12/">December 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/09/">September 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/08/">August 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/07/">July 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/06/">June 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/05/">May 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/04/">April 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/03/">March 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/11/">November 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/10/">October 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/09/">September 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/06/">June 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/05/">May 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/04/">April 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/03/">March 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/02/">February 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/01/">January 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2004/04/">April 2004</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2003/04/">April 2003</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2012/05/05/a-nimble-introduction-to-force-com/">A Nimble Introduction to Force.com</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/26/office-data-silos-considered-harmful/">Office Data Silos Considered Harmful</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/07/failing-safe-with-the-apex-data-loader-for-salesforce/">Failing safe with the Apex Data Loader for Salesforce</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/04/salesforce-open-source-pioneer/">Salesforce – Open Source Pioneer</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/01/sun-goes-nova-cloud-intact/">Sun goes Nova. Cloud intact.</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
