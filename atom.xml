@@ -1,0 +1,1003 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ted.husted.com</title>
+  <subtitle>Business Analysis + Software Development + Continuous Delivery</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://ted.husted.com/"/>
+  <updated>2017-02-18T21:36:15.000Z</updated>
+  <id>http://ted.husted.com/</id>
+  
+  <author>
+    <name>Ted Husted</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>A Nimble Introduction to Force.com</title>
+    <link href="http://ted.husted.com/2012/05/05/a-nimble-introduction-to-force-com/"/>
+    <id>http://ted.husted.com/2012/05/05/a-nimble-introduction-to-force-com/</id>
+    <published>2012-05-05T13:16:00.000Z</published>
+    <updated>2017-02-18T21:36:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://developer.force.com/" target="_blank" rel="external"><img src="http://www.developerforce.com/assets/developerforcesite/images/forcebug.png" alt=""></a>Compared to .NET or J2EE, developing on Force.com is both very familiar and very different. It’s familiar because you still follow the same-old Software Delivery Lifecycle. You write code, queries, and unit tests using familiar syntaxes and tools. When QA signs-off, you push components from development to production. And when users come up with something that we can do to make their lives easier, we do it all over again.  Of course, there are some notable differences …</p>
+<p><a href="https://docs.google.com/document/pub?id=1N6_9Pf6RytmeMN2kabmcbymEVHUmJbjqcOKIj6Tmc_A" target="_blank" rel="external">In a brief, 12-page introduction, we walk through how the Force.com platform works, from a developers perspective. [Read More]</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://developer.force.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;img src=&quot;http://www.developerforce.com/assets/developerforcesite/im
+    
+    </summary>
+    
+      <category term="Tutorials" scheme="http://ted.husted.com/categories/Tutorials/"/>
+    
+    
+      <category term="Salesforce" scheme="http://ted.husted.com/tags/Salesforce/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Office Data Silos Considered Harmful</title>
+    <link href="http://ted.husted.com/2012/04/26/office-data-silos-considered-harmful/"/>
+    <id>http://ted.husted.com/2012/04/26/office-data-silos-considered-harmful/</id>
+    <published>2012-04-26T17:00:00.000Z</published>
+    <updated>2017-02-18T21:35:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<div class="separator" style="clear:both;text-align:center;"><a href="http://collaborationforgood.org/2012/01/17/breaking-down-data-silos-in-the-cloud/" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2012/04/dad73-opssilo.jpg" alt=""></a></div><br><div style="font-family:Arial;">One of the great pleasures we have when rolling out Nimble AMS is rolling up a multitude of Excel Data Silos into a single, shareable, Enterprise database.</div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;">When people learn about Salesforce CRM and Nimble AMS, we find that too many organizations are hamstrung by their current solutions. Customizations are difficult, expensive, and need to be redone whenever there is a significant upgrade. Given such hurdles, it’s not surprising that people store important data in one-off Excel worksheets and Word documents, rather than go through the pain of customizing a shared solution.</div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;"><a name="more"></a>OTOH, with Salesforce CRM and Nimble AMS, our customers are able to customize the application, quickly and easily, often without our help. Better yet, customizations continue to work, upgrade after upgrade, without having to add-on the same wheel over and over again.</div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;">Sound magical? To the Salesforce user, it sure seems that way. But, to quote the late, great, Arthur C. Clarke, “any sufficiently advanced technology is indistinguishable from magic”. In the case of Salesforce CRM, customizations are painless and eternal through the courtesy of three technologies: point-and-click programming, API versioning, and mandatory unit-test coverage.</div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;"><strong>Point-and-Click Programming.</strong> From the beginning, the Salesforce mantra has been “No Software”, which not only means “no software to install”, but also “no software to write”. Many significant customizations can be created by any Salesforce power user via a point-and-click interface. You can add fields, tables, validation rules, workflows, UI screens, and more – without ever writing a line of code.</div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;"><strong>API Versioning.</strong> While P&amp;C can accomplish 90% of what most people really need to do, sometimes a deeper customization is needed. When a Salesforce Developer adds a database trigger or other code-based customization, Salesforce transparently notes the current version of the application. Whenever that customization interacts with Salesforce, it continues to use the same version of the application program interface (API). Since Salesforce brings out three versions a year (like clockwork), come 2014, a future-you might be using version 30, but that 2012 customization is still talking to version 24. API versioning lets Salesforce continue to improve the platform, without breaking code that worked just fine yesterday.</div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;"><strong>Mandatory Unit Test Coverage.</strong> Every day, Salesforce.com runs 50,000 automated tests against its own code base, and every new change has to pass that gauntlet before it ever makes it into a release. Likewise, code-based customizations made to an org must have a minimum unit test coverage of 75% before custom code can be deployed into a production org. That’s not a guideline: it’s a hard rule that the platform enforces.</div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;">Salesforce also upgrades all of the development environment “sandboxes”, automatically, in advance of every new release. Automatic sandbox upgrades gives those of us distributing a product with extensive customizations (like Nimble AMS) a chance to upgrade any of our own features for the latest and greatest improvements. And, when we do bring out an upgrade to our “managed package”, we can push improvements (and fixes) to all our customers, transparently, at once, just like Salesforce itself.</div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;">Taken together, these three technologies – Point-and-Click Programming, API Versioning, and Mandatory Unit Test Coverage – create an environment that is so sufficiently advanced that upgrades become painless and, well, automagical.</div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;">For more about the Salesforce release cycle, check out “<a href="http://nimbleuser.com/blog.aspx?id=4116&amp;blogid=236" target="_blank" rel="external">All Aboard the Salesforce Release Train</a>“.</div>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;separator&quot; style=&quot;clear:both;text-align:center;&quot;&gt;&lt;a href=&quot;http://collaborationforgood.org/2012/01/17/breaking-down-data-silos-in
+    
+    </summary>
+    
+      <category term="Reviews" scheme="http://ted.husted.com/categories/Reviews/"/>
+    
+    
+      <category term="Salesforce" scheme="http://ted.husted.com/tags/Salesforce/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Failing safe with the Apex Data Loader for Salesforce</title>
+    <link href="http://ted.husted.com/2012/04/07/failing-safe-with-the-apex-data-loader-for-salesforce/"/>
+    <id>http://ted.husted.com/2012/04/07/failing-safe-with-the-apex-data-loader-for-salesforce/</id>
+    <published>2012-04-07T13:00:00.000Z</published>
+    <updated>2017-02-18T21:36:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<div class="separator" style="clear:both;text-align:center;"><a href="http://blog.domaintools.com/2011/08/how-to-use-alerts-to-get-the-scoop-on-your-competitors/" target="_blank" rel="external"><br><img src="http://blog.domaintools.com/wp-content/uploads/2011/08/Alerts1.jpg" alt=""></a></div><br><div style="font-family:Arial;">If you have a way to pull and format data from another system, the <strong>Apex Data Loader</strong> is a great, on-demand way to push data into <strong>Salesforce CRM</strong>. Without much effort, you can automate the process and create a hands-free data sync. The tricky part is that while the Data Loader creates excellent logs, there’s no obvious way to alert a person when a data sync fails. Once a system is in place, failures are rare, but, in real life, stuff happens, and it’s helpful if failsafes are in place.</div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;">A key problem is that the Apex Data Loader writes an error log whether there are errors or not. If the pass is 100% successful, the error log will have a header line and no rows.</div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;">If the error log was only written when errors occurred, we could just look for the error logs, and process the files whenever they crop up. But, in this case, we first need to look inside the log and count the lines before we can be sure there was a failure.</div><br><div style="font-family:Arial;"></div><br><div><a name="more"></a><span class="Apple-style-span" style="font-family:Arial;">On a Windows-based system, one solution is to use a VB script, like </span><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">COUNTLN.VBS</span><span class="Apple-style-span" style="font-family:Arial;">, to count the number of lines in a file. </span></div><br><div style="font-family:Arial;"></div><br><div><br><br><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">‘ COUNTLN.VBS</span><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">‘ Description: Count the number of lines in a file and return as error level (up to 255)</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">‘ Usage: cscript countln.vbs errors.csv</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">‘ Concept: <a href="http://blogs.technet.com/b/heyscriptingguy/archive/2004/10/12/how-can-i-count-the-number-of-lines-in-a-text-file.aspx" target="_blank" rel="external">http://blogs.technet.com/b/heyscriptingguy/archive/2004/10/12/how-can-i-count-the-number-of-lines-in-a-text-file.aspx</a></span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">Const ForReading = 1</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">Set objFSO = CreateObject(“Scripting.FileSystemObject”)</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">Set objTextFile = objFSO.OpenTextFile (WScript.Arguments.Item(0), ForReading)</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">objTextFile.ReadAll</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">‘ Wscript.Echo “Number of lines: “ &amp; objTextFile.Line</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">WScript.Quit(objTextFile.Line)</span></div><br></div><br><div style="font-family:Arial;"></div><br><div><span class="Apple-style-span" style="font-family:Arial;">The </span><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">COUNTLN.VBS</span><span class="Apple-style-span" style="font-family:Arial;"> script sets the exit condition, which can then be tested in a DOS Batch file, like </span><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">CHECKLOG.BAT</span><span class="Apple-style-span" style="font-family:Arial;">.</span></div><br><div style="font-family:Arial;"></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">@ECHO OFF</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">REM CHECKLOG.BAT</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">REM Count the lines and send the errors, if any</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">ECHO CountLn: %1</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">CSCRIPT ..\countln.vbs %1</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">IF ERRORLEVEL 1 ECHO Line Count: %errorlevel%</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">IF ERRORLEVEL 3 ..\7z.exe a %2 %1</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">ERASE %1</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">ECHO Checklogs process complete.</span></div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;">The Apex Data Loader takes as input a common-separated-value (CSV) or a tab-delimited file. The first row of the input file is a header detailing the input columns, with each subsequent row representing a record to be sent to the target Salesforce CRM object.</div><br><div style="font-family:Arial;"></div><br><div><span class="Apple-style-span" style="font-family:Arial;">When the Apex Data Loader runs, it creates an </span><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">success(ID).log</span><span class="Apple-style-span" style="font-family:Arial;"> and an </span><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">error(ID).log</span><span class="Apple-style-span" style="font-family:Arial;">. The (ID) is replaced with a timestamp shared by the companion success and error logs. Both logs contain a header row, and a row for each input row, detailing the data processed for each column. The success log contains all the rows that made it into Salesforce. The error logs contains all the rows that did not cross over. </span></div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;">Conveniently, the logs can also be used as input files. If the errors can be easily fixed, you can resubmit the error log to the Apex Data Loader, without going back to the external system.</div><br><div style="font-family:Arial;"></div><br><div><span class="Apple-style-span" style="font-family:Arial;">The </span><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">CHECKLOG.BAT</span><span class="Apple-style-span" style="font-family:Arial;"> file is designed to add the matching error files to a compressed archive file in the widely-supported ZIP format. Here we’re using the </span><a href="http://www.7-zip.org/" target="_blank" rel="external">open source 7z utility</a><span class="Apple-style-span" style="font-family:Arial;"> to create the archive, but others would work as well. In this way, if </span><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">CHECKLOG</span><span class="Apple-style-span" style="font-family:Arial;"> is is not run as often as the Apex Data Loader itself, the process can support a single file or multiple files. And, if the data is sensitive, most ZIP utilities support encrypting the archive. </span></div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;">Given a secure ZIP archive, email can be a great way to get the error logs to an administrator who can address the problems. Staying with our Windows platform theme, here’s another VB script that can send an email alert, with an attachment, to a Gmail account.</div><br><div style="font-family:Arial;"></div><br><div><br><br><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">‘Usage: cscript sendmail.vbs &lt;<a href="mailto:email_recipient@example.com" target="_blank" rel="external">email_recipient@example.com</a>&gt; “” “” “”</span><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">‘Ex. No attach: cscript sendmail.vbs <a href="mailto:example@gmail.com" target="_blank" rel="external">example@gmail.com</a> “test subject line” “test email body”</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">‘Ex. W/ attach: cscript sendmail.vbs <a href="mailto:example@gmail.com" target="_blank" rel="external">example@gmail.com</a> “test subject line” “test email body” “c:\scripts\log.txt”</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">‘Attachment path cannot be relative</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">‘Credit: <a href="http://cybernetnews.com/vbscript-send-emails-using-gmail/" target="_blank" rel="external">http://cybernetnews.com/vbscript-send-emails-using-gmail/</a></span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">‘<strong><em> CONFIGURE THE FROM EMAIL ADDRESS AND PASSWORD </em></strong></span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">Const fromEmail = “(TBD)@gmail.com”</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">Const password = “(TBD)”</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">‘<strong><em> END OF CONFIGURATION </em></strong></span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">Dim emailObj, emailConfig</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">Set emailObj = CreateObject(“CDO.Message”)</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">emailObj.From = fromEmail</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;"><a href="http://emailObj.To/" target="_blank" rel="external">emailObj.To</a> = WScript.Arguments.Item(0)</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">emailObj.Subject = WScript.Arguments.Item(1)</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">emailObj.TextBody = WScript.Arguments.Item(2)</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">If WScript.Arguments.Count &gt; 3 Then</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">emailObj.AddAttachment WScript.Arguments.Item(3)</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">End If</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">Set emailConfig = emailObj.Configuration</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">emailConfig.Fields(“<a href="http://schemas.microsoft.com/cdo/configuration/smtpserver" target="_blank" rel="external">http://schemas.microsoft.com/cdo/configuration/smtpserver</a>“) = “<a href="http://smtp.gmail.com/" target="_blank" rel="external">smtp.gmail.com</a>“</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">emailConfig.Fields(“<a href="http://schemas.microsoft.com/cdo/configuration/smtpserverport" target="_blank" rel="external">http://schemas.microsoft.com/cdo/configuration/smtpserverport</a>“) = 465</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">emailConfig.Fields(“<a href="http://schemas.microsoft.com/cdo/configuration/sendusing" target="_blank" rel="external">http://schemas.microsoft.com/cdo/configuration/sendusing</a>“) = 2</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">emailConfig.Fields(“<a href="http://schemas.microsoft.com/cdo/configuration/smtpauthenticate" target="_blank" rel="external">http://schemas.microsoft.com/cdo/configuration/smtpauthenticate</a>“) = 1</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">emailConfig.Fields(“<a href="http://schemas.microsoft.com/cdo/configuration/smtpusessl" target="_blank" rel="external">http://schemas.microsoft.com/cdo/configuration/smtpusessl</a>“) = true</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">emailConfig.Fields(“<a href="http://schemas.microsoft.com/cdo/configuration/sendusername" target="_blank" rel="external">http://schemas.microsoft.com/cdo/configuration/sendusername</a>“) = fromEmail</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">emailConfig.Fields(“<a href="http://schemas.microsoft.com/cdo/configuration/sendpassword" target="_blank" rel="external">http://schemas.microsoft.com/cdo/configuration/sendpassword</a>“) = password</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">emailConfig.Fields.Update</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">emailObj.Send</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">Set emailobj = nothing</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">Set emailConfig = nothing</span></div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;"></div><br></div><br><div style="font-family:Arial;">Of course, the notion is that you create a special Gmail account just to receive the alerts and then forward to an administrator from there.</div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;">While we have the pieces in place for handling the error logs, there is also the problem of what to do with the success logs. The Apex Data Loader kindly generates both logs, that between them, contain all of the detail found in the original input file, for each and every pass.</div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;">While this level of detail is great (really-really-great), if you are running a sync every five minutes, retrieving a log later can be a real “cant-see-the-forest–for-the-trees” headache.</div><br><div style="font-family:Arial;"></div><br><div><span class="Apple-style-span" style="font-family:Arial;">Long story short, in addition to error alerts, an automated Apex Data Loader sync also needs help with general log management. The </span><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">ARCHIVE.BAT</span><span class="Apple-style-span" style="font-family:Arial;"> file is designed to be run at least once a day, but could also be run every hour. It sweeps all of the success logs into an archive for the current date, and, as discussed, emails the error logs to a Gmail account. </span></div><br><div style="font-family:Arial;"></div><br><div><span class="Apple-style-span" style="font-family:Arial;">To deploy the system, beneath the current logging folder (usually “Status”), create an Archive folder, and beneath that create Success and Error folders. Put the </span><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">ARCHIVE.BAT</span><span class="Apple-style-span" style="font-family:Arial;"> and VBS files under the Archive folder (along with the 7z utility), and the </span><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">CHECKLOG.BAT</span><span class="Apple-style-span" style="font-family:Arial;"> under the </span><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">Error</span><span class="Apple-style-span" style="font-family:Arial;"> folder. </span></div><br><div style="font-family:Arial;"></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;">\Status</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;">.\Archive</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;">- archive.bat</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;">- countln.vbs</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;">- sendmail.vbs</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;">- 7z.exe</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;">- 7z.dll</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;">- 7z-zip.dll</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;">.\Archive\Error</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;">- checklog.bat</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;">.\Archive\Success</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;">- checklog.bat</span></div><br><div style="font-family:Arial;"></div><br><div><span class="Apple-style-span" style="font-family:Arial;">A call to </span><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">ARCHIVE.BAT</span><span class="Apple-style-span" style="font-family:Arial;"> can be queued as a Windows Scheduled Task to run every hour, or once a day, depending on how often the Apex Data Loader runs. The system moves the logs out of .\Status and creates a ZIP for each day under </span><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">.\Status\Archive</span><span class="Apple-style-span" style="font-family:Arial;"> in the format </span><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">“LOGS-YYMMDD.ZIP”</span><span class="Apple-style-span" style="font-family:Arial;">  (while emailing the error logs to the Gmail account). Temporary copies of the Success and Error logs are also put into the Success and Error folders, for processing by </span><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">CHECKLOG.BAT</span><span class="Apple-style-span" style="font-family:Arial;">.</span></div><br><div style="font-family:Arial;"></div><br><div><br><br><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">@ECHO OFF</span><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM ARCHIVE.BAT</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM Email non-empty Data Loader error logs to a GMail account and</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM archive to a zip file all other log files (<em>.csv).</em></span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM –</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM Main file to call from a scheduled task.</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM Intended to be launched from a subdirectory directly beneath the log folder.</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM Expects an error\ subdirectory to exist (status\archive\error).</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM –</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM Temporarily stores error logs being emailed in errorlog.zip and</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM calls archivelogs.bat to store logs by date in LOGS-20??-??-??.ZIP</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM Uses as dependencies: checklog.bat, countln.vbs, sendmail.vbs, 7z.<em></em></span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM Checklog.bat is stored in subdirectories .\error and .\success. </span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM All others in status\archive next to this file.</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM –</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM Bring logs down to a working folder, to avoid gaps in process</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM –</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">IF EXIST ..\.csv MOVE ..*.csv .</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">IF NOT EXIST <em>.csv GOTO Done</em></span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM –</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM Buffer errors and archive latest logs (\error must exist)</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM –</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">IF EXIST error.csv COPY error<em>.csv error\</em></span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">IF EXIST success.csv COPY success<em>.csv success\</em></span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">SET TDate=%date:~10,4%%date:~4,2%%date:~7,2%</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">.\7z.exe a LOGS-%TDate%.zip .csv</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">IF ERRORLEVEL 1 GOTO Done</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">IF NOT EXIST LOGS-%TDate%.zip GOTO Done</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">ERASE <em>.csv</em></span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM –</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM Cleanup errorlog.zip before calling errorlogs.bat</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">SET ZIP=(TBD: Full path to a local working directory)\errorlog.zip</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">IF EXIST %ZIP% ERASE %ZIP%</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM –</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM Call checklog for each error log.</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM –</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">CD error</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">FOR %%x IN ( error.csv ) DO CMD.EXE /C checklog.bat %%x %%ZIP%%</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">ECHO Emailing: %ZIP%</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM Attachment path cannot be relative</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">CSCRIPT ..\sendmail.vbs <a href="mailto:ccsa.alert@gmail.com" target="_blank" rel="external">ccsa.alert@gmail.com</a> “Alert! Data Load Failed.” “The Data Loader was unable to push records to Salesforce.” “%ZIP%”</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">CD ..</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM –</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM Cleanup successlog.zip before calling checklogs.bat</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">SET ZIP=(TBD: Full path to a local working directory)\successlog.zip</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">IF EXIST %ZIP% ERASE %ZIP%</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM –</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM Call checklog for each success log.</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM –</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">CD success</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">FOR %%x IN (success*.csv ) DO CMD.EXE /C checklog.bat %%x %%ZIP%%</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">ECHO Emailing: %ZIP%</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">REM Attachment path (%ZIP%) cannot be relative</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">CSCRIPT ..\sendmail.vbs (TBD@TBD.COM) “Alert! Data Load Succeeded.” “The Data Loader was able to push records to Salesforce.” “%ZIP%”</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">CD ..</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">:Done</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:xx-small;">ECHO Archive process complete.</span></div><br><div style="font-family:Arial;"></div><br></div><br><div><span class="Apple-style-span" style="font-family:Arial;">The second </span><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">CHECKLOG</span><span class="Apple-style-span" style="font-family:Arial;"> call to the success folder is optional. When left in place, the system will email the success and error logs separately, in case the administrator wants assurance that the system is running successfully on schedule. </span></div><br><div style="font-family:Arial;"></div><br><div><span class="Apple-style-span" style="font-family:Arial;">Another option would be to check for certain types of fatal errors. One fatal case would be someone renaming a target field in Salesforce without updating the Apex Data Loader configuration. If the mapping file refers to a field that no longer exists, the Data Loader generates a zero-length success log (with not even a header row). The </span><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">CHECKFATAL.BAT</span><span class="Apple-style-span" style="font-family:Arial;"> alternative only ZIPs for emailing any success logs that are totally empty. </span></div><br><div style="font-family:Arial;"></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;">@ECHO OFF</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;">REM CHECKFATAL.BAT</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;">REM Count the lines and send only fatal errors, if any. Only use in Success folder.</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;">ECHO CountLn: %1</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;">CSCRIPT ..\countln.vbs %1</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;">IF ERRORLEVEL 2 ERASE %1</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;">IF EXIST %1 ..\7z.exe a %2 %1</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;">ECHO Check fatal process complete.</span></div><br><div></div><br><div><span class="Apple-style-span" style="font-family:Arial;">The final touch is to prune the logs every so often. The </span><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">PRUNELOGS.BAT</span><span class="Apple-style-span" style="font-family:Arial;"> batch file can be run once a month, on the first of the month. Based on the date represented by the file name, </span><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">PRUNELOGS.BAT</span><span class="Apple-style-span" style="font-family:Arial;"> retains 2-3 months of logs, based on the current month, and deletes the rest. </span></div><br><div style="font-family:Arial;"></div><br><div><br><br><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">@ECHO OFF</span><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">REM PRUNELOGS.BAT</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">REM ZIP delete the archive for month before last (retain 2-3 months of logs)</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">REM Intended to be called on the 1st day of each month</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">SET MM %date:~-10,2</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">IF “%MM%“ == “01” ERASE LOGS-20??-11-??.ZIP</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">IF “%MM%“ == “02” ERASE LOGS-20??-12-??.ZIP</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">IF “%MM%“ == “03” ERASE LOGS-20??-01-??.ZIP</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">IF “%MM%“ == “04” ERASE LOGS-20??-02-??.ZIP</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">IF “%MM%“ == “05” ERASE LOGS-20??-03-??.ZIP</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">IF “%MM%“ == “06” ERASE LOGS-20??-04-??.ZIP</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">IF “%MM%“ == “07” ERASE LOGS-20??-05-??.ZIP</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">IF “%MM%“ == “08” ERASE LOGS-20??-06-??.ZIP</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">IF “%MM%“ == “09” ERASE LOGS-20??-07-??.ZIP</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">IF “%MM%“ == “10” ERASE LOGS-20??-08-??.ZIP</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">IF “%MM%“ == “11” ERASE LOGS-20??-09-??.ZIP</span></div><br><div><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">IF “%MM%“ == “12” ERASE LOGS-20??-10-??.ZIP</span></div><br><div style="font-family:Arial;"></div><br></div><br><div style="font-family:Arial;">With these patches in place, the Apex Data Loader can be a safe and reliable way to automatically import data files generated by another system. Though, no data integration system is foolproof, and you should still devise a custom validation report that runs every day to confirm that data is flowing into the system as expected.</div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;"><br><br>While it would be wonderful if we could originate and retain all of our enterprise data only in Salesforce CRM, in real life, we still need to integrate with other systems, and, when we do, tools like the Apex Data Loader, with a pinch of salt, can help us get the job done.<br><br>For more Data Loader tips, drop by the blog <a href="http://www.apexdataloader.com/" target="_blank" rel="external">Using the Apex Data Loader with Salesforce</a>.<br><br></div>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;separator&quot; style=&quot;clear:both;text-align:center;&quot;&gt;&lt;a href=&quot;http://blog.domaintools.com/2011/08/how-to-use-alerts-to-get-the-scoop
+    
+    </summary>
+    
+      <category term="Tutorials" scheme="http://ted.husted.com/categories/Tutorials/"/>
+    
+    
+      <category term="Salesforce" scheme="http://ted.husted.com/tags/Salesforce/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Salesforce – Open Source Pioneer</title>
+    <link href="http://ted.husted.com/2012/04/04/salesforce-open-source-pioneer/"/>
+    <id>http://ted.husted.com/2012/04/04/salesforce-open-source-pioneer/</id>
+    <published>2012-04-04T17:00:00.000Z</published>
+    <updated>2017-02-18T21:32:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><div class="separator" style="clear:both;text-align:center;"><a href="http://opensource.org/" target="_blank" rel="external"><img src="http://opensource.org/files/garland_logo.png" alt=""></a></div><br><strong><span class="Apple-style-span" style="font-family:inherit;"><br></span></strong></p>
+<p><div style="display:inline !important;"><span class="Apple-style-span" style="font-family:inherit;">Before joining NimbleUser, I spent a decade working with open source software and participating in open source communities. Being part of an open source community, and helping to improve tools we use every day, is an enlightening experience, outside the scope of simple blog entry.<br></span></div></p>
+<p><div style="display:inline !important;"></div></p>
+<p><div><span class="Apple-style-span" style="font-family:inherit;">And I miss it. I’ve tried to stay involved with new projects like Vosao CMS, I answer mail sent to human-response at apache-dot-org, I speak at ApacheCon when I can, and I’m trying to bootstrap an advocacy site with Tim O’Brien. But, it’s a struggle to keep up with other projects when I’m still learning so much every day about the Salesforce CRM platform. </span></div><br><span class="Apple-style-span" style="font-family:inherit;">One consolation is that Salesforce is built with many products I touched during my open source decade. I worked with Doug Cutter and Jon Stevens to migrate Lucene to Apache Jakarta. Salesforce uses several Apache Commons products that I helped create (along with the Commons itself). So, although I don’t get to work on open source projects as much as I used to, I am grateful to be working with a solid, thoughtful product built on a backbone of truly awesome open source components</span></p>
+<h2 id="Core-infrastructure"><a href="#Core-infrastructure" class="headerlink" title="Core infrastructure"></a>Core infrastructure</h2><p><a href="http://www.salesforce.com/customer-resources/learning-center/" target="_blank" rel="external"><img src="http://www2.sfdcstatic.com/common/assets/img/logo-new.png" alt=""></a>Salesforce.com pioneered cloud computing. Its combined Software-as-a-Service and Platform-as-a-Service offering handles 100,000+ customers, over 2.1 million users, 30+ million lines of third-party code, and hundreds of terabytes of data, running on its own blend of open source, proprietary, and custom code. [<a href="http://www.blogger.com/blogger.g?blogID=5208774#Resources" target="_blank" rel="external">Wikipedia</a>]</p>
+<p>While the Salesforce platform uses the Oracle Database system as the basis as its backend data store, the web infrastructure is powered by several open source products, like <strong>Caucho Resin</strong>. The Resin Application Server is a high-performance XML application server for use with JSPs, servlets, JavaBeans, XML, and a host of other technologies. [<a href="http://www.blogger.com/blogger.g?blogID=5208774#Resources" target="_blank" rel="external">Hurwitz</a>]</p>
+<h2 id="Fulltext-search"><a href="#Fulltext-search" class="headerlink" title="Fulltext search"></a>Fulltext search</h2><p>To help users find data quickly and easily, in 2002, Salesforce.com added the open source <strong>Apache Lucene</strong> search engine to its technology stack. Today, Lucene to manages an eight terabyte index of about twenty billion documents on the Salesforce platform. The Salesforce/Lucene cluster consists of roughly sixteen machines, which in turn contain many small (sharded) Lucene indexes. The system handles roughly 4000 queries per second, and it provides an incremental indexing model where the new Salesforce user data is searchable within approximately three minutes, through use of a custom optimizer. [<a href="http://www.blogger.com/blogger.g?blogID=5208774#Resources" target="_blank" rel="external">Igvita</a>]</p>
+<h2 id="Quality-assurance"><a href="#Quality-assurance" class="headerlink" title="Quality assurance"></a>Quality assurance</h2><p>Salesforce.com brings out three major releases a year, and to keep development on track, their quality assurance team runs 50,000 tests a day. About 20,000 of those tests run under the open source <strong>Selenium</strong> web application testing system. Selenium supports exporting tests to native application languages, like Java and C#, and a Salesforce.com engineer open sourced an extension for its own language, Apex. [<a href="http://www.blogger.com/blogger.g?blogID=5208774#Resources" target="_blank" rel="external">Porro, Nagata</a>]</p>
+<h2 id="User-facing-tools"><a href="#User-facing-tools" class="headerlink" title="User-facing tools"></a>User-facing tools</h2><p>Several of the Salesforce external data manipulation tools are built with open source components or are themselves open source. The indispensible <strong>Salesforce IDE</strong> is an <strong>Eclipse</strong> plugin. The popular <strong>Force.com Excel Connector</strong> is hosted at code.google.com. Responses to Outbound Messages are handled by the <strong>Apache Commons Connection Pool</strong>. The very useful <strong>Apex Data Loader</strong> is powered by the <strong>Spring Framework</strong> and <strong>Apache Commons BeanUtils</strong>. Since the Data Loader is open source, an OSX version sprang up (<strong>LexiLoader</strong>), and there is also an open source wizard (<strong>DataLoaderCliq</strong>) to help with Data Loader automation.</p>
+<h2 id="Advocacy"><a href="#Advocacy" class="headerlink" title="Advocacy"></a>Advocacy</h2><p>At its 2011 Dreamforce Conference, Salesforce.com offered an entire track of presentations that encouraged users to adopt other open source tools, including a developer session entitled “<strong>Build Better Apps with Open Source</strong>”. On an ongoing basis, Salesforce.com hosts an <strong>Open Source forum</strong> as part of its support site. [<a href="http://www.blogger.com/blogger.g?blogID=5208774#Resources" target="_blank" rel="external">SFDC</a>]</p>
+<p>By leveraging a solid core of open source packages, and mixing in its own proprietary customizations, Salesforce is able to deliver a robust, configurable platform, upon which millions of business users rely every day.</p>
+<p><span class="Apple-style-span" style="font-size:24px;font-weight:bold;">Products mentioned</span></p>
+<ul>
+<li><a href="http://www.salesforce.com/" target="_blank" rel="external">Salesforce CRM</a></li>
+<li><a href="http://www.caucho.com/resin/" target="_blank" rel="external">Caucho Resin</a></li>
+<li><a href="http://lucene.apache.org/java/docs/index.html" target="_blank" rel="external">Apache Lucene</a></li>
+<li><a href="http://seleniumhq.org/" target="_blank" rel="external">Selenium</a></li>
+<li><a href="http://eclipse.org/" target="_blank" rel="external">Eclipse</a></li>
+<li><a href="http://wiki.developerforce.com/page/Apex_Data_Loader" target="_blank" rel="external">Force.com Excel Connector</a></li>
+<li><a href="http://commons.apache.org/dbcp/" target="_blank" rel="external">Apache Commons Database Connection Pool</a></li>
+<li><a href="http://wiki.developerforce.com/page/Apex_Data_Loader" target="_blank" rel="external">Apex Dataloader</a></li>
+<li><a href="http://commons.apache.org/beanutils/" target="_blank" rel="external">Apache Commons BeanUtils</a></li>
+<li><a href="http://www.springsource.org/" target="_blank" rel="external">Spring Framework</a></li>
+<li><a href="http://www.pocketsoap.com/osx/lexiloader/" target="_blank" rel="external">LexiLoader</a></li>
+<li><a href="http://code.google.com/p/dataloadercliq/" target="_blank" rel="external">DataLoaderCliq</a></li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a><a href="http://www.blogger.com/blogger.g?blogID=5208774" target="_blank" rel="external">References</a></h2><ol>
+<li>[Hurwitz] <a href="http://judithbalancingact.com/2008/05/29/is-there-beef-behind-salesforcecom/" target="_blank" rel="external">Is there beef behind SalesForce.Com?</a></li>
+<li>[Wikipedia] <a href="http://en.wikipedia.org/wiki/Salesforce.com" target="_blank" rel="external">Salesforce.com.</a></li>
+<li>[Igvita] <a href="http://www.igvita.com/2010/10/22/open-source-search-with-lucene-solr/" target="_blank" rel="external">Lucene in the wild: Salesforce, LinkedIn, Twitter, et al.</a></li>
+<li>[Porro, Nagata] <a href="http://www.youtube.com/watch?v=TXNI9SRW1sY" target="_blank" rel="external">How to test Salesforce Apps with Selenium.</a></li>
+<li>[SFDC] <a href="http://wiki.developerforce.com/page/Apex_Data_Loader" target="_blank" rel="external">Apex Data Loader</a>, <a href="http://developer.force.com/dreamforce/11/session/Build-Better-Apps-Using-Open-Source-Code" target="_blank" rel="external">Build Better Apps Using Open Source</a>, <a href="http://blogs.developerforce.com/reid-carlberg/2011/08/dreamforce-open-source-lab-sponsored-by-github-schedule.html" target="_blank" rel="external">Open Source Labs tract</a>, <a href="http://boards.developerforce.com/t5/Open-Source/bd-p/sforceExplorer" target="_blank" rel="external">Open Source Forum</a>.</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;div class=&quot;separator&quot; style=&quot;clear:both;text-align:center;&quot;&gt;&lt;a href=&quot;http://opensource.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;img src=&quot;ht
+    
+    </summary>
+    
+      <category term="Essays" scheme="http://ted.husted.com/categories/Essays/"/>
+    
+    
+      <category term="Salesforce" scheme="http://ted.husted.com/tags/Salesforce/"/>
+    
+      <category term="Open Source" scheme="http://ted.husted.com/tags/Open-Source/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Sun goes Nova. Cloud intact.</title>
+    <link href="http://ted.husted.com/2012/04/01/sun-goes-nova-cloud-intact/"/>
+    <id>http://ted.husted.com/2012/04/01/sun-goes-nova-cloud-intact/</id>
+    <published>2012-04-01T09:00:00.000Z</published>
+    <updated>2017-02-18T21:32:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<div class="separator" style="clear:both;text-align:center;"><a href="https://www.youtube.com/watch?v=6KTb8CJoj04" target="_blank" rel="external"><img src="https://i.ytimg.com/vi/6KTb8CJoj04/hqdefault.jpg" alt=""></a></div><br>The Internet was designed to survive a nuclear holocaust, but no one expected to find social media networks still available after the Sun’s surprise flare-up on Saturday.<br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;">“While we talk about the bits being in the cloud, most of the Internet is actually underground,” explained Internet Guru <a href="http://securitytango.com/" target="_blank" rel="external">Nick Francesco</a>. “Although the solar flare burned off the ozone, condemning us all to a slow painful death, the good news is that we can still tweet about it.”</div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;">Saturday’s Twitter volume during the flare eclipsed the recent record set during the season finale of <a href="http://twitpic.com/929lsx]" target="_blank" rel="external">Pretty Little Liars</a>. The light from the flare made earthfall at 7:48a EST, had its own Twitter account (<a href="https://twitter.com/#!/AngiesRightLeg" target="_blank" rel="external">@SunFlare</a>) by 7:50a, and 439,624 followers by 8:15a. By noon, over 700,000 tweets referenced the flare, including choice nuggets like<br><a name="more"></a></div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;"><span class="Apple-style-span" style="color:#666666;">@Ecc19 “</span>Wow! Something new over the earth.”</div><br><div style="font-family:Arial;"><span class="Apple-style-span" style="color:#666666;">@SmileKid13</span> “#WorstDayEver #SunGoesViral.”</div><br><div style="font-family:Arial;"><span class="Apple-style-span" style="color:#666666;">@Groupon</span> “Designer Sunglasses - B1G1 - today only!</div><br><div style="font-family:Arial;"><span class="Apple-style-span" style="color:#666666;">@JStorm</span> “Flame On!”</div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;">Elsewhere, <a href="http://www.youtube.com/watch?v=Nnl-yQjGYBs&amp;feature=related" target="_blank" rel="external">Facebook</a> exploded with blurry iPhone photos of a dilating ball of light, and most <a href="http://thecynicalgirl.com/your-linkedin-group-probably-sucks/" target="_blank" rel="external">LinkedIn</a> statuses changed to “Ready to move. Call me.”. The flare passed through <a href="http://www.facebook.com/pages/Google-Plus-Sucks/202649716452006" target="_blank" rel="external">Google+ </a>without a ripple, since most of the plussies were busy updating their last known address on <a href="http://www.youtube.com/watch?v=CznVPlAunk8" target="_blank" rel="external">Plaxo</a>.</div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;">Salesforce expects <a href="http://www.youtube.com/watch?v=chkLP6FdUZA" target="_blank" rel="external">Chatter</a> volume to soar on Monday, as burn-outs return to work after a long, hairy weekend. “The flare is a real opportunity for growth,” blogged founder Marc Benioff. “Nothing brings out net-new leads like a good fire sale.”</div><br><div style="font-family:Arial;"></div><br><div style="font-family:Arial;"><br><div>For more, see</div><br><div><br><br><em>   <a href="http://tedhusted.blogspot.com/2009/04/twitter-too-much-and-not-enough.html" target="_blank" rel="external">Too Much Twitter and Not Enough</a>
+</em>   <a href="http://tedhusted.blogspot.com/2007/04/geeks-glossary-asf-edition-recently-we.html" target="_blank" rel="external">Geeks Glossary</a><br><em>   <a href="http://tedhusted.blogspot.com/2006/04/truth-with-jokes-q-are-asf-committers.html" target="_blank" rel="external">The Truth with Jokes </a>
+</em>   <a href="http://en.wikipedia.org/wiki/April_Fools%27_Day" target="_blank" rel="external">The Truth without Jokes</a><br>*   and … <a href="http://www.youtube.com/watch?v=NfZ4q86ekS4&amp;context=C4be1ba2ADvjVQa1PpcFNeL5vOXud6ym9Iyt54c-yNBuBvySkkoVQ=" target="_blank" rel="external">How Geeks Should Prepare for Disaster</a><br></div><br></div>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;separator&quot; style=&quot;clear:both;text-align:center;&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=6KTb8CJoj04&quot; target=&quot;_blank&quot; rel=&quot;exte
+    
+    </summary>
+    
+      <category term="Essays" scheme="http://ted.husted.com/categories/Essays/"/>
+    
+    
+      <category term="Satire" scheme="http://ted.husted.com/tags/Satire/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Catch me on the flip-side: Responding to Outbound Messages in Salesforce CRM</title>
+    <link href="http://ted.husted.com/2012/03/29/catch-me-on-the-flip-side-responding-to-outbound-messages-in-salesforce-crm/"/>
+    <id>http://ted.husted.com/2012/03/29/catch-me-on-the-flip-side-responding-to-outbound-messages-in-salesforce-crm/</id>
+    <published>2012-03-29T09:00:00.000Z</published>
+    <updated>2017-02-18T21:36:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><div class="separator" style="clear:both;text-align:center;"><a href="https://www.flickr.com/photos/spacemanbob/1084139169" target="_blank" rel="external"><img src="https://farm2.staticflickr.com/1130/1084139169_e272bc1f81_z.jpg" alt=""></a></div><br>In a <a href="http://tedhusted.blogspot.com/2012/03/unloading-salesforce-crm-data-with.html" target="_blank" rel="external">previous blog</a>, we walked through example code for an Outbound Message Listener. We covered the essentials, but Salesforce CRM offers a nifty twist on just sending an outbound message to an external system. Not only can a system receive a message, it can send back a response. For example, if the outbound message inserts a record, the external system can send back the record’s key.</p>
+<p><a name="more"></a>Our example Listener called a worker method that handled the messages in a foreach loop. Using the case of returning an external key, we can add the keys to a hashtable, and send back a batch at the end all of the responses. We’ll pickup the live action towards the end of the foreach loop from the <a href="http://tedhusted.blogspot.com/2012/03/unloading-salesforce-crm-data-with.html" target="_blank" rel="external">previous example</a>.</p>
+<p><pre> <strong>Hashtable responsePayload = newHashtable();  // Returns IDs to SF</strong><br> foreach (AccountNotification message in n.Notification)<br> {<br>     sf = message.sObject;</pre></p>
+<p><pre>     // – Check cache –<br>     // …<br>     // – handle message –<br>     // …<br>     // Queue ID for return to SF<br>     <strong>responsePayload.Add(sf.Id, my.Id);</strong><br> } // end foreach loop<br> // – Return IDs to SF –<br> <strong>log.Info(“Info: Sending response to Salesforce …”);</strong><br> <strong>Response response = new Response();</strong></pre></p>
+<p><pre> <strong>log.Info(response.Send(“Account”, responsePayload));</strong><br> return;<br>}</pre><br>The Response class is a wrapper around a <span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">SForceService</span> instance which returns a String we can use as a logging statement.</p>
+<p><pre>class Response<br>{<br>    private SforceService service;<br>    public Response() { }<br>    public String Send(String objectName, Hashtable payload)<br>    {<br>        return this.Send(objectName, payload, “External_Id__c”);<br>    }<br>    public String Send(String objectName, Hashtable payload, String syncFieldName)<br>    {<br>        if (payload == null || payload.Count == 0) return</pre></p>
+<p><pre>            “No records updated. Response.Send() not needed.”;<br>        try<br>        {<br>            service = new SforceService();<br>            LoginResult loginResult = service.login(<br>                ConfigurationManager.AppSettings[“Salesforce.Username”],<br>                ConfigurationManager.AppSettings[“Salesforce.Password”] +<br>                ConfigurationManager.AppSettings[“Salesforce.Token”]<br>            );<br>            service.SessionHeaderValue = new SessionHeader();<br>            service.SessionHeaderValue.sessionId = loginResult.sessionId;<br>            service.Url = loginResult.serverUrl;<br>            GetUserInfoResult userInfo = loginResult.userInfo;<br>            List sObjects = new List();<br>            sObject s = new sObject();<br>            XmlDocument xmlDocument = new XmlDocument();<br>            List elements;<br>            XmlElement element;<br>            foreach (String sfid in payload.Keys)<br>            {<br>                s = new sObject();<br>                s.Id = sfid;<br>                s.type = objectName;<br>                elements = newList();<br>                element = xmlDocument.CreateElement(syncFieldName);<br>                element.InnerText = ht[sfid].ToString();<br>                elements.Add(element);<br>                s.Any = elements.ToArray();<br>                sObjects.Add(s);<br>            }<br>            SaveResult[] saveResults = service.update(sObjects.ToArray());<br>            String output = String.Empty;<br>            foreach (SaveResult sr in saveResults)<br>            {<br>                if (sr.success)<br>                {<br>                    output += String.Format(</pre></p>
+<p><pre>“{0} Response Sync Success : sf.id=\”{1}\””, objectName, sr.id) + “\n”;<br>                }<br>                else<br>                {<br>                    foreach (Error err in sr.errors)<br>                    {<br>                        output += String.Format(</pre></p>
+<p><pre>“{0} Response Sync Error : sf.id=\”{1}\”, {2}”, objectName, sr.id, err.message) +</pre></p>
+<p><pre>“\n”;<br>                    }<br>                }<br>            }<br>            return output;<br>        }<br>        catch (Exception ex)<br>        {<br>            return ex.Message + “ — “ + ex.StackTrace;<br>        }<br>    }<br>}</pre><br>The credentials and API service endpoint are declared in the Web.Config file.</p>
+<p><pre></pre><br><a href="https://test.salesforce.com/services/Soap/u/24.0" target="_blank" rel="external">https://test.salesforce.com/services/Soap/u/24.0</a></p>
+<p>(In a production environment, replace “test.salesforce.com” with “www.salesforce.com”.)</p>
+<p>Some caveats are</p>
+<p>(1) The response needs credentials to login, and you might need to setup a system account for the response.</p>
+<p>(2) To keep the message from recursing, the Response User needs to have outbound messaging disabled, or be specifically excluded from the Outbound Messaging Workflow.</p>
+<p>(3) If your listener implements a producer/consumer queue, the response may not be immediate. (If tens of thousands of records are being updated by a slow system, it could be an hour or more!).</p>
+<p>(4) An outbound message response may update the record while it’s being viewed by another user. If the user makes another change without refreshing the record, Salesforce will decline the second change, and the human user will have to refresh and repeat.</p>
+<p>By allowing a response to an outbound message, Salesforce gives us the opportunity to close the loop. For example, if a record is being inserted into an external system, the response could return the external ID, for use with future updates.</p>
+<p>While not a “point-and-click” product, like the Apex Dataloader, the outbound messaging API provides developers all the hooks we need to create a full-service data connection.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;div class=&quot;separator&quot; style=&quot;clear:both;text-align:center;&quot;&gt;&lt;a href=&quot;https://www.flickr.com/photos/spacemanbob/1084139169&quot; target=&quot;_blan
+    
+    </summary>
+    
+      <category term="Tutorials" scheme="http://ted.husted.com/categories/Tutorials/"/>
+    
+    
+      <category term="Salesforce" scheme="http://ted.husted.com/tags/Salesforce/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>In Data We Trust</title>
+    <link href="http://ted.husted.com/2012/03/27/in-data-we-trust/"/>
+    <id>http://ted.husted.com/2012/03/27/in-data-we-trust/</id>
+    <published>2012-03-27T09:00:00.000Z</published>
+    <updated>2017-02-18T21:32:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<div class="separator" style="clear:both;text-align:center;"><a href="http://www.redcross.org/" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2012/03/fa1a2-blood-drop.jpg" alt=""></a></div><div>Data is the lifeblood of a company. When data flows freely to those who need it most, business booms. But, should the flow stop, a business fails. According to the National Archives &amp; Records Administration, after a major data loss or extended data center outage (of ten days or more), most companies shut down within a year of the disaster. </div><div><span class="Apple-style-span" style="font-family:inherit;"><br></span></div><div><span class="Apple-style-span" style="font-family:inherit;">Despite the stakes, according to a national survey, many business do not have proper data backup. </span></div><div><div><br><br><em>   40% of Small and Medium Sized Businesses don’t back up their data at all.
+</em>   Up to 50% of all backups are not fully recoverable and up to 60% of all backups fail in general.<br><em>   Since 2003, the majority of North American workers are mobile.
+</em>   One-third of all computers sold are laptops, and 60% of all data is held on PC Desktops and laptops.<br><em>   15% or more of laptop computers are stolen or suffer hard drive failures.</em></div><div><a name="more"></a>To avoid becoming a statistic, every day, more and more businesses are looking to cloud-based software-as-a-service vendors to provide a one-stop IT shop. </div></div><div><span class="Apple-style-span" style="font-family:inherit;"><br></span></div><div><span class="Apple-style-span" style="font-family:inherit;">When workers have instant access to data and files through a web browser, people don’t feel the need to store key data on local machines. When data is centralized on the cloud, it can be backed up and maintained by the best and the brightest. Between Google Apps and Salesforce CRM, many professionals will have all the software they need, saving the cost of licensing and maintaining complex office suites. Today, cloud-based offices can securely access their data from any machine with an Internet connection and work seamlessly from any location.</span></div><div><span class="Apple-style-span" style="font-family:inherit;"><br></span></div><div><span class="Apple-style-span" style="font-family:inherit;">Of course, when a company moves core data to the cloud, it must be just as careful when choosing a IT provider as it should be when choosing IT personnel. The Salesforce CRM platform offers businesses a number of key safeguards, including trust.salesforce.com, release trains, and superb test coverage.  </span></div><div><span class="Apple-style-span" style="font-family:inherit;"><br></span></div><div><span class="Apple-style-span" style="font-family:inherit;"><strong>trust.salesforce.com</strong> </span></div><div><span class="Apple-style-span" style="font-family:inherit;"><br></span></div><div><span class="Apple-style-span" style="font-family:inherit;">Saleforce.com believes that trust starts with transparency, and provides real-time information on system performance and security on a public web site that  anyone can visit at trust.salesforce.com. The <a href="http://trust.salesforce.com/trust/status/" target="_blank" rel="external">System Status panel</a> lists each of the Salesforce servers, flagging any current performance issues, and providing a RSS feed with historical information going back to Sep 2010. The trust.salesforce.com site also provides customers with background information on data integrity, security, and overall best practices. </span></div><div><span class="Apple-style-span" style="font-family:inherit;"><br></span></div><div><span class="Apple-style-span" style="font-family:inherit;"><strong>Release Trains</strong></span></div><div><span class="Apple-style-span" style="font-family:inherit;"><br></span></div><div><span class="Apple-style-span" style="font-family:inherit;">Like clockwork, three times a year, Salesforce rolls out a major new release. All customers are upgraded automatically and seamlessly, at no additional cost, ensuring that everyone has all the latest fixes and improvements. The train model means that Salesforce.com can bring out new features incrementally. When the next train will be along in a couple of months, there’s no need to rush an under-developed feature to market. Certified administrators and developers must also pass a maintenance exam for every new release, assuring that key people are aware of the latest changes. </span></div><div><span class="Apple-style-span" style="font-family:inherit;"><br></span></div><div><span class="Apple-style-span" style="font-family:inherit;"><em>*Test Coverage</em></span></div><div><span class="Apple-style-span" style="font-family:inherit;"><br></span></div><div><span class="Apple-style-span" style="font-family:inherit;">Every day, Salesforce.com runs over 50,000 quality assurance tests on its own software. When Salesforce.com introduced the Apex customization language in 2009, mandatory test coverage was baked into the development model.  Salesforce.com provides a platform based on high-quality, thoroughly tested code, and expects custom developers to do the same. </span></div><div><span class="Apple-style-span" style="font-family:inherit;"><br></span></div><div><span class="Apple-style-span" style="font-family:inherit;">If you are ready for a safe, reliable, professionally-maintained business platform, Salesforce.com, the original Software as a Service provider, is still the best. </span></div><div style="font-family:Arial;"><span class="Apple-style-span" style="font-family:Arial, Helvetica, sans-serif;font-size:x-small;"><br></span></div>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;separator&quot; style=&quot;clear:both;text-align:center;&quot;&gt;&lt;a href=&quot;http://www.redcross.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;img src=&quot;htt
+    
+    </summary>
+    
+      <category term="Essays" scheme="http://ted.husted.com/categories/Essays/"/>
+    
+    
+      <category term="Programming" scheme="http://ted.husted.com/tags/Programming/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Unloading Salesforce CRM Data with Outbound Messages</title>
+    <link href="http://ted.husted.com/2012/03/22/unloading-salesforce-crm-data-with-outbound-messages/"/>
+    <id>http://ted.husted.com/2012/03/22/unloading-salesforce-crm-data-with-outbound-messages/</id>
+    <published>2012-03-22T09:00:00.000Z</published>
+    <updated>2017-02-18T21:36:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<div class="separator" style="clear:both;text-align:center;"><a href="http://www.clker.com/" target="_blank" rel="external"><img src="http://www.clker.com/cliparts/6/9/f/3/11971239071443233733nicubunu_Message_in_a_Bottle.svg.med.png" alt=""></a></div>No software application is an island, and Salesforce provides two great mechanisms for getting data in and out of your org. To get bits in, there’s the Data Loader and other tools that use the same APIs. To get data out, Salesforce provides a system for pushing outbound messages to an external web service.<br><br>Whenever data is edited, or some other internal event occurs, a Salesforce workflow can queue an outbound message to another system.<br><br>While there are several off-the-shelf tools for loading data, implementing an outbound message listener is still a custom affair that requires database and web development skills. If you don’t mind exposing an end-point to pass data to a stored procedure, then read on ..<br><br><a name="more"></a>There are plenty of devils in the details, but here’s the basic 1-2-3-4:<br><br>1.  A workflow rule queues an outbound message.<br>2.  The outbound message contains a bundle of fields from one of your Salesforce objects.<br>3.  A web service endpoint (that you create) receives the message and updates an external system (that you control).<br>4.  Optionally, the service responds and updates the original recordThe linch pin is step 3. While there are tools that simplify writing web services, you still need to write some code. The Salesforce API Developers Guide provides an <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_om_outboundmessaging_listener.htm" target="_blank" rel="external">example of a simple listener class</a>, but it’s really a bit too simple.<br><div><br><pre>classMyNotificationListener : INotificationBinding<br>{<br>    publicnotificationsResponse notifications(notifications n)<br>    {<br>        notificationsResponse r = newnotificationsResponse();<br>        r.Ack = true;<br>        return r;<br>    }<br>}<br></pre><br>The notificationsResponse method is the end-point for a SOAP web services call. The message bundle is passed over as a “notification”.  If records are being updated in bulk (say by a data loader), Salesforce may include up to 100 notifications in a single SOAP envelope.   A better example of a notificationResponse would be:<br><br><pre><span class="Apple-style-span">classMyNotificationListener : INotificationBinding<br>{<br>    publicnotificationsResponse notifications(notifications n)<br>    {<br>        foreach (AccountNotification message in n.Notification)<br>        {<br>            // … handle message …</span><span class="Apple-style-span"><br>        }<br>        notificationsResponse r = newnotificationsResponse();<br>        r.Ack = true;<br>        return r;<br>    }<br>}<br></span></pre><br>Something to consider when handling a message is that Salesforce may send the same message multiple times. Each message has an ID, and if handling the same message twice would be a bad thing, you should cache the ID and check it before processing. Also, in real life, we should catch exceptions and log errors.<br><br><pre>log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);<br>foreach (AccountNotification message in n.Notification)<br>{<br>  sf = message.sObject;<br>  try<br>  {<br>    // – Have we met? –<br>    if (HttpRuntime.Cache[message.Id] != null)<br>    {<br>      log.Warn(string.Format(“Warn: SKIPPING (sf.id=\”{0}\”) in message (id=\”{1}\”)”, sf.Id, message.Id));<br>      continue;<br>    }<br>    lock (cacheLock)<br>    {<br>      // The cache will only last as long as the App Pool<br>      HttpRuntime.Cache.Insert(message.Id, sf.Id, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromHours(2));<br>      log.Info(string.Format(“Info: PROCESSING (sf.id=\”{0}\”) in message (id=\”{1}\”)”,sf.Id, message.Id));<br>    }<br><br>    // … handle message …<br>  }<br>  catch (Exception ex)<br>  {<br>    // Catch any exceptions raised in foreach loop<br>    String errorMessage = ex.Message + “ — “ + ex.StackTrace;<br>    log.Error(String.Format(“Error: EXCEPTION (sf.id=\”{0}\”, error=\”{1}\””, sf.Id, ex.Message + “ — “ + ex.StackTrace));<br>        }<br>} // end foreach loop<br></pre><br>When developing an outbound message service, you should test it under maximum load. What will happen if someone uses the Apex Dataloader to touch every record in an object, potentially creating an outbound message for every record? If that happens, Salesforce is going to collect the bundles into envelopes of 100 records each, and send them down to your web service as quickly as it can. If your service can’t keep up, Salesforce will try again later, in increasing intervals, for up to 24 hours.<br><br>Under “Setup/Monitor/Outbound Messages”, Salesforce provides a display where you can watch the records pass through in real time. If in your tests, you see Salesforce binding up, it’s a good idea to queue the records, and process them at your system’s pace.<br><br>For .NET, one approach would be to spread-out the work using a ThreadPool, but a better approach can be to use a Producer/Consumer Queue. (The example code is written for .NET 3.5. A 4.0 implementation may differ. See <a href="http://www.amazon.com/gp/product/0596800959/ref=as_li_ss_tl?ie=UTF8&amp;tag=husteddotcom-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0596800959" target="_blank" rel="external">C# 4.0 in a Nutshell</a> for more examples and background information.)<br><br><pre>public notificationsResponse notifications(notifications n)<br>{<br>  log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);<br>  if (myQueue == null) lock (queueLock)<br>  {<br>    // Double-check pattern<br>    if (myQueue == null) myQueue = new AccountQueue();<br>  }<br>  log.Info(“Info: Enqueuing and acknowledging notifications”);<br>  myQueue.EnqueueTask(n);<br>  notificationsResponse r = new notificationsResponse();<br>  r.Ack = true;<br>  return r;<br>}<br><br>// Producer/Consumer Queue to throttle account upserts notifications<br>// and prevent swamping of server during DataLoader updates.<br>// <a href="http://www.albahari.com/threading/part2.aspx#_WaitHandle_Producer_Consumer_Queue" target="_blank" rel="external">http://www.albahari.com/threading/part2.aspx#_WaitHandle_Producer_Consumer_Queue</a><br>class AccountQueue : IDisposable<br>{<br>  EventWaitHandle _wh = new AutoResetEvent(false);<br>  Thread _worker;<br>  readonlyobject _locker = newobject();<br>  Queue _tasks = new Queue();<br>  public AccountQueue()<br>  {<br>    _worker = new Thread(Work);<br>    _worker.Start();<br>  }<br>  publicvoid EnqueueTask(notifications task)<br>  {<br>    lock (_locker) _tasks.Enqueue(task);<br>    _wh.Set();<br>  }<br>    publicvoid Dispose()<br>    {<br>        EnqueueTask(null);     // Signal the consumer to exit.<br>        _worker.Join();        // Wait for the consumer’s thread to finish.<br>        _wh.Close();           // Release any OS resources.<br>    }<br>    void Work()<br>    {<br>    while (true)<br>    {<br>      notifications task = null;<br>      lock (_locker)<br>        if (_tasks.Count &gt; 0)<br>        {<br>           task = _tasks.Dequeue();<br>           if (task == null) return;<br>        }<br>        if (task != null)<br>        {<br>          doWork(task);    // Handle message here<br>        }<br>        else<br>          _wh.WaitOne();   // No more tasks - wait for a signal<br>      }<br>   }<br>}<br><br>static readonly private object cacheLock = newobject();<br>static public void doWork(notifications n) {<br>     // … code from prior example …<br>}<br></pre><br>Along the way, we slipped in a reference to Log4Net. Configuring Log4Net is outside the scope of this article, but you can dig into the gory details at <a href="http://logging.apache.org/" target="_blank" rel="external">logging.apache.org</a>. Highly recommended!<br><br>While our non-trivial example has grown quickly, it does provide the backbone for a robust Listener that can keep pace with Salesforce, even when you are stuck with a pokey API or under-powered server.<br><br>In a <a href="http://tedhusted.blogspot.com/2012/03/catch-me-on-flip-side-responding-to.html" target="_blank" rel="external">followup blog</a>, we close the loop by showing how a listener can respond back to Salesforce.<br><br></div>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;separator&quot; style=&quot;clear:both;text-align:center;&quot;&gt;&lt;a href=&quot;http://www.clker.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;img src=&quot;http:/
+    
+    </summary>
+    
+      <category term="Tutorials" scheme="http://ted.husted.com/categories/Tutorials/"/>
+    
+    
+      <category term="Salesforce" scheme="http://ted.husted.com/tags/Salesforce/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Learn. Salesforce. Now.</title>
+    <link href="http://ted.husted.com/2012/03/20/learn-salesforce-now/"/>
+    <id>http://ted.husted.com/2012/03/20/learn-salesforce-now/</id>
+    <published>2012-03-20T09:00:00.000Z</published>
+    <updated>2017-02-18T21:35:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><div class="separator" style="clear:both;text-align:center;"><a href="http://www.salesforce.com/customer-resources/learning-center/" target="_blank" rel="external"><img src="http://www2.sfdcstatic.com/common/assets/img/logo-new.png" alt=""></a></div>The job market for qualified Salesforce workers is booming, and as the economy recovers, it can only grow hotter. If you’re “transitioning”, now may be a great time to learn Salesforce and add another skill to your resume.  </p>
+<p>While there is no substitute for work experience, Salesforce offers a dazzling array of self-service learning tools. Even better, you can <a href="http://www.developerforce.com/events/regular/registration.php" target="_blank" rel="external">create a free development</a> org and practice what you learn. Salesforce dev orgs expire after a year, and have some performance restrictions, but they are otherwise equivalent to a production org. Tracking your transition efforts can be great way to practice a new skill and step up your job search at the same time.  </p>
+<p><a name="more"></a>A great starting point is to <a href="http://certification.salesforce.com/" target="_blank" rel="external">target certification</a>. By studying for the exam, you expose yourself to the depth and breadth of the Salesforce platform. (<a href="http://nimbleuser.com/_Blogs/Nimble_News/Nimble_News/Salesforce_Certification_-_A_Win/Win.aspx" target="_blank" rel="external">See my certification blog for more</a>.)</p>
+<p>If you are a visual learner, <a href="http://www.youtube.com/user/dreamforce" target="_blank" rel="external">YouTube is brimming with juicy Salesforce videos</a>. Everyone might not be able to fly to SFO for DreamForce, but anyone can enjoy the presentations online, from the comfort of a local Internet connection.</p>
+<p>For old-school learners, <a href="http://www.amazon.com/gp/product/0470590718/ref=as_li_ss_tl?ie=UTF8&amp;tag=husteddotcom-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0470590718" target="_blank" rel="external">Salesforce.com For Dummies</a>,   <a href="http://www.amazon.com/gp/product/0137140762/ref=as_li_ss_tl?ie=UTF8&amp;tag=husteddotcom-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0137140762" target="_blank" rel="external">Salesforce.com Secrets of Success</a>,   <a href="http://www.amazon.com/gp/product/1446108538/ref=as_li_ss_tl?ie=UTF8&amp;tag=husteddotcom-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=1446108538" target="_blank" rel="external">Salesforce Handbook</a>, and   <a href="http://www.amazon.com/gp/product/0321767357/ref=as_li_ss_tl?ie=UTF8&amp;tag=husteddotcom-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0321767357" target="_blank" rel="external">Development with the Force.com Platform</a>,   are a fantastic foursome. And, if you’d like to keep it all on the cloud, all four are also available for the Amazon Kindle.  </p>
+<p>They say when one door closes, another one opens. Today is the first day of Spring, and it could be a great day to open up to the many opportunities available on and around Salesforce CRM.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;div class=&quot;separator&quot; style=&quot;clear:both;text-align:center;&quot;&gt;&lt;a href=&quot;http://www.salesforce.com/customer-resources/learning-center/&quot; targ
+    
+    </summary>
+    
+      <category term="Reviews" scheme="http://ted.husted.com/categories/Reviews/"/>
+    
+    
+      <category term="Salesforce" scheme="http://ted.husted.com/tags/Salesforce/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Toggling PDF Mode In a Visualforce Apex Page</title>
+    <link href="http://ted.husted.com/2012/03/15/toggling-pdf-mode-in-a-visualforce-apex-page/"/>
+    <id>http://ted.husted.com/2012/03/15/toggling-pdf-mode-in-a-visualforce-apex-page/</id>
+    <published>2012-03-15T09:00:00.000Z</published>
+    <updated>2017-02-18T21:36:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><div class="separator" style="clear:both;text-align:center;"><a href="http://onsoftware.en.softonic.com/top-free-tools-to-open-create-and-edit-pdf-documents" target="_blank" rel="external"><img src="http://screenshots.en.sftcdn.net/blog/en/2009/02/pdfbotoncico.png" alt=""></a></div>Salesforce.com has made it easy to blend custom Visualforce pages into a standard Salesforce CRM site. Using the standard stylesheets and a smattering of markup, we can cobble up a custom Account, Contact, or Opportunity page, with an absolute minimum of effort.  </p>
+<p>It’s also easy to construct a wholly custom page resemble a native Salesforce CRM page. While the page looks great, it may not be printer-friendly, and users may have trouble sharing the output with their non-Salesforce brethren. One solution is to render the pages as a very-printable PDF. Salesforce.com has also made the PDF option blazingly easy. Just include a “renderas=PDF” attribute at the top of your page and – voilà – instant PDF.   </p>
+<p><a name="more"></a>Of course,  we don’t want to maintain two versions of the page, or give either our pretty or printable versions, and so the next thing is be able to switch between the HTML and PDF versions.  </p>
+<p>Happily, there is a <a href="http://blogs.developerforce.com/developer-relations/2008/06/dynamically-cho.html" target="_blank" rel="external">venerable blog posting</a> that provides a great leg up, but I ran into an issue where I wanted to offer another option on top of PDF/HTML.  </p>
+<p>Aside from PDF printing, we also wanted to support two flavors of the same database query. One version aggregated rows with a status column set to either “Value A” or “Value B”, and a second version aggregated rows set to “Value C”. Our case was different, but a common case might a report that showed “Cold or Warm” leads, and another that showed only “Hot” leads.  </p>
+<p>Bottom line is that we wanted to present the page as either HTML or PDF, using either Query A or Query B, and keep all the markup and source code together.  </p>
+<p>Here’s my solution:  </p>
+<p><div class="separator" style="clear:both;text-align:center;"></div><div class="separator" style="clear:both;text-align:center;"><a href="https://tedhusted.files.wordpress.com/2012/03/9173f-pdf-foo.png" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2012/03/9173f-pdf-foo.png?w=300" alt=""></a></div><br><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;white-space:pre;">// and the backend </span></p>
+<p><pre><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;"><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;"><br>/**</span></span></pre></p>
+<ul>
+<li><p>Computes and transforms data for use by the Campaign Profile page.<br>*/<br>public class Foo_Ctrl {</p>
+<p> // PDF parameter.<br> private final static String PDF = ‘p’;</p>
+<p> // HTML parameter.<br> private final static String MODE = ‘m’;</p>
+<p> // Stores Account to use with the Campaign Profile.<br> private Account myAccount = null;</p>
+<p> // Stores set of query constraints based on Mode parameter.<br> // “AND My_Mode__c IN :myMode”<br> private Set myMode = null;    </p>
+<p> // Assembles and returns URI reflecting current parameter settings.<br> private String doEnable(Boolean doPDF, Boolean doRollup) {</p>
+<pre><code>String parameters = &apos;/apex/Foo?&apos;;
+if (myAccount!=null) parameters += &apos;id=&apos; + MyID;
+if (doPDF) parameters += &apos;&amp;amp;&apos; + PDF + &apos;=true&apos;;
+if (doRollup) parameters += &apos;&amp;amp;&apos; + MODE + &apos;=true&apos;;
+return parameters;
+</code></pre><p> }</p>
+<p> /**</p>
+<ul>
+<li><p>Stores current or desired state “Status”.<br>*/<br>public boolean IsModeB { get; set; }</p>
+<p>/**</p>
+</li>
+<li><p>Reflects absence of “Rollup” parameter.<br>*/<br>public boolean IsModeA {<br> get {return !IsModeB;}<br> set {IsModeB = !value;}<br>}   </p>
+<p>/**</p>
+</li>
+<li><p>Handles runtime “PDF” parameter ‘p’.<br>*/<br>public boolean IsPDF { get; set; }</p>
+<p>/**</p>
+</li>
+<li><p>Reflects absence of “PDF” parameter.<br>*/<br>public boolean IsHTML {<br> get {return !IsPDF;}<br> set {IsPDF = !value;}<br>}   </p>
+<p>/**</p>
+</li>
+<li><p>Returns current account ID, or null.<br>*/<br>public Id MyId {<br> get {return (myAccount==null) ? null : myAccount.Id;}<br>}</p>
+<p>/**</p>
+</li>
+<li>Returns updated URI including PDF parameter,</li>
+<li><p>and the current value of MODE parameter.<br>*/<br>public String doEnablePDF {<br> get{return doEnable(true,IsModeB);}<br>}</p>
+<p>/**</p>
+</li>
+<li>Returns updated URI excluding PDF parameter,</li>
+<li><p>and the including current value of MODE parameter.<br>*/<br>public String doEnableHTML {<br> get{return doEnable(false,IsModeB);}<br>}</p>
+<p>/**</p>
+</li>
+<li>Returns updated URI including MODE parameter,</li>
+<li><p>and the current value of PDF parameter.<br>*/<br>public String doEnableModeB {<br> get{return doEnable(IsPDF,true);}<br>}</p>
+<p>/**</p>
+</li>
+<li>Returns updated URI excluding MODE parameter,</li>
+<li><p>and including the current value of PDF parameter.<br>*/<br>public String doEnableModeA {<br> get{return doEnable(IsPDF,false);}<br>}</p>
+<p>/**</p>
+</li>
+<li>Constructs the controller object, capturing the current Account and year.<br>*/<br>public Foo_Ctrl(ApexPages.StandardController controller) {<br> if (controller.getId() == null) {<pre><code>ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, &apos;Id is required&apos;));
+</code></pre> } else {<pre><code>if (myAccount == null) myAccount = (Account) controller.getRecord();
+</code></pre> }<br> // Instatiate the rest, to avoid runtime errors …<br> IsPDF = (ApexPages.currentPage().getParameters().get(PDF)==’true’);<br> IsModeB = (ApexPages.currentPage().getParameters().get(MODE)==’true’);<br> myMode = new Set();<br> if (IsModeB) {<pre><code>myMode.add(&apos;Status B&apos;);
+myMode.add(&apos;Status C&apos;);
+</code></pre> } else {<pre><code>myMode.add(&apos;Status A&apos;);
+</code></pre> }<br>}<br>}</li>
+</ul>
+</li>
+</ul>
+<p>// And, of course, a test suite</p>
+<p>@IsTest<br>public class NU_TEST_Foo_Page {</p>
+<pre><code>static Account myAccount = null;
+static Foo_Ctrl myCtrl = null;
+</code></pre><p>   static private void mySetUp() {<br>        Test.setCurrentPageReference(Page.Foo);<br>        // Constructor Scaffolding<br>        if (myAccount==null) {<br>            myAccount = new Account(name=’Alpha Bravo’,<br>            NU_Andar_Account_Number__c=’1’);<br>            insert myAccount;<br>            myCtrl = new Foo_Ctrl(new ApexPages.StandardController(myAccount));<br>        }<br>    }</p>
+<pre><code>static testMethod void PDF_Test() {
+    mySetUp();
+    String nextPage = myCtrl.doEnablePDF;
+    System.assertEquals(&apos;/apex/Foo?id=&apos; + myAccount.Id + &apos;&amp;amp;&apos; + Foo_Ctrl.PDF + &apos;=true&apos;,nextPage);
+}
+
+static testMethod void HTML_Test() {
+    mySetUp();
+    String nextPage = myCtrl.doEnableHTML;
+    System.assertEquals(&apos;/apex/Foo?id=&apos; + myAccount.Id + &apos;&apos;,nextPage);         
+}
+
+static testMethod void ModeB_Test() {
+    mySetup();
+    String nextPage = myCtrl.doEnableModeB;
+    System.assertEquals(&apos;/apex/Foo?id=&apos; + myAccount.Id + &apos;&amp;amp;&apos; + Foo_Ctrl.MODE + &apos;=true&apos;,nextPage);
+}
+
+static testMethod void ModeA_Test() {
+    mySetUp();
+    String nextPage = myCtrl.doEnableModeA;
+    System.assertEquals(&apos;/apex/Foo?id=&apos; + myAccount.Id + &apos;&apos;,nextPage);         
+}
+
+static testMethod void PDF_ModeB_Test() {
+    mySetUp();
+    ApexPages.currentPage().getParameters().put(Foo_Ctrl.PDF, &apos;true&apos;);
+    Foo_Ctrl ctrlPDF = new Foo_Ctrl(new ApexPages.StandardController(myAccount));
+    String nextPage = ctrlPDF.doEnableModeB;
+    System.assertEquals(&apos;/apex/Foo?id=&apos; + myAccount.Id + &apos;&amp;amp;&apos; + Foo_Ctrl.PDF + &apos;=true&apos; + &apos;&amp;amp;&apos; + Foo_Ctrl.MODE + &apos;=true&apos;,nextPage);
+    System.assertEquals(true,ctrlPDF.isPDF);
+    System.assertEquals(false,ctrlPDF.isHTML);
+    ctrlPDF.isHTML = true;
+    System.assertEquals(false,ctrlPDF.isPDF);
+}
+
+static testMethod void ModeB_PDF_Test() {
+    mySetUp();
+    ApexPages.currentPage().getParameters().put(Foo_Ctrl.MODE, &apos;true&apos;);
+    Foo_Ctrl ctrlMode = new Foo_Ctrl(new ApexPages.StandardController(myAccount));
+    String nextPage = ctrlMode.doEnablePDF;
+    System.assertEquals(true,ctrlMode.isModeB);
+    System.assertEquals(false,ctrlMode.isModeA);       
+    System.assertEquals(&apos;/apex/Foo?id=&apos; + myAccount.Id + &apos;&amp;amp;&apos; + Foo_Ctrl.PDF + &apos;=true&apos; + &apos;&amp;amp;&apos; + Foo_Ctrl.MODE + &apos;=true&apos;,nextPage);
+}
+
+ static testMethod void PDF_Flag_Test() {
+    mySetUp();
+    ApexPages.currentPage().getParameters().put(Foo_Ctrl.PDF, &apos;true&apos;);
+    Foo_Ctrl ctrlPDF = new Foo_Ctrl(new ApexPages.StandardController(myAccount));
+    System.assertEquals(true,ctrlPDF.isPDF);
+    System.assertEquals(false,ctrlPDF.isHTML);
+    ctrlPDF.isHTML = true;
+    System.assertEquals(false,ctrlPDF.isPDF);
+}
+
+ static testMethod void Mode_Flag_Test() {
+    mySetUp();
+    ApexPages.currentPage().getParameters().put(Foo_Ctrl.MODE, &apos;true&apos;);
+    Foo_Ctrl ctrlMode = new Foo_Ctrl(new ApexPages.StandardController(myAccount));
+    System.assertEquals(true,ctrlMode.isModeB);
+    System.assertEquals(false,ctrlMode.isModeA);
+    ctrlMode.isModeA = true;
+    System.assertEquals(false,ctrlMode.isModeB);
+}
+</code></pre><p>}<span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;"><br></span><br><span class="Apple-style-span" style="font-family:inherit;">For more Visualforce PDF trickery, <a href="http://force.siddheshkabe.co.in/2011/04/some-pdf-tricks-on-visualforce.html" target="_blank" rel="external">see this nifty blog</a> on May The Force Be With You.  </span></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;div class=&quot;separator&quot; style=&quot;clear:both;text-align:center;&quot;&gt;&lt;a href=&quot;http://onsoftware.en.softonic.com/top-free-tools-to-open-create-and
+    
+    </summary>
+    
+      <category term="Tutorials" scheme="http://ted.husted.com/categories/Tutorials/"/>
+    
+    
+      <category term="Salesforce" scheme="http://ted.husted.com/tags/Salesforce/"/>
+    
+      <category term="Visualforce" scheme="http://ted.husted.com/tags/Visualforce/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Salesforce Certification - A Win/Win</title>
+    <link href="http://ted.husted.com/2012/03/12/salesforce-certification-a-winwin/"/>
+    <id>http://ted.husted.com/2012/03/12/salesforce-certification-a-winwin/</id>
+    <published>2012-03-12T09:00:00.000Z</published>
+    <updated>2017-02-18T21:35:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><div class="separator" style="clear:both;text-align:center;"><a href="http://www.absolutelyfengshui.com/fengshui/feng-shui-yin-yang.php" target="_blank" rel="external"><img src="http://www.absolutelyfengshui.com/images/yin-yang-symbol.jpg" alt=""></a></div>General knowledge of database or website technologies is invaluable, but at the the end of the day, we implement projects in specific products. A Ph.D. in computer science doesn’t mean someone is a SQL Server 2008 rock star.</p>
+<p>A key benefit of working with Salesforce CRM is a top-knotch professional certification program that recognizes individuals who have passed detailed proficiency exams. Salesforce.com offers two distinct certification paths, Administrator and Developer.</p>
+<p>Certified Administrators employ broad knowledge of the Salesforce CRM platform. Administrators provide first-tier support for other users, create reports and dashboards, define validations, construct workflows and approval processes, and handle the day-to-day oversight of a Salesforce organization.</p>
+<p><a name="more"></a>Certified Developers evince comprehensive knowledge of the Force.com development platform. Developers create custom objects, database triggers, Visualforce pages, and other custom components. Developers may also work with the web services API to integrate Salesforce CRM with other products.</p>
+<p>To prove higher levels of proficiency, Certified Administrators may earn additional credentials as Sales or Service Cloud Implementation Experts, and Certified Developers can go on to earn a Technical Architect credential. For the overachiever, there are also Advanced Administrator and Advanced Developer certifications.</p>
+<p>Since Salesforce.com releases significant new enhancements to the platform every four months, like clockwork, we all have to maintain our certifications by taking release-specific exams, for each certification. The maintenance exams are not as grueling as the initial exams, but earning and keeping certifications demonstrates commitment to the Salesforce platform.</p>
+<p>At NimbleUser, our Salesforce implementation teams include a mix of Certified Administrators and Certified Developers. Having certified consultants on board helps us provide our customers with the highest possible level of service.</p>
+<p>Visit <a href="http://certification.salesforce.com/" target="_blank" rel="external">certification.salesforce.com </a>to learn more, or visit the <a href="http://nimbleuser.com/meet-the-staff/" target="_blank" rel="external">NimbleUser web site</a> to find out more about the peeps.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;div class=&quot;separator&quot; style=&quot;clear:both;text-align:center;&quot;&gt;&lt;a href=&quot;http://www.absolutelyfengshui.com/fengshui/feng-shui-yin-yang.php&quot; 
+    
+    </summary>
+    
+      <category term="Reviews" scheme="http://ted.husted.com/categories/Reviews/"/>
+    
+    
+      <category term="Salesforce" scheme="http://ted.husted.com/tags/Salesforce/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Managing a Related Object via a Checkbox in Salesforce CRM</title>
+    <link href="http://ted.husted.com/2012/03/06/managing-a-related-object-via-a-checkbox-in-salesforce-crm/"/>
+    <id>http://ted.husted.com/2012/03/06/managing-a-related-object-via-a-checkbox-in-salesforce-crm/</id>
+    <published>2012-03-06T11:00:00.000Z</published>
+    <updated>2017-02-18T21:36:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><div class="separator" style="clear:both;text-align:center;"><a href="http://suvendugiri.wordpress.com/2012/02/09/android-using-checkbox-with-example/" target="_blank" rel="external"><img src="http://suvendugiri.files.wordpress.com/2012/02/checkbox.png" alt=""></a></div>This Force.com recipe shows how to use a checkbox to manage a related object via an Apex trigger. </p>
+<p><strong>Problem: </strong>An off-the-shelf integration requires the existence  of a specific Salesforce CRM Opportunity object. When the object is  present, the integration acts on the Account related to the Opportunity.  When the object is not present. the integration bypasses the Account.</p>
+<p><strong>User Story:</strong> As a CRM User, I need to easily manage the Opportunity that signals the  integration, for example, by selecting a checkbox that creates or  removes the related integration object.</p>
+<p><strong>Solution:</strong> Implement an Account trigger that observes the checkbox and inserts or deletes the related integration object.</p>
+<p><div><strong><span style="font-size:x-small;"></span></strong><br><a name="more"></a><strong><span style="font-size:x-small;">// trigger class</span></strong></div><div><span style="font-size:x-small;"><br>/** </span></div></p>
+<ul>
+<li>Manages a2z Opportunity by referring to the </li>
+<li>“Is a2z Import” checkbox on the Account object. </li>
+<li>When an a2z Opportunity exists, the Account is imported to a2z. </li>
+<li>The trigger handles three transitional states: </li>
+<li>(1) if insert and doImport, insert opp; </li>
+<li>(2) if update and !doImport and hasOpp, delete opp;    </li>
+<li>(3) if update and doImport and !hasOpp, insert opp.</li>
+<li>By inference, the trigger also handles:</li>
+<li>(4) if insert and !doImport, exit; </li>
+<li>(5) if update and doImport and hasOpp, exit;</li>
+<li><p>(6) if !doImport and !hasOpp, exit.<br>*/<br>trigger NU_a2zCreateOpportunity on Account (after insert, after update) {</p>
+<p> // (1) On insert, if isImport, insert opp<br> if (Trigger.isInsert) {</p>
+<pre><code>List delta = new List();
+for (Account a : Trigger.new) {
+    if (a.NU_isA2zImport__c) {
+        delta.add(NU_a2zOpps.newOpp(a));
+    }        
+}
+if (delta.size()&amp;gt;0) insert(delta);
+</code></pre><p> }</p>
+<p> // (2) On update, if not isImport and haveOpp, delete opp<br> // (3) On update, if isImport and not haveOpp, insert opp<br> if (Trigger.isUpdate) {</p>
+<pre><code>if (Trigger.new.size() == 1) {
+    Account a = Trigger.new.get(0);
+    Boolean hasOpp = NU_a2zOpps.hasOpp(a);
+    if (!a.NU_isA2zImport__c &amp;amp;&amp;amp; hasOpp) {
+        delete(NU_a2zOpps.getOpp(a)); // (2)
+    }  
+    if (a.NU_isA2zImport__c &amp;amp;&amp;amp; !hasOpp) {
+        insert(NU_a2zOpps.newOpp(a)); // (3)
+    }    
+
+} else {
+    Map opps = NU_a2zOpps.getOpps(Trigger.new);
+    Set ids = opps.Keyset();
+    Set dels = new Set();
+    List deletes = new List();
+    List inserts = new List();
+    for (Account a : Trigger.new) {
+        if (!a.NU_isA2zImport__c &amp;amp;&amp;amp; ids.contains(a.Id)) {
+            deletes.add(opps.get(a.Id)); // (2)
+        }  
+        if (a.NU_isA2zImport__c &amp;amp;&amp;amp; !ids.contains(a.Id)) {
+            inserts.add(NU_a2zOpps.newOpp(a)); // (3)
+        }    
+    } 
+    if (deletes.size()&amp;gt;0) delete(deletes);
+    if (inserts.size()&amp;gt;0) insert(inserts);
+}
+</code></pre><p> }<br>}<div><strong>
+</strong><br><strong>
+</strong></div><span style="font-size:x-small;"><strong><span style="font-family:'Courier New', Courier, monospace;">// test class</span></strong><br><span style="font-family:'Courier New', Courier, monospace;"></span></span></p>
+</li>
+</ul>
+<p><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">/**</span></span></p>
+<ul>
+<li><p>Exercises the a2zCreateOpportunity feature set.<br>*/<br>@isTest<br>private class NU_TEST_a2zCreateOpportunity {</p>
+<p> /** </p>
+<ul>
+<li>Generates a key based on system time and offset.</li>
+<li><p>Sufficient for unit test purposes only.<br>*/<br>static String newCompanyNumber(Integer offset, String kicker) {<br> Datetime n = Datetime.now();<br> return kicker + String.valueOf(n.minute()) + String.valueOf(n.millisecond()) + String.valueOf(offset);<br>} </p>
+<p>/**</p>
+</li>
+<li>Generates an account with the NU_isA2zImport__c raised or lowered.</li>
+<li><p>Assumes default is false.<br>*/<br>static Account newAccount(Boolean doImport, Integer offset, String kicker) {<br> Account a = new Account(Name = ‘Test Account’, </p>
+<pre><code>CompanyNumber__c = newCompanyNumber(offset, kicker));
+</code></pre><p> if (doImport) a.NU_isA2zImport__c = true; // False is default<br> return a;<br>}</p>
+<p>/**</p>
+</li>
+<li>Generates an account with the NU_isA2zImport__c raised or lowered.</li>
+<li><p>Assumes default is false.<br>*/<br>static Account newAccount(Boolean doImport) {<br> return newAccount(doImport, 0, ‘’);<br>}</p>
+<p>/** </p>
+</li>
+<li><p>Inserts the given account, and returns it again from a select.<br>*/<br>static Account doInsert(Account a) {<br> insert(a);<br> return [<br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">SELECT id, NU_isA2zImport<strong>c, CompanyNumber</strong>c<br></span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">FROM Account<br></span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">WHERE id = :a.id</span></span><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">        </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">];<br>}</span></span></p>
+<p>/** </p>
+</li>
+<li><p>Exercises “Insert Import”.<br>*/<br>static testMethod void testInsImp(){<br> Account a = newAccount(true);<br> Account a2 = doInsert(a);<br> System.Assert(NU_a2zOpps.hasOpp(a2),’Expected opp on insert.’);<br>}</p>
+<p>/** </p>
+</li>
+<li><p>Exercises “Insert NoImport”.<br>*/<br>static testMethod void testInsNoImp(){<br> Account a = newAccount(false);<br> Account a2 = doInsert(a);<br> System.Assert(!NU_a2zOpps.hasOpp(a2),’Expected no opps on insert.’);<br>}</p>
+<p>/**</p>
+</li>
+<li>Creates, inserts, and updates an account, </li>
+<li><p>changing the import settings in between.<br>*/<br>static void updateHelper(Boolean insImp, Boolean updImp) {<br> Account a = newAccount(insImp);<br> Account a2 = doInsert(a);<br> a2.NU_isA2zImport__c = updImp;<br> update(a2);<br> if (updImp) {</p>
+<pre><code>System.Assert(NU_a2zOpps.hasOpp(a2),&apos;Expected opps on update.&apos;);
+</code></pre><p> } else {</p>
+<pre><code>System.Assert(!NU_a2zOpps.hasOpp(a2),&apos;Expected no opps on update.&apos;);
+</code></pre><p> }<br>}</p>
+<p>/** </p>
+</li>
+<li><p>Exercises “Update ImportNoImport”.<br>*/<br>static testMethod void testUpdImpNoImp(){<br> updateHelper(true,false);<br>}</p>
+<p>/** </p>
+</li>
+<li><p>Exercises “Update NoImportImport”.<br>*/<br>static testMethod void testUpdNoImpImp(){<br> updateHelper(false,true);<br>}</p>
+<p>/** </p>
+</li>
+<li><p>Exercises “Update ImportImport”.<br>*/<br>static testMethod void testUpdImpImp(){<br> updateHelper(true,true);<br>}</p>
+<p>/** </p>
+</li>
+<li><p>Exercises “Update NoImportNoImport”.<br>*/<br>static testMethod void testUpdNoImpNoImp(){<br> updateHelper(false,false);<br>}</p>
+<p>static List getInserted(List rows) {<br> return [<span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">SELECT id, NU_isA2zImport<strong>c, CompanyNumber</strong>c<br></span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">FROM Account </span></span><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">WHERE id in :rows</span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;"><br> </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">];<br>}</span></span></p>
+<p>/** </p>
+</li>
+<li><p>Creates, inserts, and updates an account,<br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">     <em> </em></span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">changing the import settings in between, for a batch of accounts.
+/<br>static void batchHelper(Boolean insImp, Boolean updImp,<br></span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">        </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">        </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">Boolean contains, String kicker) {<br> List rows = new List();<br> for (Integer r=0; r&lt;200; r++) {</span></span></p>
+<pre><code>rows.add(newAccount(insImp, r, kicker));
+</code></pre><p> }<br> insert(rows);<br> List inserted = getInserted(rows);<br> // In Apex, anything can be null<br> if (updImp != null) {</p>
+<pre><code>for (Account a : inserted) {
+    a.NU_isA2zImport__c = updImp;            
+}
+</code></pre><p> }<br> update(inserted);<br> Set ids = NU_a2zOpps.getOpps(inserted).Keyset();<br> Boolean success = true;<br> if (contains) {</p>
+<pre><code>for (Account a : inserted) {
+    success = success &amp;amp;&amp;amp; ids.contains(a.Id);            
+}
+System.Assert(success,&apos;Expected opps on batch delete.&apos;);
+</code></pre><p> } else { </p>
+<pre><code>for (Account a : inserted) {
+    success = success &amp;amp;&amp;amp; !ids.contains(a.Id);            
+}
+System.Assert(success,&apos;Expected no opps on batch delete.&apos;);        
+</code></pre><p> }<br>}</p>
+<p>/** </p>
+</li>
+<li><p>Exercises “Batch has flag set”.<br>*/<br>static testMethod void batchHelperHas() {<br> batchHelper(true,null,true,’A’);<br>}</p>
+<p>/** </p>
+</li>
+<li><p>Exercises “Batch does not have flag set”.<br>*/<br>static testMethod void batchHelperHasNot() {<br> batchHelper(false,null,false,’B’);<br>}</p>
+<p>/** </p>
+</li>
+<li><p>Exercises Batch delete.<br>*/<br>static testMethod void batchHelperDel() {<br> batchHelper(true,false,false,’C’);<br>}</p>
+<p>/** </p>
+</li>
+<li>Exercises Batch insert.<br>*/<br>static testMethod void batchHelperIns() {<br> batchHelper(false,true,true,’D’);<br>}<br>}</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;div class=&quot;separator&quot; style=&quot;clear:both;text-align:center;&quot;&gt;&lt;a href=&quot;http://suvendugiri.wordpress.com/2012/02/09/android-using-checkbox-
+    
+    </summary>
+    
+      <category term="Tutorials" scheme="http://ted.husted.com/categories/Tutorials/"/>
+    
+    
+      <category term="Salesforce" scheme="http://ted.husted.com/tags/Salesforce/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Test Driven Development with Apex Triggers on Force.com</title>
+    <link href="http://ted.husted.com/2012/03/05/test-driven-development-with-apex-triggers-on-force-com/"/>
+    <id>http://ted.husted.com/2012/03/05/test-driven-development-with-apex-triggers-on-force-com/</id>
+    <published>2012-03-05T11:00:00.000Z</published>
+    <updated>2017-02-18T21:35:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<div class="separator" style="clear:both;text-align:center;"><a href="http://en.wikipedia.org/wiki/Drawing_Hands" target="_blank" rel="external"><img src="http://upload.wikimedia.org/wikipedia/en/b/ba/DrawingHands.jpg" alt=""></a></div><a href="http://tedhusted.blogspot.com/2012/03/test-driven-development-with-apex-on.html" target="_blank" rel="external">In an earlier blog</a>, we examined a simple example of Test Driven Development (TDD). Here, we dive into a real-life example of using TDD to develop production Apex code for Salesforce CRM.<br><strong><br>How does TDD work in practice?</strong><br><br>Let’s walk through a non-trivial example of using test-driving development to craft a complex Apex trigger.<br><br><strong>Problem: </strong>An off-the-shelf integration requires the existence of a specific Salesforce CRM Opportunity object. When the object is present, the integration acts on the Account related to the Opportunity. When the object is not present. the integration bypasses the Account.<br><br><a name="more"></a><strong>User Story:</strong> As a CRM User, I need to easily manage the Opportunity that signals the integration, for example, by selecting a checkbox that creates or removes the related integration object.<br><br><strong>Solution:</strong> Provide an Account trigger that observes the checkbox and inserts or deletes the related integration object.<br><br><strong>How do we test an Apex trigger?</strong><br><br>In the case of an Apex trigger, we can’t invoke the behavior directly. The purpose of a trigger is to create a side effect when we insert, update, or delete objects. Basically, we do something like<br><br>| <span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">Account a = new Account(name = ‘test’,);</span></span><br>| <span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">insert(a);</span></span><br><br>and observe the state changes.<br><br>(Note: Another approach is to have the trigger call a worker class, and then write tests against the worker class. Here, we are using the direct approach, and keeping the trigger code in the trigger.)<br><br>As we saw in Part 1, a good place to start any coding exercise is to clearly define the expected state change. We can then code tests against the expected state changes, call the relevant DML operations (insert, update, and/or delete), and observe the outcome. (DML = Database Manipulation Language.)<br><br>Let’s express our expectations (or requirements) in the form of a documentation comment for the trigger under test.<br><div><span style="font-size:x-small;"><br></span></div><div><span style="font-size:x-small;">// Integration Account trigger requirements<br><br>/<strong><br> <em> Manages a2z Opportunity by referring to the “Do Import” checkbox on the Account object (NU_isA2zImport__c).
+ </em> When an a2z Opportunity exists, the Account is imported to a2z.<br> <em> The trigger handles three transitional states:
+ </em> (1) if insert and doImport, insert opportunity;<br> <em> (2) if update and !doImport and hasOpp, delete opportunity;    
+ </em> (3) if update and doImport and !hasOpp, insert opportunity.<br> <em> By inference, the trigger also handles:
+ </em> (4) if insert and !doImport, exit;<br> <em> (5) if update and doImport and hasOpp, exit;
+ </em> (6) if !doImport and !hasOpp, exit.<br> */</strong></span></div><br>To start coding the trigger that implements this logic, according to test driven development, we need a failing test. Let’s start with (1) and write a test for the Insert case. Since this is a non-trivial example, there is some scaffolding for the test.<br><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// Test for Insert case<br><br>final static Id A2Z_RECORD_TYPE_ID = Schema.SObjectType.Opportunity.<br>  getRecordTypeInfosByName().get(‘a2z’).getRecordTypeId();<br>final static String A2Z_STAGE_NAME = ‘Closed Won’;<br><br>/<br> <em> Exercises “Insert Import” (1) by inserting an new Account with the checkbox set,
+ </em> and observing whether a corresponding Opportunity is created.<br> <em>/<br>static testMethod void testInsImp() {<br>       // Bootstrap a test account, passing in values for needed fields.<br>       Account a = new Account(name = ‘test’, NU_isA2zImport__c=true);<br>       // Insert and Select the test Account<br>       insert(a);<br>       // Do we have an a2z opp?<br>       Integer opps = [<br>                SELECT COUNT()<br>                FROM Opportunity<br>                WHERE AccountId = :a.id<br>                      AND  RecordTypeId = :A2Z_RECORD_TYPE_ID<br>                      AND StageName = :A2Z_STAGE_NAME<br>           ];<br>       Boolean hasOpp = (opps&gt;0);<br>       System.assert(hasOpp,’Expected opp on insert.’);<br>}</em></span></span><br><div style="font-family:inherit;"><br></div><div style="font-family:inherit;"><span style="font-size:small;">When we run this test, it fails, because no one has written a trigger to insert the opportunity when the checkbox is true. Next!</span></div><div style="font-family:inherit;"><br></div><div style="font-family:inherit;"><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// Code for the Insert case<br><br>/**
+  Manages a2z Opportunity by referring to the “Do Import” checkbox<br> <em> on the Account object.
+ </em> …<br> <em>/<br>trigger NU_a2zCreateOpportunity on Account (after insert, after update) {<br><br>    final static Id A2Z_RECORD_TYPE_ID = Schema.SObjectType.Opportunity.<br>      getRecordTypeInfosByName().get(‘a2z’).getRecordTypeId();<br>    final static String A2Z_STAGE_NAME = ‘Closed Won’;<br><br>    // (1) On insert, if isImport, insert opp<br>    if (Trigger.isInsert) {<br>            List delta = new List();<br>            for (Account a : Trigger.new) {<br>                if (a.NU_isA2zImport__c) {<br>                    Opportunity o = new Opportunity(<br>                            AccountId = a.Id,<br>                            Name = ‘a2z’,<br>                            RecordTypeId = A2Z_RECORD_TYPE_ID,<br>                            StageName = A2Z_STAGE_NAME,<br>                            CloseDate = Date.Today()<br>                    );<br>                    delta.add(o);<br>               }<br>       }<br>       if (delta.size()&gt;0) insert(delta);<br>}</em></span></span></div><div style="font-family:inherit;"><br></div><div style="font-family:inherit;">When we run the test again, it succeeds, because we now have the trigger code that inserts the a2z Opportunity.<br><br>(Note: If you haven’t written Apex triggers, the for-loop might seem odd. As a performance tweak, Apex triggers work with batches. Most times, it’s a batch of one. But, if data is being imported, a batch could contain 200, or even 2000, objects to insert, update, or delete.)<br><br>Since unit testing is baked into Apex, we don’t need to undo any database operations that occur with an actual testMethod. While the testMethod is running, the trigger can insert all the opportunities it likes, but when the test ends, Force.com rolls it all back for us. No fuss. No muss. No left-over cruft.<br><br>Looking back at the code, I see things I don’t like. There are redundant constants, and we are also doing a lot of heavy lifting inline, obscuring the flow of the code. Since we have a passing test, let’s improve the design, and run the test again.<br><br>First, since we will need to share constants and helpers between the tests and the code-under-test, let’s extract existing code into a static helper class.</div><div style="font-family:inherit;"><br></div><div style="font-family:inherit;"><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// Extracting a utility class to share test and domain code.<br><br>/**
+  Encapsulates tools used by a2z Opportunity test and domain code.<br> <em>/<br>public Class NU_a2zOpps {<br><br>    /**
+     </em> Defines an a2z Opp with a particular Record Type ID and Stage Name.<br>     <em> (TODO: Transfer to custom settings and expose to validation rule.)
+     </em>/<br>    final static public String A2Z_STAGE_NAME = ‘Closed Won’;<br>    final static public Id A2Z_RECORD_TYPE_ID = Schema.SObjectType.Opportunity.<br>      getRecordTypeInfosByName().get(‘a2z’).getRecordTypeId();<br><br>    /<strong><br>     <em> Declares a default name for generated opportunities.
+     </em>/<br>    static public String A2Z_NAME = ‘a2z Import’;<br><br>    /</strong><br>     <em> Returns a ready-to-use a2z Opportunity.
+     </em>/<br>    static public Opportunity newOpp(Account a) {<br>            return new Opportunity(<br>                    AccountId = a.Id,<br>                    RecordTypeId = A2Z_RECORD_TYPE_ID,<br>                    Name = A2Z_NAME,<br>                    StageName = A2Z_STAGE_NAME,<br>                    CloseDate = Date.Today()<br>            );<br>    }<br><br>    /<strong><br>     <em> Determines if a given Account has an A2z Opportunity.
+     </em>/<br>    static public Boolean hasOpp(Account a) {<br>            Integer opps = [<br>                  SELECT COUNT()<br>                  FROM Opportunity<br>                  WHERE AccountId = :a.id<br>                      AND RecordTypeId = :A2Z_RECORD_TYPE_ID<br>                      AND StageName = :A2Z_STAGE_NAME<br>                ];<br>            return (opps&gt;0);<br>    }<br>}</strong></span></span></div><div style="font-family:inherit;"></div><div style="font-family:inherit;"><br>Replacing the extracted code with references to the static class, our test and trigger are now easier to follow.</div><div style="font-family:inherit;"><br></div><div style="font-family:inherit;"><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// Test and domain classes refactored to use new utility class.<br><br>@isTest<br>private class NU_TEST_a2zCreateOpportunity {<br><br>    /<br>      <em> Generates an account with the NU_isA2zImport__c raised or lowered.
+      </em> Assumes default is false.<br>      <em>/<br>    static Account newAccount(Boolean doImport) {<br>            Account a = new Account(Name = ‘Test Account’,<br>            CompanyNumber<strong>c = ‘1’;<br>            if (doImport) a.NU_isA2zImport</strong>c = true; // False is default<br>            return a;<br>    }<br><br>    /**
+      </em> Inserts the given account, and returns it again from a select.<br>      <em>/<br>    static Account doInsert(Account a) {<br>            insert(a);<br>            return [<br>                SELECT id, NU_isA2zImport<strong>c, CompanyNumber</strong>c<br>                FROM Account<br>                WHERE id = :a.id<br>            ];<br>    }<br><br>    /**
+     </em> Exercises “Insert Import”.<br>     <em>/<br>    static testMethod void testInsImp() {<br>            Account a = newAccount(true);<br>            Account a2 = doInsert(a);<br>            System.assert(NU_a2zOpps.hasOpp(a2), ‘Expected opp on insert.’);<br>    }<br>}<br><br>trigger NU_a2zCreateOpportunity on Account (after insert, after update) {<br>    // (1) On insert, if isImport, insert opp<br>    if (Trigger.isInsert) {<br>            List delta = new List();<br>            for (Account a : Trigger.new) {<br>                    if (a.NU_isA2zImport__c) {<br>                        delta.add(NU_a2zOpps.newOpp(a));<br>                    }<br>            }<br>            if (delta.size()&gt;0) insert delta ;<br>    }<br>}</em></span></span></div><div style="font-family:inherit;"><span style="font-size:small;"><br></span></div>We implemented the first requirement using a classic TDD pattern:<br><div style="font-family:inherit;">
+
+   Create a failing test that proves a desired behavior is not present.<br><em>   Write just enough code to pass the test.
+</em>   Once the test succeeds, improve the design (refactor) so that it’s easy to maintain.Let’s continue to follow the TDD pattern with our second requirement: “if update and !doImport and hasOpp, delete opp”.<br>First, the failing test:<br><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// Test deleting a related opportunity </span></span><br><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">static testMethod void testUpdImpNoImp() {</span><br><span style="font-family:'Courier New', Courier, monospace;">    Account a = newAccount(true); // Import</span><br><span style="font-family:'Courier New', Courier, monospace;">    Account a2 = doInsert(a); <strong>// Line 2</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">    a2.NU_isA2zImport<strong>c = false; // No Import</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">    update a2; <strong>// Line 4</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">    System.assert(!NU_a2zOpps.hasOpp(a2),’Expected no opps on update.’);</span><br><span style="font-family:'Courier New', Courier, monospace;">}</span></span><br><br>When  we run the test, it fails, because our trigger inserts a new a2z  Opportunity (at line 2) but does not delete the Opportunity (at line 4).<br><br>OK,  let’s update the trigger to provide the behavior expected by line 4. As  before, we need to write the trigger to loop through a batch, while  minimizing database calls to stay within governor limits.<br><span style="font-size:x-small;"><br><span style="font-family:'Courier New', Courier, monospace;">// (2) On update, if not isImport and haveOpp, delete opp</span><span style="font-family:'Courier New', Courier, monospace;"> </span></span><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">if (Trigger.isUpdate) {</span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">           </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">Map opps = NU_a2zOpps.getOpps(Trigger.new);</span><br><span style="font-family:'Courier New', Courier, monospace;">           Set ids = opps.Keyset();</span><br><span style="font-family:'Courier New', Courier, monospace;">           List omega = new List();</span><br><span style="font-family:'Courier New', Courier, monospace;">           for (Account a : Trigger.new) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                   if ( !a.NU_isA2zImportc &amp;&amp; ids.contains(a.Id)) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                       omega.add(opps.get(a.Id)); // (2)</span><br><span style="font-family:'Courier New', Courier, monospace;">                   }  </span><br><span style="font-family:'Courier New', Courier, monospace;">           }</span><br><span style="font-family:'Courier New', Courier, monospace;">           if (omega.size()&gt;0) delete omega;</span><br><span style="font-family:'Courier New', Courier, monospace;">}</span></span><br><br>The  crux of the code change is determining if we have a related opportunity  to delete. Easy enough with one Account, but in the case of a trigger,  we might have to check 200 accounts, and <a href="http://www.salesforce.com/us/developer/docs/apexcode/Content/apex_gov_limits.htm" target="_blank" rel="external">our query limit is only 100</a>.  Since the trigger passes us the set of Accounts in the batch, it’s not  difficult to retrieve the set of Opportunities related to those  Accounts. Though, now that we have a utility class, we should keep the  query details encapsulated behind another helper method.<br><br>The <span style="font-family:'Courier New', Courier, monospace;">getOpps</span> helper method returns a Map itemizing the accounts  in our batch that have related a2z opportunities.<br><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// The getOpps helper method </span><br><br><span style="font-family:'Courier New', Courier, monospace;">static public Map getOpps(List accounts) {    </span><br><span style="font-family:'Courier New', Courier, monospace;">        List oppsList = new List();</span><br><span style="font-family:'Courier New', Courier, monospace;">        Map opps = new Map();</span><br><span style="font-family:'Courier New', Courier, monospace;">        Integer count = [</span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">                </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">SELECT COUNT() </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">                </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">FROM Opportunity </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">                </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">WHERE RecordTypeId = :A2Z_RECORD_TYPE_ID </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">                    </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">AND StageName = :A2Z_STAGE_NAME </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">                    </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">AND AccountId IN :accounts</span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">        </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">];</span><br><span style="font-family:'Courier New', Courier, monospace;">        if (count&gt;0) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                oppsList = [</span><br><span style="font-family:'Courier New', Courier, monospace;">                    SELECT AccountId FROM Opportunity</span><br><span style="font-family:'Courier New', Courier, monospace;">                    WHERE RecordTypeId = :A2Z_RECORD_TYPE_ID</span><br><span style="font-family:'Courier New', Courier, monospace;">                        AND StageName = :A2Z_STAGE_NAME</span><br><span style="font-family:'Courier New', Courier, monospace;">                        AND AccountId IN :accounts</span><br><span style="font-family:'Courier New', Courier, monospace;">                ];</span><br><span style="font-family:'Courier New', Courier, monospace;">                for (Opportunity o : oppsList) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                    opps.put(o.AccountId,o);</span><br><span style="font-family:'Courier New', Courier, monospace;">                }</span><br><span style="font-family:'Courier New', Courier, monospace;">        }</span><br><span style="font-family:'Courier New', Courier, monospace;">        return opps;</span><br><span style="font-family:'Courier New', Courier, monospace;">}    </span></span><br><br>A critical clause in the helper’s SELECT statement is “<span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">AccountId IN :accounts</span></span>“.  This clause ensures that we only retrieve the Opportunities that are  related to Accounts in the current batch. Without this clause, we could  retrieve more Opportunities than allowed by the Force.com governor  (50,000). The helper also makes a point of returning an empty Map if  there are no matching opportunities, simplifying life for the caller.<br><br>While  we’ve been coding the trigger to act on a batch, our tests have not  been passing a batch of objects to the trigger. Let’s add a test to be  sure batch mode is working.<br><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// Test to verify that insert works with batches of records</span><br><br><span style="font-family:'Courier New', Courier, monospace;">/<strong></strong></span><br><span style="font-family:'Courier New', Courier, monospace;"> <em> Exercise Insert Import in batch mode.</em></span><br><span style="font-family:'Courier New', Courier, monospace;"> /</span><br><span style="font-family:'Courier New', Courier, monospace;">static testMethod void verifyBatchInsert() {</span><br><span style="font-family:'Courier New', Courier, monospace;">        List rows = new List();</span><br><span style="font-family:'Courier New', Courier, monospace;">        for (Integer r=0; r&lt;200; r++) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                rows.add(newAccount(true, r));</span><br><span style="font-family:'Courier New', Courier, monospace;">        }</span><br><span style="font-family:'Courier New', Courier, monospace;">        insert(rows);</span><br><span style="font-family:'Courier New', Courier, monospace;">        List inserted = [</span><br><span style="font-family:'Courier New', Courier, monospace;">              SELECT id, NU_isA2zImport<strong>c, CompanyNumber</strong>c</span><br><span style="font-family:'Courier New', Courier, monospace;">              FROM Account</span><br><span style="font-family:'Courier New', Courier, monospace;">              WHERE id in :rows</span><br><span style="font-family:'Courier New', Courier, monospace;">        ];</span><br><span style="font-family:'Courier New', Courier, monospace;">        Set ids = NU_a2zOpps.getOpps(inserted).Keyset();</span><br><span style="font-family:'Courier New', Courier, monospace;">          Boolean  success = true;</span><br><span style="font-family:'Courier New', Courier, monospace;">          for (Account a : inserted) {        </span><br><span style="font-family:'Courier New', Courier, monospace;">                   success = success &amp;&amp; ids.contains(a.Id);            </span><br><span style="font-family:'Courier New', Courier, monospace;">          }</span><br><span style="font-family:'Courier New', Courier, monospace;">          System.assert(success,’Expected opps on batch insert.’);</span><br><span style="font-family:'Courier New', Courier, monospace;">}</span></span><br><br>Running  the test, initially, we hit a problem with a helper method. This  particular organization includes an external ID that must be unique for  each record. In batch mode, our external IDs are not unique, and so we  hit a validation error. A quick fix is to pass in the counter from the  loop, creating a serial number for each Account.<br><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// newAccount with offset parameter </span></span><br><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">static Account newAccount(Boolean doImport, Integer offset<strong>) {</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">        Account a = new Account(</span><br><span style="font-family:'Courier New', Courier, monospace;">                Name = ‘Test Account’,</span><br><span style="font-family:'Courier New', Courier, monospace;">                CompanyNumber<strong>c = String.valueOf(offset)</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">        );</span><br><span style="font-family:'Courier New', Courier, monospace;">        if (doImport) a.NU_isA2zImportc = true; // False is default</span><br><span style="font-family:'Courier New', Courier, monospace;">        return a;</span><br><span style="font-family:'Courier New', Courier, monospace;">}</span><br><br><span style="font-family:'Courier New', Courier, monospace;">// for backward-compatibility</span><br><span style="font-family:'Courier New', Courier, monospace;">static Account newAccount(Boolean doImport) {</span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">        </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">return newAccount(doImport, 0);</span><br><span style="font-family:'Courier New', Courier, monospace;">}</span></span><br><br>And, a batch delete test.<br><br><div><span style="font-size:x-small;">// batchDelete </span></div><div><br></div><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">static testMethod void batchDelete() {</span><br><span style="font-family:'Courier New', Courier, monospace;">        List rows = new List();</span><br><span style="font-family:'Courier New', Courier, monospace;">            for (Integer r=0; r&lt;200; r++) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                rows.add(newAccount(true, r));</span><br><span style="font-family:'Courier New', Courier, monospace;">        }</span><br><span style="font-family:'Courier New', Courier, monospace;">        insert rows;</span><br><span style="font-family:'Courier New', Courier, monospace;">        List inserted = [</span><br><span style="font-family:'Courier New', Courier, monospace;">               SELECT id, NU_isA2zImport<strong>c, CompanyNumber</strong>c</span><br><span style="font-family:'Courier New', Courier, monospace;">               FROM Account</span><br><span style="font-family:'Courier New', Courier, monospace;">               WHERE id in :rows</span><br><span style="font-family:'Courier New', Courier, monospace;">        ];</span><br><span style="font-family:'Courier New', Courier, monospace;">        for (Account a : inserted) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                a.NU_isA2zImport<strong>c = false;</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">        }</span><br><span style="font-family:'Courier New', Courier, monospace;">        update inserted;</span><br><span style="font-family:'Courier New', Courier, monospace;">        Set ids = NU_a2zOpps.getOpps(inserted).Keyset();        </span><br><span style="font-family:'Courier New', Courier, monospace;">        Boolean success = true;</span><br><span style="font-family:'Courier New', Courier, monospace;">        for (Account a : inserted) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                success = success &amp;&amp; !ids.contains(a.Id);            </span><br><span style="font-family:'Courier New', Courier, monospace;">        }</span><br><span style="font-family:'Courier New', Courier, monospace;">        System.assert(success,’Expected no opps on batch delete.’);        </span><br><span style="font-family:'Courier New', Courier, monospace;">}</span></span><br><br>Both  of the new tests are passing, but they seem to repeat a lot of code,  and we have a third requirement coming up that will also need batch mode  testing. Let’s see if we can create a helper class that can serve both  tests.<br><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// batchHelper method</span></span><br><span style="font-size:x-small;"><br><span style="font-family:'Courier New', Courier, monospace;">static void batchHelper(Boolean insImp) {</span><br><span style="font-family:'Courier New', Courier, monospace;">       List rows = new List();</span><br><span style="font-family:'Courier New', Courier, monospace;">       for (Integer r=0; r&lt;200; r++) {</span><br><span style="font-family:'Courier New', Courier, monospace;">               rows.add(newAccount(insImp, r));</span><br><span style="font-family:'Courier New', Courier, monospace;">       }</span><br><span style="font-family:'Courier New', Courier, monospace;">       insert rows;</span><br><span style="font-family:'Courier New', Courier, monospace;">       List inserted = [</span><br><span style="font-family:'Courier New', Courier, monospace;">               SELECT id, NU_isA2zImportc, CompanyNumber<strong>c</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">               FROM Account</span><br><span style="font-family:'Courier New', Courier, monospace;">               WHERE id in :rows</span><br><span style="font-family:'Courier New', Courier, monospace;">       ];</span><br><span style="font-family:'Courier New', Courier, monospace;">       // For delete, we need to update the flag</span><br><span style="font-family:'Courier New', Courier, monospace;">       if (!insImp) {</span><br><span style="font-family:'Courier New', Courier, monospace;">               for (Account a : inserted) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                       a.NU_isA2zImportc = false;            </span><br><span style="font-family:'Courier New', Courier, monospace;">               }</span><br><span style="font-family:'Courier New', Courier, monospace;">               update inserted;</span><br><span style="font-family:'Courier New', Courier, monospace;">       }</span><br><span style="font-family:'Courier New', Courier, monospace;">       Set ids = NU_a2zOpps2.getOpps(inserted).Keyset();        </span><br><span style="font-family:'Courier New', Courier, monospace;">       Boolean success = true;</span><br><span style="font-family:'Courier New', Courier, monospace;">       if (insImp) {</span><br><span style="font-family:'Courier New', Courier, monospace;">               for (Account a : inserted) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                       success = success &amp;&amp; ids.contains(a.Id);            </span><br><span style="font-family:'Courier New', Courier, monospace;">               }</span><br><span style="font-family:'Courier New', Courier, monospace;">               System.assert(success,’Expected opps on batch insert.’);</span><br><span style="font-family:'Courier New', Courier, monospace;">       } else {</span><br><span style="font-family:'Courier New', Courier, monospace;">               for (Account a : inserted) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                       success = success &amp;&amp; !ids.contains(a.Id);            </span><br><span style="font-family:'Courier New', Courier, monospace;">               }</span><br><span style="font-family:'Courier New', Courier, monospace;">               System.assert(success,’Expected no opps on batch delete.’);        </span><br><span style="font-family:'Courier New', Courier, monospace;">       }</span><br><span style="font-family:'Courier New', Courier, monospace;">}</span><br><br><span style="font-family:'Courier New', Courier, monospace;">/</span><br><span style="font-family:'Courier New', Courier, monospace;"> <em> Exercises Batch insert.</em></span><br><span style="font-family:'Courier New', Courier, monospace;"> /</span><br><span style="font-family:'Courier New', Courier, monospace;">static testMethod void batchHelperIns() {</span><br><span style="font-family:'Courier New', Courier, monospace;">    batchHelper(false);</span><br><span style="font-family:'Courier New', Courier, monospace;">}</span><br><br><span style="font-family:'Courier New', Courier, monospace;">/<em>*</em></span><br><span style="font-family:'Courier New', Courier, monospace;">  Exercises Batch delete.</span><br><span style="font-family:'Courier New', Courier, monospace;"> <em>/</em></span><br><span style="font-family:'Courier New', Courier, monospace;">static testMethod void batchHelperDel() {</span><br><span style="font-family:'Courier New', Courier, monospace;">    batchHelper(true);</span><br><span style="font-family:'Courier New', Courier, monospace;">}    </span></span><br><br>By passing a flag, we are able to use one utility for both cases, and share 90% of the code.<br><br>Repeating  the patterns we’ve seen, we can test and refactor our way into a  robust, reliable trigger to manage our integration object.<br><br>For the complete production source  code (without the play-by-play), see <a href="http://tedhusted.blogspot.com/2012/03/managing-related-object-via-checkbox-in.html" target="_blank" rel="external">Managing a Related Object via a  Checkbox in Salesforce CRM</a>.<br><div style="font-family:inherit;"><br></div>Key takeaways are: 
+
+   Use a utility class to share code between test and domain classes.<br><em>   Use helper methods to share code between similar test methods.
+</em>   Use the SELECT-IN-SET pattern to keep triggers within governor limits.Test Driven Development is a rigorous, structured approach that  helps us create robust and reliable code. Since TDD uses successive  refinement, we can easily extend and improve the code over time.</div><div style="font-family:inherit;"><br></div>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;separator&quot; style=&quot;clear:both;text-align:center;&quot;&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Drawing_Hands&quot; target=&quot;_blank&quot; rel=&quot;exter
+    
+    </summary>
+    
+      <category term="Reviews" scheme="http://ted.husted.com/categories/Reviews/"/>
+    
+    
+      <category term="Force.com" scheme="http://ted.husted.com/tags/Force-com/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Test Driven Development with Apex on Force.com</title>
+    <link href="http://ted.husted.com/2012/03/04/test-driven-development-with-apex-on-force-com/"/>
+    <id>http://ted.husted.com/2012/03/04/test-driven-development-with-apex-on-force-com/</id>
+    <published>2012-03-04T11:00:00.000Z</published>
+    <updated>2017-02-18T21:35:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><div class="separator" style="clear:both;text-align:center;"><a href="http://teachingunderground.blogspot.com/2011/04/catching-carrot-and-breaking-stick.html" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2012/03/968d3-carrot-with-stick.jpg" alt=""></a></div><br>As far as I know, Force.com – the software development platform for Salesforce CRM – is the only platform that <strong>requires</strong> unit test coverage for production code. Before an Apex developer can deploy custom code to a production environment, the overall unit test coverage for the environment must be 75% or better.</p>
+<p><span style="font-size:large;"><strong><span style="font-size:small;">What is Unit Test Coverage?</span></strong></span></p>
+<p>Let’s look at a simplistic, contrived example of unit test coverage. For demonstration purposes, the <span style="font-family:'Courier New', Courier, monospace;">HelloWorld</span> Class shows an Apex function that tests whether the text of a string matches “Hello World” or not.<br><a name="more"></a><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// HelloWord Class</span></span></p>
+<p><span style="font-family:'Courier New', Courier, monospace;">public class HelloWorld {</span><span style="font-family:'Courier New', Courier, monospace;"><br>public static String isHelloWorld(String myString) {</span><br><span style="font-family:'Courier New', Courier, monospace;">    if (myString.equals(‘Hello World’)) return ‘Yes it is!’; <strong>// Line 1</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">    else return ‘No it is not!’: <strong>// Line 2</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">  }</span><br><span style="font-family:'Courier New', Courier, monospace;">}</span></p>
+<p>The <span style="font-family:'Courier New', Courier, monospace;">verifyIsHelloWorld</span> test method exercises our gratuitous example</p>
+<p><span style="font-family:'Courier New', Courier, monospace;font-size:x-small;">// verifyIsHelloWorld test method</span></p>
+<p>@isTest<br>private class TEST_HelloWorld {<br>static testMethod void verifyIsHelloWorld () {<br>String outcome = HelloWorld.isHelloWorld (‘Hello World’);<br>System.assert(outcome == ‘Yes it is!’, ‘Expected positive message.’) ;<br>}<br>}</p>
+<p>At this point, we have 66% test coverage, because our test exercises only one of the two statements in <span style="font-family:'Courier New', Courier, monospace;">isHelloWorld</span> (line 1).</p>
+<p>To bring test coverage up to 100%, we need to add another test method.</p>
+<p><div><span style="font-size:x-small;"> </span></div></p>
+<div>
+
+<p><span style="font-size:x-small;">// Another test method</span></p>
+<p>static testMethod void verifyIsHelloWorldFalse() {<br>String outcome = HelloWorld.isHelloWorld (‘Hello Kitty’);<br>System.assert(outcome == ‘No it is not!’, ‘Expected negative message.’) ;<br>}</p>
+<p></p></div><br>With both of these test methods in play, our code now has 100% coverage.<p></p>
+<p><strong>Why is test coverage important?</strong></p>
+<p>Salesforce.com has high standards for its own code and expects custom Apex code to also be robust and error-free. One of the best ways to increase code quality is to encourage developers to write unit tests. <a href="http://nparc.cisti-icist.nrc-cnrc.gc.ca/npsi/ctrl?action=shwart&amp;index=an&amp;req=5763742&amp;lang=en" target="_blank" rel="external">Witness a 2005 study found that unit tests increased both coder productivity and code quality.</a></p>
+<p>While it’s possible for developers to boost code coverage with pointless tests, hardcore coders see unit tests as a way to release better code sooner – the keyword being “release”. The time spent on proactive unit testing is a trade-off with the time spent on reactive debugging. We can find our own bugs ourselves with unit tests, or wait and fix them later when a feature comes back with a QA ticket attached.</p>
+<p>In my own work, I’ve found that the best way to ensure that code has adequate test coverage to practice test-driven development (TDD).</p>
+<p><strong>What is Test Driven Development (TDD)?</strong></p>
+<p>For the uninitiated, a classic way to bootstrap unit testing (and TDD) is to start with defect reports. Before fixing a bug, a developer first writes a test that proves that the defect exists. For example, if someone reports that <span style="font-family:'Courier New', Courier, monospace;">isHelloWorld</span> fails if we pass in a null string, we could start with a test like the one shown by <span style="font-family:'Courier New', Courier, monospace;">verifyIsHelloWorldNull</span>.</p>
+<p><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// verifyIsHelloWorldNull</span></span></p>
+<p>static testMethod void verifyIsHelloWorldNull() {<br>String outcome = HelloWorld.isHelloWorld (null);<br>System.assert(outcome == ‘No it is not!’, ‘Expected negative message.’) ;<br>}</p>
+<p><div style="font-family:inherit;"></div></p>
+<p><div style="font-family:inherit;"><span style="font-size:x-small;"> </span></div><br>If we run this test, it raises an exception “System.NullPointerException: Attempt to de-reference a null object”.</p>
+<p>Since an exception counts as a failing test, we can proceed with the fix, say, by changing the code from:</p>
+<p>| <span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">if (myString.equals(‘Hello World’)) return ‘Yes it is!’; <strong>// Line 1</strong></span></span></p>
+<p>to:</p>
+<p>| <span style="font-family:'Courier New', Courier, monospace;font-size:x-small;">if ‘HelloWorld’.equals(‘myString’) return ‘Yes it is!’; <strong>// Line 1</strong></span></p>
+<p>and maybe, for good measure, including a fourth test case for an empty string.</p>
+<div>
+
+<p><span style="font-size:x-small;">// Test for empty String</span></p>
+<p>final static String EMPTY = ‘’;<br>static testMethod void verifyIsHelloWorldEmpty() {<br>String outcome = HelloWorld.isHelloWorld (EMPTY);<br>System.assert(outcome == ‘No it is not!’, ‘Expected negative message.’) ;<br>}</p>
+<p></p></div><br><span style="font-family:inherit;">Once all of our tests are passing, we could even refactor the code, and improve the internal design by using a constant and a single comparison.</span><p></p>
+<div>
+
+<p><span style="font-size:x-small;">// Code refactored</span></p>
+<p>public class HelloWorld {<br>public final static String HELLO_WORLD = ‘Hello World’;<br>public final static String YES_WORLD = ‘Yes it is!’;<br>public final static String NO_WORLD = ‘No it is not!’;<br>public static String isHelloWorld(String myString) {<br>return (HELLO_WORLD.equals(myString)) ? YES_WORLD : NO_WORLD;<br>}<br>}</p>
+<p></p></div><br><span style="font-family:inherit;">If our tests pass (they do), we can be confident that our refactoring did not break the code’s external behavior. Passing tests give us the courage to refine existing code and improve the internal design.</span><p></p>
+<p>The key idea behind TDD is to “never write a line of code without a failing test”. If we are going to write the test anyway, better to write it first, code to the test, and receive full benefit for the time we invest.</p>
+<p><strong>How do we test code that doesn’t exist?</strong></p>
+<p>In an Apex environment, a unit test usually operates at the class level. To bootstrap testing a class or method that does not exist, we can start coding the test, create a stub class with stub methods, sufficient to compile the test, confirm that it fails, and then fill-in functionality to pass the test.</p>
+<p>Let’s start over from scratch. First, we should define our requirements for the <span style="font-family:'Courier New', Courier, monospace;">isHelloWorld</span> method.</p>
+<p><span style="font-family:inherit;"> <span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// isHelloWorld requirements</span></span></span></p>
+<p>/**</p>
+<ul>
+<li>The isHelloWorld method determines if a String equals ‘Hello World’.</li>
+<li>(1) Given the String ‘Hello World’, the method returns “Yes, it Is.”</li>
+<li>(2) Given some other String, the method returns ‘No, it is not!’.</li>
+<li>(3) Given a null or empty string, the method returns ‘No, it is not!’.<br>*/<br><div style="font-family:inherit;"></div><br><div style="font-family:inherit;"><span style="font-size:small;">Then, we can write a “happy path” test for the first requirement.</span></div><br><div style="font-family:inherit;"></div><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// A happy path test for requirement (1)</span></span></li>
+</ul>
+<p>final static String POSITIVE = ‘Expected positive message.’;<br>static testMethod void verifyIsHelloWorld () {<br>String outcome = HelloWorld.isHelloWorld (‘Hello World’);<br>System.assert(outcome == HelloWorld.YES_WORLD,POSITIVE ) ;<br>}<span style="font-family:inherit;"> </span></p>
+<p><div style="font-family:inherit;"><span style="font-size:small;">provide a stub Hello World class to compile the test</span></div></p>
+<p><div style="font-family:inherit;"><span style="font-size:x-small;"> </span></div><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;"><br>// A HelloWorld stub class</span></span></p>
+<p>public class HelloWorld {<br>public static String isHelloWorld(String myString) {<br>return null;<br>}<br>}</p>
+<p><div style="font-family:inherit;"><span style="font-size:small;">add just enough behavior to pass one test for one requirement</span></div><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;"><span style="font-size:small;"><br></span>// Coding requirement (1)</span></span></p>
+<p>public final static String HELLO_WORLD = ‘Hello World’;<br>public final static String YES_WORLD = ‘Yes it is!’;</p>
+<p>public static String isHelloWorld(String myString) {<br>return HELLO_WORLD.equals(myString) ? YES_WORLD : return null;<br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">}</span></span></p>
+<p><div style="font-family:inherit;"></div></p>
+<p><div style="font-family:inherit;"><span style="font-size:small;">then another requirement</span></div><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;"><br>// Testing requirement (2)</span></span></p>
+<p>final static String NEGATIVE =’Expected negative message.’;<br>static testMethod void verifyIsHelloWorldFalse () {<br>String outcome = HelloWorld.isHelloWorld (‘Hello Kitty’);<br>System.assert(outcome == HelloWorld.NO_WORLD,NEGATIVE ) ;<br>}</p>
+<p>// Coding requirements (1) and (2)</p>
+<p>public final static String HELLO_WORLD = ‘Hello World’;<br>public final static String YES_WORLD = ‘Yes it is!’;<br>public final static String NO_WORLD = ‘No it is not!’;</p>
+<p>public static String isHelloWorld(String myString) {<br>return HELLO_WORLD.equals(myString) ? YES_WORLD : NO_WORLD;<br>}</p>
+<p><div style="font-family:inherit;"><span style="font-size:small;">and a third</span></div><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">  </span></span><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// Testing requirement (3)</span></span></p>
+<p>static testMethod void verifyIsHelloWorldNull() {<br>String outcome = HelloWorld.isHelloWorld (null);<br>System.assert(outcome == HelloWorld.NO_WORLD,NEGATIVE );<br>}</p>
+<p>final static String EMPTY = ‘’;<br>static testMethod void verifyIsHelloWorldEmpty() {<br>String outcome = HelloWorld.isHelloWorld (EMPTY);<br>System.assert(outcome == HelloWorld.NO_WORLD,NEGATIVE );<br>}<br><span style="font-family:inherit;font-size:small;"><span style="font-family:'Courier New', Courier, monospace;"> </span> </span><br><span style="font-family:inherit;font-size:small;">For requirement 3, we added two test methods, but did not need to change any code, since the current implementation passed the tests.</span></p>
+<p>To fully test the method, we might also <a href="http://developer.force.com/cookbook/recipe/construct-random-strings-of-large-sizes-in-your-apex-tests" target="_blank" rel="external">add a test for a string of maximum length</a>, so that we test both boundaries. But, as it stands, we have 100% test coverage, and a test for each stated requirement, which meets my own personal “definition of done”.</p>
+<p>Three takeaways from this exercise are:</p>
+<ul>
+<li><span style="font-family:inherit;font-size:small;"> Never write a line of code without a failing test.</span></li>
+<li><span style="font-family:inherit;font-size:small;"> Test every requirement, one requirement at a time.</span></li>
+<li><span style="font-family:inherit;font-size:small;"> Passing tests give us the courage to refactor.</span><br><span style="font-family:inherit;font-size:small;"> In a followup blog, <a href="http://tedhusted.blogspot.com/2012/03/test-driven-development-with-apex.html" target="_blank" rel="external">TDD with Apex Triggers,</a> we look at how Test Driven Development works in practice, with a real-life non-trivial example.</span><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;"><span style="font-family:inherit;"></span></span></span></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;div class=&quot;separator&quot; style=&quot;clear:both;text-align:center;&quot;&gt;&lt;a href=&quot;http://teachingunderground.blogspot.com/2011/04/catching-carrot-and
+    
+    </summary>
+    
+      <category term="Reviews" scheme="http://ted.husted.com/categories/Reviews/"/>
+    
+    
+      <category term="Force.com" scheme="http://ted.husted.com/tags/Force-com/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Keeping Salesforce Implementations on Track with Milestones PM and ChangeIT</title>
+    <link href="http://ted.husted.com/2012/01/04/keeping-salesforce-implementations-on-track-with-milestones-pm-and-changeit/"/>
+    <id>http://ted.husted.com/2012/01/04/keeping-salesforce-implementations-on-track-with-milestones-pm-and-changeit/</id>
+    <published>2012-01-04T14:01:00.000Z</published>
+    <updated>2017-02-18T21:35:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>A secret to the success of Salesforce CRM is how easy it is to customize and extend. Out of the box, Salesforce provides new users with a world-class framework for enabling collaboration between staff members and customers, or between staff and staff, or even between customers and customers (if you dare!). If that wasn’t enough, Salesforce provides a variety of ways to tailor your instance of the framework, so that it fits your own processes like a glove. </p>
+<p>When folks first implement Salesforce, it’s easy to get carried away. Salesforce CRM can do so much, it’s tempting (but not practical) to try and do everything at once. In fact, Salesforce.com recommends that people spread out customization plans, so that refinement becomes an ongoing process. </p>
+<p>Happily, two of the many Salesforce extensions include a project tracking app called “<a href="http://appexchange.salesforce.com/listingDetail?listingId=a0N30000005tvt6EAA" target="_blank" rel="external">Milestones PM</a>“ and a change tracking app called “<a href="http://appexchange.salesforce.com/listingDetail?listingId=a0N300000016ct3EAA" target="_blank" rel="external">ChangeIt</a>“. You can use Milestones PM to organize implementation projects, and ChangeIt to gather and prioritize new change requests. Both can be installed into your environment from the <a href="http://appexchange.salesforce.com/home" target="_blank" rel="external">Salesforce AppExchange</a>, free of additional charge.</p>
+<p><strong>Milestones PM</strong></p>
+<p>Milestones PM is an elegant approach to project tracking that makes it easy to capture and follow a classic work breakdown structure. It’s a great fit for IT projects, but the app would work just as well for any type of task-based project, such as organizing a retreat, publishing a newsletter, or planning an office move. </p>
+<p>The application uses six objects to track progress: Project, Log, Milestone, Task, Time, and Expense, as shown in the illustration.</p>
+<p><a href="https://tedhusted.files.wordpress.com/2012/01/9ef16-6a00d8341cded353ef014e5f4794a0970c-pi.png" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2012/01/9ef16-6a00d8341cded353ef014e5f4794a0970c-pi.png?w=300" alt=""></a><strong>Project</strong> is the top-level container for the other five objects. Aside from tracking key details – like a Kick-Off Date, Deadline, and Description – a Project contains a set of Milestones, along with an optional Log records.</p>
+<p><strong>Logs</strong> are generic memo records that you can attach to a Project, Task, Time, or Expense record. Logs can be used to capture any miscellaneous detail that doesn’t fit neatly into the other fields. </p>
+<p><strong>Milestones</strong> are the key organizing object within a project. To be useful, a Project must contain at least one Milestone record, which in turn can contain Task, Time, or Expense records. Milestones can have their own Kickoff and Deadline Dates, and be linked to Parent, Predecessor, or Successor Milestones. While not as featureful as Microsoft Project dependencies, good use of the Parent, Predecessor, and Successor Milestone groupings can make complex projects easier to understand and navigate. </p>
+<p>The backbone of any project are the <strong>Tasks</strong>. Every Task must have a Name and be assigned to a Milestone, and can also track an Assignee, Start and Due Dates, statuses like Priority (0-4), Stage (In progress, Resolved, Closed) and Class (Ad Hoc, Defect, Rework), Estimates, and other properties. </p>
+<p><strong>Time</strong> and <strong>Expense</strong> records can be attached to Tasks, which are tallied as part of the Project’s overall metrics. </p>
+<p><a href="https://tedhusted.files.wordpress.com/2012/01/17a07-mpm-dashboard.png" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2012/01/17a07-mpm-dashboard.png?w=300" alt=""></a>As shown in the screen shot, Milestones PM makes excellent use of native Salesforce metrics, and integrates with other native features like Chatter and Calendar It also supports batch operations based on views and comes bundled with two dozen ready-to-run Reports.</p>
+<p>Even better, Milestones PM is an <a href="http://appexchange.salesforce.com/results?filter=9&amp;sort=6&amp;type=Apps" target="_blank" rel="external">Aloha App</a>, so it doesn’t count against the number of tabs or objects your Salesforce instance consumes.</p>
+<p><strong>ChangeIT</strong></p>
+<p>Like housework, a good Salesforce implementation is never done. The platform is so flexible and so deep, there will always be ways to make it work even better for your users. The ChangeIT application provides a vehicle for tracking new features and fixes (which you could then turn into Milestone PM tasks).</p>
+<p>In a nutshell, ChangeIT provides a simple way to manage changes to your Salesforce instance, and to notify team members when changes are scheduled or implemented. It also helps coordinate change requests, so developers and administrators are not stepping on each other.</p>
+<p><div class="separator" style="clear:both;text-align:center;"><a href="https://tedhusted.files.wordpress.com/2012/01/5f96e-changeit.png" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2012/01/5f96e-changeit.png?w=300" alt=""></a></div>The application provides a single, simple tab with a form for making change requests, as shown in the illustration.</p>
+<p>Saving the initial request triggers an approval workflow to the individuals that you set up. Once the initial request is approved or denied, the request can be worked on by developers or administrators (and/or transferred to Milestones PM). The application also includes a dashboard and supporting reports to view the pipeline of request changes. </p>
+<p>Since the applications are independent, you can use either or both – your instance, your choice!</p>
+<p>We’re always exploring better approaches to project tracking, with applications like Basecamp, Tom’s Planner, JIRA, and OnTime. Do you have a favorite tool? What features do you love? What features do you miss?</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;A secret to the success of Salesforce CRM is how easy it is to customize and extend. Out of the box, Salesforce provides new users with a
+    
+    </summary>
+    
+      <category term="Reviews" scheme="http://ted.husted.com/categories/Reviews/"/>
+    
+    
+      <category term="Salesforce" scheme="http://ted.husted.com/tags/Salesforce/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ted @ ApacheCon</title>
+    <link href="http://ted.husted.com/2011/11/04/ted-at-apachecon/"/>
+    <id>http://ted.husted.com/2011/11/04/ted-at-apachecon/</id>
+    <published>2011-11-04T19:22:00.000Z</published>
+    <updated>2017-02-18T21:31:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><div class="separator" style="clear:both;text-align:center;"><a href="http://www.apachecon.com/" target="_blank" rel="external"><img src="http://na11.apachecon.com/attachments/0002/0346/speaker-125x125.gif" alt=""></a></div><br>Ted Husted of NimbleUser will be speaking at <a href="http://www.blogger.com/www.apachecon.com/" target="_blank" rel="external">ApacheCon in Vancouver BC CA</a> on November 10 and 11 on “The Secret Life of Open Source” and “.NET @ Apache.org”.</p>
+<p><strong>The Secret Life of Open Source</strong></p>
+<p>Apache, GNU, Mozilla, Ubuntu, PHP, LibreOffice, Wikipedia – Today, there are hundreds of open source groups, each with its own culture, methodology, and governance model.</p>
+<ul>
+<li>How are these groups alike?</li>
+<li>How are they different?</li>
+<li>Is there one true path to open source enlightenment, or do many paths converge around a common singularity?<br><strong>.NET at Apache.org</strong></li>
+</ul>
+<p>Like it or not, many open source developers are moving to the Microsoft .NET platform, and we’re bringing our favorite tools with us! This session looks inside ASF projects that are creating software for .NET and Mono – like ActiveMQ, Chemistry, Logging, Lucene, QPid, and Thrift – and show how to create leading-edge ASP.NET applications with ASF open source libraries. We’ll also look at integrating other .NET open source projects, like Spring.NET, NVelocity, and JayRock, into your C# application to create a complete open source .NET stack.</p>
+<p>Before joining NimbleUser, Ted consulted with teams throughout the United States, including CitiGroup, Nationwide Insurance, and Pepsi Bottling Group, and he is a regular speaker at ApacheCon and the Ajax Experience. Ted is also a former member of the Apache Struts project and co-founder of the Apache (Jakarta) Commons. His books include Google Wave (Preview) Explained, JUnit in Action, Struts in Action, and Professional JSP Site Design.</p>
+<p>As a Business Analyst for NimbleUser, Ted concentrates on identifying business needs and crafting solutions that meet an organization’s goals, objectives, and budget. Locally, he also serves as VP of Finance for the Rochester Chapter of the International Institute for Business Analysis (IIBA).</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;div class=&quot;separator&quot; style=&quot;clear:both;text-align:center;&quot;&gt;&lt;a href=&quot;http://www.apachecon.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;img src=
+    
+    </summary>
+    
+      <category term="Events" scheme="http://ted.husted.com/categories/Events/"/>
+    
+    
+      <category term="ASF" scheme="http://ted.husted.com/tags/ASF/"/>
+    
+      <category term="Open Source" scheme="http://ted.husted.com/tags/Open-Source/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Salesforce User Group - Speed Demoing</title>
+    <link href="http://ted.husted.com/2011/06/10/salesforce-user-group-speed-demoing/"/>
+    <id>http://ted.husted.com/2011/06/10/salesforce-user-group-speed-demoing/</id>
+    <published>2011-06-10T10:33:00.000Z</published>
+    <updated>2017-02-18T21:31:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><div class="separator" style="clear:both;text-align:left;"><a href="http://www.linkedin.com/groups?mostPopular=&amp;gid=2875209&amp;trk=myg_ugrp_ovr" target="_blank" rel="external"><img src="https://static.licdn.com/sc/p/com.linkedin.communities-frontend%3Acommunities-frontend-static-content%2B0.1.16/f/%2Fcommunities-frontend%2Fimages%2Fghost%2Fgroups-100.png" alt=""></a></div><br>Ten minutes doesn’t sound like much, but a handful of presenters cut to the chase and delivered some great Salesforce tech in 600 seconds each Thursday afternoon at a Speed Demo session of the <a href="http://www.linkedin.com/groups?mostPopular=&amp;gid=2875209&amp;trk=myg_ugrp_ovr" target="_blank" rel="external">Rochester Salesforce User Group</a>, hosted by Mark Cook of the Rochester Group at 600 Park Avenue.</p>
+<p><span style="font-size:large;"><strong>Create and update fields en masse</strong> (Tom Patros)</span></p>
+<p>Using the supremely helpful <a href="http://wiki.developerforce.com/index.php/Force.com_IDE" target="_blank" rel="external">Force IDE</a> (an Eclipse plugin), Tom showed how easy it can be to mass edit fields properties via XML metadata. Developers already use the IDE to create and text Apex classes and triggers. Tom walked through how admins can use the IDE to quickly add or update custom fields by editing the XML metadata definitions the Force IDE generates. While easy to use, the Salesforce graphical user interface can become tedious when mass editing a set of fields, making editing via XML seem like a breath of fresh air. You can even manage picklist definitions by editing the metadata. For extra credit, Tom also demoed a Google spreadsheet that can be used to craft and document the schema, and then generate the definition to use with the IDE.</p>
+<p><span style="font-size:large;"><strong>Connecting with SFDC API’s from Access</strong> (Bob Scott)</span></p>
+<p>One of the most popular Salesforce admin tools is the <a href="http://www.nimbleuser.com/blog.aspx?id=3712&amp;blogid=236&amp;terms=excel+connector" target="_blank" rel="external">Excel connector</a> that makes it easy to manage Salesforce data directly from Excel. Bob Scott walked through how Access can be used to, well, access Salesforce data in much the same way. With a bit of elbow grease, you can update SFDC from an Access application, or update SFDC from Access.</p>
+<p><span style="font-size:large;"><strong>Approval process simplified</strong> (Theresa Mason)</span></p>
+<p>Often, an Opportunity or Quote needs to go through an approval process, and to make it through the gauntlet, certain fields must be completed. Getting users to remember which fields to fill out first can be a challenge, especially in the excitement of taking an opportunity to the next level. Theresa showed us how to add a validation to a checkbox, to trigger an automatic review of a record submitting it to an approval workflow. Great way to reduce many rules to one: Check the box and follow the instructions.</p>
+<p><span style="font-size:large;"><strong>Synchronizer data mover</strong> (Rich Bilsback)</span></p>
+<p>Synchronizer is a Microsoft Access database that helps you automate data tasks in Salesforce. Rich walked us through how he uses the Syncronizer to keep local application data updated, and how to use a local application to update your Salesforce data in the cloud. To get started, <a href="http://appexchange.salesforce.com/listingDetail?listingId=a0N300000024ahkEAA" target="_blank" rel="external">grab the Synchronizer from the Sales Force AppExchange</a>. It’s a free “Aloha” application distributed by the Force.com Labs.</p>
+<p>Stayed turned to the <a href="http://www.linkedin.com/groups?mostPopular=&amp;gid=2875209&amp;trk=myg_ugrp_ovr" target="_blank" rel="external">Rochester Salesforce User Group on Linked In</a> for more Salesforce Thursdays coming this summer.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;div class=&quot;separator&quot; style=&quot;clear:both;text-align:left;&quot;&gt;&lt;a href=&quot;http://www.linkedin.com/groups?mostPopular=&amp;amp;gid=2875209&amp;amp;trk=m
+    
+    </summary>
+    
+      <category term="Events" scheme="http://ted.husted.com/categories/Events/"/>
+    
+    
+      <category term="Salesforce" scheme="http://ted.husted.com/tags/Salesforce/"/>
+    
+      <category term="Rochester NY" scheme="http://ted.husted.com/tags/Rochester-NY/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>The Facilitative Business Analyst and IIBA Rochester NY Chapter General Meeting</title>
+    <link href="http://ted.husted.com/2011/06/01/the-facilitative-business-analyst-and-iiba-rochester-ny-chapter-general-meeting/"/>
+    <id>http://ted.husted.com/2011/06/01/the-facilitative-business-analyst-and-iiba-rochester-ny-chapter-general-meeting/</id>
+    <published>2011-06-01T10:47:00.000Z</published>
+    <updated>2017-02-18T21:31:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Business Analysts develop requirements as process experts – not as content experts. Business analysis is the same regardless of the industry. Facilitators guide groups as process experts – not as content experts. Facilitation is the same regardless of the business. So, a Business Analyst should be a Facilitator.</p>
+<ul>
+<li>Time: Wednesday, June 8 · <span class="dtstart"> 5:30pm</span> - <span class="dtend"> 8:30pm</span></li>
+<li><p>Location: <span class="fn org">Valicia’s Ristorante, </span>2155 Long Pond Road, Greece NY<br>When the session is completed, the attendees will be able to:</p>
+</li>
+<li><p>Understand and describe why Facilitators and Business Analysts have the same skills.</p>
+</li>
+<li>Incorporate facilitation into their role as Business Analyst.</li>
+<li>Use Facilitation skills to help develop requirements.<br><div class="separator" style="clear:both;text-align:center;"><a href="http://mgrconsulting.com/images/stories/NewImages/gfx-dsc_140.jpg" target="_blank" rel="external"><img src="http://mgrconsulting.com/images/stories/NewImages/gfx-dsc_140.jpg" alt=""></a></div><br>Gary Rush, IAF CPF, Founder and President of MGR Consulting (mgrconsulting.com), attended the U.S. Naval Academy, has written numerous “how to” books and continues to be the leader in the field of facilitation and Facilitator training. He was Chair of the International Association of Facilitators (IAF) from 2008 through 2010.<br>Gary created FoCuSeDTM – the next revolution in structured facilitation. The FoCuSeDTM Facilitator Academy is the most complete, most comprehensive, and most effective facilitation class providing detailed training on the concepts of Holistic Facilitation. His facilitation technique is used widely around the world and his alumni are amongst the most successful.<br><a href="http://june82011generalmeeting.eventbrite.com/" target="_blank" rel="external">Register via Eventbrite</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Business Analysts develop requirements as process experts – not as content experts. Business analysis is the same regardless of the indus
+    
+    </summary>
+    
+      <category term="Events" scheme="http://ted.husted.com/categories/Events/"/>
+    
+    
+      <category term="Rochester NY" scheme="http://ted.husted.com/tags/Rochester-NY/"/>
+    
+      <category term="IIBA Rochester" scheme="http://ted.husted.com/tags/IIBA-Rochester/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Remembering the Habits</title>
+    <link href="http://ted.husted.com/2011/05/01/remembering-the-habits/"/>
+    <id>http://ted.husted.com/2011/05/01/remembering-the-habits/</id>
+    <published>2011-05-01T09:00:00.000Z</published>
+    <updated>2017-02-18T21:32:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><div class="separator" style="clear:both;text-align:center;"><a href="http://www.principalspage.com/theblog/archives/do-you-need-a-good-memory-to-work-at-a-school-i-hope-not" target="_blank" rel="external"><img src="http://www.principalspage.com/theblog/wp-content/uploads//2008/04/memory.jpg" alt=""></a></div><br>I’m a longtime fan of Covey’s Habits of Highly Effective People. What I like most about the habits is that they are a system. The habits are not a simple set of best practices, but a rich network of interrelated behaviors that reinforce one another.</p>
+<p>Here’s the habits, which I like to remember in the form of a litany:</p>
+<p>“Be proactive, begin with the end in mind, and put first things first. Seek first to understand then to be understood, think win-win, and synergize. Sharpen the saw, teach the habits, and introspect.”</p>
+<p>There are three sets of behaviors within the habits: public, private, and renewal, which I express in the three sentences of the litany.</p>
+<ul>
+<li>Personal: Be proactive, begin with the end in mind, and put first things first.</li>
+<li>Public: Seek first to understand then to be understood, think win-win, and synergize.</li>
+<li>Renewal: Sharpen the saw, teach the habits, and introspect.<br>Originally, there were seven habits, but after a while, Covey realized that there was a eighth habit, always implied, but not called out separately: “Teach the habits.”</li>
+</ul>
+<p>Ironically, Covey himself practiced “Teach the habits” by writing the original seven habits book, but had to go back and practice it once again in an “eighth habit” book.</p>
+<p>Likewise, in the litany, there is added a ninth habit: <em>Introspect</em>.</p>
+<p>In the Seven Habits, there is a key question that Covey asks us to consider:</p>
+<ul>
+<li>“What is one thing you could do, that, if you did it on a regular basis, would make a tremendous positive difference in your personal or professional life?”<br>(Or: What am I not doing that I should be doing in order to be more effective?)</li>
+</ul>
+<p>In my mind, asking this question goes beyond a background process. The question helps us choose which jungles to harvest. I see “Introspection” as a separate habit, a final link in the chain. A thoughtful answer to the “regular-basis” question closes the loop and brings us back to Habit 1: <em>Be proactive</em>.</p>
+<p>Brother Covey also numbers the public habits slightly differently than the order found in the litany. The canonical order for the public habits is “win-win”, “seek-first”, and “synergize” (4, 5, and 6). But, from a systems perspective, that order seems sideways to me.</p>
+<p>The order of the personal habits (1, 2, 3) lead us from bootstrapping, into goal setting, and onto prioritization. Likewise, the public habits should lead us from empathy, into collaboration, and onto teamwork.</p>
+<p>With the litany, I’m never stuck when someone asks me: Can you name the seven habits? The litany walks through the internal creation of an idea and its external manifestation, step by step.</p>
+<p>Just don’t get me started on remembering the NATO AlphaBravo alphabet. :)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;div class=&quot;separator&quot; style=&quot;clear:both;text-align:center;&quot;&gt;&lt;a href=&quot;http://www.principalspage.com/theblog/archives/do-you-need-a-good-m
+    
+    </summary>
+    
+      <category term="Essays" scheme="http://ted.husted.com/categories/Essays/"/>
+    
+    
+      <category term="Productivity" scheme="http://ted.husted.com/tags/Productivity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Dreamforce Recap / 2011 Salesforce Roadmap</title>
+    <link href="http://ted.husted.com/2011/01/10/dreamforce-recap-2011-salesforce-roadmap/"/>
+    <id>http://ted.husted.com/2011/01/10/dreamforce-recap-2011-salesforce-roadmap/</id>
+    <published>2011-01-10T18:00:00.000Z</published>
+    <updated>2017-02-18T21:31:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><div class="separator" style="clear:both;text-align:center;"><a href="https://tedhusted.files.wordpress.com/2011/01/9558c-salesforce-logo-2009.jpg" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2011/01/9558c-salesforce-logo-2009.jpg" alt=""></a></div><br>A key takeaway from Dreamforce 2010 is that the Saleforce cloud is expanding beyond sales and that 2011 will see the launch of several exciting tools for enterprise development. When the current roadmap runs its course, there will be five ways to build Salesforce applications.</p>
+<ol>
+<li><a href="http://www.salesforce.com/platform/appforce/" target="_blank" rel="external">Appforce</a> (classic Force.com) - <strong>Today </strong>- Appforce is the tried and true platform we use today, which combines Salesforce CRM, the force.com platform, and the VisualForce user interface library.</li>
+<li><a href="http://www.salesforce.com/platform/siteforce/" target="_blank" rel="external">Siteforce</a> (web sites) - <strong>GA Summer 2010</strong> - Siteforce combines content managmement with database management to create compelling web sites, for internal or external use.</li>
+<li><a href="http://www.vmforce.com/" target="_blank" rel="external">VMForce</a> (enterprise Java apps) - <strong>GA in 2011</strong> - VMForce is SFDC’s partnership with VMWare to deliver an enterprise Java cloud.</li>
+<li><a href="http://www.heroku.com/" target="_blank" rel="external">Heroku</a> (Ruby apps) - <strong>Today </strong>- Heroku is an established, cloud-based Ruby web application platform, available through its own website.</li>
+<li><a href="http://www.salesforce.com/platform/isvforce/" target="_blank" rel="external">ISVForce</a> (AppExchange) - <strong>Today </strong>- ISVForce provides the tools and technologies partners need to package applications for distribution.<br>Supporting the five development streams are two other products</li>
+</ol>
+<ul>
+<li><a href="https://www.salesforce.com/company/news-press/press-releases/2010/12/101208-2.jsp" target="_blank" rel="external">RemedyForce</a> - <strong>Today </strong>- IT help desk.</li>
+<li><a href="http://database.com/" target="_blank" rel="external">Database.com</a> - <strong>Summer 2011</strong> - By providing a trusted database platform for any language and any device, Salesforce hopes to help more customers move enterprise applications to the cloud.<br>A key point is that Salesforce is providing a separate application platform and a separate database platform. Developers can use the platforms together, or mix-and-match with other platforms and services. You might host an ASP.NET application on your own server, or on Azure, but reach out to database.com for storage. Or you might host an application on Siteforce and reach out to your own web service for crucial data.</li>
+</ul>
+<p>Mobile applications are a great fit for cloud based development tools. There is no app server running on your mobile device, but by reaching out to a cloud database, you can connect the mobile app to other people in your enterprise.</p>
+<p><span style="font-size:large;">More about Siteforce</span><br>The Siteforce mission to make the building and management of web sites dramatically easier. Technically, Salesforce is combining a cloud version of dreamweaver with a cloud web CMS with 24x7 hosting technology and an easy point-and-click, drag-and -drop design interface that non-techical people can use to build applications.</p>
+<p>Developers can drag existing applications into the CMS and build templates that people can use to build websites. The Siteforce architecture will also provide different views for different devices, simplifying mobile support. Since people do not want their web sites subject to scheduled mainenance, Siteforce will use a different infrastructure that will sites to stay online 24x7x365.</p>
+<p>Initially, the primary focus for SiteForce will be on marketing web sites, but the platform will be expanded to make building collaborative sites easier too. An open component architecture allows developers to build connections to the SFDC database and develop functionality like forums and wikis. Using the component architecture, Salesforce is expecting that the development community will provide a  wide array of custom Siteforce extensions and components through the AppExchange.</p>
+<p>Siteforce also includes full support for VisualForce pages and integrated authentification with the customer service and platform portals. Salesforce is extending its offering to appeal to both code-driven and visual developers.</p>
+<p><span style="font-size:large;">More about VMForce </span><br>The Saleforce vision for VMForce is simple: Give Java developers a path to the cloud so that they can run their enterprise applications on our services. Java developers can use their existing tools, using the SpringSource tools suite, based on Eclipse. Developers can deploy to our cloud service simply by dragging a WAR file onto a Salesforce server. Developers can also use Java JPA code and Java objects to connect to database.com. The focus is on the Spring Framework and standard Java (rather than the full J2EE stack). Apex and VisualForce are not going away – Salesforce is extending its offerings to appeal to a wider range of developers.<br><span style="font-size:large;"><br>Getting Started </span><br>While some of the new SFDC development offerings are a work in progress, you can get up and running with a free Force.com site today. Just vist free.force.com and dive in.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;div class=&quot;separator&quot; style=&quot;clear:both;text-align:center;&quot;&gt;&lt;a href=&quot;https://tedhusted.files.wordpress.com/2011/01/9558c-salesforce-logo
+    
+    </summary>
+    
+      <category term="Events" scheme="http://ted.husted.com/categories/Events/"/>
+    
+    
+      <category term="Salesforce" scheme="http://ted.husted.com/tags/Salesforce/"/>
+    
+  </entry>
+  
+</feed>
