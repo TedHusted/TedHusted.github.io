@@ -1,249 +1,397 @@
-<!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="default">
 <head>
-  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <title>Building Struts 2 Apps without XML GlueCode | Currents</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="TheServerSide has kindly published an article I wrote a while back about the SmartURLs plugin.
+  <meta name="author" content="Ted Husted">
+  
+  
+  
+  
+    <meta name="description" content="TheServerSide has kindly published an article I wrote a while back about the SmartURLs plugin.
 
-Building Struts 2 Apps without XML GlueCodeI’ll be updating this piece for the new Conventions plugin, n">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Building Struts 2 Apps without XML GlueCode">
-<meta property="og:url" content="http://TedHusted.github.io/2008/01/08/building-struts-2-apps-without-xml-gluecode/index.html">
-<meta property="og:site_name" content="Currents">
-<meta property="og:description" content="TheServerSide has kindly published an article I wrote a while back about the SmartURLs plugin.
-
-Building Struts 2 Apps without XML GlueCodeI’ll be updating this piece for the new Conventions plugin, n">
-<meta property="og:updated_time" content="2017-02-18T21:36:15.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Building Struts 2 Apps without XML GlueCode">
-<meta name="twitter:description" content="TheServerSide has kindly published an article I wrote a while back about the SmartURLs plugin.
-
-Building Struts 2 Apps without XML GlueCodeI’ll be updating this piece for the new Conventions plugin, n">
+Building Struts 2 Apps without XML GlueCodeI’ll be updating this piece for the new Conventions plugin...">
   
-    <link rel="alternate" href="/atom.xml" title="Currents" type="application/atom+xml">
+  <title>Building Struts 2 Apps without XML GlueCode [ ted.husted.com ]</title>
+  
+    <link rel="alternate" href="/atom.xml" title="ted.husted.com">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
   
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
   
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
-
 </head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Currents</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Getting there from here</a>
-        </h2>
-      
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2008/01/17/sun-snaps-up-database-firm-mysql/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Sun Snaps Up Database Firm, MySQL
+      </div>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+  
+  
+    <div class="item next">
+      <a href="/2007/12/24/happy-holidays-from-our-friends-at-theserverside-com/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Happy Holidays from our friends at TheServerSide.com
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
         
-          <a class="main-nav-link" href="/">Home</a>
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://2.gravatar.com/avatar/87a93952bc3587bbed2ab94ae88342af"/>
+          <div id="homelink">ted.husted.com</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
         
-      </nav>
-      <nav id="sub-nav">
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          
+            <li>
+          
+            <a href="/archives">Posts</a>
+            
+          </li>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://TedHusted.github.io"></form>
+          
+            <li>
+          
+            <a href="/categories">Categories</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Tags</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="https://github.com/TedHusted">Github</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
       </div>
     </div>
   </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-building-struts-2-apps-without-xml-gluecode" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2008/01/08/building-struts-2-apps-without-xml-gluecode/" class="article-date">
-  <time datetime="2008-01-08T11:00:00.000Z" itemprop="datePublished">2008-01-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Tutorials/">Tutorials</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Building Struts 2 Apps without XML GlueCode
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+  <div id="content-outer">
+    <div id="content-inner">
       
-        <p>TheServerSide has kindly published an article I wrote a while back about the SmartURLs plugin.</p>
+      
+  <article id="post">
+    <h1>Building Struts 2 Apps without XML GlueCode</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2008-01-08</span>
+      
+        <span id = "post-title-updated">Updated at 2017-02-18</span>
+      
+      
+      <span id = "post-title-categories">Category
+      
+      
+        
+        
+        <a href="/categories/Tutorials/">Tutorials</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/Web-Development/">Web Development</a>
+      
+      </span>
+      
+    </p>
+    
+    <p>TheServerSide has kindly published an article I wrote a while back about the SmartURLs plugin.</p>
 <ul>
 <li><a href="http://www.theserverside.com/tt/articles/article.tss?l=SmartURLs" target="_blank" rel="external">Building Struts 2 Apps without XML GlueCode</a><br>I’ll be updating this piece for the new Conventions plugin, now in the Apache Struts Sandbox, which merges ZeroConfig and CodeBehind with SmartURLs. Film at 11 …</li>
 </ul>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://TedHusted.github.io/2008/01/08/building-struts-2-apps-without-xml-gluecode/" data-id="cizbl1w5k0018fcx38zhs4wau" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Development/">Web Development</a></li></ul>
-
-    </footer>
-  </div>
-  
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
     
-<nav id="article-nav">
+  </div>
+</div>
+
   
-    <a href="/2008/01/17/sun-snaps-up-database-firm-mysql/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Sun Snaps Up Database Firm, MySQL
-        
-      </div>
-    </a>
+<nav id="pagination">
   
+    <a href="/2008/01/17/sun-snaps-up-database-firm-mysql/" class="prev">&larr; Prev post Sun Snaps Up Database Firm, MySQL</a>
   
-    <a href="/2007/12/24/happy-holidays-from-our-friends-at-theserverside-com/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Happy Holidays from our friends at TheServerSide.com</div>
-    </a>
+
+  
+
+  
+    <a href="/2007/12/24/happy-holidays-from-our-friends-at-theserverside-com/" class="next">Next post Happy Holidays from our friends at TheServerSide.com &rarr;</a>
   
 </nav>
 
-  
-</article>
+  <!-- JiaThis Button BEGIN -->
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Essays/">Essays</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Events/">Events</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Reviews/">Reviews</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorials/">Tutorials</a></li></ul>
+<!-- JiaThis Button END -->
+
+
+      
+      
+      
+      <div id="disqus_thread"></div>
+      
     </div>
   </div>
 
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASF/">ASF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache-Roller/">Apache Roller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache-Struts/">Apache Struts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Business-Analysis/">Business Analysis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Continuous-Integration/">Continuous Integration</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Force-com/">Force.com</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Apps/">Google Apps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Code/">Google Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Wave/">Google Wave</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Home-Office/">Home Office</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hudson/">Hudson</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IIBA-Rochester/">IIBA Rochester</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jenkins/">Jenkins</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open-Source/">Open Source</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Productivity/">Productivity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Programming/">Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rochester-NY/">Rochester NY</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Salesforce/">Salesforce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Satire/">Satire</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Social-Media/">Social Media</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tour-de-Blog/">Tour de Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visualforce/">Visualforce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-Development/">Web Development</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/YUI/">YUI</a></li></ul>
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Ted Husted using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
     </div>
   </div>
+</div>
+
+</div>
 
 
+  <div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//ted-husted-com.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://2.gravatar.com/avatar/87a93952bc3587bbed2ab94ae88342af">
+    <p id="description">Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.</p>
+    <ul class="social-icon">
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/ASF/" style="font-size: 15.83px;">ASF</a> <a href="/tags/Ajax/" style="font-size: 18.33px;">Ajax</a> <a href="/tags/Apache-Roller/" style="font-size: 12.5px;">Apache Roller</a> <a href="/tags/Apache-Struts/" style="font-size: 20px;">Apache Struts</a> <a href="/tags/Business-Analysis/" style="font-size: 12.5px;">Business Analysis</a> <a href="/tags/Continuous-Integration/" style="font-size: 10px;">Continuous Integration</a> <a href="/tags/Force-com/" style="font-size: 10.83px;">Force.com</a> <a href="/tags/Google-Apps/" style="font-size: 11.67px;">Google Apps</a> <a href="/tags/Google-Code/" style="font-size: 10.83px;">Google Code</a> <a href="/tags/Google-Wave/" style="font-size: 11.67px;">Google Wave</a> <a href="/tags/Home-Office/" style="font-size: 10px;">Home Office</a> <a href="/tags/Hudson/" style="font-size: 10px;">Hudson</a> <a href="/tags/IIBA-Rochester/" style="font-size: 10.83px;">IIBA Rochester</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/Open-Source/" style="font-size: 15px;">Open Source</a> <a href="/tags/Productivity/" style="font-size: 17.5px;">Productivity</a> <a href="/tags/Programming/" style="font-size: 19.17px;">Programming</a> <a href="/tags/Rochester-NY/" style="font-size: 13.33px;">Rochester NY</a> <a href="/tags/Salesforce/" style="font-size: 16.67px;">Salesforce</a> <a href="/tags/Satire/" style="font-size: 12.5px;">Satire</a> <a href="/tags/Social-Media/" style="font-size: 13.33px;">Social Media</a> <a href="/tags/Tour-de-Blog/" style="font-size: 10.83px;">Tour de Blog</a> <a href="/tags/Visualforce/" style="font-size: 10px;">Visualforce</a> <a href="/tags/Web-Development/" style="font-size: 10px;">Web Development</a> <a href="/tags/YUI/" style="font-size: 14.17px;">YUI</a>
-    </div>
+  
+    <li>
+      <a href="https://github.com/TedHusted">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/TedHusted">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://ted.husted.com/feed">
+        
+          <i class="icon iconfont rss">&#xe60e;</i>
+        
+      </a>
+    </li>
+  
+</ul>
   </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+  <script>
+if(isTriggerAnalytics) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '92185980', 'auto');
+  ga('send', 'pageview');
+}
+
+</script>
+
+
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">November 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">August 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">July 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">February 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01/">January 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">December 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">September 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07/">July 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06/">June 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/01/">January 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/12/">December 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/09/">September 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/08/">August 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/07/">July 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/06/">June 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/05/">May 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/04/">April 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/03/">March 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/11/">November 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/10/">October 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/09/">September 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/06/">June 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/05/">May 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/04/">April 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/03/">March 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/02/">February 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/01/">January 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2004/04/">April 2004</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2003/04/">April 2003</a></li></ul>
-    </div>
-  </div>
-
-
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2012/05/05/a-nimble-introduction-to-force-com/">A Nimble Introduction to Force.com</a>
-          </li>
-        
-          <li>
-            <a href="/2012/04/26/office-data-silos-considered-harmful/">Office Data Silos Considered Harmful</a>
-          </li>
-        
-          <li>
-            <a href="/2012/04/07/failing-safe-with-the-apex-data-loader-for-salesforce/">Failing safe with the Apex Data Loader for Salesforce</a>
-          </li>
-        
-          <li>
-            <a href="/2012/04/04/salesforce-open-source-pioneer/">Salesforce – Open Source Pioneer</a>
-          </li>
-        
-          <li>
-            <a href="/2012/04/01/sun-goes-nova-cloud-intact/">Sun goes Nova. Cloud intact.</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
+    <script src="/js/jquery-2.2.3.min.js"></script>
   
-</aside>
-        
-      </div>
-      <footer id="footer">
+    <script src="/js/vegas.min.js"></script>
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 Ted Husted<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
+    <script src="/js/random.js"></script>
   
-    <a href="/" class="mobile-nav-link">Home</a>
+    <script src="/js/highlight.pack.js"></script>
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+    <script src="/js/jquery.mousewheel.pack.js"></script>
   
-</nav>
-    
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = "";
+var unsplashConfig = "";
+// is show background images
+var turnoffBackgroundImage = false;
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+  turnoffBackgroundImage = true;
 
 
-<script src="/js/script.js"></script>
+var backgroundColor = "34495E";
 
-  </div>
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
 </body>
 </html>
+
