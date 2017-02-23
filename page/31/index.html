@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ted.husted.com">
+<meta property="og:url" content="http://ted.husted.com/page/31/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ted.husted.com">
+<meta name="twitter:description" content="Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer">
+      <article id="post-ajax-the-usual-suspects" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/ajax-the-usual-suspects/">Ajax: The usual suspects</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/ajax-the-usual-suspects/" class="article-date">
+  <time datetime="2007-03-19T09:00:00.000Z" itemprop="datePublished">2007-03-19</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Blogger <a href="http://jaycck.blogspot.com/2007/03/wk-8-full-list-of-ajax.html" target="_blank" rel="external">Cheng Chun Kit</a> seems to building a survey of Ajax Toolkits, Frameworks, and Libraries. He has a good start, with twenty detailed listings. Though, he still has miles to go, since <a href="http://jroller.com/page/TedHusted?entry=crockford_clips" target="_blank" rel="external">Douglas Crockford</a> believes that there are at least two hundred Ajax library available today. But, I think Cheng has at least covered the top contenders.</p>
+<p>Of the top contenders, the top-top four libraries seem to be Prototype, script.aculo.us, Dojo, and Yahoo! User Interface (YUI) Library. Happily, it’s not an election of remedies. If need be, it’s possible to mix and match libraries on the same page.</p>
+<p>For example, during our <a href="http://www.blogger.com/%20http://jroller.com/page/TedHusted?entry=spike" target="_blank" rel="external">Ajax spike</a>, we coded the same test application in Dojo and YUI. At one point, we had a mix of Dojo and YUI controls in the same application, and it all worked just fine. We even had the Dojo widgets going through YUI Connection Manager to talk to the server.</p>
+<p>You can do the same kind of mash-ups with Java web frameworks too. There’s nothing stopping us from having Tapestry answer some requests and Struts 2 answer some others. In fact, running Struts 1 and Struts 2 side-by-side is one of the recommended migration paths.</p>
+<p>But, I digress … Ajax widgets aside, there are a number of Ajax helpers that can work with any library. The <a href="http://designcreatology.wordpress.com/2007/03/12/ajax-tools/" target="_blank" rel="external">DesignCreatology Ajax Tools roundup</a> includes a few Ajax extensions, like Behavior and Event-Selectors. With <a href="http://bennolan.com/behaviour/" target="_blank" rel="external">Behaviour</a>, you can add a JavaScript event to an element using a CSS selectors. Likewise, <a href="http://encytemedia.com/event-selectors/" target="_blank" rel="external">Event-Selector</a> binds events to elements using CSS style syntax.</p>
+<p>Two other nifty Ajax helpers are DWR (for Java) and Jayock for .NET). <a href="https://dwr.dev.java.net/" target="_blank" rel="external">DWR</a> stands for Direct Web Remoting. DWR allows code in a browser to use Java functions running on a web server just as if it was in the browser. On the .NET side, <a href="http://jayrock.berlios.de/" target="_blank" rel="external">Jayrock</a> is able to call into server-side methods using JSON as the wire format and JSON-RPC as the procedure invocation protocol.</p>
+<p>With DWR or Jayrock, it starts to feel like we are working with a full JavaScript stack. We can call server-side methods as if they were JavaScript functions. Meanwhile, with the <a href="http://www.onjava.com/pub/a/onjava/2006/04/26/mustang-meets-rhino-java-se-6-scripting.html" target="_blank" rel="external">scripting support in Java 6</a>, we could actually be calling server-side JavaScript methods!</p>
+<p>Can you say <em>convergence</em>? … I knew you could :)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">Ajax</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-geek-spike" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/geek-spike/">Geek Spike</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/geek-spike/" class="article-date">
+  <time datetime="2007-03-18T09:00:00.000Z" itemprop="datePublished">2007-03-18</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>When learning a new technology, I like to start with a “canonical example spike”. A spike is a XP term for trying something new in a short burst to get a better idea how long a full implementation is going to take. When trying a new framework (or Ajax library), I look first for an example application that demonstrates common uses cases from your target application.</p>
+<p>At work, we have a PhoneBook application that we used when we were first learning .NET. At the time, it was an actual intranet application. Even after we started building other applications, we would often go back and try something new with the PhoneBook example first. Over time, it became our best-practices reference application.</p>
+<p>So, when it came time to lean YUI, the first thing we did is reach for the <a href="http://code.google.com/p/anvil/wiki/UseCase_PhoneBook" target="_blank" rel="external">PhoneBook use case</a> and have at it. It took some time to do, but it’s much easier to learn a new technology in the comfort of a well-known application.</p>
+<p>And, of course, starting with a throw-away example gives you a chance to make all the mistakes up front. :) I think that’s what I like best about software development: You only have to get it right the last time!</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-but-can-ajax-make-popcorn" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/but-can-ajax-make-popcorn/">But can Ajax make popcorn?</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/but-can-ajax-make-popcorn/" class="article-date">
+  <time datetime="2007-03-17T09:00:00.000Z" itemprop="datePublished">2007-03-17</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>If you’re a Struts developer dabbling with Ajax, the new Ajax tags in Struts 2 can make it easy to get started. Both Struts 1 and Struts 2 are excellent Ajax environments for Java web developers. A S1 action can return whatever text stream your Ajax widgets might need. For S2, pop in the JSON <a href="http://cwiki.apache.org/S2PLUGINS/home.html" target="_blank" rel="external">plugin</a>, and, bingo, instant Ajax computability! Better yet, just fire up <a href="http://getahead.org/dwr/" target="_blank" rel="external">DWR</a>.</p>
+<p>If the Ajax bug bites, and you go beyond dabbling, it’s likely that you will want to add an Ajax library to the mix. After peeking at the source for an Ajax library, it may begin to dawn that you don’t know so much about JavaScript after all. YUI and Dojo are not the tinkertoy scripts we cut and paste into our markup for the odd special effect.</p>
+<p>An excellent way for a Java developer to lean more about Ajax is the <a href="http://developer.yahoo.com/yui/theater/" target="_blank" rel="external">YUI Theater site</a>. It’s a virtual convention, featuring sessions with Douglas Crockford (JSON), Joe Hewitt (Firebug), and Chris Wilson (IE). You can’t pop out a question, but you can pause the action, and view the material at your own pace.</p>
+<p>For starters, I heartily recommend the “Browser Wars Episode II” clip. It’s an absolute must-see for anyone doing web development, whether it be bleeding edge or trailing edge. You won’t learn many stupid browser tricks, but you will get a look around the bend at what’s happening with browser development</p>
+<p>For frontline JavaScript development, Doug crockford’s video trilogy is another must-see. For more about that, see my <a href="http://jroller.com/page/TedHusted?entry=crockford_clips" target="_blank" rel="external">prior blog</a>.</p>
+<p>Featured this week is a brief but rich session with Gopal Venkatesan: <strong>“Writing Efficient JavaScript”</strong>. Some of the material overlaps with the Crockford Clips, but there’s are new goodies too. At 22 minutes, it’s well worth the time.</p>
+<p>Sadly, the slides aren’t posted with the video clip, though I’m told that they will be posted eventually. [Evidentially, the laptop with the presentation and Venkaesanis are now in different zip codes :)] In the meantime, here’s a set of summary bullets:</p>
+<p>&nbsp;</p>
+<ul>
+<li>Do not use eval() when there are alternatives<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Do not pass a function as a string to setTimeout. (It uses eval.) Pass an inline function instead.<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Do not use the “with” statement. Set a local var instead.<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Do not use try/catch wihin loops. Put the loop inside try/catch.<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Avoid global variables. Period.<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>When concatenating several strings (or DOM), use Array.join() or String.concat()<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Hide element before modifying several properties<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Avoid setting multiple element attributes by replacing the CSSText property<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Setting HTML to the innerHTML attribute is faster than going through DOM (but less pure)<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Detach DOM properties before appending several elements<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Attach common event handlers to the elements’ container and let the events bubble up<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Use consistent naming conventions to help identify elements that share event handlers<br>&nbsp;</li>
+</ul>
+<p>Next in line for me is Joe Hewitt’s Firebug video. I truly enjoyed Firebug 1, but the latest version is so featureful, I feel a bit lost. Hopefully, Joe can machete me a path through the new interface.</p>
+<p>Or, maybe I should just use <a href="http://www.aptana.com/" target="_blank" rel="external">Aptiva</a>, which embeds Firebug into a very slick-looking Ajax IDE.</p>
+<p>You know, sometimes, I do feel like <a href="http://www.youtube.com/watch?v=NLlGopyXT_g" target="_blank" rel="external">the machine is us/ing us</a>!</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">Ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-s2-tip-always-set-devmode-to-false-in-production" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/s2-tip-always-set-devmode-to-false-in-production/">S2 Tip - Always set devMode to false in production</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/s2-tip-always-set-devmode-to-false-in-production/" class="article-date">
+  <time datetime="2007-03-16T09:00:00.000Z" itemprop="datePublished">2007-03-16</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>In the Struts 2.0.6 release, we made the mistake of setting devMode to true in some of the example applications. As a result, some developers copied the setting, and then wondered why their Struts 2 application seemed sluggish!</p>
+<p>As of Struts 2.0.7 (hopefully coming soon), we’ve added a <a href="http://struts.apache.org/2.x/docs/performance-tuning.html" target="_blank" rel="external">Performance Tuning</a> page to the documentation. Here’s the highlights:</p>
+<p>&nbsp;</p>
+<ul>
+<li>Do not use interceptors you do not need<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Use the correct HTTP headers (Cache-Control &amp; Expires)<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Copy the static content from the Struts 2 JAR when using the Ajax theme (Dojo) or the Calendar tag<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Create a <code>freemarker.properties</code> file in your <code>WEB-INF/classes</code>directory<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Copy the <code>/template</code> directory from the Struts 2 JAR into your web application’s root<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>When overriding a theme, copy all necessary templates to the <code>theme</code> directory</li>
+<li>Do not create sessions unless you need them<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>When using FreemarkerResult, try to use the Freemarker equivalents rather than the JSP tags<br>&nbsp;</li>
+</ul>
+<p>For the nitty-gritty, visit the latest copy of the <a href="http://struts.apache.org/2.x/docs/performance-tuning.html" target="_blank" rel="external">page</a>.</p>
+<p>Kudos to Philip Luppens for starting the tuning page. If you have any tuning tips of your own, feel free to post comments directly to the page. (Gotta love Confluence!)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-incremental-refactoring" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/incremental-refactoring/">Incremental Refactoring</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/incremental-refactoring/" class="article-date">
+  <time datetime="2007-03-15T09:00:00.000Z" itemprop="datePublished">2007-03-15</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Recently, someone asked on the <a href="http://www.yui-ext.com/forum/viewtopic.php?t=2797" target="_blank" rel="external">Ext list</a>:</p>
+<blockquote>
+<p><pre>&gt; Is Diagraming your classes/code segments<br>&gt; the best way to keep yourself<br>&gt; organized during the programming stage?<br>&gt; Or is there some more efficient<br>&gt; and easier way to do it?</pre><br>I thought the advice of the Ext lead developer, Jack Slocum, beared repeating.<br>The approach I have found to be most effective is “incremental refactoring”. This means starting out with a basic idea of how your object model should look. It will probably be raw and imperfect, but you know that and knowing that is the key to what makes it work.</p>
+<p>Start out small and make pieces of it work. While it’s small (and not a big object model with all kinds of pieces to develop before you have anything working) you should be able to find various imperfections with your initial design (like browser problems!) and you can refactor while it’s still cheap. As soon as you have something working, it’s time to refactor to look for ways to make things more generic, cut code duplication, improve interfaces and efficiency. Then start on the next piece in the same way.</p>
+<p>The most important thing is you have to think OO, think efficiency and know your patterns. Once this is in place, the rest is kind of automatic.<br>IMHO, one of the best books on “incremental refactoring” (or successive refinement) is “<a href="http://www.amazon.com/exec/obidos/ASIN/0321146530/husteddotcom-20" target="_blank" rel="external">Test Driven Development: By Example</a> by Kent Beck. While it doesn’t mean to be about successive refinement per se, that’s exactly what Beck is doing in the book. At 240 pages, it also has the virtue of being relatively brief.</p>
+</blockquote>
+<p>As he codes, Beck keeps a running TODO list of the next baby-steps needed to finish a larger task. Beck says he keeps his on paper, but I use a text file. I even post the running list to the issue tracker, like a mini-progress report.</p>
+<p>Successive refinement works well with an issue tracker that supports roadmaps (like JIRA). We can then organize the major features into iterations or milestones and ship one iteration at a time. Ideally, each milestone should be a working, if incomplete, version of the target application.</p>
+<p>At work, we follow the usual <a href="http://www.extremeprogramming.org/" target="_blank" rel="external">Extreme Programming</a> model, except that we prefer formal <a href="http://opensource.atlassian.com/confluence/oss/display/STRUTS/Use+Cases" target="_blank" rel="external">use cases</a> to XP stories. (See Cockburn’s “<a href="http://www.amazon.com/exec/obidos/ASIN/0201702258/husteddotcom-20" target="_blank" rel="external">Writing Effective Use Cases</a>“. It weighs in at 270 pages, but the first 20 pages tell you everything you actually need to know.)</p>
+<p>Essentially, XP interations are successive refinements, which is an approach Nicholas Wirth was advocating decades ago, when he <a href="http://www.pascal-central.com/top10.html" target="_blank" rel="external">designed Pascal</a>. The key is to organize your work so that there is some kind of working application at every step of the way – even if you have to fake some of the resources. :)</p>
+<p>In working with Ajax and JSON, one pleasant surprise is how easy it can be to fake resources. For example, the YUI connection manager can accept a JSON object, but it doesn’t care if the object came from a XHR request or static data. We can switch between a set of test data and the live stream with one line of code.</p>
+<pre><code>LISTER.init = function (data)  {
+PhoneBook.rpc.entry_list(LISTER.load).call(ANVIL.channel); // live database
+// LISTER.load(LISTER.localData); // static data
+};
+LISTER.localData = {
+&quot;result&quot; : [[&apos;c5b6bbb1-66d6-49cb-9db6-743af6627828&apos;, &apos;Clinton&apos;, &apos;William&apos;,
+&apos;555-743-7828&apos;, &apos;bubba&apos;, &apos;08/19/1992&apos;, 37.5, &apos;0&apos;],
+[&apos;7c424227-8e19-4fb5-b089-423cfca723e1&apos;, &apos;Roosevelt&apos;, &apos;Theodore&apos;,
+&apos;555-743-8942&apos;, &apos;bull&apos;, &apos;09/14/2002&apos;, 37.5, &apos;0&apos;],
+[&apos;9320ea40-0c01-43e8-9cec-8fb9b3928c2c&apos;, &apos;Kennedy&apos;, &apos;John F.&apos;,
+&apos;555-743-3928&apos;, &apos;fitz&apos;, &apos;05/29/1987&apos;, 37.5, &apos;0&apos;],
+[&apos;3b27c933-c1dc-4d85-9744-c7d9debae196&apos;, &apos;Pierce&apos;, &apos;Franklin&apos;,
+&apos;555-743-7919&apos;, &apos;benji&apos;, &apos;11/18/1984&apos;, 35, &apos;0&apos;],
+[&apos;554ff9e7-a6f5-478a-b76b-a666f5c54e40&apos;, &apos;Jefferson&apos;, &apos;Thomas&apos;,
+&apos;555-743-5440&apos;, &apos;monty&apos;, &apos;07/04/1976&apos;, 37.5, &apos;0&apos;]]
+};
+</code></pre><p>Now <em>that’s</em> how you spell MVC!</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/page/30/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/32/">下一页 &raquo;</a>
+      </nav>
+    </section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

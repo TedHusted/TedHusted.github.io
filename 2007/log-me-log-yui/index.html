@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Log Me, Log YUI - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="I’ve never been a logging enthusiast. Many of the frameworks I use put logging to good use, but it not something I’ve felt compelled to inject into my own applications.
+Many coders use logging as a de">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Log Me, Log YUI">
+<meta property="og:url" content="http://ted.husted.com/2007/log-me-log-yui/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="I’ve never been a logging enthusiast. Many of the frameworks I use put logging to good use, but it not something I’ve felt compelled to inject into my own applications.
+Many coders use logging as a de">
+<meta property="og:updated_time" content="2017-02-20T13:39:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Log Me, Log YUI">
+<meta name="twitter:description" content="I’ve never been a logging enthusiast. Many of the frameworks I use put logging to good use, but it not something I’ve felt compelled to inject into my own applications.
+Many coders use logging as a de">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-log-me-log-yui" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Log Me, Log YUI
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/log-me-log-yui/" class="article-date">
+  <time datetime="2007-04-03T09:00:00.000Z" itemprop="datePublished">2007-04-03</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I’ve never been a logging enthusiast. Many of the frameworks I use put logging to good use, but it not something I’ve felt compelled to inject into my own applications.</p>
+<p>Many coders use logging as a development aid. One of my earliest Turbo Pascal programs wrote a character to the menu bar as a “tell”. As the application moved through a workflow, the tell would change. If it hung up, I knew where to start looking. It started as a development aid, but I left it in the production code because, well, it looked cool!</p>
+<p>For most developers, our desire to log takes seed with a quick write to standard out, and blossoms as world-class products like Log4J, Log4Net, Log4PHP, and the other flowers in the <a href="http://logging.apache.org/" target="_blank" rel="external">Apache Logging</a> bouquet.</p>
+<p>Rather use loggers as a development aid, these days I tend to set a lot of breakpoints as I develop. I like to follow brother Steve McConnell’s advice from <a href="http://www.amazon.com/exec/obidos/tg/detail/-/0735619670/husteddotcom-20" target="_blank" rel="external">Code Complete</a>. Every time I write a new swatch of code, first, I set a breakpoint and watch it run.</p>
+<p>Unsurprisingly, Joe Hewitt’s brilliant <a href="https://addons.mozilla.org/en-US/firefox/addon/1843" target="_blank" rel="external">FireBug plugin</a> is one of my new best friends these days. Running a close second is the Yahoo! User Interface (YUI) Library’s <a href="http://developer.yahoo.com/yui/logger/" target="_blank" rel="external">Logger</a>.</p>
+<p>Like other implementations, the YUI Logger works as a singleton, so it’s very easy to write a logging message from anywhere in the application.</p>
+<pre><code>// Assigns default category &quot;info&quot; and default source &quot;global&quot;
+YAHOO.log(&quot;My log message&quot;); `&lt;/pre&gt;
+As implied by the comment, we can add categories and source parameters to the method call, which are also standard fare for logging systems.
+
+The trick with JavaScript logging is viewing the messages. Most of the Apache Logging bunch rely on logging to console or to a shared file for the application. Some browsers do support a JavaScript console window, but it&apos;s not a standard feature. For JavaScript, we need to shift the paradigm.
+
+But it&apos;s not such a big shift. Since YUI is a widget library, it would make sense to express the Logger Control (or LogReader) as a widget. To view the messages as they are logged, just add the LogReader widget to an application, again with one whole line of code.
+&lt;pre&gt;`var myLogReader = new YAHOO.widget.LogReader(); `&lt;/pre&gt;
+By default, the LogReader widget plants itself in the top right corner of the browser window. If that arrangement doesn&apos;t work for you, the widget can also be attached to a div or dragged around the screen. If the window box still feels cluttered, there a builtin &quot;Collapse&quot; button. To be even more unobtrusive, you can add your own button to show or hide the widget.
+
+An especially good use of logging in a JavaScript application is to document when events fire. Widgets raise primitive events like &quot;click&quot;. A well-designed application will handle those events and raise an &quot;idiomatic&quot; event of its own. We can rely on the widget to raise its event, the interesting bit is when we raise our own.
+
+Case in point, we&apos;re working on a DataForm widget that can share a RecordSet and ColumnSet with a YUI DataTable. The form widget raises &quot;update&quot; and &quot;insert&quot; events for the benefit of a client controller application. In early testing of the widget, we can&apos;t see those events happen, because they haven&apos;t been wired to a client yet. But, we can use a logger to view the events as they are raised.
+&lt;pre&gt;`oSelf.fireEvent(&quot;updateEvent&quot;,context);
+oSelf.logRecordEvent(&quot;updateEvent&quot;, oRecord, oOldRecord); // debug
+</code></pre><p>Where logRecordEvent is a helper method that expresses the oRecord and oOldRecord data in human-readable JSON.</p>
+<p>We could also set breakpoints to check that the events fire, and the first time around, we still do. But, the logging statements are also a rudimentary unit test. In fact, the next step might be to create Selenium tests that look for logging statements on our example pages.</p>
+<p>The YUI library distribution includes *-debug version of all the modules that include this kind of logging statement. The production version has the logging statement extracted. (Leaving a few strange lines of code behind, like empty else statements.)</p>
+<p>Of course, there would be a few ways to filter production code for logging statements. <a href="http://tech.groups.yahoo.com/group/ydn-javascript/message/11598" target="_blank" rel="external">I don’t know what YUI does</a>, but for my own projects, I might try an <a href="http://jroller.com/page/TedHusted?entry=aptana" target="_blank" rel="external">Aptana</a> action to do the dirty work.</p>
+<p>Though, since the LogReader can be flipped on and off, it’s not hard to imagine leaving some statements embedded, for the sake of technical support. So, for now, we’re marking the logging lines “// debug” in case we decide to leave some in later.</p>
+<p>I may never love logging quite as much as Ceki, but the YUI LogReader is at least a friend with benefits!</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yui/">YUI</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2007/google-code-successively-refines/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          Google Code Successively Refines
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2007/tour-de-blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Tour de Blog&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2007/log-me-log-yui/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

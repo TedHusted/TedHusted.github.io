@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ted.husted.com">
+<meta property="og:url" content="http://ted.husted.com/page/28/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ted.husted.com">
+<meta name="twitter:description" content="Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer">
+      <article id="post-log-me-log-yui" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/log-me-log-yui/">Log Me, Log YUI</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/log-me-log-yui/" class="article-date">
+  <time datetime="2007-04-03T09:00:00.000Z" itemprop="datePublished">2007-04-03</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I’ve never been a logging enthusiast. Many of the frameworks I use put logging to good use, but it not something I’ve felt compelled to inject into my own applications.</p>
+<p>Many coders use logging as a development aid. One of my earliest Turbo Pascal programs wrote a character to the menu bar as a “tell”. As the application moved through a workflow, the tell would change. If it hung up, I knew where to start looking. It started as a development aid, but I left it in the production code because, well, it looked cool!</p>
+<p>For most developers, our desire to log takes seed with a quick write to standard out, and blossoms as world-class products like Log4J, Log4Net, Log4PHP, and the other flowers in the <a href="http://logging.apache.org/" target="_blank" rel="external">Apache Logging</a> bouquet.</p>
+<p>Rather use loggers as a development aid, these days I tend to set a lot of breakpoints as I develop. I like to follow brother Steve McConnell’s advice from <a href="http://www.amazon.com/exec/obidos/tg/detail/-/0735619670/husteddotcom-20" target="_blank" rel="external">Code Complete</a>. Every time I write a new swatch of code, first, I set a breakpoint and watch it run.</p>
+<p>Unsurprisingly, Joe Hewitt’s brilliant <a href="https://addons.mozilla.org/en-US/firefox/addon/1843" target="_blank" rel="external">FireBug plugin</a> is one of my new best friends these days. Running a close second is the Yahoo! User Interface (YUI) Library’s <a href="http://developer.yahoo.com/yui/logger/" target="_blank" rel="external">Logger</a>.</p>
+<p>Like other implementations, the YUI Logger works as a singleton, so it’s very easy to write a logging message from anywhere in the application.</p>
+<pre><code>// Assigns default category &quot;info&quot; and default source &quot;global&quot;
+YAHOO.log(&quot;My log message&quot;); `&lt;/pre&gt;
+As implied by the comment, we can add categories and source parameters to the method call, which are also standard fare for logging systems.
+
+The trick with JavaScript logging is viewing the messages. Most of the Apache Logging bunch rely on logging to console or to a shared file for the application. Some browsers do support a JavaScript console window, but it&apos;s not a standard feature. For JavaScript, we need to shift the paradigm.
+
+But it&apos;s not such a big shift. Since YUI is a widget library, it would make sense to express the Logger Control (or LogReader) as a widget. To view the messages as they are logged, just add the LogReader widget to an application, again with one whole line of code.
+&lt;pre&gt;`var myLogReader = new YAHOO.widget.LogReader(); `&lt;/pre&gt;
+By default, the LogReader widget plants itself in the top right corner of the browser window. If that arrangement doesn&apos;t work for you, the widget can also be attached to a div or dragged around the screen. If the window box still feels cluttered, there a builtin &quot;Collapse&quot; button. To be even more unobtrusive, you can add your own button to show or hide the widget.
+
+An especially good use of logging in a JavaScript application is to document when events fire. Widgets raise primitive events like &quot;click&quot;. A well-designed application will handle those events and raise an &quot;idiomatic&quot; event of its own. We can rely on the widget to raise its event, the interesting bit is when we raise our own.
+
+Case in point, we&apos;re working on a DataForm widget that can share a RecordSet and ColumnSet with a YUI DataTable. The form widget raises &quot;update&quot; and &quot;insert&quot; events for the benefit of a client controller application. In early testing of the widget, we can&apos;t see those events happen, because they haven&apos;t been wired to a client yet. But, we can use a logger to view the events as they are raised.
+&lt;pre&gt;`oSelf.fireEvent(&quot;updateEvent&quot;,context);
+oSelf.logRecordEvent(&quot;updateEvent&quot;, oRecord, oOldRecord); // debug
+</code></pre><p>Where logRecordEvent is a helper method that expresses the oRecord and oOldRecord data in human-readable JSON.</p>
+<p>We could also set breakpoints to check that the events fire, and the first time around, we still do. But, the logging statements are also a rudimentary unit test. In fact, the next step might be to create Selenium tests that look for logging statements on our example pages.</p>
+<p>The YUI library distribution includes *-debug version of all the modules that include this kind of logging statement. The production version has the logging statement extracted. (Leaving a few strange lines of code behind, like empty else statements.)</p>
+<p>Of course, there would be a few ways to filter production code for logging statements. <a href="http://tech.groups.yahoo.com/group/ydn-javascript/message/11598" target="_blank" rel="external">I don’t know what YUI does</a>, but for my own projects, I might try an <a href="http://jroller.com/page/TedHusted?entry=aptana" target="_blank" rel="external">Aptana</a> action to do the dirty work.</p>
+<p>Though, since the LogReader can be flipped on and off, it’s not hard to imagine leaving some statements embedded, for the sake of technical support. So, for now, we’re marking the logging lines “// debug” in case we decide to leave some in later.</p>
+<p>I may never love logging quite as much as Ceki, but the YUI LogReader is at least a friend with benefits!</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yui/">YUI</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-tour-de-blog" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/tour-de-blog/">Tour de Blog</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/tour-de-blog/" class="article-date">
+  <time datetime="2007-04-02T09:00:00.000Z" itemprop="datePublished">2007-04-02</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>As much as I enjoy blogging through JRoller, I thought I’d spend the month of April taking other blogging systems for a spin. I’ll let each trial run for a week, but to keep it sane, I’ll continue to archive each blog to the <a href="http://jroller.com/page/TedHusted" target="_blank" rel="external">JRoller page</a>.</p>
+<p>First in line is <a href="http://www.simplephpblog.com/" target="_blank" rel="external">Simple PHP Blog</a>. This isn’t a blogging site, like JRoller, Blogger, or 360. It’s a PHP script that a can be installed on a conventional server for a single user.</p>
+<p>Installing Simple PHP Blog is, well, simple. Upload the script, set the permissions, and run the index.php. With <a href="http://filezilla.sourceforge.net/" target="_blank" rel="external">FileZilla</a>, it can all be done using drag, drop, and click.</p>
+<p>Since SPB is intended for people with server access, there isn’t an editing feature for the themes. But, if you were able to install SPB, it’s not any harder to edit the file and drop it onto the server. In practice, it’s no different than editing a Roller theme.</p>
+<p>One nice feature is the sidebar text box widget. To get an “About Me” blurb into JRoller, I had to edit the theme. With SPB, I could just add a text box through the configuration menu that comes up in the sidebar. On the website, the developer is testing a new widget feature, to make it easier to add other customizations to the sidebar.</p>
+<p>One nice thing for me is that SPB generates arbitrary permalinks IDs. JRoller used a hash of the name, which induced me to use my own hash for the title, save the entry, and then change the title to be human-friendly.</p>
+<p>SPB uses a BBS code markup for the entries and comments. Instead of using HTML tags like , we use pidgin tags like [url=][/url]. There’s a wizard for building the tags, but once you’ve seen an example, they are just as easy to create by hand.</p>
+<p>Eventually, I’ll probably do a feature grid. For now, it seems like SPB has rounded up all the “usual suspect” features, at least in the context of a single-user blog installed on your own server. The next question will be whether my server is any more reliable than JRoller’s :)</p>
+<p>To access the blog system of the week, follow the <a href="http://husted.com/ted/blog/index.html" target="_blank" rel="external">http://husted.com/ted/blog/index.html</a>. Feel free to re-up for the feed, so as to give each system a fair test. Of course, if anyone has a preference or other feedback, feel free to comment.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/productivity/">Productivity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/social-media/">Social Media</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tour-de-blog/">Tour de Blog</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-the-geeks-glossary-asf-edition" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/the-geeks-glossary-asf-edition/">The Geek&#39;s Glossary (ASF edition)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/the-geeks-glossary-asf-edition/" class="article-date">
+  <time datetime="2007-04-01T09:00:00.000Z" itemprop="datePublished">2007-04-01</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/essay/">Essay</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Recently, we were been discussing some of the definitions published in <a href="http://apache.org/foundation/glossary.html" target="_blank" rel="external">Glossary of Apache-Related Terms</a> on one of the mailing lists. Based on those discussions, here are some changes and additions that I’ve been considering.</p>
+<p>ASF - Asynchronous Software Fanatics: A cult bent on world collaboration.</p>
+<p>ASF Board of Directors - Nerds smoozing nerds (see Community).</p>
+<p>ApacheCon - A sausage-fest with almost enough beer.</p>
+<p>Bikeshed argument - Discussing “what color to paint a bike shed” is why ASF committers sometimes prefer forgiveness to permission.</p>
+<p>Build - Bits tossed into a tarball (see Release).</p>
+<p>Commit-Then-Review - See Review-Then-Commit.</p>
+<p>Committer - A geek with way too much spare time.</p>
+<p>Community - Geeks goosing geeks (see ASF Board).</p>
+<p>Darwin - The two-faced icon of Evolution and Revolution.</p>
+<p>Dog Food - We ate it, now it’s your turn.<br><a href="http://en.wikipedia.org/wiki/Minnie_Pearl" target="_blank" rel="external"><img src="http://upload.wikimedia.org/wikipedia/en/thumb/f/f8/Minniepearl.jpg/180px-Minniepearl.jpg" alt="Minnie Pearl wearing her PMC hat"></a></p>
+<p>Emeritus - A committer with a life.</p>
+<p>Evolution - Darwin meets the tyranny of the installed base.</p>
+<p>Freeloader - Someone who downloads and uses open source products but never contributes back by reporting an issue, submitting a patch, testing a beta, or helping another user on the mailing list. Even once.</p>
+<p>Hat - Sybil meets Minnie Pearl (see photo: “Minnie wearing her PMC hat”).</p>
+<p>Incubation - A process designed to frustrate projects into submission.</p>
+<p>Irony - See Karma.</p>
+<p>Joy - That rare feeling when software actually works!</p>
+<p>Karma - By doing more, we let you do more, by granting you karma to do more. See Merit.</p>
+<p>Lazy consensus - The best kind.</p>
+<p>Merit - Working more, jabbering less, lurking not.</p>
+<p>Podling - We are Borg. You are borgling.</p>
+<p>PMC Chair - Every project needs a tattletell.</p>
+<p>Project Management Committee (PMC) - War is peace. Freedom is slavery. Projects are managed.</p>
+<p>Release - A tarball that stuck to the wall (see Build).</p>
+<p>Review-Then-Commit - See Commit-Then-Review.</p>
+<p>Status File - A hit-and-miss project journal that, when kept, can only be found in the bottom of a locked filing cabinet stuck in a disused lavatory with a sign on the door saying ‘Beware of the Mentor’.</p>
+<p>Subversion - Never having to mean you’re sorry.</p>
+<p>Revolution - Stick a fork in it and see who bites.</p>
+<p>Veto - Severe change reduction.</p>
+<p>+1 - A negative veto.</p>
+<p>PS: Be sure to enjoy <a href="http://en.wikipedia.org/wiki/April_Fools%27_Day" target="_blank" rel="external">this special day</a>!</p>
+<p>(<a href="http://www.alcyone.com/max/lit/devils/" target="_blank" rel="external">Apologies to Ambrose Bierce</a>)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/satire/">Satire</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-aptana-another-brilliant-idea" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/aptana-another-brilliant-idea/">Aptana: Another brilliant IDEA</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/aptana-another-brilliant-idea/" class="article-date">
+  <time datetime="2007-03-31T09:00:00.000Z" itemprop="datePublished">2007-03-31</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I’ve always been a die-hard IDEA fan. Jetbrains says “Develop with pleasure,” and they mean it! Even with Eclipse and NetBeans nipping at their heels, Jetbrains has managed to stay ahead of the pack.</p>
+<p>But, for Ajax applications, <a href="http://www.aptana.com/" target="_blank" rel="external">Aptana</a> is poised to give Jetbrains a run for its money.</p>
+<p>Being an Eclipse application, Aptana already has a huge headstart. The JavaScript editor is augmented with all the features you would expect: code assist on CSS, HTML, and JavaScript, FTP support, and a JavaScript debugger to troubleshoot your code. The Aptana IDE also includes features you might not expect, like being extensible via macros ad actions writtnen in (yes!) JavaScript. There’s also a very cool outline perspective (which I wished I had found sooner!). (Hint: Dock the Project and Outline perspectives with FastView.)</p>
+<p>For a quick tour of key features, scope the <a href="http://aptana.com/screenshots.php" target="_blank" rel="external">screenshots</a> page.</p>
+<p>Out of the box, Aptana is all about Ajax. For example, the project wizard will setup the Ajax libraries of your choice (or at least any of the top nine: AFLAX, Dojo, jQuery, MochKit, Prototype, Rico, Scriptaculous, YUI, and/or yui-ext). Being a good open source citizen, Aptana uses other OS products under the covers, including JS Lint and FireBug. A special bonus is that the <a href="http://aptana.com/documentation.php" target="_blank" rel="external">project documentation</a> includes a most excellent CSS/HTML/JavaScript reference useful to anyone developing AJax with any editor on any platform.</p>
+<p>Quirks? There are a few. After three days, the debugging still isn’t working for me. Just to be a tease, it did work once, and it worked brilliantly, but then stopped as suddenly as it started. With two monitors, Aptana and standalone FireBug work well together. (But standalone FireBug works well with anything!)</p>
+<p>There is also an “Open Declaration” feature that works only sometimes for me too. But Aptana is young, and open source, and these things are sure to sort themselves out.</p>
+<p>For straight-up Java/Ajax development, I expect that IDEA still has the edge. But, for anything else, IDEA’s predilection for Java shows, and you’re developing against the grain.</p>
+<p>Although Aptana is based on Eclipse, and uses an embeded Jetty server for native debugging, it shows no favoritism to Java. Developers working in Ruby, PHP, C#, et cetera, are made to feel right at home.</p>
+<p>In fact, a Ruby RAD environment seems to be an Aptana endgame. The RadRails IDE is being built over Aptana. Once Rails.net is ready for primetime, I expect that RadRails is going to draw me towards the light :)</p>
+<p>I’ve only been using Aptana for a week. I haven’t spent much time in the forum, and I’m still not sure of the project’s motivation. The site mentions that Aptana is funded by venture capital, but I don’t know what revenue stream is projected. I expect they could turn around and sell it, which is fine with me. People pay me, and I don’t mind paying other people. Or, it may all be to promote a consulting business that will put the IDEs to good use. I really don’t know yet.</p>
+<p>But for the code I’m developing now, it’s saving me time over using Visual Studio with Resharper. The code/test cycle is very quick, and I don’t have to worry about running JS Lint. Aptana handles those types of syntax errors as we edit. I filed a ticket about improving the Resharper JavaScript support, but, evidentially, that’s not going to happen any time soon. Resharper is focussed on C# 3.0 support, and JavaScript is on the back burner.</p>
+<p>A key Aptana edge is that it’s based on Eclipse, opening the door to other Eclipse plugins. There is a <a href="http://www.improve-technologies.com/alpha/esharp/#features" target="_blank" rel="external">C# plugin for Eclipse</a>, and between iterations, I’ll have to give it a try. If the C# plugin works well enough, or we can make it so, we might be able to sideline Visual Studio all together.</p>
+<p>I enjoy using VS with Resharper, but we often code against the Visual Studio grain. If Resharper is not going to improve JavaScript editing, I might finally be lured away from Jetbrains.</p>
+<p>In the end, I think Aptana might just become the “Ajax IDE for the rest of us”. :</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">Ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-s2-tip-place-each-namespace-into-its-own-struts-configuration-file" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/s2-tip-place-each-namespace-into-its-own-struts-configuration-file/">S2 Tip - Place each namespace into its own Struts configuration file</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/s2-tip-place-each-namespace-into-its-own-struts-configuration-file/" class="article-date">
+  <time datetime="2007-03-30T09:00:00.000Z" itemprop="datePublished">2007-03-30</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The framework configuration supports an include element. When using packages and namespaces to organize an application, each namespace can be placed into its own configuration file, and then included by the default struts.xml configuration file.</p>
+<!-- ... -&gt;-->
+<p><br>Maintaining a separate configuration file for each module reduces coupling and increases cohesion. If different members of a team are workinmg on different segments of the application (or “module”), each group can maintain the configuration file relating to their segment.</p>
+<p>Note that configuration packages can extend one another.</p>
+<p><pre><code></code></pre></p>
+<p>… –&gt;</p>
+<p>Common configuration settings can be placed into a default file and shared between packages.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/page/27/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="page-number" href="/page/27/">27</a><span class="page-number current">28</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/29/">下一页 &raquo;</a>
+      </nav>
+    </section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

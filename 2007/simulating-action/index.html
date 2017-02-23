@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Simulating Action - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Since client-side JavaScript is event-driven, Ajax libraries follow suit. For many developers, Ajax is their first time around the event-driven maypole.
+When event-driven controls for the first time,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Simulating Action">
+<meta property="og:url" content="http://ted.husted.com/2007/simulating-action/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="Since client-side JavaScript is event-driven, Ajax libraries follow suit. For many developers, Ajax is their first time around the event-driven maypole.
+When event-driven controls for the first time,">
+<meta property="og:updated_time" content="2017-02-20T13:39:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Simulating Action">
+<meta name="twitter:description" content="Since client-side JavaScript is event-driven, Ajax libraries follow suit. For many developers, Ajax is their first time around the event-driven maypole.
+When event-driven controls for the first time,">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-simulating-action" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Simulating Action
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/simulating-action/" class="article-date">
+  <time datetime="2007-03-25T09:00:00.000Z" itemprop="datePublished">2007-03-25</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Since client-side JavaScript is event-driven, Ajax libraries follow suit. For many developers, Ajax is their first time around the event-driven maypole.</p>
+<p>When event-driven controls for the first time, it’s common for a noobe to attach some application-specific behavior to a control’s onClick event. As the application grows more complex, we often want to invoke the same behavior without the help of the control. A common question then becomes “How can we send the control a change event, as if the user had himself clicked on the option?” As with many programming problems, the solution is to add a layer of abstraction. :)</p>
+<p>Instead of attaching our behavior directly to primitive events, like onClick, we should create our own idiomatic events to describe what happens when the user selects the option. Selecting the option is a means to an end. If we create own custom event for that end, the select control change event can turn around and raise our event. Then, when our custom event needs to be raised from another point in the workflow, we can just go ahead and raise it progmatically.</p>
+<p>It’s not about clicking the control, it’s about the action that the control triggers.</p>
+<p>In essence, user-interface widgets raise primitive events, like “change” and “click”. This is a Good Thing, because those events represent what widgets do (or appear to do). Applications don’t “click”. Applications update state and run reports. An event-driven application should create its own layer of idiomatic events that describes what the application does in its own terms. In that way, we are not chained to the controls, and we can call our own events whenever we like. Architectually, idiomatic events <a href="http://en.wikipedia.org/wiki/Cohesive" target="_blank" rel="external">increase cohesion</a> and <a href="http://en.wikipedia.org/wiki/Coupling_%28computer_science%29" target="_blank" rel="external">lower coupling</a>. Also Good Things.</p>
+<p>An excellent introduction to event-driven design is Christian Heilmann’s <a href="http://yuiblog.com/blog/2007/01/17/event-plan/" target="_blank" rel="external">Event-Driven Web Application Design</a> (which I like to call “Brace yourself, Bridget!).</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">Ajax</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2007/mvc-convergence-mr-action-meet-ms-asp-net/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          MVC Convergence: Mr Action meet Ms ASP.NET
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2007/struts-from-square-one-part-1-text-complete/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Struts from Square One: Part 1, Text Complete&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2007/simulating-action/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>S2 Tip - Always set devMode to false in production - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="In the Struts 2.0.6 release, we made the mistake of setting devMode to true in some of the example applications. As a result, some developers copied the setting, and then wondered why their Struts 2 a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="S2 Tip - Always set devMode to false in production">
+<meta property="og:url" content="http://ted.husted.com/2007/s2-tip-always-set-devmode-to-false-in-production/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="In the Struts 2.0.6 release, we made the mistake of setting devMode to true in some of the example applications. As a result, some developers copied the setting, and then wondered why their Struts 2 a">
+<meta property="og:updated_time" content="2017-02-20T13:34:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="S2 Tip - Always set devMode to false in production">
+<meta name="twitter:description" content="In the Struts 2.0.6 release, we made the mistake of setting devMode to true in some of the example applications. As a result, some developers copied the setting, and then wondered why their Struts 2 a">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-s2-tip-always-set-devmode-to-false-in-production" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      S2 Tip - Always set devMode to false in production
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/s2-tip-always-set-devmode-to-false-in-production/" class="article-date">
+  <time datetime="2007-03-16T09:00:00.000Z" itemprop="datePublished">2007-03-16</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>In the Struts 2.0.6 release, we made the mistake of setting devMode to true in some of the example applications. As a result, some developers copied the setting, and then wondered why their Struts 2 application seemed sluggish!</p>
+<p>As of Struts 2.0.7 (hopefully coming soon), we’ve added a <a href="http://struts.apache.org/2.x/docs/performance-tuning.html" target="_blank" rel="external">Performance Tuning</a> page to the documentation. Here’s the highlights:</p>
+<p>&nbsp;</p>
+<ul>
+<li>Do not use interceptors you do not need<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Use the correct HTTP headers (Cache-Control &amp; Expires)<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Copy the static content from the Struts 2 JAR when using the Ajax theme (Dojo) or the Calendar tag<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Create a <code>freemarker.properties</code> file in your <code>WEB-INF/classes</code>directory<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Copy the <code>/template</code> directory from the Struts 2 JAR into your web application’s root<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>When overriding a theme, copy all necessary templates to the <code>theme</code> directory</li>
+<li>Do not create sessions unless you need them<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>When using FreemarkerResult, try to use the Freemarker equivalents rather than the JSP tags<br>&nbsp;</li>
+</ul>
+<p>For the nitty-gritty, visit the latest copy of the <a href="http://struts.apache.org/2.x/docs/performance-tuning.html" target="_blank" rel="external">page</a>.</p>
+<p>Kudos to Philip Luppens for starting the tuning page. If you have any tuning tips of your own, feel free to post comments directly to the page. (Gotta love Confluence!)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2007/but-can-ajax-make-popcorn/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          But can Ajax make popcorn?
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2007/incremental-refactoring/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Incremental Refactoring&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2007/s2-tip-always-set-devmode-to-false-in-production/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

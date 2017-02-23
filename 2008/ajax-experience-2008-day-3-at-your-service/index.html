@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ajax Experience 2008, Day 3, At Your Service - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="The highlight of my testing tools talk turned out to be my new-best-friend, Hudson, an extensible continuous integration server. The talk was in one of the 90-minute slots, so I split the agenda betwe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax Experience 2008, Day 3, At Your Service">
+<meta property="og:url" content="http://ted.husted.com/2008/ajax-experience-2008-day-3-at-your-service/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="The highlight of my testing tools talk turned out to be my new-best-friend, Hudson, an extensible continuous integration server. The talk was in one of the 90-minute slots, so I split the agenda betwe">
+<meta property="og:updated_time" content="2017-02-20T13:37:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ajax Experience 2008, Day 3, At Your Service">
+<meta name="twitter:description" content="The highlight of my testing tools talk turned out to be my new-best-friend, Hudson, an extensible continuous integration server. The talk was in one of the 90-minute slots, so I split the agenda betwe">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-ajax-experience-2008-day-3-at-your-service" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ajax Experience 2008, Day 3, At Your Service
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2008/ajax-experience-2008-day-3-at-your-service/" class="article-date">
+  <time datetime="2008-10-02T23:30:00.000Z" itemprop="datePublished">2008-10-02</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/event/">Event</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The highlight of my <a href="http://www.slideshare.net/ted.husted/testing-tools-presentation" title="testing tools talk" target="_blank" rel="external">testing tools talk</a> turned out to be my new-best-friend, <a href="https://hudson.dev.java.net/" title="Hudson" target="_blank" rel="external">Hudson</a>, an extensible <a href="https://hudson.dev.java.net/" title="continuous integration server" target="_blank" rel="external">continuous integration server</a>. The talk was in one of the 90-minute slots, so I split the agenda between reviewing some of the available tools and demoing a simple-but-complete continuous integration workflow. (By complete, I mean that on every checkin, we build the distribution and run a suite of both unit and integration tests.) Originally, the demo was to include <a href="http://developer.yahoo.com/yui/yuitest/" title="YUI Test" target="_blank" rel="external">YUI Test</a>, <a href="http://selenium.openqa.org/" title="Selenium" target="_blank" rel="external">Selenium</a>, and <a href="http://cruisecontrol.sourceforge.net/" title="Cruise Control" target="_blank" rel="external">Cruise Control</a>. At the last minute I switched in Hudson for Cruise Control.</p>
+<p>Setting up Hudson has to be the easiest/hardest thing I’ve ever done. (The previous runner-up being using iBATIS for Query-By-Example database searches.) Most CI servers are designed to run as standalone critters. Hudson runs as a standard Java web application, and it is configured using a web UI. (A clean and elegant UI, I might add.) The totally cool part is that the server can be installed by dropping the hudson.war into our favorite Java container … or running it standalone from the command line!</p>
+<p><a href="http://hudson.gotdns.com/latest/hudson.war" title="Download the WAR" target="_blank" rel="external">Download the WAR</a>, run</p>
+<p><span class="quote">&gt; java -jar hudson.war</span></p>
+<p>and <a href="http://hudson.gotdns.com/wiki/download/thumbnails/753667/1.png" title="up pops Hudson" target="_blank" rel="external">up pops Hudson</a>, at your service, ready for configuration. (The one prerequesite being a recent Java executable on your system path.)</p>
+<p>By default, Hudson stores its jobs in your home directory (even on Windows), so once it’s running, you can just have at it. Tell Hudson where to checkout your project from SVN or CVS, check a box or two, and you are good to go. (<a href="http://hudson.gotdns.com/wiki/display/HUDSON/Plugins#Plugins-Sourcecodemanagement" title="Other SCMs" target="_blank" rel="external">Other SCMs</a> also supported) For extra credit, you can indicate an Ant file to run along with Hudson’s default build. (<a href="http://hudson.gotdns.com/wiki/display/HUDSON/Plugins#Plugins-Buildtools" title="Other build systems" target="_blank" rel="external">Other build systems</a> also supported.) Fill out a few more fields in the web UI, and you’ll be getting an email nag whenever the build or test suite fails.</p>
+<p>With a continuous integration server in place, the remaining trick is to export Selenium tests to JUnit (or C#, or Ruby, or Python) to run both acceptance tests and any JavaScript unit tests. While running YUI Unit won’t trigger a JUnit failure out-of-the-box, we can use Selenium to watch for the outcome of the tests on the test logger. If <a href="http://developer.yahoo.com/yui/examples/yuitest/yt-simple-example.html" target="_blank" rel="external">“Failed:0” doesn’t materialize</a>, then we know the YUI test failed.</p>
+<p>Summing up: If you have a chance to go to Ajax Experience 2009, I’d say: “take it”. The organizers always manage to come up with a nice mix of introductory and advanced presentations, many by the people who are creating the technologies we use – people like Brendan Eich, Nicholas C. Zakas, and John Resig, to name a few. Even better, it’s a great chance to mingle with other real-live developers all trying to do the very same things you are trying to do. (And then discovering your organization isn’t so backward, after all!)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">Ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/continuous-integration/">Continuous Integration</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hudson/">Hudson</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/">Jenkins</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2008/testing-ajax-applications/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          Testing: Ajax Applications
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2008/ajax-experience-2008-day-2-return-of-the-yui/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Ajax Experience 2008, Day 2, Return of the YUI&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2008/ajax-experience-2008-day-3-at-your-service/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

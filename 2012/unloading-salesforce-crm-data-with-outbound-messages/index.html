@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Unloading Salesforce CRM Data with Outbound Messages - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="No software application is an island, and Salesforce provides two great mechanisms for getting data in and out of your org. To get bits in, there’s the Data Loader and other tools that use the same AP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unloading Salesforce CRM Data with Outbound Messages">
+<meta property="og:url" content="http://ted.husted.com/2012/unloading-salesforce-crm-data-with-outbound-messages/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="No software application is an island, and Salesforce provides two great mechanisms for getting data in and out of your org. To get bits in, there’s the Data Loader and other tools that use the same AP">
+<meta property="og:image" content="http://www.clker.com/cliparts/6/9/f/3/11971239071443233733nicubunu_Message_in_a_Bottle.svg.med.png">
+<meta property="og:updated_time" content="2017-02-20T13:34:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unloading Salesforce CRM Data with Outbound Messages">
+<meta name="twitter:description" content="No software application is an island, and Salesforce provides two great mechanisms for getting data in and out of your org. To get bits in, there’s the Data Loader and other tools that use the same AP">
+<meta name="twitter:image" content="http://www.clker.com/cliparts/6/9/f/3/11971239071443233733nicubunu_Message_in_a_Bottle.svg.med.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-unloading-salesforce-crm-data-with-outbound-messages" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Unloading Salesforce CRM Data with Outbound Messages
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2012/unloading-salesforce-crm-data-with-outbound-messages/" class="article-date">
+  <time datetime="2012-03-22T09:00:00.000Z" itemprop="datePublished">2012-03-22</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div class="separator" style="clear:both;text-align:center;"><a href="http://www.clker.com/" target="_blank" rel="external"><img src="http://www.clker.com/cliparts/6/9/f/3/11971239071443233733nicubunu_Message_in_a_Bottle.svg.med.png" alt=""></a></div>No software application is an island, and Salesforce provides two great mechanisms for getting data in and out of your org. To get bits in, there’s the Data Loader and other tools that use the same APIs. To get data out, Salesforce provides a system for pushing outbound messages to an external web service.<br><br>Whenever data is edited, or some other internal event occurs, a Salesforce workflow can queue an outbound message to another system.<br><br>While there are several off-the-shelf tools for loading data, implementing an outbound message listener is still a custom affair that requires database and web development skills. If you don’t mind exposing an end-point to pass data to a stored procedure, then read on ..<br><br><a name="more"></a>There are plenty of devils in the details, but here’s the basic 1-2-3-4:<br><br>1.  A workflow rule queues an outbound message.<br>2.  The outbound message contains a bundle of fields from one of your Salesforce objects.<br>3.  A web service endpoint (that you create) receives the message and updates an external system (that you control).<br>4.  Optionally, the service responds and updates the original recordThe linch pin is step 3. While there are tools that simplify writing web services, you still need to write some code. The Salesforce API Developers Guide provides an <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_om_outboundmessaging_listener.htm" target="_blank" rel="external">example of a simple listener class</a>, but it’s really a bit too simple.<br><div><br><pre>classMyNotificationListener : INotificationBinding<br>{<br>    publicnotificationsResponse notifications(notifications n)<br>    {<br>        notificationsResponse r = newnotificationsResponse();<br>        r.Ack = true;<br>        return r;<br>    }<br>}<br></pre><br>The notificationsResponse method is the end-point for a SOAP web services call. The message bundle is passed over as a “notification”.  If records are being updated in bulk (say by a data loader), Salesforce may include up to 100 notifications in a single SOAP envelope.   A better example of a notificationResponse would be:<br><br><pre><span class="Apple-style-span">classMyNotificationListener : INotificationBinding<br>{<br>    publicnotificationsResponse notifications(notifications n)<br>    {<br>        foreach (AccountNotification message in n.Notification)<br>        {<br>            // … handle message …</span><span class="Apple-style-span"><br>        }<br>        notificationsResponse r = newnotificationsResponse();<br>        r.Ack = true;<br>        return r;<br>    }<br>}<br></span></pre><br>Something to consider when handling a message is that Salesforce may send the same message multiple times. Each message has an ID, and if handling the same message twice would be a bad thing, you should cache the ID and check it before processing. Also, in real life, we should catch exceptions and log errors.<br><br><pre>log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);<br>foreach (AccountNotification message in n.Notification)<br>{<br>  sf = message.sObject;<br>  try<br>  {<br>    // – Have we met? –<br>    if (HttpRuntime.Cache[message.Id] != null)<br>    {<br>      log.Warn(string.Format(“Warn: SKIPPING (sf.id=\”{0}\”) in message (id=\”{1}\”)”, sf.Id, message.Id));<br>      continue;<br>    }<br>    lock (cacheLock)<br>    {<br>      // The cache will only last as long as the App Pool<br>      HttpRuntime.Cache.Insert(message.Id, sf.Id, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromHours(2));<br>      log.Info(string.Format(“Info: PROCESSING (sf.id=\”{0}\”) in message (id=\”{1}\”)”,sf.Id, message.Id));<br>    }<br><br>    // … handle message …<br>  }<br>  catch (Exception ex)<br>  {<br>    // Catch any exceptions raised in foreach loop<br>    String errorMessage = ex.Message + “ — “ + ex.StackTrace;<br>    log.Error(String.Format(“Error: EXCEPTION (sf.id=\”{0}\”, error=\”{1}\””, sf.Id, ex.Message + “ — “ + ex.StackTrace));<br>        }<br>} // end foreach loop<br></pre><br>When developing an outbound message service, you should test it under maximum load. What will happen if someone uses the Apex Dataloader to touch every record in an object, potentially creating an outbound message for every record? If that happens, Salesforce is going to collect the bundles into envelopes of 100 records each, and send them down to your web service as quickly as it can. If your service can’t keep up, Salesforce will try again later, in increasing intervals, for up to 24 hours.<br><br>Under “Setup/Monitor/Outbound Messages”, Salesforce provides a display where you can watch the records pass through in real time. If in your tests, you see Salesforce binding up, it’s a good idea to queue the records, and process them at your system’s pace.<br><br>For .NET, one approach would be to spread-out the work using a ThreadPool, but a better approach can be to use a Producer/Consumer Queue. (The example code is written for .NET 3.5. A 4.0 implementation may differ. See <a href="http://www.amazon.com/gp/product/0596800959/ref=as_li_ss_tl?ie=UTF8&amp;tag=husteddotcom-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0596800959" target="_blank" rel="external">C# 4.0 in a Nutshell</a> for more examples and background information.)<br><br><pre>public notificationsResponse notifications(notifications n)<br>{<br>  log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);<br>  if (myQueue == null) lock (queueLock)<br>  {<br>    // Double-check pattern<br>    if (myQueue == null) myQueue = new AccountQueue();<br>  }<br>  log.Info(“Info: Enqueuing and acknowledging notifications”);<br>  myQueue.EnqueueTask(n);<br>  notificationsResponse r = new notificationsResponse();<br>  r.Ack = true;<br>  return r;<br>}<br><br>// Producer/Consumer Queue to throttle account upserts notifications<br>// and prevent swamping of server during DataLoader updates.<br>// <a href="http://www.albahari.com/threading/part2.aspx#_WaitHandle_Producer_Consumer_Queue" target="_blank" rel="external">http://www.albahari.com/threading/part2.aspx#_WaitHandle_Producer_Consumer_Queue</a><br>class AccountQueue : IDisposable<br>{<br>  EventWaitHandle _wh = new AutoResetEvent(false);<br>  Thread _worker;<br>  readonlyobject _locker = newobject();<br>  Queue _tasks = new Queue();<br>  public AccountQueue()<br>  {<br>    _worker = new Thread(Work);<br>    _worker.Start();<br>  }<br>  publicvoid EnqueueTask(notifications task)<br>  {<br>    lock (_locker) _tasks.Enqueue(task);<br>    _wh.Set();<br>  }<br>    publicvoid Dispose()<br>    {<br>        EnqueueTask(null);     // Signal the consumer to exit.<br>        _worker.Join();        // Wait for the consumer’s thread to finish.<br>        _wh.Close();           // Release any OS resources.<br>    }<br>    void Work()<br>    {<br>    while (true)<br>    {<br>      notifications task = null;<br>      lock (_locker)<br>        if (_tasks.Count &gt; 0)<br>        {<br>           task = _tasks.Dequeue();<br>           if (task == null) return;<br>        }<br>        if (task != null)<br>        {<br>          doWork(task);    // Handle message here<br>        }<br>        else<br>          _wh.WaitOne();   // No more tasks - wait for a signal<br>      }<br>   }<br>}<br><br>static readonly private object cacheLock = newobject();<br>static public void doWork(notifications n) {<br>     // … code from prior example …<br>}<br></pre><br>Along the way, we slipped in a reference to Log4Net. Configuring Log4Net is outside the scope of this article, but you can dig into the gory details at <a href="http://logging.apache.org/" target="_blank" rel="external">logging.apache.org</a>. Highly recommended!<br><br>While our non-trivial example has grown quickly, it does provide the backbone for a robust Listener that can keep pace with Salesforce, even when you are stuck with a pokey API or under-powered server.<br><br>In a <a href="http://tedhusted.blogspot.com/2012/03/catch-me-on-flip-side-responding-to.html" target="_blank" rel="external">followup blog</a>, we close the loop by showing how a listener can respond back to Salesforce.<br><br></div>
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/salesforce/">Salesforce</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/in-data-we-trust/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          In Data We Trust
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/learn-salesforce-now/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Learn. Salesforce. Now.&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2012/unloading-salesforce-crm-data-with-outbound-messages/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

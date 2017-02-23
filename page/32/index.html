@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ted.husted.com">
+<meta property="og:url" content="http://ted.husted.com/page/32/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ted.husted.com">
+<meta name="twitter:description" content="Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer">
+      <article id="post-googlecode-whats-the-diff" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/googlecode-whats-the-diff/">GoogleCode: What&#39;s the diff?</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/googlecode-whats-the-diff/" class="article-date">
+  <time datetime="2007-03-14T09:00:00.000Z" itemprop="datePublished">2007-03-14</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Good news! <a href="http://code.google.com/hosting/" target="_blank" rel="external">GoogleCode Hosting</a> already offered alert emails on a Subversion commit, but, strangely, the diffs were omitted from the alerts. Now, we get both logs and diffs on every commit!</p>
+<p>This is especially great news for me. I was actually posting daily commit summaries by running svn diff to a text file and posting the output to our mailing list (Google Group). But, that was a poor replacement for per-commit logs and diffs, all in one handy-dandy email feed.</p>
+<pre><code>Author: ted.husted
+Date: Fri Mar  9 09:46:00 2007
+New Revision: 182
+</code></pre><p>Modified:<br>trunk/cs/Apps/PhoneBook/Web/PhoneBook-Editor.js<br>trunk/cs/Apps/PhoneBook/Web/PhoneBook-Lister.js<br>trunk/cs/Apps/PhoneBook/Web/PhoneBook-Menu.js<br>trunk/cs/Apps/PhoneBook/Web/PhoneBook-Profile.js</p>
+<p>Log:<br>Issue 11 - Add events for all menu buttons. Setup “init guards” so that menu<br>buttons are not created more than once. Include logic to disable exting buttons<br>if user’s status changes from editor.</p>
+<h1 id="Modified-trunk-cs-Apps-PhoneBook-Web-PhoneBook-Editor-js"><a href="#Modified-trunk-cs-Apps-PhoneBook-Web-PhoneBook-Editor-js" class="headerlink" title="Modified: trunk/cs/Apps/PhoneBook/Web/PhoneBook-Editor.js"></a>Modified: trunk/cs/Apps/PhoneBook/Web/PhoneBook-Editor.js</h1><p>— trunk/cs/Apps/PhoneBook/Web/PhoneBook-Editor.js (original)<br>+++ trunk/cs/Apps/PhoneBook/Web/PhoneBook-Editor.js Fri Mar 9 09:46:00 2007<br>@@ -98,8 +98,13 @@</p>
+<p>EDITOR.onDelete_load = function (data) {<br>// ISSUE: This will fail if list is out of sync and data is null</p>
+<ul>
+<li>ANVIL.setMessage(“Deleted: “ + data.result.user_name);</li>
+<li>PhoneBook.rpc.entry_list(LISTER.onDeleteRefresh_load).call(ANVIL.channel);</li>
+</ul>
+<ul>
+<li>if (data.result.user_name) {</li>
+<li>ANVIL.setMessage(“Deleted: “ + data.result.user_name);</li>
+<li>PhoneBook.rpc.entry_list(LISTER.onDeleteRefresh_load).call(ANVIL.channel);</li>
+<li>}</li>
+<li>else {</li>
+<li>ANVIL.setMessage(“Workflow error. Select row and try again.”)</li>
+<li>};<br>};<br>…</li>
+</ul>
+<p>Why all the noise over diffs? Simple: Peer review and non-redundant team communication. My team is accustom to reviewing each others commits as an extended form of pair-programming. Following the example of many successful open source projects, we also use the commit logs to describe what we are doing, step by step. The alerts become part of an implicit <a href="http://java.icmc.usp.br/books/ooc/html/udf_unit_development_folder.html" target="_blank" rel="external">unit development folder</a>, saving us an extra post or conversation later. And, unlike a random post to the mailing list, the commit log is directly linked to that code revision.</p>
+<p>To help tie it all together, many projects apply “issue-driven development” to the commit logs. Under IDD, a team adopts a policy that <strong>every</strong> commit must reference one or more tickets from the issue tracker. If a commit doesn’t relate to an open issue, then we have to create one first.</p>
+<p>Like test-driven design, IDD encourages developers to do the right thing as soon as possible. If we are going to write the test anyway, we might as well write it first. If we are going to create the issue anyway, we might as well create it first. And, if the issue tracker is tied to the mailing list, when we create the issue, we put the team on notice of our short-term plan, just in case anyone has a suggestion.</p>
+<p>Issue driven development works best when the issue tracker can scan the repository logs and link commits with issues. <a href="https://issues.apache.org/struts/browse/WW-1689?page=com.atlassian.jira.plugin.ext.subversion:subversion-commits-tabpanel" target="_blank" rel="external">Apache Struts uses IDD with JIRA and Subversion.</a> For odd jobs, we create an “omnibus” issue for each milestone, which we use (judiciously) as a catch-all.</p>
+<p><a href="http://blogs.codehaus.org/people/vmassol/archives/001063_clirr_rocks.html" target="_blank" rel="external">Vincent Massol (JUnit in Action) has also blogged about IDD.</a></p>
+<p>GoogleCode doesn’t link issues with Subversion commits yet. In the meantime, we’ve been faking it by prefixing our commits with the issue number. There’s not a live link to the revision yet, but at least we will be in the habit should <a href="http://code.google.com/p/support/issues/detail?id=94&amp;can=2&amp;q=" target="_blank" rel="external">that feature</a> come online.</p>
+<p>Perhaps Devo said it best: <em>Duty now for the future!</em> :)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-why-do-we-call-it-apache" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/why-do-we-call-it-apache/">Why do we call it Apache?</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/why-do-we-call-it-apache/" class="article-date">
+  <time datetime="2007-03-13T09:00:00.000Z" itemprop="datePublished">2007-03-13</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/essay/">Essay</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Digging into the email archives we find ….</p>
+<blockquote>
+<p><a href="http://mail-archives.apache.org/mod_mbox/httpd-dev/199503.mbox/%3c9502281620.AA24455@volterra%3e" target="_blank" rel="external">[28 Feb 1995 - Robert S. Thau]</a> As to the product, we seem to have decided to call it Apache. (If you’re wondering about the name, say “Apache server” ten times fast. Europeans may want to fake their best American accent while trying this).</p>
+<p><a href="http://mail-archives.apache.org/mod_mbox/httpd-dev/199503.mbox/%3c199503101519.JAA21867@sierra.zyzzyva.com%3e" target="_blank" rel="external">[10 Mar 1995 - Randy Terbush]</a> I personally like the name ‘apache’. As for comments about offending native americans, I see the choice of ‘apache’ being made out of respect for the efficiency and robustness of these native tribes.<br>As with many things historic, there seem to be two reasons. Because it sounds like “a patchy” (server) <span style="font-weight:bold;font-style:italic;">and</span> as a tribute to the native Apache tribes.</p>
+</blockquote>
+<p>I’m surprised no one mentioned the <a href="http://en.wikipedia.org/wiki/AH-64_Apache" target="_blank" rel="external">helicopter</a>! :)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/asf/">ASF</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-been-there-done-that" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/been-there-done-that/">Been there, done that</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/been-there-done-that/" class="article-date">
+  <time datetime="2007-03-12T09:00:00.000Z" itemprop="datePublished">2007-03-12</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>So, how many times have you said to yourself: “Ummm, we had that problem before … and what did we do?”</p>
+<p>If you’re like me, wayyyy to many times<img src="void(0" alt="
+">)</p>
+<p><div class="cssButtonOuter"></div></p>
+<p><div class="cssButtonMiddle"></div></p>
+<p><div class="cssButtonInner">Publish Post</div><br><br><br>Lately, I’ve started to keep a “Common Problems” page on the project’s wiki to log incidental problems and quick-fixes. <a href="http://code.google.com/p/anvil/wiki/CommonProblems" target="_blank" rel="external">There’s an example at the Anvil site. </a></p>
+<p>Simple. Effective. Easy to do. (So, just do it!)</p>
+<p>If nothing else, after spending an hour banging your head against a simple problem, you’ll have something to show for it :)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/productivity/">Productivity</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-java-web-frameworks-order-from-chaos" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/java-web-frameworks-order-from-chaos/">Java Web Frameworks: Order from Chaos</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/java-web-frameworks-order-from-chaos/" class="article-date">
+  <time datetime="2007-03-11T10:00:00.000Z" itemprop="datePublished">2007-03-11</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>People often comment on the number of Java web development frameworks. The Evolutionary Goo blog has an excellent summary of <a href="http://evolutionarygoo.com/blog/?p=94" target="_blank" rel="external">Java web framework taxonomies</a>.</p>
+<p>Now, can someone do the same for Ajax libraries? I’ve heard tell that there are about 200 Ajax libraries in use today – which puts the Java framework community to shame, especially when we’ve had a five-year head start. :)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">Ajax</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-happy-trails-to-yui" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/happy-trails-to-yui/">Happy Trails to YUI</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/happy-trails-to-yui/" class="article-date">
+  <time datetime="2007-03-10T11:00:00.000Z" itemprop="datePublished">2007-03-10</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Dojo has cachet, but the Yahoo! User Interface (YUI) Library has got the goods. YUI is fast, well-designed, and well-documented. Yes, documented. Not just API docs, but tutorial-style documentation with honest-to-goodness examples.</p>
+<p>Here’s the catch: the YUI site is organized like an encyclopedia. Everything is in arbitrary, alphabetic order. Great for looking stuff up later. Bad for getting started now.</p>
+<p>If you’re ready for Ajax, but your JavaScript skills are not, first spend a quality day with the <a href="http://jroller.com/page/TedHusted?entry=crockford_clips" target="_blank" rel="external">Crockford Clips</a>, courtesy of YUI Theatre. It’s just enough knowledge to make an object-orientated programmer dangerous.</p>
+<p>Once you are over the OO JavaScript hurdle, the remaining challenge is ramping up with YUI itself.</p>
+<p>To get started with YUI, I recommend reviewing the slide overview from <a href="http://simon.incutio.com/slides/2006/xtech/yui-slides.pdf" target="_blank" rel="external">XTech Developers Day</a>, and and then following the “<a href="http://www.blogger.com/post-create.g?blogID=5208774#trail" target="_blank" rel="external">Happy Trails</a>“ through the documentation. If you take your time and try some of the exercises on your own machine, it could take a day or three to get through it all. (Though, if you’re like me, about half-way through, you’ll be off coding your own application, and leaving the rest for later!)</p>
+<p><a name="trail"></a></p>
+<h3 id="Read-Me-First"><a href="#Read-Me-First" class="headerlink" title="Read Me First"></a><a name="trail"></a>Read Me First</h3><p><a name="trail"></a></p>
+<ul>
+<li><a href="http://simon.incutio.com/slides/2006/xtech/yui-slides.pdf" target="_blank" rel="external">Ajax XTech Slides</a></li>
+</ul>
+<h3 id="The-Happy-Trails"><a href="#The-Happy-Trails" class="headerlink" title="The Happy Trails"></a>The Happy Trails</h3><p>After browsing the XTech slides, I suggest reviewing the YUI documentation in a step-by-step order. I’ve divided the trail into three legs.</p>
+<p>First Leg - YUI builds on several “backbone” packages that hold the library together.</p>
+<ul>
+<li>Yahoo Global</li>
+<li>Dom</li>
+<li><p>Event</p>
+<ul>
+<li><a href="http://yuiblog.com/blog/2007/01/17/event-plan/" target="_blank" rel="external">Event-Driven Application Design</a></li>
+</ul>
+</li>
+<li><p>Element</p>
+</li>
+<li>Logger</li>
+<li>Connection</li>
+<li>Animation</li>
+<li><p>Drag and Drop<br>Second Leg - The library provides several workhorse packages that manage and display data.</p>
+</li>
+<li><p>Container</p>
+</li>
+<li><p>Module, Overlay, Panel, Tooltip, Dialog,<br>&nbsp;</p>
+</li>
+<li><p>SimpleDialog</p>
+</li>
+<li>Menu</li>
+<li>Tabview</li>
+<li>TreeView</li>
+<li>DataSource</li>
+<li>DataTable<br>&nbsp;</li>
+</ul>
+<p>Home Stretch - Other library controls provides special effects, like sliders, buttons, and calendars, along with browser history management, and grid-based layouts.</p>
+<ul>
+<li>Autocomplete</li>
+<li>Button</li>
+<li>Slider</li>
+<li>Calendar</li>
+<li>Browser History Manager</li>
+<li>Reset, Fonts, and Grids (This could also be viewed first.)<br>The mass of YUI documentation can seem imposing at first, but if you break it down, and follow the trail, you’ll be up and running in a New York minute. :)</li>
+</ul>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yui/">YUI</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/page/31/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="page-number" href="/page/31/">31</a><span class="page-number current">32</span><a class="page-number" href="/page/33/">33</a><a class="page-number" href="/page/34/">34</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/33/">下一页 &raquo;</a>
+      </nav>
+    </section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

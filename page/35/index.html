@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ted.husted.com">
+<meta property="og:url" content="http://ted.husted.com/page/35/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ted.husted.com">
+<meta name="twitter:description" content="Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer">
+      <article id="post-struts-2-0-0-available" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/struts-2-0-0-available/">Struts 2.0.0 Available</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2006/struts-2-0-0-available/" class="article-date">
+  <time datetime="2006-09-27T09:00:00.000Z" itemprop="datePublished">2006-09-27</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/event/">Event</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>We started rolling snapshots in August, and the time for tagged builds has arrived. The distribution still have some rough edges, but it is feature complete, and ready to take on eager early adopters.</p>
+<p>The API is essentially WebWork 2.2 with some deprecations and legacy features removed. New features include wildcard mappings, JSF support, and stateful checkboxes.</p>
+<p>We adopted the notion of <strong>wildcards</strong> from Cocoon and introduced the feature in Struts 1.3. With wildcards, we can define a action name pattern, like “Edit<em>“ and have it match any incoming URIs that being with “Edit”. Or, if you prefer, “</em>Edit” to match URI names ending it Edit. Or, perhaps “<em>/</em>“ to match names like “People/edit”.</p>
+<p>The latter pattern, “<em>/</em>“ is a useful way to handle “dispatch” actions. S2 includes a mapping attribute for the method name, making it easy to setup a pattern like “method={2}” “class=actions.{1}”. Given “People/edit”, the action mapping would expand to “method=edit” “class=actions.People”. In other words, call the edit method on the People Action.</p>
+<p>The <strong>JSF support</strong> is still new, but it looks sound. Essentially, you can use JSF components as another type of view. Of course, the view is only one part of JSF, but it’s the part that interest people first.</p>
+<p><strong>Checkboxes</strong> have always been a thorn in the side of web developers. If the checkbox is clear, the client submits nothing back. Nada. Zilch. It’s like the checkbox was not even there. The problem being that HTTP, being text-based, has no clear way to say “FALSE”. Struts 2 fixes this glitch by keeping track of when a checkbox is used on a page. If the checkbox control doesn’t post back, then the framework inserts a false value into the context, and, suddenly, even checkboxes are stateful. (That only took six years!)</p>
+<p>But the sparkle on Struts 2.0.0 has to be the distribution itself. The “all” distribution weighs int 40mb, but it includes ready-to-deploy WARs of the example application, binary dependencies, source code, Java 4 compatabilility JARS, and the new and improved documentation.</p>
+<p>The WebWork 2.2 documentation is actually quite good, and given a fresh coat of paint, the Struts 2.0 documentation almost glistens. The docs are now organized into three main parts: Tutorials, Guides, and FAQs. The Tutorials are designed to get people up and running. The Guides provide the detailed information people need as applications are created and improved, and the FAQs fill in any gaps.</p>
+<p>If you are looking for the Next Big Thing in action-based frameworks, take <a href="http://struts.apache.org/2.x/" target="_blank" rel="external">Apache Struts 2.0.0</a> for a spin. You won’t be disappointed.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-sportsforge-a-working-example" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/sportsforge-a-working-example/">SportsForge: A Working Example</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2006/sportsforge-a-working-example/" class="article-date">
+  <time datetime="2006-09-16T09:00:00.000Z" itemprop="datePublished">2006-09-16</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Once upon a time, Jeff Wellings, an earnest entrepreneur with technical savvy, setup a website to post stories and statistics about local high school athletes. Since he lives in New York State’s Section 10, the website became <a href="http://www.sectionxsports.com/" target="_blank" rel="external">SectionXSports.com</a>. It’s up and running, and doing quite well, thank you.</p>
+<p>Well … but not quite well enough.</p>
+<p>Like many Model 1 JSP applications, SectionXSports grew in the telling, and the application has become difficult to extend. It works, but making it work better has become a challenge.</p>
+<p>A challenge that open source might be able to answer.</p>
+<p>Jeff has placed the original SectionXSports code under the Apache License, and we setup a Struts “SportsForge” project to work on migrating the application to Struts 2. My ambition is to grow SportsForge into the archetypical Struts example. Not just a showcase or a random demo, but a real application that people use everyday.</p>
+<p>Towards that end, we’ve setup a portal site with requirements, use cases, and issue tickets. The whole nine yards. <a href="http://opensource.atlassian.com/confluence/oss/display/sportsforge/Home" target="_blank" rel="external">Feel free to drop by and see what we’re up to</a>, and even lend a hand if you like.</p>
+<p>Who knows, before long, you might want to setup your own friendly neighborhood SportsForge to track the goings on for your kid’s team.!</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-struts-2-spring-love-fest" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/struts-2-spring-love-fest/">Struts 2: Spring Love Fest!</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2006/struts-2-spring-love-fest/" class="article-date">
+  <time datetime="2006-09-06T09:00:00.000Z" itemprop="datePublished">2006-09-06</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>In my own work, my (latest) favorite Struts 2 feature is the <a href="http://cwiki.apache.org/WW/spring.html" target="_blank" rel="external">Spring integration</a>.</p>
+<p>Want to expose a Spring bean named “peopleFinder” on your Action?</p>
+<ol>
+<li>Add a “peopleFinder” property to your Action.<br>&lt;&gt; Done. The framework sees that there’s a peopleFinder Spring bean and a peopleFinder Action property, and Struts 2 does the math.</li>
+</ol>
+<p>Or, would you prefer to snag the several beans from the Action by name. No problem. But, it does take three steps.</p>
+<ol>
+<li>Implement BeanFactory on your Action.</li>
+<li>Add a Spring bean element for your Action.</li>
+<li>In the Struts config, use the bean Id for the <code>class</code> attribute.<br>&lt;&gt; Done. If you want this Spring bean or that Spring bean or some other Spring bean, the Action can just ask the BeanFactory for it.</li>
+</ol>
+<p>If you do use Spring to instantiate Actions, you can use Spring to populate any properties you like, or call any constructors you care to create. It would be more verbose, but I can’t help but wonder if we should support using the Spring DTD to define it all!</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-public-course-migrating-to-struts-action-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/public-course-migrating-to-struts-action-2/">Public Course: Migrating to Struts Action 2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2006/public-course-migrating-to-struts-action-2/" class="article-date">
+  <time datetime="2006-06-20T09:00:00.000Z" itemprop="datePublished">2006-06-20</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/event/">Event</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Leverage your hard-earned Struts experience in this five-day hands-on course, developed and delivered by Ted Husted. Learn how to intergrate existing Struts applications with the Next Big Thing: Struts Action Framework 2. The course covers migrating existing applications to Struts Action 2, with a focus on upgrading the most important asset of all: the grey matter between your ears.</p>
+<p>Along with migration issues, the course covers advanced development topics, such as creating a data access layer, securing web applications, and creating tag-based user interface components.</p>
+<p>This five-day course is being held in Rochester NY, August 14-18. Class size is limited. <a href="http://www.strutsmentor.com/register.html" target="_blank" rel="external">Register early to reserve your place.</a></p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-looking-forward-looking-back" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/looking-forward-looking-back/">Looking Forward, Looking Back</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2006/looking-forward-looking-back/" class="article-date">
+  <time datetime="2006-05-28T09:00:00.000Z" itemprop="datePublished">2006-05-28</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/essay/">Essay</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>With <a href="http://struts.apache.org/2.x/" target="_blank" rel="external">WebWork2 out of the incubator</a>, and this being the sixth anniversary of the creation of the first Apache Struts codebase (Memorial Day weekend), I thought it might be time to reflect on some of the things that Apache Struts, as a project, has been doing right, as well as some things that we might do better.</p>
+<p>NOTE: These are my own personal observations. Other committers may have different viewpoints (and probably do!).</p>
+<h5 id="Documentation-Documentation-Documentation"><a href="#Documentation-Documentation-Documentation" class="headerlink" title="Documentation, Documentation, Documentation"></a>Documentation, Documentation, Documentation</h5><p>One thing we have always done well – or least better than most – is documentation. When I stumbled onto the project in the summer of 2000, there was already a concise introduction to the framework in place, as well as a working example application (the infamous MailReader). Since then, the end-user documentation has continued to grow and mature. For developers, one hallmark of Apache Struts has always been detailed JavaDocs and commit logs.</p>
+<p>Although sometimes criticized for a lack of documentation, the WebWork 2 wiki is a treasure trove of information. For Struts 2, we’re extending and refining the WW2 base into a <a href="http://cwiki.apache.org/WW/home.html" target="_blank" rel="external">comprehensive documentation suite</a>. Open source products have always been “production quality”, and our documentation can be “bookstore quality” too. Following WebWork’s lead, we are maintaining the documentation in Confluence, and using a <a href="http://confluence.atlassian.com/display/CONFEXT/AutoExport+for+Confluence" target="_blank" rel="external">plugin</a> that automatically exports the pages as they are edited.</p>
+<p>An exciting aspect of documenting with Confluence is our custom “snippet” macro. The macro merges text from the source code directly into the Confluence wiki text. It’s a quick and easy way to “<a href="http://en.wikipedia.org/wiki/Single_source_publishing" target="_blank" rel="external">single-source</a>“ more of the documentation. Best of all, it encourages us to create better Javadocs and example applications, so that we can suck the source into the wiki.</p>
+<p>It would be great fun to apply the snippet macro to the Struts 1 docs too, since the codebase still bears the imprint of Craig’s very excellent JavaDocs. Personally, I think it is safe to say that the quantity and quality of Struts 1 documentation is one of the things that lead to its wild success.</p>
+<h5 id="Status-and-Summaries"><a href="#Status-and-Summaries" class="headerlink" title="Status and Summaries"></a>Status and Summaries</h5><p>One thing that we have not done well enough is to create and <em>maintain</em> current roadmaps for new features and changes. We have created roadmaps, but as “detours” arise, we forget to update the roadmap, and it gets out of synch with the nightly build.</p>
+<p>We also have not been very good about keeping the release notes up to date, so that updating the notes becomes yet-another chore that falls to the release manager.</p>
+<p>On the list, we often have extended development discussions that go on for weeks, even months. While those of us in the “thick of things” can follow along, it’s often hard for a newcomer to catch up. After six years, the advice to “read the dev@ list”, becomes a herculean task. Over the years, we have often made decisions like “the JSP taglib API will strictly observe HTML 4.01” in the midst of mailing list discussions, but, we usually don’t followup and document these decisions, outside of the thousands upon thousands of dev@ threads.</p>
+<p>I’d suggest that we try harder to maintain a coherent status report for the project, along the lines of <a href="http://svn.apache.org/viewvc/httpd/httpd/trunk/STATUS?view=markup" target="_blank" rel="external">what HTTPD does,</a> leveraging JIRA where we can. Regardless of format, I do think it’s important that the status report be something that can be automatically emailed to dev@ every month.</p>
+<h5 id="Stone-Soup"><a href="#Stone-Soup" class="headerlink" title="Stone Soup"></a>Stone Soup</h5><p>I think if one thing has held the project back, it’s the notion that the PMC ia suppose to be a steering committee, trying to decide what is best for other people. Committers (including myself) don’t always contribute some of the coolest bits that we use in our own applications. An ASF project should be like <a href="http://stonesoup.esd.ornl.gov/stonesoup.html" target="_blank" rel="external">stone soup</a>, we each throw what we have into the pot and share the wealth.</p>
+<p>Often, it seems that we don’t contribute some bits because we think our solution doesn’t have a broad-enough audience. One reading of the ASF maxim “<a href="http://jroller.com/page/TedHusted?entry=dogfood" target="_blank" rel="external">we eat our own dogfood</a>“ is that <em>we</em> are the audience. If we need it for own applications, then it follows someone else will too, and, ipso facto, it belongs in the product.</p>
+<p>When the ASF talks about a project’s <a href="http://jroller.com/page/TedHusted?entry=community" target="_blank" rel="external">community</a>, we are not talking about anyone who downloads the software. The ASF is talking about the people who contribute to the project through patches and posts. <strong>We are the community.</strong> If we need it, then it belongs in the product.</p>
+<p>I’m hoping that by creating packages like “extras” and opening the door to the idea of specialty subprojects, like Scripting, we might be able share more of our own solutions, without bloating the core distribution.</p>
+<h5 id="Best-Practices-and-Best-Practice-Examples"><a href="#Best-Practices-and-Best-Practice-Examples" class="headerlink" title="Best Practices and Best Practice Examples"></a>Best Practices and Best Practice Examples</h5><p>On the other hand, we’ve been much too reluctant to publish best practices, along with example applications that exhibit best practices. For Struts 1.3.x, the infamous MailReader application has been updated to demonstrate best practices and avoid “demonstration only” tangents. Moving forward, I would like to continue expanding the new “Cookbook” applications, to demonstrate common use cases, so that other example applications can be an example of the kind of applications that we ourselves write at our day jobs. For Struts 2, we’ve already started a <a href="http://svn.apache.org/viewvc/struts/sandbox/trunk/action2/PRACTICES.txt?view=markup" target="_blank" rel="external">list of best practices</a>, which I hope we will continue to refine and publish as part of the documentation.</p>
+<h5 id="Developer-Independence"><a href="#Developer-Independence" class="headerlink" title="Developer Independence"></a>Developer Independence</h5><p>Another weak area is reliance on key developers, both for work on the core framework as well as speciality packages, like the Validator and Tiles, and lately for key aspects of the infrastructure. Someone will start out doing a lot of the commits, and we fall into the habit of thinking that “so and so will take care of that”. Then “so-and-so” becomes busy with his or her day job, and, suddenly, we find that many new patches have not been committed. Usually, we have between one and zero active committers who are comfortable working with Tiles or the Validator. (With Struts 2, we’re liable to have the same problem with OGNL.)</p>
+<p>One tendency that contributes to this problem, I think, is that we don’t often share our work schedules with each other. We might mention off-hand that things are busy, but we don’t always stress that things might stay busy for (say) six or eight months. Aside from mentioning what we plan to do, it’s also important to mention what we plan <strong>not</strong> to do, so others can pick up the slack.</p>
+<h5 id="Going-Emeritus"><a href="#Going-Emeritus" class="headerlink" title="Going Emeritus"></a>Going Emeritus</h5><p>When an ASF developer knows that he or she won’t be able to contribute for some time (perhaps a year), it is helpful to announce that he or she is moving to “emeritus” status. Merit never expires, and an emeritus committer can reactivate his or her status upon request. But, if a committer is not going to be available for a while, it helpful to let the rest of us know. Again, so that others can pick up the slack. It’s not uncommon for Apache Struts committers to “fade away” without notice. Eventually, we do move inactive people to the emeritus column, but that’s not something we should have to do unilaterally.</p>
+<h5 id="Committer-Nominations"><a href="#Committer-Nominations" class="headerlink" title="Committer Nominations"></a>Committer Nominations</h5><p>IMHO, the first two things a new committer should do is volunteer to manage a release and start looking for another committer to nominate. Over the years, we’ve developed an image of the perfect nominee. The archetypical candidate has been someone who has been posting to the lists for at least six months, participated in development discussions in a helpful way, submitted several patches that were applied, and, most often, has created an independent Struts extension of his or her own. We’ve made some progress in breaking away from that mold this year, especially in terms of submitting a plethora of patches.</p>
+<p>As we move forward, I suggest that we take to heart the ASF criterion that a committer is someone who “we believe is devoted to the task and matches the human attitudes required to work well with others, especially in disagreement.” Patches are one way to make “welcome contributions” to the project, but there are others.</p>
+<h5 id="struts-sf-net"><a href="#struts-sf-net" class="headerlink" title="struts.sf.net"></a>struts.sf.net</h5><p>We started the Struts <a href="http://struts.sourceforge.net/" target="_blank" rel="external">sf.net site</a> some time ago, so that people could share example applications and extensions without setting up yet-another SF site or joining the ASF. The site has met with some success, and we’ve begun to use it as a staging ground for new extensions. But, we might try to promote it more, since it could also be a proving ground for new committers. (Of course, in terms of neglect, I’m the main culprit here, since I was the lunkhead who set up the site, but never cared for it properly. Many thanks to others like Don Brown and James Holmes for picking up the slack.)</p>
+<h5 id="Mailing-List-Demeanor"><a href="#Mailing-List-Demeanor" class="headerlink" title="Mailing List Demeanor"></a>Mailing List Demeanor</h5><p>From the beginning, the Apache Struts user list has always been patient and welcoming to “newbies”. Of all things, leaving the “welcome mat” out is probably what we have done the most right, and I hope we remain cordial in the future.</p>
+<p>Though, an important part of managing the user list is maintaining the separation of concerns between the user list and the dev list. Moving forward, we should continue to be quick and strict about keeping threads in the proper forum.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/page/34/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="page-number" href="/page/34/">34</a><span class="page-number current">35</span><a class="page-number" href="/page/36/">36</a><a class="page-number" href="/page/37/">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/36/">下一页 &raquo;</a>
+      </nav>
+    </section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

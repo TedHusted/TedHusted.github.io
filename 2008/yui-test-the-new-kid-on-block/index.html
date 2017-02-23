@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>YUI Test - The New Kid on Block - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="One of the great features of the Ektron content management system platform is that it plays well with other technologies. At VanDamme Associates, we often mix custom JavaScript and AJAX elements into">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YUI Test - The New Kid on Block">
+<meta property="og:url" content="http://ted.husted.com/2008/yui-test-the-new-kid-on-block/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="One of the great features of the Ektron content management system platform is that it plays well with other technologies. At VanDamme Associates, we often mix custom JavaScript and AJAX elements into">
+<meta property="og:image" content="https://tedhusted.files.wordpress.com/2008/09/6bbdc-yui-test.png">
+<meta property="og:updated_time" content="2017-02-20T13:39:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="YUI Test - The New Kid on Block">
+<meta name="twitter:description" content="One of the great features of the Ektron content management system platform is that it plays well with other technologies. At VanDamme Associates, we often mix custom JavaScript and AJAX elements into">
+<meta name="twitter:image" content="https://tedhusted.files.wordpress.com/2008/09/6bbdc-yui-test.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-yui-test-the-new-kid-on-block" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      YUI Test - The New Kid on Block
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2008/yui-test-the-new-kid-on-block/" class="article-date">
+  <time datetime="2008-09-23T09:00:00.000Z" itemprop="datePublished">2008-09-23</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>One of the great features of the <a href="http://ektron.com/" title="Ektron" target="_blank" rel="external">Ektron</a> content management system platform is that it plays well with other technologies. At <a href="http://www.vandamme.com/content.aspx?id=362" target="_blank" rel="external">VanDamme Associates</a>, we often mix custom JavaScript and AJAX elements into our Ektron solutions.</p>
+<p>Ektron itself is no stranger to AJAX, and it even bundles a tweaked version of JQuery in the standard distribution. One good tool for testing JavaScript, that <a href="http://dev.ektron.com/blogs.aspx?id=13568" target="_blank" rel="external">Ektron has blogged about</a>, is the venerable <a href="http://jsunit.org/" target="_blank" rel="external">JsUnit</a> framework. While JsUnit is a solid tool, there are drawbacks.</p>
+<ul>
+<li>Although JsUnit has been available since 2001, it’s still the love child of a sole developer.<br>JsUnit’s release schedule is irregular. (Release 2.2 has been in “beta” for over two years now.)</li>
+</ul>
+<h4 id="Look-Ahead"><a href="#Look-Ahead" class="headerlink" title="Look Ahead"></a>Look Ahead</h4><p>Happily, there’s a new kid on the block: <a href="http://developer.yahoo.com/yui/yuitest/" target="_blank" rel="external">YUI Test</a>. YT is bundled with the Yahoo! User Interface Library (YUI). To quote the YUI site:</p>
+<blockquote>
+<p>“<em>YUI Test is a testing framework for browser-based JavaScript solutions. Using YUI Test, you can easily add unit testing to your JavaScript solutions. While not a direct port from any specific xUnit framework,YUI Test does derive some characteristics from nUnit and JUnit.</em>“</p>
+</blockquote>
+<p>Key features of YUI Test include:</p>
+<ol>
+<li>Rapid creation of test cases through simple syntax.</li>
+<li>Advanced failure detection for methods that throw errors.</li>
+<li>Grouping of related test cases using test suites.</li>
+<li>Asynchronous tests for testing events and Ajax communication.</li>
+<li>DOM Event simulation in all A-grade browsers.<br>YUI Test has been available since July 2007 (YUI 2.3.0), and made “GA” grade in February 2008 (YUI 2.5.0). The YT framework was created by Yahoo! engineer <a href="http://www.nczonline.net/" target="_blank" rel="external">Nicholas C. Zakas</a>. It’s regularly released and maintained with the rest of the library, and its distributed under the library’s BSD license. (All together, there seem to be about sixteen developers on the YUI team, maintaining about thirty components).</li>
+</ol>
+<p>(!) Note that YUI Test can be used to test <strong>any</strong> JavaScript code – the application doesn’t need to be based on YUI to use YUI Test.</p>
+<p>One of the pleasures of YUI Test is that it can use the YUI TestLogger as a test harness.</p>
+<p><a href="http://developer.yahoo.com/yui/logger/" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2008/09/6bbdc-yui-test.png" alt=""></a></p>
+<p>TestLogger is a subclass of <a href="http://developer.yahoo.com/yui/logger/" target="_blank" rel="external">YUI Logger</a>, which can be used for general-purpose JavaScript logging and debugging, giving us two great capabilities in one flexible component. YUI Test can also be used in collaboration with the new YUI Profiler (another Zakas creation) to create performance-based tests.</p>
+<h4 id="Trip-the-Rift"><a href="#Trip-the-Rift" class="headerlink" title="Trip the Rift"></a>Trip the Rift</h4><p>Unit testing conventional, classical code often relies on exercising the “API Contract”. If we pass certain parameters to method, the method should return a certain result, or raise a certain exception. Since, JavaScript is event-driven, in order to determine the outcome of a method, we often need to know what events it raises. Meanwhile, in an Ajax application, there can be a disconnect between when a method is called and when the event is ultimately reaised. YUI Test helps us bridge the gap with a “wait/resume” feature. A test can subscribe to an event, and call “resume” in the event handler. When the test reaches the point where an action might take an indeterminate amount of time, we can call “wait”, and the test continues when the event fires.</p>
+<p>For example, here’s a test that calls a time-consuming animiation routine. The test registers an event handler, starts the animation, and waits for the event to fire. When the animation completes, the test confirms that the routine accomplished the expected result.</p>
+<p><span style="font-family:courier new, monospace;"> </span></p>
+<div id="testLogger"></div>
+
+<p><span style="font-family:courier new, monospace;"> </span></p>
+<div id="testDiv" style="position:absolute;width:10px;height:10px;"></div>
+
+<p><span style="font-family:courier new, monospace;"> YAHOO.namespace(“example.yuitest”);</span> <span style="font-family:courier new, monospace;"> YAHOO.example.yuitest.AsyncTestCase = new YAHOO.tool.TestCase({</span> <span style="font-family:courier new, monospace;"> name : “Animation Tests”, </span> <span style="font-family:courier new, monospace;"> testAnimation : function (){</span> <span style="font-family:courier new, monospace;"> var Assert = YAHOO.util.Assert;</span> <span style="font-family:courier new, monospace;"> var YUD = YAHOO.util.Dom;</span> <span style="font-family:courier new, monospace;"> var myAnim = new YAHOO.util.Anim(‘testDiv’,</span></p>
+<p>{ width: { to: 400 } }, 3, YAHOO.util.Easing.easeOut); <span style="font-family:courier new, monospace;"> myAnim.onComplete.subscribe(function(){</span> <span style="font-family:courier new, monospace;"> this.resume(function(){ </span> <span style="font-family:courier new, monospace;"> Assert.areEqual(YUD.get(“testDiv”).offsetWidth,</span></p>
+<p>400, “Width of the DIV should be 400.”); <span style="font-family:courier new, monospace;"> });</span> <span style="font-family:courier new, monospace;"> }, this, true);</span> <span style="font-family:courier new, monospace;"> // Start the animation and wait for the resume function</span> <span style="font-family:courier new, monospace;"> myAnim.animate();</span> <span style="font-family:courier new, monospace;"> this.wait(); </span> <span style="font-family:courier new, monospace;"> }</span> <span style="font-family:courier new, monospace;"> });</span> <span style="font-family:courier new, monospace;"> YAHOO.util.Event.onDOMReady(function (){</span> <span style="font-family:courier new, monospace;"> var logger = new YAHOO.tool.TestLogger(“testLogger”);</span> <span style="font-family:courier new, monospace;"> YAHOO.tool.TestRunner.add(YAHOO.example.yuitest.AsyncTestCase);</span> <span style="font-family:courier new, monospace;"> // Run the tests when DOM is ready</span> <span style="font-family:courier new, monospace;"> YAHOO.tool.TestRunner.run();</span> <span style="font-family:courier new, monospace;"> });</span></p>
+<p>Not every test needs to use wait/resume, but, when we do, it’s an indispensible feature.</p>
+<h4 id="Be-Assertive"><a href="#Be-Assertive" class="headerlink" title="Be Assertive"></a>Be Assertive</h4><p>Asynchronous or not, essentially, unit testing is about making assertions. We unit test by invoking a method and passing in known parameters and observing the outcome. We might expect the method to return a simple value, or another object, like a Date Type, with certain attributes set to certain values. Or, we might expect the method to fail and raise an exception, or to succeed and raise and event.</p>
+<p>Since we’re talking JavaScript, YUI not only supports all the usual assertions, but type cohersion to boot.</p>
+<blockquote>
+<p>var oTestCase = new YAHOO.tool.TestCase({</p>
+<p>name: “TestCase Name”,</p>
+<p>testEqualityAsserts : function () {</p>
+<p>var Assert = YAHOO.util.Assert;</p>
+<p>Assert.areEqual(5, 5); //passes</p>
+<p>Assert.areEqual(5, “5”); //passes</p>
+<p>Assert.areNotEqual(5, 6); //passes</p>
+<p>Assert.areEqual(5, 6, “Five was expected.”); //fails</p>
+<p>}</p>
+<p>});<br>For more precise testing, YUI Test provides for Sameness Assertions.<br>var oTestCase = new YAHOO.tool.TestCase({</p>
+<p>name: “TestCase Name”,</p>
+<p>testSamenessAsserts : function () {</p>
+<p>var Assert = YAHOO.util.Assert;</p>
+<p>Assert.areSame(5, 5); //passes</p>
+<p>Assert.areSame(5, “5”); //fails</p>
+<p>Assert.areNotSame(5, 6); //passes</p>
+<p>Assert.areNotSame(5, “5”); //passes</p>
+<p>Assert.areSame(5, 6, “Five was expected.”); //fails</p>
+<p>}</p>
+<p>});<br>Since JavaScript is loosely typed, asserting data types is a common need. YUI Test provides assertions for all the usual suspects; Array, Boolean, Function, Number, Object, String. To close the loop, an <span style="font-family:courier new, monospace;">isTypeOf</span> assertion interprets the data type as string.<br>var oTestCase = new YAHOO.tool.TestCase({</p>
+<p><span style="font-family:courier new, monospace;"> name: “TestCase Name”,</span></p>
+<p>testTypeOf : function () {</p>
+<p>var Assert = YAHOO.util.Assert;</p>
+<p>Assert.isTypeOf(“string”, “Hello world”); //passes</p>
+<p>Assert.isTypeOf(“number”, 1); //passes</p>
+<p>Assert.isTypeOf(“boolean”, true); //passes</p>
+<p>Assert.isTypeOf(“number”, 1.5); //passes</p>
+<p>Assert.isTypeOf(“function”, function(){}); //passes</p>
+<p>Assert.isTypeOf(“object”, {}); //passes</p>
+<p>Assert.isTypeOf(“undefined”, this.blah); //passes</p>
+<p>Assert.isTypeOf(“number”, “Hello world”, “Value should be a number.”); //fails</p>
+<p>}</p>
+<p>});<br>A companion assertion, <span style="font-family:courier new, monospace;">isInstanceOf</span>, can be used to evaluate object types (Array, Function, Object). Other assertions are available for evaluating JavaScript-isms like NaN, Undefined, and truthiness.</p>
+</blockquote>
+<p>Finally, YUI Test also supports date and time assertions, forced failures, skipping tests, and test suites.</p>
+<h4 id="Push-the-Envelope"><a href="#Push-the-Envelope" class="headerlink" title="Push the Envelope"></a>Push the Envelope</h4><p>Aside from exposing the usual xUnit API, YUI Test goes a step further, and provides support for <em>UserActions</em> and <em>Asyncronous Tests</em>.</p>
+<ul>
+<li><strong>User Actions</strong> are simulated user-initiated events that can be used to test how scripts react to mouse or keyboard events.</li>
+<li><strong>Asyncronous Tests</strong> can be programmed to pause for a certain amount of time (while an out of process action occurs), or to pause until an event handler in the test script calls a “resume” method.<br>Whether you’ve outgrown JsUnit, or whether you’re finally ready to start unit testing JavaScript for the first time, be sure to give YUI Test a try.</li>
+</ul>
+<h4 id="More-about-YUI-Test"><a href="#More-about-YUI-Test" class="headerlink" title="More about YUI Test"></a>More about YUI Test</h4><ul>
+<li><a href="http://www.insideria.com/2008/05/writing-your-first-yui-applica.html" target="_blank" rel="external">Writing Your First YUI Application</a>, <a href="http://www.oreillynet.com/pub/au/3447" target="_blank" rel="external"><span style="color:#0066cc;">Eric Miraglia</span></a> (2008 May).</li>
+</ul>
+<h4 id="More-about-JsUnit"><a href="#More-about-JsUnit" class="headerlink" title="More about JsUnit"></a>More about JsUnit</h4><ul>
+<li><a href="http://www.litfuel.net/plush/?postid=117" title="Permanent Link: AJAX and Unit Testing - it" target="_blank" rel="external"><span style="color:#0066cc;">AJAX and Unit Testing - it’s time to mingle</span></a>, Jim Plush (2006 Feb),</li>
+<li><a href="http://www.litfuel.net/plush/?postid=154" title="Permanent Link: Ajax and Unit Testing Part Two, The Wrath of Mock" target="_blank" rel="external"><span style="color:#0066cc;">Ajax and Unit Testing Part Two, The Wrath of Mock</span></a>, Jim Plush (2006 Nov).</li>
+</ul>
+<h4 id="More-about-Open-Source-Testing-Tools"><a href="#More-about-Open-Source-Testing-Tools" class="headerlink" title="More about Open Source Testing Tools"></a>More about Open Source Testing Tools</h4><ul>
+<li><a href="http://www.opensourcetesting.org/" target="_blank" rel="external">Open Source Testing Tools Site</a></li>
+<li><a href="http://junit.sourceforge.net/doc/testinfected/testing.htm" target="_blank" rel="external">Test Infected - The Seminal Tutorial by Beck and Gamma</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yui/">YUI</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2008/ajax-experience-2008-day-1-microsoft-to-ship-jquery-with-visual-studio/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          Ajax Experience 2008, Day 1, Microsoft to ship jQuery with Visual Studio
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2008/haromonizing-the-good-parts/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Haromonizing the Good Parts&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2008/yui-test-the-new-kid-on-block/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

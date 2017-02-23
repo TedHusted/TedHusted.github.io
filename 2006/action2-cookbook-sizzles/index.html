@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Action2 Cookbook Sizzles - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="So far, there’s been only one thing I missed while setting up a newStruts Cookbook for Action 2. An essential part of the Cookbook is displaying the source files used to code the example. In the Stuts">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Action2 Cookbook Sizzles">
+<meta property="og:url" content="http://ted.husted.com/2006/action2-cookbook-sizzles/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="So far, there’s been only one thing I missed while setting up a newStruts Cookbook for Action 2. An essential part of the Cookbook is displaying the source files used to code the example. In the Stuts">
+<meta property="og:updated_time" content="2017-02-20T13:39:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Action2 Cookbook Sizzles">
+<meta name="twitter:description" content="So far, there’s been only one thing I missed while setting up a newStruts Cookbook for Action 2. An essential part of the Cookbook is displaying the source files used to code the example. In the Stuts">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-action2-cookbook-sizzles" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Action2 Cookbook Sizzles
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2006/action2-cookbook-sizzles/" class="article-date">
+  <time datetime="2006-03-12T11:00:00.000Z" itemprop="datePublished">2006-03-12</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>So far, there’s been only one thing I missed while setting up a new<br><a href="http://planetstruts.org/action2-cookbook/Home.jsp" target="_blank" rel="external">Struts Cookbook for Action 2</a>. An essential part of the Cookbook is displaying the source files used to code the example. In the Stuts Action 1.3 version, we were using the Bean tags to dynamically read the file into a page variable and then output it with the tags filtered. The Struts Bean tag idiom is:</p>
+<p>I couldn’t find an obvious way to do this with the WebWork tags and started a thread on the WebWork user list. After a post or two, we hit on the idea of using a WebWork result to display source code as plaintext. Before I had the chance to write it myself (in the Apache Way), WebWork committer Toby Jee posted a new PlainText result to the HEAD, which I happily plugged into my work in progress.</p>
+<p>The WebWork idiom moves all the references from the pages into the configuration file. The simplest example is a one-page “Hello World” recipe. The mapping for the PlainText result looks like this:</p>
+<pre>  
+/pages/Hello/Result.jsp
+/WEB-INF/classes/xwork-Hello.xml
+</pre>
+
+<p>In the page, the links are coded like this:</p>
+<h2 id="Server-Pages"><a href="#Server-Pages" class="headerlink" title="Server Pages"></a>Server Pages</h2><ul>
+<li><a>Result.jsp</a><br>The cool part, is that through use of namespaces, each example can have its own “View=Result” action. We need to refer to the namespace on on the Home page, but after that all the tags render themselves relative to the namespace. Here’s are the the home page links (one for the icon and another for the text):</li>
+</ul>
+<pre> namespace="/Hello" 
+Execute
+</pre>
+
+<p>But once we link into the “/Hello” namespace, the ww tags take care of injecting the rest of the path.</p>
+<p>Of course, any post-Struts-1.1 developer is going to be saying, “Oh, namespaces are modules!”, and you’d be right. Everything in WebWork is very much the same as Struts 1.x. Only better!</p>
+<p>If you reviewed the previous code snippet, you probably noticed the reference to “icon-open,jsp”. The Cookbook uses icons for navigation, which I removed to their own server pages and then brought back in using ww:include as needed. As a result, all the image markup is centralized and not scattered throughout the application.</p>
+<p>The new Cookbook also uses ww:include to post navigational header at the top of the pages. The nifty part is that the WW tags track the current namespaces. If we consistently name the entry action to each example “Open”, we can reuse the same menu link for every example/namespace. When the Hello namespace includes this snippet –</p>
+<p>– the action location renders as “/Hello/Open.do”. When the Simple namespace renders the same snippet, the location renders “/Simple/Open.do”. Quick, easy, effective.</p>
+<p>I’ll be heads-down on the Cookbook this week, and will surely post more about the Cookbook again next week. In the meantime, you can track the progress in the <a href="http://svn.apache.org/viewcvs.cgi/struts/sandbox/trunk/action2/apps/cookbook/src/" target="_blank" rel="external">Apache Struts sandbox</a>, and I’ll try to keep the <a href="http://planetstruts.org/action2-cookbook/Home.jsp" target="_blank" rel="external">online demo</a> fairly current.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2006/the-truth-with-jokes/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          The Truth with Jokes
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2006/action2-cookbook-is-off-the-backburner/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Action2 Cookbook is off the backburner&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2006/action2-cookbook-sizzles/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

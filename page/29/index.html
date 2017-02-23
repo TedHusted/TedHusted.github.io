@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ted.husted.com">
+<meta property="og:url" content="http://ted.husted.com/page/29/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ted.husted.com">
+<meta name="twitter:description" content="Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer">
+      <article id="post-hacking-the-cathedral" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/hacking-the-cathedral/">Hacking the Cathedral</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/hacking-the-cathedral/" class="article-date">
+  <time datetime="2007-03-29T09:00:00.000Z" itemprop="datePublished">2007-03-29</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>A key reason we were able to use the <a href="http://developer.yahoo.com/yui/" target="_blank" rel="external">Yahoo User Interface (YUI) Library</a> is that the latest release includes a DataTable widget. Our application design uses lots of grids. Of course, there are grids from other toolkits and libraries that we could have used. But, honestly, we would have standardized on that toolkit instead.</p>
+<p>Of course, the <a href="http://developer.yahoo.com/yui/datatable/" target="_blank" rel="external">YUI DataTable</a> is new and beta and not without its shortcomings. But, every time I found a flaw, I also cobbled a patch (and filed a <a href="http://www.blogger.com/post-create.g?blogID=5208774" target="_blank" rel="external">ticket</a>).</p>
+<p>Looking at our design, what we do over and over again is Find, List, Edit, and View. The entity we want to Find/List/Edit/View changes, but the core workflow holds.</p>
+<p>We did the last application module in ASP.NET. Most workflows were represented as pages that exposed one or more composite controls. Much of the page logic involved deciding which controls needed to be exposed.</p>
+<p>For the YUI module, I’d like to have a single “chimera” widget that can reveal itself four or five different ways. As a Finder (QBE Dialog), as a Lister (DataGrid), as an Editor (Data Entry Form), as a Lister (View Only Panel), and as both a Lister and Finder in the same view. Behind the scense, the DataTable (Lister) is powered by <a href="http://developer.yahoo.com/yui/docs/ColumnSet.html" target="_blank" rel="external">ColumnSet</a> and <a href="http://developer.yahoo.com/yui/docs/RecordSet.html" target="_blank" rel="external">RecordSet</a> objects, which could also power a Finder, Editor, and Viewer.</p>
+<p>For now, I’m referring to this as a <a href="http://code.google.com/p/anvil/issues/detail?id=22" target="_blank" rel="external">FLEV Widget</a>, and I’ve started coding it through the Anvil site.</p>
+<p>Meanwhile, another earnest YUI user <a href="http://tech.groups.yahoo.com/group/ydn-javascript/message/11247" target="_blank" rel="external">posted a DataTable subclass</a> that adds filtering on a column and hiding columns. Nice work, and a fine demonstrate of how easy it is to extend YUI widgets.</p>
+<p>Since YUI doesn’t accept contributions from the user community, I wonder if we should setup a community site on SourceForge or GoogleCode, where we could contribute and jointly maintain extensions like FLEV and RowFilterDataTable.</p>
+<p>The idea would be that anyone with code to contribute would be welcome to join the site. Since widgets are granular, we could each retain our own copyrights to the original widgets, and just use the site as a one-stop shop for YUI extensions.</p>
+<p>Of course, there is already a <a href="http://www.yui-ext.com/deploy/yui-ext/docs/" target="_blank" rel="external">YUI-Ext project</a>, but that has evolved into a distinct library that supports both YUI and JQuery, and I expect other libraries one day. And YUI Ext was never a full-throttle open source project, it was always Jack Slocum’s baby.</p>
+<p>The Yahoo! team has built a cathedral. Perhaps it’s time to open a companion bazaar – a yazaar! :)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yui/">YUI</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-asf-rules-redux" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/asf-rules-redux/">ASF Rules Redux</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/asf-rules-redux/" class="article-date">
+  <time datetime="2007-03-28T09:00:00.000Z" itemprop="datePublished">2007-03-28</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/essay/">Essay</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>This is a revision to a prior blog, <a href="http://jroller.com/page/TedHusted?entry=apache_rules" target="_blank" rel="external">13 ASF Practices</a>. Some elements have been condensed, and some new bits added … and now there are 11.<br>People often mention “Apache Rules”. We don’t actually have a rule book, but if we did, here’s what I believe might be the top eleven practices.</p>
+<p><table border="1" cellpadding="8"></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><th>0</th></p>
+<p><td>Individuals compose the ASF.<br>Projects must be managed in a collaborative, meritocratic way, so that new volunteers are encouraged to join the project group, and so that the volunteers doing the work are the individuals who make the decisions.<br>PMC members are encouraged to nominate qualified contributors as new committers.<br>ASF Members are encouraged to nominate qualified committers as new members.<br>Given sufficient time and sustained interest, the set of committers should equal the set of PMC members, and the set of PMC members should equal the set of ASF members.</td><br></p>
+<p><tr></tr></p>
+<p><th>1</th></p>
+<p><td>Merit never expires.</td><br></p>
+<p><tr></tr></p>
+<p><th>2</th></p>
+<p><td>The mailing lists are a project’s only venue for the conduct of business.<br>All development discussions must occur on the project’s public mailing lists, or be summarized to the lists, and the lists must be archived.<br>Development support products, like version control systems, issue trackers, and wikis, should log changes to a public mailing list.<br>Comments posted to a list through development support products are a normal component of development discussions.</td><br></p>
+<p><tr></tr></p>
+<p><th>3</th></p>
+<p><td>The project’s private list may only be used to discuss pre-disclosure security problems, pre-agreement discussions with third parties that require confidentiality, nominees for project, project committee or Foundation membership, or personal conflicts among project personnel, and nothing else. Posts to a private list are considered confidential and must not be quoted on public lists without the permission of the author.</td><br></p>
+<p><tr></tr></p>
+<p><th>4</th></p>
+<p><td>A project’s primary web site and mailing lists must be maintained on ASF hardware.<br>Resources maintained elsewhere are not ASF resources, even if maintained by individuals who happen to be ASF committers.</td><br></p>
+<p><tr></tr></p>
+<p><th>5</th></p>
+<p><td>Project source code and documentation must be donated to the ASF under a <a href="http://apache.org/licenses/index.html#clas" target="_blank" rel="external">Contributor’s License Agreement</a>.<br>Donated source code and documentation must carry the ASF copyright and be placed under the Apache License.<br>Code and documentation donated to the ASF must be maintained on ASF hardware.<br>Obtaining a non-exclusive ASF copyright on all material in the ASF repository is encouraged.</td><br></p>
+<p><tr></tr></p>
+<p><th>6</th></p>
+<p><td>A PMC member can veto a product change with a technical or legal justification.</td><br></p>
+<p><tr></tr></p>
+<p><th>7</th></p>
+<p><td>A release must include the ASF source code being released, binaries are optional.<br>A release vote must be on the actual bits that comprise the release, preferably already digitally signed by a release manager.<br>An ASF release must be approved by at least three members of the PMC and by a majority of the members voting.<br>A release cannot be vetoed.</td><br></p>
+<p><tr></tr></p>
+<p><th>8</th></p>
+<p><td>Other libraries included with a distribution may be under a different license but must be redistributable under the Apache license.</td><br></p>
+<p><tr></tr></p>
+<p><th>9</th></p>
+<p><td>The PMC chair/Project VP must submit regular status reports to the ASF board.</td><br></p>
+<p><tr></tr></p>
+<p><th>A</th></p>
+<p><td><a href="http://tinyurl.com/mw7t6" target="_blank" rel="external">Author tags</a> in source code are discouraged but permitted.</td><br><br><br><br>Of course, there are other customs of Apache culture, but I believe that most other ASF practices would stem from this initial set. And, as with all things ASF, YMMV! :)</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/asf/">ASF</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-the-open-source-secret-sauce" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/the-open-source-secret-sauce/">The Open Source Secret Sauce</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/the-open-source-secret-sauce/" class="article-date">
+  <time datetime="2007-03-27T09:00:00.000Z" itemprop="datePublished">2007-03-27</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/essay/">Essay</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I have no idea why JIRA, Confluence, and Subversion are still separate products. (Well, being a working engineer I do have at least an idea …)</p>
+<p>In practice, most of us use JIRA, Confluence, and Subversion as if they were one product. (A rich man’s <a href="http://trac.edgewall.org/" target="_blank" rel="external">Trac</a>.) I’d like to be able to refer to using all three products together as “Convergence”, but that would be confusing, since it sounds too much like a real product. There’s the hollywood hybrid approach, but terms like “JirFlusion” or “ConVera” or “SuJiCo” seem distracting. Let’s just go with a simple acronym, like JCS.</p>
+<p>At work, we use JCS for everything. When we are ready to do something, anything, we open a <a href="http://www.atlassian.com/software/jira/" target="_blank" rel="external">JIRA</a> ticket. If it’s a coding task, the ticket will relate to a Use Case that we create in <a href="http://www.atlassian.com/software/confluence/" target="_blank" rel="external">Confluence</a>, which will link back to the JIRA ticket. When we commit the bits to <a href="http://www.atlassian.com/software/confluence/" target="_blank" rel="external">Subversion</a>, we reference the JIRA ticket, and the <a href="http://confluence.atlassian.com/display/JIRAEXT/JIRA+Subversion+plugin" target="_blank" rel="external">JIRA-Subverson plugin</a> closes the loop.</p>
+<p>In these days of “<a href="http://www.jetbrains.com/teamcity/" target="_blank" rel="external">TeamCity</a>“ and “<a href="http://msdn2.microsoft.com/en-us/teamsystem/default.aspx" target="_blank" rel="external">Team System</a>“, we like to think of JCS as “Team Best of Breed”, especially when you toss JetBrains IDEA or Resharper into the mix.</p>
+<p>But, issue tracking, document management, and version control aren’t just for coders. Other workers in the enterprise been using it to draft grant proposals and evaluate accessibility compliance. These are products that any information worker can (and should) use.</p>
+<p>At work, one of our more ambitious Confluence applications is the infrastructure documentation. I spent the last week of last year’s contract dumping everything I knew about our infrastructure into Confluence. We ended up finding another contract for me after that, and another one after that, but at the time, I wanted to be sure the team had a solid reference.</p>
+<p>Of course, a problem with putting software documentation into software is that you need software to use the software that tells you how to install the software. Happily, between the <a href="http://confluence.atlassian.com/display/CONFEXT/AutoExport+for+Confluence" target="_blank" rel="external">Confluence autoexport plugin</a> and SpiderZilla, that’s not a problem. The autoexport plugin renders the Confluence wiki as plain text, and the <a href="https://addons.mozilla.org/firefox/1616/" target="_blank" rel="external">FireFox SpiderZilla plugin</a> sucks it down to a local machine. <a href="http://husted.com/archive/WQD-INF/" target="_blank" rel="external">Here’s the result</a>, no server required.</p>
+<p>The fully-loaded “Team Best of Breed” doesn’t stop at JCS. Clever shops will also want to install <a href="http://viewvc.tigris.org/" target="_blank" rel="external">ViewVC</a>, so that prior Confluence revision logs and diffs are only a click away. ViewVC means adding Apache HTTPD to the mix, but it’s worth the effort. (And HTTPD makes a good host for exported Confluence spaces!)</p>
+<p>A developers mailing list with an archive is the final, but perhaps most important, team member. Each component of JCS can send change alerts to a list, to keep everyone in the loop with no extra effort. JCS doesn’t include an actual mailing list, but Confluence can be used as an <a href="http://www.blogger.com/post-create.g?blogID=5208774" target="_blank" rel="external">archive</a>.</p>
+<p>Taken together, I like to think of these products as creating a PRIM architecture: Portal - Repository - Issue Tracker - Mailing List. Every successful open source project I know uses PRIM. Every closed source project I know, doesn’t. (Well, except mine!) Many will use two or three of the four components, but most teams will wobble on the mailing list. In practice, an archived mailing list is essential. A list ties the other components together, creating a coherent communications system.</p>
+<blockquote>
+<p>It’s truly beyond me why more product managers don’t insist on an archived development mailing list. It’s the best way to keep track of what everyone is doing. You can just sit back, watch the emails come in from JIRA, Confluence, and Subversion, and know exactly who is doing what and what they plan to do next.<br>People wonder how open source projects manage to create high-quality products without managers or accountability. The answer: we’re accountable to our infrastructure.</p>
+</blockquote>
+<p>PRIM is the open source secret sauce.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-mvc-convergence-mr-action-meet-ms-asp-net" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/mvc-convergence-mr-action-meet-ms-asp-net/">MVC Convergence: Mr Action meet Ms ASP.NET</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/mvc-convergence-mr-action-meet-ms-asp-net/" class="article-date">
+  <time datetime="2007-03-26T09:00:00.000Z" itemprop="datePublished">2007-03-26</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Over the years, there’s been a steady trend within Microsoft example applications. The trend has been away from what Java geeks calls Model 1 and toward Model 2 development. It’s been a forced, dragged-by-the-hair trend. At every step, the architect seems to be looking for alternatives to MVC/Model 2, and every time, the alternative comes up short, and the next iteration is one step closr to Java-style MVC.</p>
+<p>The trend is clear if you spend a day reviewing the various ASP.NET application that were developed for ASP.NET 1.x. The trend is even more evident in ASP.NET 2.X. The platforms now offers an actual business logic component that can also be used to separate the data access code from the rest of the application. The only problem is that the component is still embedded in the web application, and, as far as I can tell, these “business logic” components can’t be tested outside of the web application. Though, it is most definitely another baby step in the right direction.</p>
+<p>Rumor now has it that Microsoft is ready for another step toward MVC/Model 2. In his CodeBetter blog, Jeffrey Palmero outlines a new feature that Scott Guthrie is supposedly developing for the next generation of ASP.NET.</p>
+<p><a href="http://codebetter.com/blogs/jeffrey.palermo/archive/2007/03/16/Big-News-_2D00_-MVC-framework-for-ASP.NET-in-the-works-_2D00_-level-300.aspx" target="_blank" rel="external">According to the blog</a>:</p>
+<blockquote>
+<hr>
+<p>A url might look like <a href="http://localhost/myApp/ShoppingCart.mvc/CheckOut" target="_blank" rel="external">http://localhost/myApp/ShoppingCart.mvc/CheckOut</a> where ShoppingCart is the Controller class and “CheckOut” is a method like:</p>
+<pre><code>[Action]
+public void CheckOut(){
+ //do so
+</code></pre><p>}</p>
+<p>The MVC model can be used with regular control-based pages. The url determines the handler that’s activated, so it can be mixed an matched. In fact, a Controller could dispatch a view that <em>uses</em> some controls. i.e. Telerik controls could still be used without Telerik modifying them. From what I saw, no capabilities are taken away, just more options are added.</p>
+<p>In this prototype, the controller loads the appropriate view by relative path to the .aspx. The view can be only markup - pure template, or it can take advantage of controls. This can work without postbacks, or you can use postbacks if you prefer.</p>
+<p>The view has to inherit from PageView or if it needs properties from the controller (like the Model to display), it can inherit from PageView where T is the type of the controller it depends on. Then the view can grab specific properties off of the controller.</p>
+<p>I would recommend making “T” an interface so that the view doesn’t bind directly to the controller type. I’ve been collaborating with Scott Guthrie to work out the kinks. There is still a lot of work to do. This is only in prototype form.</p>
+<hr>
+<p>Of course, Microsoft has been warming up to <a href="http://msdn2.microsoft.com/en-us/library/ms998516.aspx" target="_blank" rel="external">MVC and front controllers</a> patterns for some time. This is not <a href="http://msdn2.microsoft.com/en-us/library/aa478961.aspx" target="_blank" rel="external">the first time we’ve heard that MVC or front controller will be in the “next” version of ASP.NET</a>.</p>
+</blockquote>
+<p>But, not to worry. If Microsoft comes out with a MVC technology, we will do what we always do … reinvent it as a JSR.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-simulating-action" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/simulating-action/">Simulating Action</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/simulating-action/" class="article-date">
+  <time datetime="2007-03-25T09:00:00.000Z" itemprop="datePublished">2007-03-25</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Since client-side JavaScript is event-driven, Ajax libraries follow suit. For many developers, Ajax is their first time around the event-driven maypole.</p>
+<p>When event-driven controls for the first time, it’s common for a noobe to attach some application-specific behavior to a control’s onClick event. As the application grows more complex, we often want to invoke the same behavior without the help of the control. A common question then becomes “How can we send the control a change event, as if the user had himself clicked on the option?” As with many programming problems, the solution is to add a layer of abstraction. :)</p>
+<p>Instead of attaching our behavior directly to primitive events, like onClick, we should create our own idiomatic events to describe what happens when the user selects the option. Selecting the option is a means to an end. If we create own custom event for that end, the select control change event can turn around and raise our event. Then, when our custom event needs to be raised from another point in the workflow, we can just go ahead and raise it progmatically.</p>
+<p>It’s not about clicking the control, it’s about the action that the control triggers.</p>
+<p>In essence, user-interface widgets raise primitive events, like “change” and “click”. This is a Good Thing, because those events represent what widgets do (or appear to do). Applications don’t “click”. Applications update state and run reports. An event-driven application should create its own layer of idiomatic events that describes what the application does in its own terms. In that way, we are not chained to the controls, and we can call our own events whenever we like. Architectually, idiomatic events <a href="http://en.wikipedia.org/wiki/Cohesive" target="_blank" rel="external">increase cohesion</a> and <a href="http://en.wikipedia.org/wiki/Coupling_%28computer_science%29" target="_blank" rel="external">lower coupling</a>. Also Good Things.</p>
+<p>An excellent introduction to event-driven design is Christian Heilmann’s <a href="http://yuiblog.com/blog/2007/01/17/event-plan/" target="_blank" rel="external">Event-Driven Web Application Design</a> (which I like to call “Brace yourself, Bridget!).</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">Ajax</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/page/28/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="page-number" href="/page/28/">28</a><span class="page-number current">29</span><a class="page-number" href="/page/30/">30</a><a class="page-number" href="/page/31/">31</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/30/">下一页 &raquo;</a>
+      </nav>
+    </section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

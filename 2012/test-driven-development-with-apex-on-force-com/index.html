@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Test Driven Development with Apex on Force.com - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="As far as I know, Force.com – the software development platform for Salesforce CRM – is the only platform that requires unit test coverage for production code. Before an Apex developer can deploy cust">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Test Driven Development with Apex on Force.com">
+<meta property="og:url" content="http://ted.husted.com/2012/test-driven-development-with-apex-on-force-com/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="As far as I know, Force.com – the software development platform for Salesforce CRM – is the only platform that requires unit test coverage for production code. Before an Apex developer can deploy cust">
+<meta property="og:image" content="https://tedhusted.files.wordpress.com/2012/03/968d3-carrot-with-stick.jpg">
+<meta property="og:updated_time" content="2017-02-20T13:39:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Test Driven Development with Apex on Force.com">
+<meta name="twitter:description" content="As far as I know, Force.com – the software development platform for Salesforce CRM – is the only platform that requires unit test coverage for production code. Before an Apex developer can deploy cust">
+<meta name="twitter:image" content="https://tedhusted.files.wordpress.com/2012/03/968d3-carrot-with-stick.jpg">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-test-driven-development-with-apex-on-force-com" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Test Driven Development with Apex on Force.com
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2012/test-driven-development-with-apex-on-force-com/" class="article-date">
+  <time datetime="2012-03-04T11:00:00.000Z" itemprop="datePublished">2012-03-04</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class="separator" style="clear:both;text-align:center;"><a href="http://teachingunderground.blogspot.com/2011/04/catching-carrot-and-breaking-stick.html" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2012/03/968d3-carrot-with-stick.jpg" alt=""></a></div><br>As far as I know, Force.com – the software development platform for Salesforce CRM – is the only platform that <strong>requires</strong> unit test coverage for production code. Before an Apex developer can deploy custom code to a production environment, the overall unit test coverage for the environment must be 75% or better.</p>
+<p><span style="font-size:large;"><strong><span style="font-size:small;">What is Unit Test Coverage?</span></strong></span></p>
+<p>Let’s look at a simplistic, contrived example of unit test coverage. For demonstration purposes, the <span style="font-family:'Courier New', Courier, monospace;">HelloWorld</span> Class shows an Apex function that tests whether the text of a string matches “Hello World” or not.<br><a name="more"></a><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// HelloWord Class</span></span></p>
+<p><span style="font-family:'Courier New', Courier, monospace;">public class HelloWorld {</span><span style="font-family:'Courier New', Courier, monospace;"><br>public static String isHelloWorld(String myString) {</span><br><span style="font-family:'Courier New', Courier, monospace;">    if (myString.equals(‘Hello World’)) return ‘Yes it is!’; <strong>// Line 1</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">    else return ‘No it is not!’: <strong>// Line 2</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">  }</span><br><span style="font-family:'Courier New', Courier, monospace;">}</span></p>
+<p>The <span style="font-family:'Courier New', Courier, monospace;">verifyIsHelloWorld</span> test method exercises our gratuitous example</p>
+<p><span style="font-family:'Courier New', Courier, monospace;font-size:x-small;">// verifyIsHelloWorld test method</span></p>
+<p>@isTest<br>private class TEST_HelloWorld {<br>static testMethod void verifyIsHelloWorld () {<br>String outcome = HelloWorld.isHelloWorld (‘Hello World’);<br>System.assert(outcome == ‘Yes it is!’, ‘Expected positive message.’) ;<br>}<br>}</p>
+<p>At this point, we have 66% test coverage, because our test exercises only one of the two statements in <span style="font-family:'Courier New', Courier, monospace;">isHelloWorld</span> (line 1).</p>
+<p>To bring test coverage up to 100%, we need to add another test method.</p>
+<p><div><span style="font-size:x-small;"> </span></div></p>
+<div>
+
+<p><span style="font-size:x-small;">// Another test method</span></p>
+<p>static testMethod void verifyIsHelloWorldFalse() {<br>String outcome = HelloWorld.isHelloWorld (‘Hello Kitty’);<br>System.assert(outcome == ‘No it is not!’, ‘Expected negative message.’) ;<br>}</p>
+<p></p></div><br>With both of these test methods in play, our code now has 100% coverage.<p></p>
+<p><strong>Why is test coverage important?</strong></p>
+<p>Salesforce.com has high standards for its own code and expects custom Apex code to also be robust and error-free. One of the best ways to increase code quality is to encourage developers to write unit tests. <a href="http://nparc.cisti-icist.nrc-cnrc.gc.ca/npsi/ctrl?action=shwart&amp;index=an&amp;req=5763742&amp;lang=en" target="_blank" rel="external">Witness a 2005 study found that unit tests increased both coder productivity and code quality.</a></p>
+<p>While it’s possible for developers to boost code coverage with pointless tests, hardcore coders see unit tests as a way to release better code sooner – the keyword being “release”. The time spent on proactive unit testing is a trade-off with the time spent on reactive debugging. We can find our own bugs ourselves with unit tests, or wait and fix them later when a feature comes back with a QA ticket attached.</p>
+<p>In my own work, I’ve found that the best way to ensure that code has adequate test coverage to practice test-driven development (TDD).</p>
+<p><strong>What is Test Driven Development (TDD)?</strong></p>
+<p>For the uninitiated, a classic way to bootstrap unit testing (and TDD) is to start with defect reports. Before fixing a bug, a developer first writes a test that proves that the defect exists. For example, if someone reports that <span style="font-family:'Courier New', Courier, monospace;">isHelloWorld</span> fails if we pass in a null string, we could start with a test like the one shown by <span style="font-family:'Courier New', Courier, monospace;">verifyIsHelloWorldNull</span>.</p>
+<p><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// verifyIsHelloWorldNull</span></span></p>
+<p>static testMethod void verifyIsHelloWorldNull() {<br>String outcome = HelloWorld.isHelloWorld (null);<br>System.assert(outcome == ‘No it is not!’, ‘Expected negative message.’) ;<br>}</p>
+<p><div style="font-family:inherit;"></div></p>
+<p><div style="font-family:inherit;"><span style="font-size:x-small;"> </span></div><br>If we run this test, it raises an exception “System.NullPointerException: Attempt to de-reference a null object”.</p>
+<p>Since an exception counts as a failing test, we can proceed with the fix, say, by changing the code from:</p>
+<p>| <span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">if (myString.equals(‘Hello World’)) return ‘Yes it is!’; <strong>// Line 1</strong></span></span></p>
+<p>to:</p>
+<p>| <span style="font-family:'Courier New', Courier, monospace;font-size:x-small;">if ‘HelloWorld’.equals(‘myString’) return ‘Yes it is!’; <strong>// Line 1</strong></span></p>
+<p>and maybe, for good measure, including a fourth test case for an empty string.</p>
+<div>
+
+<p><span style="font-size:x-small;">// Test for empty String</span></p>
+<p>final static String EMPTY = ‘’;<br>static testMethod void verifyIsHelloWorldEmpty() {<br>String outcome = HelloWorld.isHelloWorld (EMPTY);<br>System.assert(outcome == ‘No it is not!’, ‘Expected negative message.’) ;<br>}</p>
+<p></p></div><br><span style="font-family:inherit;">Once all of our tests are passing, we could even refactor the code, and improve the internal design by using a constant and a single comparison.</span><p></p>
+<div>
+
+<p><span style="font-size:x-small;">// Code refactored</span></p>
+<p>public class HelloWorld {<br>public final static String HELLO_WORLD = ‘Hello World’;<br>public final static String YES_WORLD = ‘Yes it is!’;<br>public final static String NO_WORLD = ‘No it is not!’;<br>public static String isHelloWorld(String myString) {<br>return (HELLO_WORLD.equals(myString)) ? YES_WORLD : NO_WORLD;<br>}<br>}</p>
+<p></p></div><br><span style="font-family:inherit;">If our tests pass (they do), we can be confident that our refactoring did not break the code’s external behavior. Passing tests give us the courage to refine existing code and improve the internal design.</span><p></p>
+<p>The key idea behind TDD is to “never write a line of code without a failing test”. If we are going to write the test anyway, better to write it first, code to the test, and receive full benefit for the time we invest.</p>
+<p><strong>How do we test code that doesn’t exist?</strong></p>
+<p>In an Apex environment, a unit test usually operates at the class level. To bootstrap testing a class or method that does not exist, we can start coding the test, create a stub class with stub methods, sufficient to compile the test, confirm that it fails, and then fill-in functionality to pass the test.</p>
+<p>Let’s start over from scratch. First, we should define our requirements for the <span style="font-family:'Courier New', Courier, monospace;">isHelloWorld</span> method.</p>
+<p><span style="font-family:inherit;"> <span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// isHelloWorld requirements</span></span></span></p>
+<p>/**</p>
+<ul>
+<li>The isHelloWorld method determines if a String equals ‘Hello World’.</li>
+<li>(1) Given the String ‘Hello World’, the method returns “Yes, it Is.”</li>
+<li>(2) Given some other String, the method returns ‘No, it is not!’.</li>
+<li>(3) Given a null or empty string, the method returns ‘No, it is not!’.<br>*/<br><div style="font-family:inherit;"></div><br><div style="font-family:inherit;"><span style="font-size:small;">Then, we can write a “happy path” test for the first requirement.</span></div><br><div style="font-family:inherit;"></div><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// A happy path test for requirement (1)</span></span></li>
+</ul>
+<p>final static String POSITIVE = ‘Expected positive message.’;<br>static testMethod void verifyIsHelloWorld () {<br>String outcome = HelloWorld.isHelloWorld (‘Hello World’);<br>System.assert(outcome == HelloWorld.YES_WORLD,POSITIVE ) ;<br>}<span style="font-family:inherit;"> </span></p>
+<p><div style="font-family:inherit;"><span style="font-size:small;">provide a stub Hello World class to compile the test</span></div></p>
+<p><div style="font-family:inherit;"><span style="font-size:x-small;"> </span></div><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;"><br>// A HelloWorld stub class</span></span></p>
+<p>public class HelloWorld {<br>public static String isHelloWorld(String myString) {<br>return null;<br>}<br>}</p>
+<p><div style="font-family:inherit;"><span style="font-size:small;">add just enough behavior to pass one test for one requirement</span></div><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;"><span style="font-size:small;"><br></span>// Coding requirement (1)</span></span></p>
+<p>public final static String HELLO_WORLD = ‘Hello World’;<br>public final static String YES_WORLD = ‘Yes it is!’;</p>
+<p>public static String isHelloWorld(String myString) {<br>return HELLO_WORLD.equals(myString) ? YES_WORLD : return null;<br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">}</span></span></p>
+<p><div style="font-family:inherit;"></div></p>
+<p><div style="font-family:inherit;"><span style="font-size:small;">then another requirement</span></div><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;"><br>// Testing requirement (2)</span></span></p>
+<p>final static String NEGATIVE =’Expected negative message.’;<br>static testMethod void verifyIsHelloWorldFalse () {<br>String outcome = HelloWorld.isHelloWorld (‘Hello Kitty’);<br>System.assert(outcome == HelloWorld.NO_WORLD,NEGATIVE ) ;<br>}</p>
+<p>// Coding requirements (1) and (2)</p>
+<p>public final static String HELLO_WORLD = ‘Hello World’;<br>public final static String YES_WORLD = ‘Yes it is!’;<br>public final static String NO_WORLD = ‘No it is not!’;</p>
+<p>public static String isHelloWorld(String myString) {<br>return HELLO_WORLD.equals(myString) ? YES_WORLD : NO_WORLD;<br>}</p>
+<p><div style="font-family:inherit;"><span style="font-size:small;">and a third</span></div><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">  </span></span><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// Testing requirement (3)</span></span></p>
+<p>static testMethod void verifyIsHelloWorldNull() {<br>String outcome = HelloWorld.isHelloWorld (null);<br>System.assert(outcome == HelloWorld.NO_WORLD,NEGATIVE );<br>}</p>
+<p>final static String EMPTY = ‘’;<br>static testMethod void verifyIsHelloWorldEmpty() {<br>String outcome = HelloWorld.isHelloWorld (EMPTY);<br>System.assert(outcome == HelloWorld.NO_WORLD,NEGATIVE );<br>}<br><span style="font-family:inherit;font-size:small;"><span style="font-family:'Courier New', Courier, monospace;"> </span> </span><br><span style="font-family:inherit;font-size:small;">For requirement 3, we added two test methods, but did not need to change any code, since the current implementation passed the tests.</span></p>
+<p>To fully test the method, we might also <a href="http://developer.force.com/cookbook/recipe/construct-random-strings-of-large-sizes-in-your-apex-tests" target="_blank" rel="external">add a test for a string of maximum length</a>, so that we test both boundaries. But, as it stands, we have 100% test coverage, and a test for each stated requirement, which meets my own personal “definition of done”.</p>
+<p>Three takeaways from this exercise are:</p>
+<ul>
+<li><span style="font-family:inherit;font-size:small;"> Never write a line of code without a failing test.</span></li>
+<li><span style="font-family:inherit;font-size:small;"> Test every requirement, one requirement at a time.</span></li>
+<li><span style="font-family:inherit;font-size:small;"> Passing tests give us the courage to refactor.</span><br><span style="font-family:inherit;font-size:small;"> In a followup blog, <a href="http://tedhusted.blogspot.com/2012/03/test-driven-development-with-apex.html" target="_blank" rel="external">TDD with Apex Triggers,</a> we look at how Test Driven Development works in practice, with a real-life non-trivial example.</span><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;"><span style="font-family:inherit;"></span></span></span></li>
+</ul>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/force-com/">Force.com</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/test-driven-development-with-apex-triggers-on-force-com/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          Test Driven Development with Apex Triggers on Force.com
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/keeping-salesforce-implementations-on-track-with-milestones-pm-and-changeit/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Keeping Salesforce Implementations on Track with Milestones PM and ChangeIT&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2012/test-driven-development-with-apex-on-force-com/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

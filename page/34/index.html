@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ted.husted.com">
+<meta property="og:url" content="http://ted.husted.com/page/34/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ted.husted.com">
+<meta name="twitter:description" content="Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer">
+      <article id="post-make-mine-yui" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/make-mine-yui/">Make Mine YUI</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/make-mine-yui/" class="article-date">
+  <time datetime="2007-03-04T11:00:00.000Z" itemprop="datePublished">2007-03-04</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>After two years of bashing our brains against ASP.NET at my day job, we’re diving into Ajax for our next frontend.</p>
+<p>We looked at Microsoft’s AJAX.NET, and at Anthem, and GWT, and Dojo, and we settled on the Yahoo User Interface Library. Out of the box, the widgets aren’t as sexy as some others, but the library is well documented, easy enough to use, and Yahoo seems committed to supporting YUI over the long haul. (I haven’t run any benchmarks, but it also seems like its the fastest.)</p>
+<p>Of course, I’m also liking that Yahoo <a href="http://yuiblog.com/blog/2007/02/20/yui-220-released/" target="_blank" rel="external">eats their own dog food</a> … “the YUI you can download here is exactly the same YUI Library used all across Yahoo!”.</p>
+<p>Though, it’s not YUI that’s really making the move from ASPX to HTML-and-Ajax possible for us. The “reality check” kudos go to a .NET JSON-RPC libary named “Jayrock”. Using <a href="http://jayrock.berlios.de/" target="_blank" rel="external">Jayrock</a>, we are able to create a paper-thin ASHX handler (“servlet”) that calls our business logic framework (<a href="http://code.google.com/p/anvil/" target="_blank" rel="external">Anvil</a>).</p>
+<p>From a coding perspective, the handler is a “plain-old” C# class with some annotations to enable the JSON-RPC voodoo.</p>
+<p><pre>[JsonRpcMethod]<br> public AppEntry entry(string key)<br> {<br>    // … arbitrary business logic to obtain a value object (JavaBean)<br>    return appEntry;<br>}</pre><br>On the JavaScript side, Jayrock bundles a utility script that generates the JSON API gluecode for us. In the end, we can just call a method on the handler and pass in our parameters and a callback function. Click. Done. Sweet.</p>
+<p><pre>  PhoneBook.rpc.entry(entry_key,onEdit_load).call(av_channel);</pre><br>If anything does go sour, the handler can throw an exception, which, on the JavaScript side, is automatically routed to a separate error callback. Once there, it’s trivial to display the message, and even the stack trace, if we want it.</p>
+<p>Happily, we are already doing all the data conversion and formatting on the business logic layer, so for Ajax, we are good to go.</p>
+<p>We did an initial “spike” using Dojo and our canonical example application (a simple PhoneBook). We then did the same thing with YUI. A keen happenstance was that we were able to use Jayrock to switch “channels” behind the scenes, so that the application could connect to the server using Dojo or using YUI, just by changing one line of code.</p>
+<p>Along with the clear separation of concerns, I think what we like most about Ajax is that it plays well with others. We can start with YUI as a foundation, but if we want to toss in some <a href="http://dojotoolkit.org/" target="_blank" rel="external">Dojo</a> or <a href="http://www.yui-ext.com/deploy/yui-ext/docs/" target="_blank" rel="external">Ext</a> widgets, we can. No sweat.</p>
+<p>I’m thinking this feeling is what JetBrains means by “Develop with pleasure!” :)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yui/">YUI</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-googlecode-a-go-go" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/googlecode-a-go-go/">GoogleCode-a-Go-Go</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/googlecode-a-go-go/" class="article-date">
+  <time datetime="2007-03-03T11:00:00.000Z" itemprop="datePublished">2007-03-03</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I’m now the proud caretaker of two different Google Code projects.</p>
+<p><a href="http://code.google.com/p/anvil/" target="_blank" rel="external">Anvil</a> is a business logic framework based on the context and chain of command patterns. The Anvil core is a port of the Jakarta Commons Chain of Responsibility, used by Struts 1.3. It’s available for C# now. We use Spring.NET for the object factory, and iBATIS.NET for data access (so this would be an easy port back to Java). Anvil is still way under-documented, but it works well for us. Best of all, Anvil made the transition to Ajax without missing a beat.</p>
+<p>When we created Anvil, our original goal was to keep as much code as possible out of the ASPX pages and code-behinds, including validation and formatting. As it turns out, that same goal makes the framework an ideal backend to Ajax pages.</p>
+<p>The other new project is <a href="http://code.google.com/p/sq1-struts2/" target="_blank" rel="external">Apache Struts from Square One</a>, which hosts materials used by my training course including slide presentations, coding exercises, and a companion textbook. The text is new, but the slides and other materials have been available at the <a href="http://www.strutsuniversity.org/" target="_blank" rel="external">Struts University</a> site for some time.</p>
+<p>The course is something I’ve been creating through successive refinement. When Struts first came out, people asked me to come in for “Train the Trainer” sessions, where consultants wanted to learn Struts so they could teach it to their clients and other consultants. Then, it was direct requests from development teams who wanted to jumpstart a new project using Struts. By the time Struts 1.2 came around, people were asking me to come in and review what they’ve been doing in Struts, to see if they were on the right track.</p>
+<p><a href="http://husted.com/ted/vita.html" target="_blank" rel="external">On each trip</a>, I’d create a new session or improve an old session, and eventually it all evolved into a course based on the Struts MailReader application. The course has now made the jump to Struts 2, and I’m working on a companion text to the original training materials, which I might offer through <a href="http://lulu.com/" target="_blank" rel="external">LuLu</a> when it’s “ready for primetime”.</p>
+<p>An early and incomplete draft of Part 1 of the book (‘Carpe Diem’) is available for <a href="http://sourceforge.net/project/showfiles.php?group_id=49385&amp;package_id=223769&amp;release_id=490486" target="_blank" rel="external">download</a>. The complete set of slides and other materials are available through the <a href="http://www.strutsuniversity.org/" target="_blank" rel="external">Struts University site</a>. There’s even a new <a href="http://groups.google.com/group/sq1-struts2" target="_blank" rel="external">Google Group</a> for questions and feedback.</p>
+<p>Of course, although the text is a work in progress, the live course is complete, and I’ve presented it several times. Drop by <a href="http://www.strutsmentor.com/" target="_blank" rel="external">Struts Mentor</a> for more about the live course.</p>
+<p>Many thanks to the Google Code ninjas who are making project hosting possible for grunts like me. There are rough edges still, but I can see where Google Code is going, and I’m happy to tag along for the ride.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/google-code/">Google Code</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-struts-2-0-6-voted-ready-for-primetime" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/struts-2-0-6-voted-ready-for-primetime/">Struts 2.0.6 Voted Ready for Primetime</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/struts-2-0-6-voted-ready-for-primetime/" class="article-date">
+  <time datetime="2007-03-02T11:00:00.000Z" itemprop="datePublished">2007-03-02</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/event/">Event</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I may be late to the dance, but, let me cut in and whisper in your ear: “Struts 2.0.6 is General Availability.” How’s that for a sweet something?</p>
+<p>The GA vote went down just over a week ago, on 22 February 2007. In retrospect, the Struts 2.0.1 release was also ready for primetime. Many people have been joyfully using 2.0.1 in production since September. The holdup was that our major dependency, XWork 2, stubbornly clung to beta status from September to January. The actual code was fine, but the XWork committers wanted to spruce up the documentation and did not want to stamp the distribution “final” yet. Since then, the XWork group has changed to a milestone release system, as Struts uses. Now, we can grade both Struts and XWork releases based on experience rather than expectation.</p>
+<p>Whilst XWork 2 twiddled with documentation, Struts 2 did not stand still. Struts 2.0.6 boasts several new heavyweight features, like plugins and a zero-configuration approach (Yes, Virginia, there is no XML!). We even moved the internal dependency injection over to Crazy Bob Lee’s new secret project, <a href="http://code.google.com/p/google-guice/" target="_blank" rel="external">Google Guice</a>.</p>
+<p>Of course, by “we”, I mean our star committer Don Brown. We were going to hold off on some of these changes until after our first GA, but as an expectant father, Don was worried that the bundle of joy would cut into his committing time. So, Don managed to put aside his Nintendo Wii long enough to commit a stunning array of new features. For more about the many joyful features of Struts 2.0.6, pop by the <a href="http://struts.apache.org/" target="_blank" rel="external">Apache Struts website</a>.</p>
+<p>But, wait, there’s more! The Struts 2.0.7 release might be available next week. No earthshaking new features, just the usual successive refinements and odd code fix. Of course, it will be a drop-in binary replacement for Struts 2.0.6, so there’s no reason to wait!</p>
+<p>For Struts 2.1.x, we planning to migrate both the portlet support and the Ajax/Dojo tags to plugins. Since we’re now using the Yahoo User Interface Library (YUI) at work, I’m also thinking we might be able to offer a Ajax/YUI plugin too. But, that’s another post. :)</p>
+<p>Meanwhile, Struts 1.3.x is ramping up for another release, and there’s continued talk of a Struts 1.4. Test builds for Struts 1.3.7 are available, and a 1.3.8 build should follow on its heels to correct an oversight with Action redirects.</p>
+<p>As always, the best is yet to come!</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-java-web-frameworks-simplified" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/java-web-frameworks-simplified/">Java Web Frameworks - Simplified!</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2006/java-web-frameworks-simplified/" class="article-date">
+  <time datetime="2006-11-16T11:00:00.000Z" itemprop="datePublished">2006-11-16</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>Is there a standard Java web framework?</strong></p>
+<p>Yes. Sun has added JavaServer Faces to its<br><a href="http://java.sun.com/javaee/" target="_blank" rel="external">Java Enterprise Edition</a>, which includes other goodies like JavaServer Pages and the JavaServer Pages Standard Tag Library. If you grab the distribution that bundles the NetBeans IDE, Java has finally become a one-stop shop!</p>
+<p><strong>Is JSF a specification, like JSP and JSTL?</strong></p>
+<p>Yes. Sun provides its own Reference Implementation, but other people can provide their own implementation of the specification.</p>
+<p><strong>Is anyone doing that? </strong></p>
+<p>Yes. The Apache Software Foundation offers the <a href="http://myfaces.apache.org/" target="_blank" rel="external">Apache MyFaces</a> JSF implementation that you can use instead of the Sun RI. Along with a certified JSF implementation, the MyFaces project also offers a number of additional JSF components. Standard JSF components include gizmos like a DataGrid. Additional components include goodies like tabbed panels, various tree views, HTML editors, scrollers, and such, that you can drop into your application. If you are just getting started with JSF, the MyFaces mailing list provides a lot of friendly, free support.</p>
+<p><strong>Are there other JSF component libraries available? </strong></p>
+<p>Yes. For example, Oracle offers ADF. In fact, Oracle donated the better part of its ADF component library to the ASF some time ago. It’s slowly becoming part of MyFaces under the name Trinidad.</p>
+<p><strong>What about AJAX? </strong></p>
+<p>People are trying various approaches toward integrating AJAX with JSF components. Some AJAX frameworks for JSF are already available, including <a href="https://ajax4jsf.dev.java.net/nonav/ajax/ajax-jsf/" target="_blank" rel="external">Ajax4jsf</a>. Generally, you can use AJAX frameworks with the Sun RI or MyFaces, as you prefer.</p>
+<p>This is the same sort of approach that Microsoft is taking for its ASP.NET framework (which is similar to JSF). To leverage AJAX, Microsoft is building a second framework, Atlas, on top of ASP.NET.</p>
+<p><strong>Are there other JSF frameworks? </strong></p>
+<p>Yes. The <a href="http://shale.apache.org/" target="_blank" rel="external">Apache Shale framework</a> extends JSF to add advanced features, many of which are designed to woo Java web developers used to Action-based frameworks, like Struts.</p>
+<p><strong>What’s happening with Struts? </strong></p>
+<p>By any measure, Apache Struts is still the most popular Java web framework. Last year, Struts merged with another web development community, WebWork, to create a new version of Struts. <a href="http://struts.apache.org/2.x/" target="_blank" rel="external">Apache Struts 2</a> is in beta release now.</p>
+<p><strong>Are there any comparisons of the JSF and Struts 2 feature sets? </strong></p>
+<p>In practice, comparing JSF and Struts 2 is less about the features and more about the development paradigms. The reason we have these two frameworks is because each solution approaches the web development problem from a different perspective.</p>
+<p>The implicit goal of JSF-style component-based development is to make web development more like conventional desktop/GUI development. The implicit goal of Action-based development is to streamline web development and make the best of the web platform. If a team likes the idea of creating web applications as if they were desktop applications, then platforms like JSF and ASP.NET are the way to go. If a team is ready to embrace the web for what it is, then platforms like Struts, Ruby, PHP, and so forth, are still the way to go.</p>
+<p>In other words, it all depends on the problem we are trying to solve. If the problem is that web development is unlike conventional GUI development, then the component model is a valid solution. If the problem is that web development lacks an elegant and extensible infrastructure, then the action model is a valid solution.</p>
+<p><strong>But can’t we create a framework that resembles GUI development but provides a simple, web-savy infrastructure?</strong></p>
+<p>Possibly, but that would be the web equivalent of <a href="http://en.wikipedia.org/wiki/Grand_unified_field_theory" target="_blank" rel="external">unified field theory</a>. Today, in physics, and in web development, we have two models that are each used for different reasons, but, side by side, the two are wildly incompatible.</p>
+<p>In physics, it boils down to “little” or “big”? In web development, it boils down to “GUI Desktop” or “Enterprise Web”?</p>
+<p>Pick your poison!</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-free-as-in-beer-microstuff" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/free-as-in-beer-microstuff/">Free (as in beer) Microstuff</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2006/free-as-in-beer-microstuff/" class="article-date">
+  <time datetime="2006-10-01T09:00:00.000Z" itemprop="datePublished">2006-10-01</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Inch by inch, step by step, Redmond softly pads closer and closer …</p>
+<p>Earlier this year, Microsoft leapt into the free zone by making free downloads of its Express line a permanent fixture. Originally, the Express line was being positioned as low cost, but now the cost is reduced to a free download and eventual registration.</p>
+<p>To an extent, the Express line can trace its roots to Matrix, a free ASP.NET IDE that the Microsoft team cobbled up as scaffolding for Visual Studio .NET. Afterwards, some team members lobbied to make Matrix pubically available, and it was posted on ASP.NET, along with the “starter kits” and other goodies. Matrix is interesting, but it shuns code-behinds in favor of embedding scripts into the pages.</p>
+<p>Though, Express ain’t Matrix. Express is the real deal. Express is Visual Studio broken out as a set of point-applications, each focused on a specific part of the development process. If you are working on a n-tier application, then the Visual Studio suite is still the way to go. (Especially if you want to use plugins<br>like Ankh and Resharper.) But, if you are working on a simple Windows or web application, then Express may be just the thing.</p>
+<p>All together there are six products in the <a href="http://msdn.microsoft.com/vstudio/express/default.aspx" target="_blank" rel="external">Visual Express</a> line.</p>
+<ul>
+<li>Web Developer Express</li>
+<li>SQL Server Express</li>
+<li>Visual Basic Express</li>
+<li>Visual C# Express</li>
+<li>Visual C++ Express</li>
+<li>Visual J# Express<br>All permanently free for the download.</li>
+</ul>
+<p>A linchpin offering is SQL Express. Unlike its MSDE predecessor, <a href="http://blogs.msdn.com/euanga/archive/2006/03/09/545576.aspx" target="_blank" rel="external">SQL Express is not performance throttled</a>. You can use it as a production database.</p>
+<p>For ASP.NET web developers, this changes everything. In my experience with VS 2003, you can’t really get the full benefit of the platform without using SQL Server. Of course, that’s part of the plot, but, in for a penny, in for a pound. If I’m going to use a platform, I’m going to use it best I can.</p>
+<p>Of course, back in the VS 2003 days, using SQL Server was a budget item, so it wasn’t something everyone could do. (My team included.) Today, SQL Server Express<br>fits everyone’s budget: free!</p>
+<p>I’ve been working with an Oracle shop, but being renegades, we’ve been using MySQL, so that we could develop on the desktop. But, we’ve been careful to keep it all ANSI, just in case we ever have to migrate.</p>
+<p>It’s looking like that day is now coming, but instead of migrating to Oracle, we may be migrating to SQL Server Express!</p>
+<p>Of course, switching database systems is, as they say, “non-trivial”. But, as it happens, we are getting ready to roll out a new version of the database schema, with a new release of the application to match, and moving from MySQL 4 to MySQL 5 in the process. At this time, it would be just as easy, even easier, for us to move to SQL Express instead.</p>
+<p>For backup, we’ve been grabbing MySQL dumps, which are designed to reconstruct the database from scratch using SQL statements. I’ve found that by adjusting the MySQLDump parameters (mysqldump [database] –skip-opts –compatible=ansi), we can get a decent SQL Server compatible dump. We just need to make a few minor tweaks to the create table DDLs, and it’s good to go.</p>
+<p>Just as a spike, we boosted a couple of tables into SQL Express, changed the iBATIS provider, and ran some of our unit tests. So far, all signals are green!</p>
+<p>Of course, we don’t plan to sell our souls to the dark side. Our data access layer relies on iBATIS and a coarsely-grained data transfer object. It’s flexible and easy to test, and we won’t be changing that any time soon.</p>
+<p>Though, in ASP.NET 2, Microsoft is giving a nod to business objects. In fact, I was impressed by the number of good practices demonstrated in the<br><a href="mms://wm.microsoft.com/ms/uifx/asp_net_atlas.wmv" target="_blank" rel="external">Developing ASP.NET 2.0 Applications using AJAX video</a>. For example, along with business objects, Scott Guthrie relied exclusively on CSS for formatting.</p>
+<p>Toss in a some actual unit tests, and we could almost call the demo Agile. But, I’m guessing we might have to wait for ASP.NET 4 or 5 before we catch Scott writing his own unit tests :)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/page/33/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="page-number current">34</span><a class="page-number" href="/page/35/">35</a><a class="page-number" href="/page/36/">36</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/35/">下一页 &raquo;</a>
+      </nav>
+    </section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Managing a Related Object via a Checkbox in Salesforce CRM - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="This Force.com recipe shows how to use a checkbox to manage a related object via an Apex trigger. 
+Problem: An off-the-shelf integration requires the existence  of a specific Salesforce CRM Opportunit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Managing a Related Object via a Checkbox in Salesforce CRM">
+<meta property="og:url" content="http://ted.husted.com/2012/managing-a-related-object-via-a-checkbox-in-salesforce-crm/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="This Force.com recipe shows how to use a checkbox to manage a related object via an Apex trigger. 
+Problem: An off-the-shelf integration requires the existence  of a specific Salesforce CRM Opportunit">
+<meta property="og:image" content="http://suvendugiri.files.wordpress.com/2012/02/checkbox.png">
+<meta property="og:updated_time" content="2017-02-20T13:34:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Managing a Related Object via a Checkbox in Salesforce CRM">
+<meta name="twitter:description" content="This Force.com recipe shows how to use a checkbox to manage a related object via an Apex trigger. 
+Problem: An off-the-shelf integration requires the existence  of a specific Salesforce CRM Opportunit">
+<meta name="twitter:image" content="http://suvendugiri.files.wordpress.com/2012/02/checkbox.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-managing-a-related-object-via-a-checkbox-in-salesforce-crm" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Managing a Related Object via a Checkbox in Salesforce CRM
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2012/managing-a-related-object-via-a-checkbox-in-salesforce-crm/" class="article-date">
+  <time datetime="2012-03-06T11:00:00.000Z" itemprop="datePublished">2012-03-06</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class="separator" style="clear:both;text-align:center;"><a href="http://suvendugiri.wordpress.com/2012/02/09/android-using-checkbox-with-example/" target="_blank" rel="external"><img src="http://suvendugiri.files.wordpress.com/2012/02/checkbox.png" alt=""></a></div>This Force.com recipe shows how to use a checkbox to manage a related object via an Apex trigger. </p>
+<p><strong>Problem: </strong>An off-the-shelf integration requires the existence  of a specific Salesforce CRM Opportunity object. When the object is  present, the integration acts on the Account related to the Opportunity.  When the object is not present. the integration bypasses the Account.</p>
+<p><strong>User Story:</strong> As a CRM User, I need to easily manage the Opportunity that signals the  integration, for example, by selecting a checkbox that creates or  removes the related integration object.</p>
+<p><strong>Solution:</strong> Implement an Account trigger that observes the checkbox and inserts or deletes the related integration object.</p>
+<p><div><strong><span style="font-size:x-small;"></span></strong><br><a name="more"></a><strong><span style="font-size:x-small;">// trigger class</span></strong></div><div><span style="font-size:x-small;"><br>/** </span></div></p>
+<ul>
+<li>Manages a2z Opportunity by referring to the </li>
+<li>“Is a2z Import” checkbox on the Account object. </li>
+<li>When an a2z Opportunity exists, the Account is imported to a2z. </li>
+<li>The trigger handles three transitional states: </li>
+<li>(1) if insert and doImport, insert opp; </li>
+<li>(2) if update and !doImport and hasOpp, delete opp;    </li>
+<li>(3) if update and doImport and !hasOpp, insert opp.</li>
+<li>By inference, the trigger also handles:</li>
+<li>(4) if insert and !doImport, exit; </li>
+<li>(5) if update and doImport and hasOpp, exit;</li>
+<li><p>(6) if !doImport and !hasOpp, exit.<br>*/<br>trigger NU_a2zCreateOpportunity on Account (after insert, after update) {</p>
+<p> // (1) On insert, if isImport, insert opp<br> if (Trigger.isInsert) {</p>
+<pre><code>List delta = new List();
+for (Account a : Trigger.new) {
+    if (a.NU_isA2zImport__c) {
+        delta.add(NU_a2zOpps.newOpp(a));
+    }        
+}
+if (delta.size()&amp;gt;0) insert(delta);
+</code></pre><p> }</p>
+<p> // (2) On update, if not isImport and haveOpp, delete opp<br> // (3) On update, if isImport and not haveOpp, insert opp<br> if (Trigger.isUpdate) {</p>
+<pre><code>if (Trigger.new.size() == 1) {
+    Account a = Trigger.new.get(0);
+    Boolean hasOpp = NU_a2zOpps.hasOpp(a);
+    if (!a.NU_isA2zImport__c &amp;amp;&amp;amp; hasOpp) {
+        delete(NU_a2zOpps.getOpp(a)); // (2)
+    }  
+    if (a.NU_isA2zImport__c &amp;amp;&amp;amp; !hasOpp) {
+        insert(NU_a2zOpps.newOpp(a)); // (3)
+    }    
+
+} else {
+    Map opps = NU_a2zOpps.getOpps(Trigger.new);
+    Set ids = opps.Keyset();
+    Set dels = new Set();
+    List deletes = new List();
+    List inserts = new List();
+    for (Account a : Trigger.new) {
+        if (!a.NU_isA2zImport__c &amp;amp;&amp;amp; ids.contains(a.Id)) {
+            deletes.add(opps.get(a.Id)); // (2)
+        }  
+        if (a.NU_isA2zImport__c &amp;amp;&amp;amp; !ids.contains(a.Id)) {
+            inserts.add(NU_a2zOpps.newOpp(a)); // (3)
+        }    
+    } 
+    if (deletes.size()&amp;gt;0) delete(deletes);
+    if (inserts.size()&amp;gt;0) insert(inserts);
+}
+</code></pre><p> }<br>}<div><strong>
+</strong><br><strong>
+</strong></div><span style="font-size:x-small;"><strong><span style="font-family:'Courier New', Courier, monospace;">// test class</span></strong><br><span style="font-family:'Courier New', Courier, monospace;"></span></span></p>
+</li>
+</ul>
+<p><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">/**</span></span></p>
+<ul>
+<li><p>Exercises the a2zCreateOpportunity feature set.<br>*/<br>@isTest<br>private class NU_TEST_a2zCreateOpportunity {</p>
+<p> /** </p>
+<ul>
+<li>Generates a key based on system time and offset.</li>
+<li><p>Sufficient for unit test purposes only.<br>*/<br>static String newCompanyNumber(Integer offset, String kicker) {<br> Datetime n = Datetime.now();<br> return kicker + String.valueOf(n.minute()) + String.valueOf(n.millisecond()) + String.valueOf(offset);<br>} </p>
+<p>/**</p>
+</li>
+<li>Generates an account with the NU_isA2zImport__c raised or lowered.</li>
+<li><p>Assumes default is false.<br>*/<br>static Account newAccount(Boolean doImport, Integer offset, String kicker) {<br> Account a = new Account(Name = ‘Test Account’, </p>
+<pre><code>CompanyNumber__c = newCompanyNumber(offset, kicker));
+</code></pre><p> if (doImport) a.NU_isA2zImport__c = true; // False is default<br> return a;<br>}</p>
+<p>/**</p>
+</li>
+<li>Generates an account with the NU_isA2zImport__c raised or lowered.</li>
+<li><p>Assumes default is false.<br>*/<br>static Account newAccount(Boolean doImport) {<br> return newAccount(doImport, 0, ‘’);<br>}</p>
+<p>/** </p>
+</li>
+<li><p>Inserts the given account, and returns it again from a select.<br>*/<br>static Account doInsert(Account a) {<br> insert(a);<br> return [<br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">SELECT id, NU_isA2zImport<strong>c, CompanyNumber</strong>c<br></span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">FROM Account<br></span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">WHERE id = :a.id</span></span><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">        </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">];<br>}</span></span></p>
+<p>/** </p>
+</li>
+<li><p>Exercises “Insert Import”.<br>*/<br>static testMethod void testInsImp(){<br> Account a = newAccount(true);<br> Account a2 = doInsert(a);<br> System.Assert(NU_a2zOpps.hasOpp(a2),’Expected opp on insert.’);<br>}</p>
+<p>/** </p>
+</li>
+<li><p>Exercises “Insert NoImport”.<br>*/<br>static testMethod void testInsNoImp(){<br> Account a = newAccount(false);<br> Account a2 = doInsert(a);<br> System.Assert(!NU_a2zOpps.hasOpp(a2),’Expected no opps on insert.’);<br>}</p>
+<p>/**</p>
+</li>
+<li>Creates, inserts, and updates an account, </li>
+<li><p>changing the import settings in between.<br>*/<br>static void updateHelper(Boolean insImp, Boolean updImp) {<br> Account a = newAccount(insImp);<br> Account a2 = doInsert(a);<br> a2.NU_isA2zImport__c = updImp;<br> update(a2);<br> if (updImp) {</p>
+<pre><code>System.Assert(NU_a2zOpps.hasOpp(a2),&apos;Expected opps on update.&apos;);
+</code></pre><p> } else {</p>
+<pre><code>System.Assert(!NU_a2zOpps.hasOpp(a2),&apos;Expected no opps on update.&apos;);
+</code></pre><p> }<br>}</p>
+<p>/** </p>
+</li>
+<li><p>Exercises “Update ImportNoImport”.<br>*/<br>static testMethod void testUpdImpNoImp(){<br> updateHelper(true,false);<br>}</p>
+<p>/** </p>
+</li>
+<li><p>Exercises “Update NoImportImport”.<br>*/<br>static testMethod void testUpdNoImpImp(){<br> updateHelper(false,true);<br>}</p>
+<p>/** </p>
+</li>
+<li><p>Exercises “Update ImportImport”.<br>*/<br>static testMethod void testUpdImpImp(){<br> updateHelper(true,true);<br>}</p>
+<p>/** </p>
+</li>
+<li><p>Exercises “Update NoImportNoImport”.<br>*/<br>static testMethod void testUpdNoImpNoImp(){<br> updateHelper(false,false);<br>}</p>
+<p>static List getInserted(List rows) {<br> return [<span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">SELECT id, NU_isA2zImport<strong>c, CompanyNumber</strong>c<br></span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">FROM Account </span></span><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">WHERE id in :rows</span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;"><br> </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">];<br>}</span></span></p>
+<p>/** </p>
+</li>
+<li><p>Creates, inserts, and updates an account,<br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">     <em> </em></span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">changing the import settings in between, for a batch of accounts.
+/<br>static void batchHelper(Boolean insImp, Boolean updImp,<br></span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">        </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">        </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">Boolean contains, String kicker) {<br> List rows = new List();<br> for (Integer r=0; r&lt;200; r++) {</span></span></p>
+<pre><code>rows.add(newAccount(insImp, r, kicker));
+</code></pre><p> }<br> insert(rows);<br> List inserted = getInserted(rows);<br> // In Apex, anything can be null<br> if (updImp != null) {</p>
+<pre><code>for (Account a : inserted) {
+    a.NU_isA2zImport__c = updImp;            
+}
+</code></pre><p> }<br> update(inserted);<br> Set ids = NU_a2zOpps.getOpps(inserted).Keyset();<br> Boolean success = true;<br> if (contains) {</p>
+<pre><code>for (Account a : inserted) {
+    success = success &amp;amp;&amp;amp; ids.contains(a.Id);            
+}
+System.Assert(success,&apos;Expected opps on batch delete.&apos;);
+</code></pre><p> } else { </p>
+<pre><code>for (Account a : inserted) {
+    success = success &amp;amp;&amp;amp; !ids.contains(a.Id);            
+}
+System.Assert(success,&apos;Expected no opps on batch delete.&apos;);        
+</code></pre><p> }<br>}</p>
+<p>/** </p>
+</li>
+<li><p>Exercises “Batch has flag set”.<br>*/<br>static testMethod void batchHelperHas() {<br> batchHelper(true,null,true,’A’);<br>}</p>
+<p>/** </p>
+</li>
+<li><p>Exercises “Batch does not have flag set”.<br>*/<br>static testMethod void batchHelperHasNot() {<br> batchHelper(false,null,false,’B’);<br>}</p>
+<p>/** </p>
+</li>
+<li><p>Exercises Batch delete.<br>*/<br>static testMethod void batchHelperDel() {<br> batchHelper(true,false,false,’C’);<br>}</p>
+<p>/** </p>
+</li>
+<li>Exercises Batch insert.<br>*/<br>static testMethod void batchHelperIns() {<br> batchHelper(false,true,true,’D’);<br>}<br>}</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/salesforce/">Salesforce</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/salesforce-certification-a-winwin/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          Salesforce Certification - A Win/Win
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/test-driven-development-with-apex-triggers-on-force-com/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Test Driven Development with Apex Triggers on Force.com&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2012/managing-a-related-object-via-a-checkbox-in-salesforce-crm/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

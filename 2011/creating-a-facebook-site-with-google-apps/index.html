@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Creating a Facebook Site with Google Apps - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="This holiday season saw a landmark event. High profile companies, like Mattel, posting a Facebook site URL in prime-time advertising. As it turns out, you don’t need to be a big name company to have y">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Creating a Facebook Site with Google Apps">
+<meta property="og:url" content="http://ted.husted.com/2011/creating-a-facebook-site-with-google-apps/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="This holiday season saw a landmark event. High profile companies, like Mattel, posting a Facebook site URL in prime-time advertising. As it turns out, you don’t need to be a big name company to have y">
+<meta property="og:image" content="https://tedhusted.files.wordpress.com/2011/01/296dd-gook.png?w=300">
+<meta property="og:updated_time" content="2017-02-20T13:34:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Creating a Facebook Site with Google Apps">
+<meta name="twitter:description" content="This holiday season saw a landmark event. High profile companies, like Mattel, posting a Facebook site URL in prime-time advertising. As it turns out, you don’t need to be a big name company to have y">
+<meta name="twitter:image" content="https://tedhusted.files.wordpress.com/2011/01/296dd-gook.png?w=300">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-creating-a-facebook-site-with-google-apps" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Creating a Facebook Site with Google Apps
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2011/creating-a-facebook-site-with-google-apps/" class="article-date">
+  <time datetime="2011-01-07T15:00:00.000Z" itemprop="datePublished">2011-01-07</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://tedhusted.files.wordpress.com/2011/01/296dd-gook.png" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2011/01/296dd-gook.png?w=300" alt=""></a>This holiday season saw a landmark event. High profile companies,<a href="http://www.facebook.com/barbie" target="_blank" rel="external"> like Mattel</a>, posting a Facebook site URL in prime-time advertising. As it turns out, you don’t need to be a big name company to have your own Facebook site. Anyone can do it, it’s free, and it’s simple as pie.</p>
+<p>The reason it’s free and easy is that Facebook doesn’t actually host the site. Facebook provides a namepace and an iframe that points to a site you control. The pages are loaded from your server, wrapped in a Facebook pane.</p>
+<p>There is a <a href="http://developers.facebook.com/docs/reference/javascript/" target="_blank" rel="external">Facebook JavaScript API</a> that you can use from any site. With the API, you can like pages, authenticate against Facebook, write to your wall, and such. But with a Facebook site, you can do anything that your own website can do.</p>
+<p>If you don’t already have a website of your own, you can create a static site using <a href="http://docs.google.com/demo/%20" target="_blank" rel="external">published Google Docs</a>. Just create a document, and share it with the world, and you can wrap a Facebook site around it.</p>
+<p>Here’s how to get started.</p>
+<ol>
+<li><p>If you don’t have a Google Docs account, you can sign up at <a href="http://docs.google.com/demo/%20" target="_blank" rel="external">http://docs.google.com/demo/ </a>and create a page to share.</p>
+<ul>
+<li>Select <strong>Share </strong>and change the visibility to public</li>
+<li>Then <strong>Share </strong>and <strong>Publish </strong>to the Web</li>
+</ul>
+</li>
+<li><p>Login to Facebook. (As if you ever logout!)</p>
+</li>
+<li><p><a href="http://www.facebook.com/developers/createapp.php" target="_blank" rel="external">Register an App Name with Facebook</a>. (It’s free!)</p>
+<ul>
+<li>Your Facebook account name might be a good one for starters.</li>
+</ul>
+</li>
+<li><p>Under<strong> Facebook Integration</strong>, enter your App Name as the as the <strong>Canvas Page</strong>, and your public, published Google Doc page as the <strong>Canvas URL</strong>. . Under <strong>IFrame Size</strong>, select <strong>Auto-Resiz</strong>e.</p>
+</li>
+<li>Open <u>apps.facebook.com/{Your-Canvas-URL}</u></li>
+<li><p>Voila!</p>
+<ul>
+<li><p>If the apps isn’t found right away, check the URL, and wait a few minutes for it to propagate.</p>
+</li>
+<li><p>If t still doesn’t show, open <strong>Advanced </strong>in your <a href="http://www.facebook.com/developers/apps.php" target="_blank" rel="external"><strong>Apps Settings</strong></a>, and <strong>Disable</strong> all the options.<br>For more tips about using Google Docs as a Facebook Canvas, see this Metaprime blog - <a href="http://blog.metaprime.at/how-to-build-a-facebook-landing-page-with-google-docs/" target="_blank" rel="external">http://blog.metaprime.at/how-to-build-a-facebook-landing-page-with-google-docs/</a>.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>You can also use a <a href="http://apps.facebook.com/ted-husted/" target="_blank" rel="external">Google Site as a Facebook Canvas</a>. Just keep the site layout within a 870px width or a 740px page with a 130px sidebar. (Though, to appease the API, you might have to add an extra “?” at the end of the URL. )</p>
+<p>Google Docs and Google Sites are a great way to maintain a static site within Facebook. For some ideas about what you can do with a full web server, visit the <a href="http://apps.facebook.com/wwfgiftcenter/" target="_blank" rel="external">World Wildlife Fund Gift Center</a> and the <a href="http://developers.facebook.com/showcase/" target="_blank" rel="external">Facebook Platform Showcase</a>. Common Knowlege also has a great webinar on <a href="http://www.commonknow.com/html/rsrcs/webinarrecordings/101117_FacebookApplications/index.htm" target="_blank" rel="external">Facebook Sites and Pages</a>.</p>
+<p>Facebook integration is a great example of how difficult problems can be solved with simple interfaces. Fire up your Facebook account, and give it a try!</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2011/dreamforce-recap-2011-salesforce-roadmap/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          Dreamforce Recap / 2011 Salesforce Roadmap
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2010/put-your-ears-on/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Put your ears on&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2011/creating-a-facebook-site-with-google-apps/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

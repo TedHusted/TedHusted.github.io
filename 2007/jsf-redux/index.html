@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JSF Redux - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="The Expert Group for JSF 2.x is now forming, and people continue to consider whether JSF is the right choice.
+To recap my own comments …
+
+Here’s the thing: The vast majority of web applications are in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSF Redux">
+<meta property="og:url" content="http://ted.husted.com/2007/jsf-redux/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="The Expert Group for JSF 2.x is now forming, and people continue to consider whether JSF is the right choice.
+To recap my own comments …
+
+Here’s the thing: The vast majority of web applications are in">
+<meta property="og:updated_time" content="2017-02-20T13:37:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSF Redux">
+<meta name="twitter:description" content="The Expert Group for JSF 2.x is now forming, and people continue to consider whether JSF is the right choice.
+To recap my own comments …
+
+Here’s the thing: The vast majority of web applications are in">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-jsf-redux" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JSF Redux
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/jsf-redux/" class="article-date">
+  <time datetime="2007-07-31T18:33:00.000Z" itemprop="datePublished">2007-07-31</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/event/">Event</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The Expert Group for JSF 2.x is <a href="http://www.jcp.org/en/jsr/detail?id=314" target="_blank" rel="external">now forming</a>, and people continue to consider <a href="http://www.nabble.com/Is-Struts-still-a-better-choice-over-JSF-as-on-today---tf4148557.html" target="_blank" rel="external">whether JSF is the right choice</a>.</p>
+<p>To recap my own comments …</p>
+<blockquote>
+<p>Here’s the thing: The vast majority of web applications are intranet application that we build in six to twelve weeks to serve a handful of users.</p>
+<p>In a small-group intranet environment, server/bandwidth efficiency is not the limiting factor. The overriding concern is whether the application helps the people using it become more efficient. Do our people get more work done by using the application? Since we may be talking about five or twenty-five people connecting to a server on the next floor in the same building, scalability, in an environment like this, literally doesn’t matter. We still need a reasonable response time, but, often, people will forgive a slightly-longer response time for a more helpful user interface.</p>
+<p>Of course, not all of us are building small-group intranet applications. If we have thousands of users who hit the application occasionally, from all over the world, our non-functional requirements can be quite different. Or, if we have a small group of users, but those users are working on the space shuttle, again, our requirements are going to be different. Different requirements imply different solutions.</p>
+<p>There’s an old saw: Do you want it Fast, do you want it Right, or do you want it Soon? Pick any two.</p>
+<p>For an intranet application, we might choose Right and Soon. (If it’s not right, no one will use it.) For an Internet application, we might pick Fast and Soon. (If it’s not fast, no one will use it.) For a space shuttle application, Fast and Right would more important than time to market (and we wouldn’t even use web technology!).</p>
+<p>For an intranet application, JSF can be an excellent choice – if you have a group of developers that like working with Swing/VB type technology. For an Internet application, Struts can be an excellent choice – if you have a group of developers that like working with standard web technology.</p>
+<p>But, make no mistake, in final analysis, it’s the developers that will make the difference. So, either use the technology that your team likes, or hire developers that like to use your technology. :)<br>In the realm of physics, in order to get any work done, we’ve had to resort to two separate, and seemingly contradictory, theories. Quantum theory is useful for calculations at an atomic scale, and general relativity is useful for calculations on a planetary scale. Either works fine on their own, and we don’t hesitate to put each to good use, but we’ve yet to find a way to reconcile the two.</p>
+</blockquote>
+<p>In my experience, the same principle applies to web development. Techniques that work well for small intranet applications may not work as well for busy Internet applications, and vice versa. When it comes to the craft of web development, one size does not fit all.</p>
+<p><em>Vive la difference!</em></p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2007/eight-habits-of-highly-effective-programmers/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          Eight Habits of Highly Effective Programmers
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2007/husted-tops-thirty/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Husted Tops Thirty&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2007/jsf-redux/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

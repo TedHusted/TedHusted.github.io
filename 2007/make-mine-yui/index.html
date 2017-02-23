@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Make Mine YUI - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="After two years of bashing our brains against ASP.NET at my day job, we’re diving into Ajax for our next frontend.
+We looked at Microsoft’s AJAX.NET, and at Anthem, and GWT, and Dojo, and we settled o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Make Mine YUI">
+<meta property="og:url" content="http://ted.husted.com/2007/make-mine-yui/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="After two years of bashing our brains against ASP.NET at my day job, we’re diving into Ajax for our next frontend.
+We looked at Microsoft’s AJAX.NET, and at Anthem, and GWT, and Dojo, and we settled o">
+<meta property="og:updated_time" content="2017-02-20T13:39:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Make Mine YUI">
+<meta name="twitter:description" content="After two years of bashing our brains against ASP.NET at my day job, we’re diving into Ajax for our next frontend.
+We looked at Microsoft’s AJAX.NET, and at Anthem, and GWT, and Dojo, and we settled o">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-make-mine-yui" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Make Mine YUI
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/make-mine-yui/" class="article-date">
+  <time datetime="2007-03-04T11:00:00.000Z" itemprop="datePublished">2007-03-04</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>After two years of bashing our brains against ASP.NET at my day job, we’re diving into Ajax for our next frontend.</p>
+<p>We looked at Microsoft’s AJAX.NET, and at Anthem, and GWT, and Dojo, and we settled on the Yahoo User Interface Library. Out of the box, the widgets aren’t as sexy as some others, but the library is well documented, easy enough to use, and Yahoo seems committed to supporting YUI over the long haul. (I haven’t run any benchmarks, but it also seems like its the fastest.)</p>
+<p>Of course, I’m also liking that Yahoo <a href="http://yuiblog.com/blog/2007/02/20/yui-220-released/" target="_blank" rel="external">eats their own dog food</a> … “the YUI you can download here is exactly the same YUI Library used all across Yahoo!”.</p>
+<p>Though, it’s not YUI that’s really making the move from ASPX to HTML-and-Ajax possible for us. The “reality check” kudos go to a .NET JSON-RPC libary named “Jayrock”. Using <a href="http://jayrock.berlios.de/" target="_blank" rel="external">Jayrock</a>, we are able to create a paper-thin ASHX handler (“servlet”) that calls our business logic framework (<a href="http://code.google.com/p/anvil/" target="_blank" rel="external">Anvil</a>).</p>
+<p>From a coding perspective, the handler is a “plain-old” C# class with some annotations to enable the JSON-RPC voodoo.</p>
+<p><pre>[JsonRpcMethod]<br> public AppEntry entry(string key)<br> {<br>    // … arbitrary business logic to obtain a value object (JavaBean)<br>    return appEntry;<br>}</pre><br>On the JavaScript side, Jayrock bundles a utility script that generates the JSON API gluecode for us. In the end, we can just call a method on the handler and pass in our parameters and a callback function. Click. Done. Sweet.</p>
+<p><pre>  PhoneBook.rpc.entry(entry_key,onEdit_load).call(av_channel);</pre><br>If anything does go sour, the handler can throw an exception, which, on the JavaScript side, is automatically routed to a separate error callback. Once there, it’s trivial to display the message, and even the stack trace, if we want it.</p>
+<p>Happily, we are already doing all the data conversion and formatting on the business logic layer, so for Ajax, we are good to go.</p>
+<p>We did an initial “spike” using Dojo and our canonical example application (a simple PhoneBook). We then did the same thing with YUI. A keen happenstance was that we were able to use Jayrock to switch “channels” behind the scenes, so that the application could connect to the server using Dojo or using YUI, just by changing one line of code.</p>
+<p>Along with the clear separation of concerns, I think what we like most about Ajax is that it plays well with others. We can start with YUI as a foundation, but if we want to toss in some <a href="http://dojotoolkit.org/" target="_blank" rel="external">Dojo</a> or <a href="http://www.yui-ext.com/deploy/yui-ext/docs/" target="_blank" rel="external">Ext</a> widgets, we can. No sweat.</p>
+<p>I’m thinking this feeling is what JetBrains means by “Develop with pleasure!” :)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yui/">YUI</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2007/getting-started-with-professional-ajax/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          Getting Started with Professional Ajax
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2007/googlecode-a-go-go/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">GoogleCode-a-Go-Go&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2007/make-mine-yui/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

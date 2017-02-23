@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MVC Convergence: Mr Action meet Ms ASP.NET - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Over the years, there’s been a steady trend within Microsoft example applications. The trend has been away from what Java geeks calls Model 1 and toward Model 2 development. It’s been a forced, dragge">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MVC Convergence: Mr Action meet Ms ASP.NET">
+<meta property="og:url" content="http://ted.husted.com/2007/mvc-convergence-mr-action-meet-ms-asp-net/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="Over the years, there’s been a steady trend within Microsoft example applications. The trend has been away from what Java geeks calls Model 1 and toward Model 2 development. It’s been a forced, dragge">
+<meta property="og:updated_time" content="2017-02-20T13:39:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MVC Convergence: Mr Action meet Ms ASP.NET">
+<meta name="twitter:description" content="Over the years, there’s been a steady trend within Microsoft example applications. The trend has been away from what Java geeks calls Model 1 and toward Model 2 development. It’s been a forced, dragge">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-mvc-convergence-mr-action-meet-ms-asp-net" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MVC Convergence: Mr Action meet Ms ASP.NET
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/mvc-convergence-mr-action-meet-ms-asp-net/" class="article-date">
+  <time datetime="2007-03-26T09:00:00.000Z" itemprop="datePublished">2007-03-26</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Over the years, there’s been a steady trend within Microsoft example applications. The trend has been away from what Java geeks calls Model 1 and toward Model 2 development. It’s been a forced, dragged-by-the-hair trend. At every step, the architect seems to be looking for alternatives to MVC/Model 2, and every time, the alternative comes up short, and the next iteration is one step closr to Java-style MVC.</p>
+<p>The trend is clear if you spend a day reviewing the various ASP.NET application that were developed for ASP.NET 1.x. The trend is even more evident in ASP.NET 2.X. The platforms now offers an actual business logic component that can also be used to separate the data access code from the rest of the application. The only problem is that the component is still embedded in the web application, and, as far as I can tell, these “business logic” components can’t be tested outside of the web application. Though, it is most definitely another baby step in the right direction.</p>
+<p>Rumor now has it that Microsoft is ready for another step toward MVC/Model 2. In his CodeBetter blog, Jeffrey Palmero outlines a new feature that Scott Guthrie is supposedly developing for the next generation of ASP.NET.</p>
+<p><a href="http://codebetter.com/blogs/jeffrey.palermo/archive/2007/03/16/Big-News-_2D00_-MVC-framework-for-ASP.NET-in-the-works-_2D00_-level-300.aspx" target="_blank" rel="external">According to the blog</a>:</p>
+<blockquote>
+<hr>
+<p>A url might look like <a href="http://localhost/myApp/ShoppingCart.mvc/CheckOut" target="_blank" rel="external">http://localhost/myApp/ShoppingCart.mvc/CheckOut</a> where ShoppingCart is the Controller class and “CheckOut” is a method like:</p>
+<pre><code>[Action]
+public void CheckOut(){
+ //do so
+</code></pre><p>}</p>
+<p>The MVC model can be used with regular control-based pages. The url determines the handler that’s activated, so it can be mixed an matched. In fact, a Controller could dispatch a view that <em>uses</em> some controls. i.e. Telerik controls could still be used without Telerik modifying them. From what I saw, no capabilities are taken away, just more options are added.</p>
+<p>In this prototype, the controller loads the appropriate view by relative path to the .aspx. The view can be only markup - pure template, or it can take advantage of controls. This can work without postbacks, or you can use postbacks if you prefer.</p>
+<p>The view has to inherit from PageView or if it needs properties from the controller (like the Model to display), it can inherit from PageView where T is the type of the controller it depends on. Then the view can grab specific properties off of the controller.</p>
+<p>I would recommend making “T” an interface so that the view doesn’t bind directly to the controller type. I’ve been collaborating with Scott Guthrie to work out the kinks. There is still a lot of work to do. This is only in prototype form.</p>
+<hr>
+<p>Of course, Microsoft has been warming up to <a href="http://msdn2.microsoft.com/en-us/library/ms998516.aspx" target="_blank" rel="external">MVC and front controllers</a> patterns for some time. This is not <a href="http://msdn2.microsoft.com/en-us/library/aa478961.aspx" target="_blank" rel="external">the first time we’ve heard that MVC or front controller will be in the “next” version of ASP.NET</a>.</p>
+</blockquote>
+<p>But, not to worry. If Microsoft comes out with a MVC technology, we will do what we always do … reinvent it as a JSR.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2007/the-open-source-secret-sauce/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          The Open Source Secret Sauce
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2007/simulating-action/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Simulating Action&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2007/mvc-convergence-mr-action-meet-ms-asp-net/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

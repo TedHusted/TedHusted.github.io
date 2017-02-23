@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Incremental Refactoring - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Recently, someone asked on the Ext list:
+
+&amp;gt; Is Diagraming your classes/code segments&amp;gt; the best way to keep yourself&amp;gt; organized during the programming stage?&amp;gt; Or is there some more efficien">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Incremental Refactoring">
+<meta property="og:url" content="http://ted.husted.com/2007/incremental-refactoring/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="Recently, someone asked on the Ext list:
+
+&amp;gt; Is Diagraming your classes/code segments&amp;gt; the best way to keep yourself&amp;gt; organized during the programming stage?&amp;gt; Or is there some more efficien">
+<meta property="og:updated_time" content="2017-02-20T13:34:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Incremental Refactoring">
+<meta name="twitter:description" content="Recently, someone asked on the Ext list:
+
+&amp;gt; Is Diagraming your classes/code segments&amp;gt; the best way to keep yourself&amp;gt; organized during the programming stage?&amp;gt; Or is there some more efficien">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-incremental-refactoring" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Incremental Refactoring
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/incremental-refactoring/" class="article-date">
+  <time datetime="2007-03-15T09:00:00.000Z" itemprop="datePublished">2007-03-15</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Recently, someone asked on the <a href="http://www.yui-ext.com/forum/viewtopic.php?t=2797" target="_blank" rel="external">Ext list</a>:</p>
+<blockquote>
+<p><pre>&gt; Is Diagraming your classes/code segments<br>&gt; the best way to keep yourself<br>&gt; organized during the programming stage?<br>&gt; Or is there some more efficient<br>&gt; and easier way to do it?</pre><br>I thought the advice of the Ext lead developer, Jack Slocum, beared repeating.<br>The approach I have found to be most effective is “incremental refactoring”. This means starting out with a basic idea of how your object model should look. It will probably be raw and imperfect, but you know that and knowing that is the key to what makes it work.</p>
+<p>Start out small and make pieces of it work. While it’s small (and not a big object model with all kinds of pieces to develop before you have anything working) you should be able to find various imperfections with your initial design (like browser problems!) and you can refactor while it’s still cheap. As soon as you have something working, it’s time to refactor to look for ways to make things more generic, cut code duplication, improve interfaces and efficiency. Then start on the next piece in the same way.</p>
+<p>The most important thing is you have to think OO, think efficiency and know your patterns. Once this is in place, the rest is kind of automatic.<br>IMHO, one of the best books on “incremental refactoring” (or successive refinement) is “<a href="http://www.amazon.com/exec/obidos/ASIN/0321146530/husteddotcom-20" target="_blank" rel="external">Test Driven Development: By Example</a> by Kent Beck. While it doesn’t mean to be about successive refinement per se, that’s exactly what Beck is doing in the book. At 240 pages, it also has the virtue of being relatively brief.</p>
+</blockquote>
+<p>As he codes, Beck keeps a running TODO list of the next baby-steps needed to finish a larger task. Beck says he keeps his on paper, but I use a text file. I even post the running list to the issue tracker, like a mini-progress report.</p>
+<p>Successive refinement works well with an issue tracker that supports roadmaps (like JIRA). We can then organize the major features into iterations or milestones and ship one iteration at a time. Ideally, each milestone should be a working, if incomplete, version of the target application.</p>
+<p>At work, we follow the usual <a href="http://www.extremeprogramming.org/" target="_blank" rel="external">Extreme Programming</a> model, except that we prefer formal <a href="http://opensource.atlassian.com/confluence/oss/display/STRUTS/Use+Cases" target="_blank" rel="external">use cases</a> to XP stories. (See Cockburn’s “<a href="http://www.amazon.com/exec/obidos/ASIN/0201702258/husteddotcom-20" target="_blank" rel="external">Writing Effective Use Cases</a>“. It weighs in at 270 pages, but the first 20 pages tell you everything you actually need to know.)</p>
+<p>Essentially, XP interations are successive refinements, which is an approach Nicholas Wirth was advocating decades ago, when he <a href="http://www.pascal-central.com/top10.html" target="_blank" rel="external">designed Pascal</a>. The key is to organize your work so that there is some kind of working application at every step of the way – even if you have to fake some of the resources. :)</p>
+<p>In working with Ajax and JSON, one pleasant surprise is how easy it can be to fake resources. For example, the YUI connection manager can accept a JSON object, but it doesn’t care if the object came from a XHR request or static data. We can switch between a set of test data and the live stream with one line of code.</p>
+<pre><code>LISTER.init = function (data)  {
+PhoneBook.rpc.entry_list(LISTER.load).call(ANVIL.channel); // live database
+// LISTER.load(LISTER.localData); // static data
+};
+LISTER.localData = {
+&quot;result&quot; : [[&apos;c5b6bbb1-66d6-49cb-9db6-743af6627828&apos;, &apos;Clinton&apos;, &apos;William&apos;,
+&apos;555-743-7828&apos;, &apos;bubba&apos;, &apos;08/19/1992&apos;, 37.5, &apos;0&apos;],
+[&apos;7c424227-8e19-4fb5-b089-423cfca723e1&apos;, &apos;Roosevelt&apos;, &apos;Theodore&apos;,
+&apos;555-743-8942&apos;, &apos;bull&apos;, &apos;09/14/2002&apos;, 37.5, &apos;0&apos;],
+[&apos;9320ea40-0c01-43e8-9cec-8fb9b3928c2c&apos;, &apos;Kennedy&apos;, &apos;John F.&apos;,
+&apos;555-743-3928&apos;, &apos;fitz&apos;, &apos;05/29/1987&apos;, 37.5, &apos;0&apos;],
+[&apos;3b27c933-c1dc-4d85-9744-c7d9debae196&apos;, &apos;Pierce&apos;, &apos;Franklin&apos;,
+&apos;555-743-7919&apos;, &apos;benji&apos;, &apos;11/18/1984&apos;, 35, &apos;0&apos;],
+[&apos;554ff9e7-a6f5-478a-b76b-a666f5c54e40&apos;, &apos;Jefferson&apos;, &apos;Thomas&apos;,
+&apos;555-743-5440&apos;, &apos;monty&apos;, &apos;07/04/1976&apos;, 37.5, &apos;0&apos;]]
+};
+</code></pre><p>Now <em>that’s</em> how you spell MVC!</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2007/s2-tip-always-set-devmode-to-false-in-production/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          S2 Tip - Always set devMode to false in production
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2007/googlecode-whats-the-diff/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">GoogleCode: What&#39;s the diff?&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2007/incremental-refactoring/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

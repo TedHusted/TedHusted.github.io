@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Catch me on the flip-side: Responding to Outbound Messages in Salesforce CRM - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="In a previous blog, we walked through example code for an Outbound Message Listener. We covered the essentials, but Salesforce CRM offers a nifty twist on just sending an outbound message to an extern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Catch me on the flip-side: Responding to Outbound Messages in Salesforce CRM">
+<meta property="og:url" content="http://ted.husted.com/2012/catch-me-on-the-flip-side-responding-to-outbound-messages-in-salesforce-crm/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="In a previous blog, we walked through example code for an Outbound Message Listener. We covered the essentials, but Salesforce CRM offers a nifty twist on just sending an outbound message to an extern">
+<meta property="og:image" content="https://farm2.staticflickr.com/1130/1084139169_e272bc1f81_z.jpg">
+<meta property="og:updated_time" content="2017-02-20T13:34:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Catch me on the flip-side: Responding to Outbound Messages in Salesforce CRM">
+<meta name="twitter:description" content="In a previous blog, we walked through example code for an Outbound Message Listener. We covered the essentials, but Salesforce CRM offers a nifty twist on just sending an outbound message to an extern">
+<meta name="twitter:image" content="https://farm2.staticflickr.com/1130/1084139169_e272bc1f81_z.jpg">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-catch-me-on-the-flip-side-responding-to-outbound-messages-in-salesforce-crm" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Catch me on the flip-side: Responding to Outbound Messages in Salesforce CRM
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2012/catch-me-on-the-flip-side-responding-to-outbound-messages-in-salesforce-crm/" class="article-date">
+  <time datetime="2012-03-29T09:00:00.000Z" itemprop="datePublished">2012-03-29</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class="separator" style="clear:both;text-align:center;"><a href="https://www.flickr.com/photos/spacemanbob/1084139169" target="_blank" rel="external"><img src="https://farm2.staticflickr.com/1130/1084139169_e272bc1f81_z.jpg" alt=""></a></div><br>In a <a href="http://tedhusted.blogspot.com/2012/03/unloading-salesforce-crm-data-with.html" target="_blank" rel="external">previous blog</a>, we walked through example code for an Outbound Message Listener. We covered the essentials, but Salesforce CRM offers a nifty twist on just sending an outbound message to an external system. Not only can a system receive a message, it can send back a response. For example, if the outbound message inserts a record, the external system can send back the record’s key.</p>
+<p><a name="more"></a>Our example Listener called a worker method that handled the messages in a foreach loop. Using the case of returning an external key, we can add the keys to a hashtable, and send back a batch at the end all of the responses. We’ll pickup the live action towards the end of the foreach loop from the <a href="http://tedhusted.blogspot.com/2012/03/unloading-salesforce-crm-data-with.html" target="_blank" rel="external">previous example</a>.</p>
+<p><pre> <strong>Hashtable responsePayload = newHashtable();  // Returns IDs to SF</strong><br> foreach (AccountNotification message in n.Notification)<br> {<br>     sf = message.sObject;</pre></p>
+<p><pre>     // – Check cache –<br>     // …<br>     // – handle message –<br>     // …<br>     // Queue ID for return to SF<br>     <strong>responsePayload.Add(sf.Id, my.Id);</strong><br> } // end foreach loop<br> // – Return IDs to SF –<br> <strong>log.Info(“Info: Sending response to Salesforce …”);</strong><br> <strong>Response response = new Response();</strong></pre></p>
+<p><pre> <strong>log.Info(response.Send(“Account”, responsePayload));</strong><br> return;<br>}</pre><br>The Response class is a wrapper around a <span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">SForceService</span> instance which returns a String we can use as a logging statement.</p>
+<p><pre>class Response<br>{<br>    private SforceService service;<br>    public Response() { }<br>    public String Send(String objectName, Hashtable payload)<br>    {<br>        return this.Send(objectName, payload, “External_Id__c”);<br>    }<br>    public String Send(String objectName, Hashtable payload, String syncFieldName)<br>    {<br>        if (payload == null || payload.Count == 0) return</pre></p>
+<p><pre>            “No records updated. Response.Send() not needed.”;<br>        try<br>        {<br>            service = new SforceService();<br>            LoginResult loginResult = service.login(<br>                ConfigurationManager.AppSettings[“Salesforce.Username”],<br>                ConfigurationManager.AppSettings[“Salesforce.Password”] +<br>                ConfigurationManager.AppSettings[“Salesforce.Token”]<br>            );<br>            service.SessionHeaderValue = new SessionHeader();<br>            service.SessionHeaderValue.sessionId = loginResult.sessionId;<br>            service.Url = loginResult.serverUrl;<br>            GetUserInfoResult userInfo = loginResult.userInfo;<br>            List sObjects = new List();<br>            sObject s = new sObject();<br>            XmlDocument xmlDocument = new XmlDocument();<br>            List elements;<br>            XmlElement element;<br>            foreach (String sfid in payload.Keys)<br>            {<br>                s = new sObject();<br>                s.Id = sfid;<br>                s.type = objectName;<br>                elements = newList();<br>                element = xmlDocument.CreateElement(syncFieldName);<br>                element.InnerText = ht[sfid].ToString();<br>                elements.Add(element);<br>                s.Any = elements.ToArray();<br>                sObjects.Add(s);<br>            }<br>            SaveResult[] saveResults = service.update(sObjects.ToArray());<br>            String output = String.Empty;<br>            foreach (SaveResult sr in saveResults)<br>            {<br>                if (sr.success)<br>                {<br>                    output += String.Format(</pre></p>
+<p><pre>“{0} Response Sync Success : sf.id=\”{1}\””, objectName, sr.id) + “\n”;<br>                }<br>                else<br>                {<br>                    foreach (Error err in sr.errors)<br>                    {<br>                        output += String.Format(</pre></p>
+<p><pre>“{0} Response Sync Error : sf.id=\”{1}\”, {2}”, objectName, sr.id, err.message) +</pre></p>
+<p><pre>“\n”;<br>                    }<br>                }<br>            }<br>            return output;<br>        }<br>        catch (Exception ex)<br>        {<br>            return ex.Message + “ — “ + ex.StackTrace;<br>        }<br>    }<br>}</pre><br>The credentials and API service endpoint are declared in the Web.Config file.</p>
+<p><pre></pre><br><a href="https://test.salesforce.com/services/Soap/u/24.0" target="_blank" rel="external">https://test.salesforce.com/services/Soap/u/24.0</a></p>
+<p>(In a production environment, replace “test.salesforce.com” with “www.salesforce.com”.)</p>
+<p>Some caveats are</p>
+<p>(1) The response needs credentials to login, and you might need to setup a system account for the response.</p>
+<p>(2) To keep the message from recursing, the Response User needs to have outbound messaging disabled, or be specifically excluded from the Outbound Messaging Workflow.</p>
+<p>(3) If your listener implements a producer/consumer queue, the response may not be immediate. (If tens of thousands of records are being updated by a slow system, it could be an hour or more!).</p>
+<p>(4) An outbound message response may update the record while it’s being viewed by another user. If the user makes another change without refreshing the record, Salesforce will decline the second change, and the human user will have to refresh and repeat.</p>
+<p>By allowing a response to an outbound message, Salesforce gives us the opportunity to close the loop. For example, if a record is being inserted into an external system, the response could return the external ID, for use with future updates.</p>
+<p>While not a “point-and-click” product, like the Apex Dataloader, the outbound messaging API provides developers all the hooks we need to create a full-service data connection.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/salesforce/">Salesforce</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/sun-goes-nova-cloud-intact/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          Sun goes Nova. Cloud intact.
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/in-data-we-trust/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">In Data We Trust&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2012/catch-me-on-the-flip-side-responding-to-outbound-messages-in-salesforce-crm/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Subversion Tips - SVN Redux - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="When it comes to keeping track of each and every change to content, whether we like it or not, Subversion is a stern gatekeeper. But, when it comes to retagging a version or rewriting a log entry, Sub">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Subversion Tips - SVN Redux">
+<meta property="og:url" content="http://ted.husted.com/2007/subversion-tips-svn-redux/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="When it comes to keeping track of each and every change to content, whether we like it or not, Subversion is a stern gatekeeper. But, when it comes to retagging a version or rewriting a log entry, Sub">
+<meta property="og:updated_time" content="2017-02-20T13:34:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Subversion Tips - SVN Redux">
+<meta name="twitter:description" content="When it comes to keeping track of each and every change to content, whether we like it or not, Subversion is a stern gatekeeper. But, when it comes to retagging a version or rewriting a log entry, Sub">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-subversion-tips-svn-redux" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Subversion Tips - SVN Redux
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/subversion-tips-svn-redux/" class="article-date">
+  <time datetime="2007-03-20T09:00:00.000Z" itemprop="datePublished">2007-03-20</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>When it comes to keeping track of each and every change to content, whether we like it or not, <a href="http://subversion.tigris.org/" target="_blank" rel="external">Subversion</a> is a stern gatekeeper. But, when it comes to retagging a version or rewriting a log entry, Subversion is happy to accommodate us.</p>
+<h3 id="Retagging-a-version"><a href="#Retagging-a-version" class="headerlink" title="Retagging a version"></a>Retagging a version</h3><p>Through its global revision number, every Subversion commit creates a working tag. But, instead of tracking that version 2.0.7 of your product maps to Subversion revision r520258, it’s just as easy to create a tag. Later, if we need to make changes to that version without changing the head, we can convert the tag to a branch by checking it out and making a commit.</p>
+<p>Some projects like to keep tags as a permanent record, so we often create a repository with three subfolders: trunk, tags, and branches. This particular set of folders is not required, but it’s a convenient convention.</p>
+<p>The easiest way to tag a revision is from the command line, using a command like</p>
+<pre><code>$ svn copy -r 520258
+https://svn.apache.org/repos/asf/struts/struts2/trunk
+https://svn.apache.org/repos/asf/struts/struts2/tags/STRUTS_2_0_7
+-m &quot;WW-1767 Tag r520258 as Struts 2.0.7&quot;
+`&lt;/pre&gt;
+On occasion, after tagging a version, we might find a minor problem before the bits are actually released, and we might want to tag it again. Not a problem for Subversion. The tags are folders in the repository, and we can rename or recopy tags as needed. But, Subversion can also add to a tag. If you try to recopy a tag by executing the previous example command using a new revision number, it won&apos;t overwrite the old tag, but merge the two together, and we end up with a mix of revisions.
+
+That&apos;s not exactly what we want. Better to first delete the old tag
+&lt;pre&gt;`svn delete https://svn.apache.org/repos/asf/struts/struts2/tags/STRUTS_2_o_7
+-m &quot;WW-1767 Removing first try at 2.0.7.&quot;
+`&lt;/pre&gt;
+Then, retag the branch as before, specifying the new revision number. If we don&apos;t specify a revision number, Subversion will use the latest revision (or &quot;HEAD&quot;). In a multi-developer environment, it&apos;s safer to use the revision so there&apos;s no doubt as to what is being tagged. Of course, since this is Subversion, we can also go back and create a tag on any revision at any time.
+
+### Rewriting a log entry
+
+Verbose Subversion log entries is an excellent practice. A smart project will have a [developers mailing list](http://www.nabble.com/Struts---Dev-f205.html), and the Subversion alerts set to automatically post to the list. In this way, we can keep everyone in the loop as part of the everyday workflow. If we put any needed explanations in the log, we don&apos;t have to send out a special email or have a special conversation later. Very smart projects will also have [ViewVC](http://svn.apache.org/viewvc/struts/) hooked up, making it easy to browse prior revisions, view the DIFFs, and review the logs.
+
+On occasion, we might fire off a commit with an inadequate or incorrect log. No worries, mate. With Subversion, we can update the log so that it reads like a good entry should. Again, the easiest way to amend a log entry is via the command line. Say for example, we left off the issue reference or maybe cited the wrong revision number. To update the log for revision 504523, we can change to the local working directory, and execute
+&lt;pre&gt;`$ svn propset --revprop -r 504523
+svn:log &quot;WW-1715 Branch for 2.0.x at Struts 2.0.6-SNAPSHOT r504196&quot;
+`&lt;/pre&gt;
+And Subversion will confirm the change
+&lt;pre&gt;`$ property &apos;svn:log&apos; set on repository revision 504523
+</code></pre><p>The change to the log won’t be echoed to the mailing list like a regular commit. If a log entry is changed, the best practice would be to send a message to the developers list to document the change. (“If it didn’t happen on the list, it didn’t happen.”)</p>
+<p>While these aren’t everyday tips, on occasion, retagging a version or rewriting a log entry can help Subversion help us.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2007/13-asf-practices/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          13 ASF Practices
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2007/ajax-the-usual-suspects/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Ajax: The usual suspects&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2007/subversion-tips-svn-redux/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

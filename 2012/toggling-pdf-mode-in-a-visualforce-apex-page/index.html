@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Toggling PDF Mode In a Visualforce Apex Page - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Salesforce.com has made it easy to blend custom Visualforce pages into a standard Salesforce CRM site. Using the standard stylesheets and a smattering of markup, we can cobble up a custom Account, Con">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Toggling PDF Mode In a Visualforce Apex Page">
+<meta property="og:url" content="http://ted.husted.com/2012/toggling-pdf-mode-in-a-visualforce-apex-page/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="Salesforce.com has made it easy to blend custom Visualforce pages into a standard Salesforce CRM site. Using the standard stylesheets and a smattering of markup, we can cobble up a custom Account, Con">
+<meta property="og:image" content="http://screenshots.en.sftcdn.net/blog/en/2009/02/pdfbotoncico.png">
+<meta property="og:image" content="https://tedhusted.files.wordpress.com/2012/03/9173f-pdf-foo.png?w=300">
+<meta property="og:updated_time" content="2017-02-20T13:34:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Toggling PDF Mode In a Visualforce Apex Page">
+<meta name="twitter:description" content="Salesforce.com has made it easy to blend custom Visualforce pages into a standard Salesforce CRM site. Using the standard stylesheets and a smattering of markup, we can cobble up a custom Account, Con">
+<meta name="twitter:image" content="http://screenshots.en.sftcdn.net/blog/en/2009/02/pdfbotoncico.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-toggling-pdf-mode-in-a-visualforce-apex-page" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Toggling PDF Mode In a Visualforce Apex Page
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2012/toggling-pdf-mode-in-a-visualforce-apex-page/" class="article-date">
+  <time datetime="2012-03-15T09:00:00.000Z" itemprop="datePublished">2012-03-15</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class="separator" style="clear:both;text-align:center;"><a href="http://onsoftware.en.softonic.com/top-free-tools-to-open-create-and-edit-pdf-documents" target="_blank" rel="external"><img src="http://screenshots.en.sftcdn.net/blog/en/2009/02/pdfbotoncico.png" alt=""></a></div>Salesforce.com has made it easy to blend custom Visualforce pages into a standard Salesforce CRM site. Using the standard stylesheets and a smattering of markup, we can cobble up a custom Account, Contact, or Opportunity page, with an absolute minimum of effort.  </p>
+<p>It’s also easy to construct a wholly custom page resemble a native Salesforce CRM page. While the page looks great, it may not be printer-friendly, and users may have trouble sharing the output with their non-Salesforce brethren. One solution is to render the pages as a very-printable PDF. Salesforce.com has also made the PDF option blazingly easy. Just include a “renderas=PDF” attribute at the top of your page and – voilà – instant PDF.   </p>
+<p><a name="more"></a>Of course,  we don’t want to maintain two versions of the page, or give either our pretty or printable versions, and so the next thing is be able to switch between the HTML and PDF versions.  </p>
+<p>Happily, there is a <a href="http://blogs.developerforce.com/developer-relations/2008/06/dynamically-cho.html" target="_blank" rel="external">venerable blog posting</a> that provides a great leg up, but I ran into an issue where I wanted to offer another option on top of PDF/HTML.  </p>
+<p>Aside from PDF printing, we also wanted to support two flavors of the same database query. One version aggregated rows with a status column set to either “Value A” or “Value B”, and a second version aggregated rows set to “Value C”. Our case was different, but a common case might a report that showed “Cold or Warm” leads, and another that showed only “Hot” leads.  </p>
+<p>Bottom line is that we wanted to present the page as either HTML or PDF, using either Query A or Query B, and keep all the markup and source code together.  </p>
+<p>Here’s my solution:  </p>
+<p><div class="separator" style="clear:both;text-align:center;"></div><div class="separator" style="clear:both;text-align:center;"><a href="https://tedhusted.files.wordpress.com/2012/03/9173f-pdf-foo.png" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2012/03/9173f-pdf-foo.png?w=300" alt=""></a></div><br><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;white-space:pre;">// and the backend </span></p>
+<p><pre><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;"><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;"><br>/**</span></span></pre></p>
+<ul>
+<li><p>Computes and transforms data for use by the Campaign Profile page.<br>*/<br>public class Foo_Ctrl {</p>
+<p> // PDF parameter.<br> private final static String PDF = ‘p’;</p>
+<p> // HTML parameter.<br> private final static String MODE = ‘m’;</p>
+<p> // Stores Account to use with the Campaign Profile.<br> private Account myAccount = null;</p>
+<p> // Stores set of query constraints based on Mode parameter.<br> // “AND My_Mode__c IN :myMode”<br> private Set myMode = null;    </p>
+<p> // Assembles and returns URI reflecting current parameter settings.<br> private String doEnable(Boolean doPDF, Boolean doRollup) {</p>
+<pre><code>String parameters = &apos;/apex/Foo?&apos;;
+if (myAccount!=null) parameters += &apos;id=&apos; + MyID;
+if (doPDF) parameters += &apos;&amp;amp;&apos; + PDF + &apos;=true&apos;;
+if (doRollup) parameters += &apos;&amp;amp;&apos; + MODE + &apos;=true&apos;;
+return parameters;
+</code></pre><p> }</p>
+<p> /**</p>
+<ul>
+<li><p>Stores current or desired state “Status”.<br>*/<br>public boolean IsModeB { get; set; }</p>
+<p>/**</p>
+</li>
+<li><p>Reflects absence of “Rollup” parameter.<br>*/<br>public boolean IsModeA {<br> get {return !IsModeB;}<br> set {IsModeB = !value;}<br>}   </p>
+<p>/**</p>
+</li>
+<li><p>Handles runtime “PDF” parameter ‘p’.<br>*/<br>public boolean IsPDF { get; set; }</p>
+<p>/**</p>
+</li>
+<li><p>Reflects absence of “PDF” parameter.<br>*/<br>public boolean IsHTML {<br> get {return !IsPDF;}<br> set {IsPDF = !value;}<br>}   </p>
+<p>/**</p>
+</li>
+<li><p>Returns current account ID, or null.<br>*/<br>public Id MyId {<br> get {return (myAccount==null) ? null : myAccount.Id;}<br>}</p>
+<p>/**</p>
+</li>
+<li>Returns updated URI including PDF parameter,</li>
+<li><p>and the current value of MODE parameter.<br>*/<br>public String doEnablePDF {<br> get{return doEnable(true,IsModeB);}<br>}</p>
+<p>/**</p>
+</li>
+<li>Returns updated URI excluding PDF parameter,</li>
+<li><p>and the including current value of MODE parameter.<br>*/<br>public String doEnableHTML {<br> get{return doEnable(false,IsModeB);}<br>}</p>
+<p>/**</p>
+</li>
+<li>Returns updated URI including MODE parameter,</li>
+<li><p>and the current value of PDF parameter.<br>*/<br>public String doEnableModeB {<br> get{return doEnable(IsPDF,true);}<br>}</p>
+<p>/**</p>
+</li>
+<li>Returns updated URI excluding MODE parameter,</li>
+<li><p>and including the current value of PDF parameter.<br>*/<br>public String doEnableModeA {<br> get{return doEnable(IsPDF,false);}<br>}</p>
+<p>/**</p>
+</li>
+<li>Constructs the controller object, capturing the current Account and year.<br>*/<br>public Foo_Ctrl(ApexPages.StandardController controller) {<br> if (controller.getId() == null) {<pre><code>ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, &apos;Id is required&apos;));
+</code></pre> } else {<pre><code>if (myAccount == null) myAccount = (Account) controller.getRecord();
+</code></pre> }<br> // Instatiate the rest, to avoid runtime errors …<br> IsPDF = (ApexPages.currentPage().getParameters().get(PDF)==’true’);<br> IsModeB = (ApexPages.currentPage().getParameters().get(MODE)==’true’);<br> myMode = new Set();<br> if (IsModeB) {<pre><code>myMode.add(&apos;Status B&apos;);
+myMode.add(&apos;Status C&apos;);
+</code></pre> } else {<pre><code>myMode.add(&apos;Status A&apos;);
+</code></pre> }<br>}<br>}</li>
+</ul>
+</li>
+</ul>
+<p>// And, of course, a test suite</p>
+<p>@IsTest<br>public class NU_TEST_Foo_Page {</p>
+<pre><code>static Account myAccount = null;
+static Foo_Ctrl myCtrl = null;
+</code></pre><p>   static private void mySetUp() {<br>        Test.setCurrentPageReference(Page.Foo);<br>        // Constructor Scaffolding<br>        if (myAccount==null) {<br>            myAccount = new Account(name=’Alpha Bravo’,<br>            NU_Andar_Account_Number__c=’1’);<br>            insert myAccount;<br>            myCtrl = new Foo_Ctrl(new ApexPages.StandardController(myAccount));<br>        }<br>    }</p>
+<pre><code>static testMethod void PDF_Test() {
+    mySetUp();
+    String nextPage = myCtrl.doEnablePDF;
+    System.assertEquals(&apos;/apex/Foo?id=&apos; + myAccount.Id + &apos;&amp;amp;&apos; + Foo_Ctrl.PDF + &apos;=true&apos;,nextPage);
+}
+
+static testMethod void HTML_Test() {
+    mySetUp();
+    String nextPage = myCtrl.doEnableHTML;
+    System.assertEquals(&apos;/apex/Foo?id=&apos; + myAccount.Id + &apos;&apos;,nextPage);         
+}
+
+static testMethod void ModeB_Test() {
+    mySetup();
+    String nextPage = myCtrl.doEnableModeB;
+    System.assertEquals(&apos;/apex/Foo?id=&apos; + myAccount.Id + &apos;&amp;amp;&apos; + Foo_Ctrl.MODE + &apos;=true&apos;,nextPage);
+}
+
+static testMethod void ModeA_Test() {
+    mySetUp();
+    String nextPage = myCtrl.doEnableModeA;
+    System.assertEquals(&apos;/apex/Foo?id=&apos; + myAccount.Id + &apos;&apos;,nextPage);         
+}
+
+static testMethod void PDF_ModeB_Test() {
+    mySetUp();
+    ApexPages.currentPage().getParameters().put(Foo_Ctrl.PDF, &apos;true&apos;);
+    Foo_Ctrl ctrlPDF = new Foo_Ctrl(new ApexPages.StandardController(myAccount));
+    String nextPage = ctrlPDF.doEnableModeB;
+    System.assertEquals(&apos;/apex/Foo?id=&apos; + myAccount.Id + &apos;&amp;amp;&apos; + Foo_Ctrl.PDF + &apos;=true&apos; + &apos;&amp;amp;&apos; + Foo_Ctrl.MODE + &apos;=true&apos;,nextPage);
+    System.assertEquals(true,ctrlPDF.isPDF);
+    System.assertEquals(false,ctrlPDF.isHTML);
+    ctrlPDF.isHTML = true;
+    System.assertEquals(false,ctrlPDF.isPDF);
+}
+
+static testMethod void ModeB_PDF_Test() {
+    mySetUp();
+    ApexPages.currentPage().getParameters().put(Foo_Ctrl.MODE, &apos;true&apos;);
+    Foo_Ctrl ctrlMode = new Foo_Ctrl(new ApexPages.StandardController(myAccount));
+    String nextPage = ctrlMode.doEnablePDF;
+    System.assertEquals(true,ctrlMode.isModeB);
+    System.assertEquals(false,ctrlMode.isModeA);       
+    System.assertEquals(&apos;/apex/Foo?id=&apos; + myAccount.Id + &apos;&amp;amp;&apos; + Foo_Ctrl.PDF + &apos;=true&apos; + &apos;&amp;amp;&apos; + Foo_Ctrl.MODE + &apos;=true&apos;,nextPage);
+}
+
+ static testMethod void PDF_Flag_Test() {
+    mySetUp();
+    ApexPages.currentPage().getParameters().put(Foo_Ctrl.PDF, &apos;true&apos;);
+    Foo_Ctrl ctrlPDF = new Foo_Ctrl(new ApexPages.StandardController(myAccount));
+    System.assertEquals(true,ctrlPDF.isPDF);
+    System.assertEquals(false,ctrlPDF.isHTML);
+    ctrlPDF.isHTML = true;
+    System.assertEquals(false,ctrlPDF.isPDF);
+}
+
+ static testMethod void Mode_Flag_Test() {
+    mySetUp();
+    ApexPages.currentPage().getParameters().put(Foo_Ctrl.MODE, &apos;true&apos;);
+    Foo_Ctrl ctrlMode = new Foo_Ctrl(new ApexPages.StandardController(myAccount));
+    System.assertEquals(true,ctrlMode.isModeB);
+    System.assertEquals(false,ctrlMode.isModeA);
+    ctrlMode.isModeA = true;
+    System.assertEquals(false,ctrlMode.isModeB);
+}
+</code></pre><p>}<span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;"><br></span><br><span class="Apple-style-span" style="font-family:inherit;">For more Visualforce PDF trickery, <a href="http://force.siddheshkabe.co.in/2011/04/some-pdf-tricks-on-visualforce.html" target="_blank" rel="external">see this nifty blog</a> on May The Force Be With You.  </span></p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/salesforce/">Salesforce</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/visualforce/">Visualforce</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/learn-salesforce-now/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          Learn. Salesforce. Now.
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/salesforce-certification-a-winwin/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Salesforce Certification - A Win/Win&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2012/toggling-pdf-mode-in-a-visualforce-apex-page/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

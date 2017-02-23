@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>The Open Source Secret Sauce - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="I have no idea why JIRA, Confluence, and Subversion are still separate products. (Well, being a working engineer I do have at least an idea …)
+In practice, most of us use JIRA, Confluence, and Subvers">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Open Source Secret Sauce">
+<meta property="og:url" content="http://ted.husted.com/2007/the-open-source-secret-sauce/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="I have no idea why JIRA, Confluence, and Subversion are still separate products. (Well, being a working engineer I do have at least an idea …)
+In practice, most of us use JIRA, Confluence, and Subvers">
+<meta property="og:updated_time" content="2017-02-20T13:33:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Open Source Secret Sauce">
+<meta name="twitter:description" content="I have no idea why JIRA, Confluence, and Subversion are still separate products. (Well, being a working engineer I do have at least an idea …)
+In practice, most of us use JIRA, Confluence, and Subvers">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-the-open-source-secret-sauce" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      The Open Source Secret Sauce
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/the-open-source-secret-sauce/" class="article-date">
+  <time datetime="2007-03-27T09:00:00.000Z" itemprop="datePublished">2007-03-27</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/essay/">Essay</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I have no idea why JIRA, Confluence, and Subversion are still separate products. (Well, being a working engineer I do have at least an idea …)</p>
+<p>In practice, most of us use JIRA, Confluence, and Subversion as if they were one product. (A rich man’s <a href="http://trac.edgewall.org/" target="_blank" rel="external">Trac</a>.) I’d like to be able to refer to using all three products together as “Convergence”, but that would be confusing, since it sounds too much like a real product. There’s the hollywood hybrid approach, but terms like “JirFlusion” or “ConVera” or “SuJiCo” seem distracting. Let’s just go with a simple acronym, like JCS.</p>
+<p>At work, we use JCS for everything. When we are ready to do something, anything, we open a <a href="http://www.atlassian.com/software/jira/" target="_blank" rel="external">JIRA</a> ticket. If it’s a coding task, the ticket will relate to a Use Case that we create in <a href="http://www.atlassian.com/software/confluence/" target="_blank" rel="external">Confluence</a>, which will link back to the JIRA ticket. When we commit the bits to <a href="http://www.atlassian.com/software/confluence/" target="_blank" rel="external">Subversion</a>, we reference the JIRA ticket, and the <a href="http://confluence.atlassian.com/display/JIRAEXT/JIRA+Subversion+plugin" target="_blank" rel="external">JIRA-Subverson plugin</a> closes the loop.</p>
+<p>In these days of “<a href="http://www.jetbrains.com/teamcity/" target="_blank" rel="external">TeamCity</a>“ and “<a href="http://msdn2.microsoft.com/en-us/teamsystem/default.aspx" target="_blank" rel="external">Team System</a>“, we like to think of JCS as “Team Best of Breed”, especially when you toss JetBrains IDEA or Resharper into the mix.</p>
+<p>But, issue tracking, document management, and version control aren’t just for coders. Other workers in the enterprise been using it to draft grant proposals and evaluate accessibility compliance. These are products that any information worker can (and should) use.</p>
+<p>At work, one of our more ambitious Confluence applications is the infrastructure documentation. I spent the last week of last year’s contract dumping everything I knew about our infrastructure into Confluence. We ended up finding another contract for me after that, and another one after that, but at the time, I wanted to be sure the team had a solid reference.</p>
+<p>Of course, a problem with putting software documentation into software is that you need software to use the software that tells you how to install the software. Happily, between the <a href="http://confluence.atlassian.com/display/CONFEXT/AutoExport+for+Confluence" target="_blank" rel="external">Confluence autoexport plugin</a> and SpiderZilla, that’s not a problem. The autoexport plugin renders the Confluence wiki as plain text, and the <a href="https://addons.mozilla.org/firefox/1616/" target="_blank" rel="external">FireFox SpiderZilla plugin</a> sucks it down to a local machine. <a href="http://husted.com/archive/WQD-INF/" target="_blank" rel="external">Here’s the result</a>, no server required.</p>
+<p>The fully-loaded “Team Best of Breed” doesn’t stop at JCS. Clever shops will also want to install <a href="http://viewvc.tigris.org/" target="_blank" rel="external">ViewVC</a>, so that prior Confluence revision logs and diffs are only a click away. ViewVC means adding Apache HTTPD to the mix, but it’s worth the effort. (And HTTPD makes a good host for exported Confluence spaces!)</p>
+<p>A developers mailing list with an archive is the final, but perhaps most important, team member. Each component of JCS can send change alerts to a list, to keep everyone in the loop with no extra effort. JCS doesn’t include an actual mailing list, but Confluence can be used as an <a href="http://www.blogger.com/post-create.g?blogID=5208774" target="_blank" rel="external">archive</a>.</p>
+<p>Taken together, I like to think of these products as creating a PRIM architecture: Portal - Repository - Issue Tracker - Mailing List. Every successful open source project I know uses PRIM. Every closed source project I know, doesn’t. (Well, except mine!) Many will use two or three of the four components, but most teams will wobble on the mailing list. In practice, an archived mailing list is essential. A list ties the other components together, creating a coherent communications system.</p>
+<blockquote>
+<p>It’s truly beyond me why more product managers don’t insist on an archived development mailing list. It’s the best way to keep track of what everyone is doing. You can just sit back, watch the emails come in from JIRA, Confluence, and Subversion, and know exactly who is doing what and what they plan to do next.<br>People wonder how open source projects manage to create high-quality products without managers or accountability. The answer: we’re accountable to our infrastructure.</p>
+</blockquote>
+<p>PRIM is the open source secret sauce.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2007/asf-rules-redux/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          ASF Rules Redux
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2007/mvc-convergence-mr-action-meet-ms-asp-net/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MVC Convergence: Mr Action meet Ms ASP.NET&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2007/the-open-source-secret-sauce/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

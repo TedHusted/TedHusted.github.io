@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>GoogleCode: What&#39;s the diff? - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Good news! GoogleCode Hosting already offered alert emails on a Subversion commit, but, strangely, the diffs were omitted from the alerts. Now, we get both logs and diffs on every commit!
+This is espe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GoogleCode: What's the diff?">
+<meta property="og:url" content="http://ted.husted.com/2007/googlecode-whats-the-diff/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="Good news! GoogleCode Hosting already offered alert emails on a Subversion commit, but, strangely, the diffs were omitted from the alerts. Now, we get both logs and diffs on every commit!
+This is espe">
+<meta property="og:updated_time" content="2017-02-20T13:39:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GoogleCode: What's the diff?">
+<meta name="twitter:description" content="Good news! GoogleCode Hosting already offered alert emails on a Subversion commit, but, strangely, the diffs were omitted from the alerts. Now, we get both logs and diffs on every commit!
+This is espe">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-googlecode-whats-the-diff" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      GoogleCode: What&#39;s the diff?
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/googlecode-whats-the-diff/" class="article-date">
+  <time datetime="2007-03-14T09:00:00.000Z" itemprop="datePublished">2007-03-14</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Good news! <a href="http://code.google.com/hosting/" target="_blank" rel="external">GoogleCode Hosting</a> already offered alert emails on a Subversion commit, but, strangely, the diffs were omitted from the alerts. Now, we get both logs and diffs on every commit!</p>
+<p>This is especially great news for me. I was actually posting daily commit summaries by running svn diff to a text file and posting the output to our mailing list (Google Group). But, that was a poor replacement for per-commit logs and diffs, all in one handy-dandy email feed.</p>
+<pre><code>Author: ted.husted
+Date: Fri Mar  9 09:46:00 2007
+New Revision: 182
+</code></pre><p>Modified:<br>trunk/cs/Apps/PhoneBook/Web/PhoneBook-Editor.js<br>trunk/cs/Apps/PhoneBook/Web/PhoneBook-Lister.js<br>trunk/cs/Apps/PhoneBook/Web/PhoneBook-Menu.js<br>trunk/cs/Apps/PhoneBook/Web/PhoneBook-Profile.js</p>
+<p>Log:<br>Issue 11 - Add events for all menu buttons. Setup “init guards” so that menu<br>buttons are not created more than once. Include logic to disable exting buttons<br>if user’s status changes from editor.</p>
+<h1 id="Modified-trunk-cs-Apps-PhoneBook-Web-PhoneBook-Editor-js"><a href="#Modified-trunk-cs-Apps-PhoneBook-Web-PhoneBook-Editor-js" class="headerlink" title="Modified: trunk/cs/Apps/PhoneBook/Web/PhoneBook-Editor.js"></a>Modified: trunk/cs/Apps/PhoneBook/Web/PhoneBook-Editor.js</h1><p>— trunk/cs/Apps/PhoneBook/Web/PhoneBook-Editor.js (original)<br>+++ trunk/cs/Apps/PhoneBook/Web/PhoneBook-Editor.js Fri Mar 9 09:46:00 2007<br>@@ -98,8 +98,13 @@</p>
+<p>EDITOR.onDelete_load = function (data) {<br>// ISSUE: This will fail if list is out of sync and data is null</p>
+<ul>
+<li>ANVIL.setMessage(“Deleted: “ + data.result.user_name);</li>
+<li>PhoneBook.rpc.entry_list(LISTER.onDeleteRefresh_load).call(ANVIL.channel);</li>
+</ul>
+<ul>
+<li>if (data.result.user_name) {</li>
+<li>ANVIL.setMessage(“Deleted: “ + data.result.user_name);</li>
+<li>PhoneBook.rpc.entry_list(LISTER.onDeleteRefresh_load).call(ANVIL.channel);</li>
+<li>}</li>
+<li>else {</li>
+<li>ANVIL.setMessage(“Workflow error. Select row and try again.”)</li>
+<li>};<br>};<br>…</li>
+</ul>
+<p>Why all the noise over diffs? Simple: Peer review and non-redundant team communication. My team is accustom to reviewing each others commits as an extended form of pair-programming. Following the example of many successful open source projects, we also use the commit logs to describe what we are doing, step by step. The alerts become part of an implicit <a href="http://java.icmc.usp.br/books/ooc/html/udf_unit_development_folder.html" target="_blank" rel="external">unit development folder</a>, saving us an extra post or conversation later. And, unlike a random post to the mailing list, the commit log is directly linked to that code revision.</p>
+<p>To help tie it all together, many projects apply “issue-driven development” to the commit logs. Under IDD, a team adopts a policy that <strong>every</strong> commit must reference one or more tickets from the issue tracker. If a commit doesn’t relate to an open issue, then we have to create one first.</p>
+<p>Like test-driven design, IDD encourages developers to do the right thing as soon as possible. If we are going to write the test anyway, we might as well write it first. If we are going to create the issue anyway, we might as well create it first. And, if the issue tracker is tied to the mailing list, when we create the issue, we put the team on notice of our short-term plan, just in case anyone has a suggestion.</p>
+<p>Issue driven development works best when the issue tracker can scan the repository logs and link commits with issues. <a href="https://issues.apache.org/struts/browse/WW-1689?page=com.atlassian.jira.plugin.ext.subversion:subversion-commits-tabpanel" target="_blank" rel="external">Apache Struts uses IDD with JIRA and Subversion.</a> For odd jobs, we create an “omnibus” issue for each milestone, which we use (judiciously) as a catch-all.</p>
+<p><a href="http://blogs.codehaus.org/people/vmassol/archives/001063_clirr_rocks.html" target="_blank" rel="external">Vincent Massol (JUnit in Action) has also blogged about IDD.</a></p>
+<p>GoogleCode doesn’t link issues with Subversion commits yet. In the meantime, we’ve been faking it by prefixing our commits with the issue number. There’s not a live link to the revision yet, but at least we will be in the habit should <a href="http://code.google.com/p/support/issues/detail?id=94&amp;can=2&amp;q=" target="_blank" rel="external">that feature</a> come online.</p>
+<p>Perhaps Devo said it best: <em>Duty now for the future!</em> :)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2007/incremental-refactoring/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          Incremental Refactoring
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2007/why-do-we-call-it-apache/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Why do we call it Apache?&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2007/googlecode-whats-the-diff/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

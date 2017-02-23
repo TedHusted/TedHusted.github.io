@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java Web Frameworks - Simplified! - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Is there a standard Java web framework?
+Yes. Sun has added JavaServer Faces to itsJava Enterprise Edition, which includes other goodies like JavaServer Pages and the JavaServer Pages Standard Tag Libr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java Web Frameworks - Simplified!">
+<meta property="og:url" content="http://ted.husted.com/2006/java-web-frameworks-simplified/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="Is there a standard Java web framework?
+Yes. Sun has added JavaServer Faces to itsJava Enterprise Edition, which includes other goodies like JavaServer Pages and the JavaServer Pages Standard Tag Libr">
+<meta property="og:updated_time" content="2017-02-20T13:39:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java Web Frameworks - Simplified!">
+<meta name="twitter:description" content="Is there a standard Java web framework?
+Yes. Sun has added JavaServer Faces to itsJava Enterprise Edition, which includes other goodies like JavaServer Pages and the JavaServer Pages Standard Tag Libr">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-java-web-frameworks-simplified" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java Web Frameworks - Simplified!
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2006/java-web-frameworks-simplified/" class="article-date">
+  <time datetime="2006-11-16T11:00:00.000Z" itemprop="datePublished">2006-11-16</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>Is there a standard Java web framework?</strong></p>
+<p>Yes. Sun has added JavaServer Faces to its<br><a href="http://java.sun.com/javaee/" target="_blank" rel="external">Java Enterprise Edition</a>, which includes other goodies like JavaServer Pages and the JavaServer Pages Standard Tag Library. If you grab the distribution that bundles the NetBeans IDE, Java has finally become a one-stop shop!</p>
+<p><strong>Is JSF a specification, like JSP and JSTL?</strong></p>
+<p>Yes. Sun provides its own Reference Implementation, but other people can provide their own implementation of the specification.</p>
+<p><strong>Is anyone doing that? </strong></p>
+<p>Yes. The Apache Software Foundation offers the <a href="http://myfaces.apache.org/" target="_blank" rel="external">Apache MyFaces</a> JSF implementation that you can use instead of the Sun RI. Along with a certified JSF implementation, the MyFaces project also offers a number of additional JSF components. Standard JSF components include gizmos like a DataGrid. Additional components include goodies like tabbed panels, various tree views, HTML editors, scrollers, and such, that you can drop into your application. If you are just getting started with JSF, the MyFaces mailing list provides a lot of friendly, free support.</p>
+<p><strong>Are there other JSF component libraries available? </strong></p>
+<p>Yes. For example, Oracle offers ADF. In fact, Oracle donated the better part of its ADF component library to the ASF some time ago. It’s slowly becoming part of MyFaces under the name Trinidad.</p>
+<p><strong>What about AJAX? </strong></p>
+<p>People are trying various approaches toward integrating AJAX with JSF components. Some AJAX frameworks for JSF are already available, including <a href="https://ajax4jsf.dev.java.net/nonav/ajax/ajax-jsf/" target="_blank" rel="external">Ajax4jsf</a>. Generally, you can use AJAX frameworks with the Sun RI or MyFaces, as you prefer.</p>
+<p>This is the same sort of approach that Microsoft is taking for its ASP.NET framework (which is similar to JSF). To leverage AJAX, Microsoft is building a second framework, Atlas, on top of ASP.NET.</p>
+<p><strong>Are there other JSF frameworks? </strong></p>
+<p>Yes. The <a href="http://shale.apache.org/" target="_blank" rel="external">Apache Shale framework</a> extends JSF to add advanced features, many of which are designed to woo Java web developers used to Action-based frameworks, like Struts.</p>
+<p><strong>What’s happening with Struts? </strong></p>
+<p>By any measure, Apache Struts is still the most popular Java web framework. Last year, Struts merged with another web development community, WebWork, to create a new version of Struts. <a href="http://struts.apache.org/2.x/" target="_blank" rel="external">Apache Struts 2</a> is in beta release now.</p>
+<p><strong>Are there any comparisons of the JSF and Struts 2 feature sets? </strong></p>
+<p>In practice, comparing JSF and Struts 2 is less about the features and more about the development paradigms. The reason we have these two frameworks is because each solution approaches the web development problem from a different perspective.</p>
+<p>The implicit goal of JSF-style component-based development is to make web development more like conventional desktop/GUI development. The implicit goal of Action-based development is to streamline web development and make the best of the web platform. If a team likes the idea of creating web applications as if they were desktop applications, then platforms like JSF and ASP.NET are the way to go. If a team is ready to embrace the web for what it is, then platforms like Struts, Ruby, PHP, and so forth, are still the way to go.</p>
+<p>In other words, it all depends on the problem we are trying to solve. If the problem is that web development is unlike conventional GUI development, then the component model is a valid solution. If the problem is that web development lacks an elegant and extensible infrastructure, then the action model is a valid solution.</p>
+<p><strong>But can’t we create a framework that resembles GUI development but provides a simple, web-savy infrastructure?</strong></p>
+<p>Possibly, but that would be the web equivalent of <a href="http://en.wikipedia.org/wiki/Grand_unified_field_theory" target="_blank" rel="external">unified field theory</a>. Today, in physics, and in web development, we have two models that are each used for different reasons, but, side by side, the two are wildly incompatible.</p>
+<p>In physics, it boils down to “little” or “big”? In web development, it boils down to “GUI Desktop” or “Enterprise Web”?</p>
+<p>Pick your poison!</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2007/struts-2-0-6-voted-ready-for-primetime/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          Struts 2.0.6 Voted Ready for Primetime
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2006/free-as-in-beer-microstuff/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Free (as in beer) Microstuff&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2006/java-web-frameworks-simplified/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

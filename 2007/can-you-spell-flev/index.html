@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Can you spell FLEV? - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="The most common workflow in any business application I’ve every written or used is Find / List / Edit / View – or “FLEV”.
+At work, our last two point applications used this workflow over and over agai">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Can you spell FLEV?">
+<meta property="og:url" content="http://ted.husted.com/2007/can-you-spell-flev/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="The most common workflow in any business application I’ve every written or used is Find / List / Edit / View – or “FLEV”.
+At work, our last two point applications used this workflow over and over agai">
+<meta property="og:updated_time" content="2017-02-20T13:33:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Can you spell FLEV?">
+<meta name="twitter:description" content="The most common workflow in any business application I’ve every written or used is Find / List / Edit / View – or “FLEV”.
+At work, our last two point applications used this workflow over and over agai">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-can-you-spell-flev" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Can you spell FLEV?
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/can-you-spell-flev/" class="article-date">
+  <time datetime="2007-04-05T09:00:00.000Z" itemprop="datePublished">2007-04-05</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/essay/">Essay</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The most common workflow in any business application I’ve every written or used is Find / List / Edit / View – or “FLEV”.</p>
+<p>At work, our last two point applications used this workflow over and over again, and the third will be no different. Often we start with Finding and Listing one entity, which is then used to Find and List related entities, which have related entities of their own to List and Edit. And, of course, we also need to Edit and View any of these entities along the way.</p>
+<p>For example in a mail reader, the software starts by finding the new posts for us and presenting a list. We then view the thread, and maybe call an editor to post another article. When posting, we might want to find and list entries from our address book, and either select or likely suspect, or view his or her details, and maybe make some changes.</p>
+<p>So on and so forth.</p>
+<p>One would think that a FLEV widget would be standard fare in any widget library. But, strangely not. Looking about, I find several types of tables and grids, many with inline editing and filtering. But, in real life, inline editing and filtering via a grid isn’t enough. We do need to rotate the axis and present a single entry on a form, often including fields not expressed on the grid.</p>
+<p>Recently, I’ve been working with spanking-new DataTable from the Yahoo! User Interface (YUI) Library. Under the hood, DataTable use a RecordSet to represent the raw set of entries, and a ColumnSet to describe the schema for an entry (data type, editor, formatter, short label, long label).</p>
+<p>All that’s needed is a companion widget that can use the same Recordet and ColumnSet to present and edit one entry at a time.</p>
+<p>Essentially, we’re talking about a widget can present the same data in four different ways. To get started, I created an issue ticket that described the widget in terms of these four views.</p>
+<blockquote>
+<p>A FLEV widget would allow us to define a columnset and datasource once and use it to generate four presentations.</p>
+<p>Finder - Columnset in vertical layout as a form with multifield dataentry and submit. Submit does not modify state. (Matching entries are presented through a Lister.) Some fields may be selectors with change events that update other selectors. Other fields may be calendars or sliders.</p>
+<p>Lister - Columnset in horizontal layout as a grid with double-click single field editing. Command events to edit, view, delete, or add may be associated with selected row. Paging through rows is supported.</p>
+<p>Editor - Columnset in vertical layout as a read-only panel. Command events may be available, such as save, save and add another, delete, or cancel.</p>
+<p>Viewer - Columnset in vertical layout as a read-only panel. Command events may be available, such as edit, copy, delete, print, add, or cancel.<br>I got a good start on FLEV this week, and we are about ready to drop it into our application. Of course, the widget will be available as open source under the BSD license as the first installment of the <a href="http://jroller.com/page/TedHusted?entry=cathedral" target="_blank" rel="external">Yazaar project</a>. Tomorrow is Struts 2 tip day, but I’ll be blogging more about FLEV over the weekend, including how it uses the <a href="http://jroller.com/page/TedHusted?entry=yui_logreader" target="_blank" rel="external">YUI LogReader</a> as a development tool. Stay turned!</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2007/s2-tip-within-a-namespace-reuse-names-for-common-concepts/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          S2 Tip - Within a namespace, reuse names for common concepts
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2007/google-code-successively-refines/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Google Code Successively Refines&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2007/can-you-spell-flev/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

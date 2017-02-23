@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>WebDev Pushmi-Pullyu - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="As might be expected, the Struts 2 GA announcement had its share of comments on The Server Side last week.
+One subtopic was push versus pull. As with many terms, I think we sometimes use “push” and “p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WebDev Pushmi-Pullyu">
+<meta property="og:url" content="http://ted.husted.com/2007/webdev-pushmi-pullyu/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="As might be expected, the Struts 2 GA announcement had its share of comments on The Server Side last week.
+One subtopic was push versus pull. As with many terms, I think we sometimes use “push” and “p">
+<meta property="og:updated_time" content="2017-02-20T13:33:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WebDev Pushmi-Pullyu">
+<meta name="twitter:description" content="As might be expected, the Struts 2 GA announcement had its share of comments on The Server Side last week.
+One subtopic was push versus pull. As with many terms, I think we sometimes use “push” and “p">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-webdev-pushmi-pullyu" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      WebDev Pushmi-Pullyu
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/webdev-pushmi-pullyu/" class="article-date">
+  <time datetime="2007-03-07T11:00:00.000Z" itemprop="datePublished">2007-03-07</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/essay/">Essay</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>As might be expected, the Struts 2 GA announcement had its share of comments on <a href="http://www.theserverside.com/news/thread.tss?thread_id=44429" target="_blank" rel="external">The Server Side</a> last week.</p>
+<p>One subtopic was push versus pull. As with many terms, I think we sometimes use “push” and “pull” to mean different things. Sometimes we mean it to contrast <a href="http://www.theserverside.com/news/thread.tss?thread_id=44429#228491" target="_blank" rel="external">component versus action paradigms</a>. Other times, we mean to contrast <a href="http://jakarta.apache.org/turbine/turbine/turbine-2.3.2/pullmodel.html" target="_blank" rel="external">creating a custom context</a> (or API) for each page that exposes only what that page is suppose to know (push), or whether we should create a global context (or API) that can be exposed to every page, so each page can pick and choose (pull) whatever it wants.</p>
+<p>Another use of the “push/pull” term is to contrast “merge” templates, like Velocity and FreeMarker, with “scriptlet” templates, like ASP, JSP, and PHP. In this usage, the point is whether it is better to push out to the page a prepared context, or whether the page should use scriplets to pull values from the platform’s shared context.</p>
+<p>One benefit of push is that it easier to use the technology outside of the environment, since we can create a prepared context independent of the target platform. One benefit of pull is that its easier to share values with other application resources, since the context is shared.</p>
+<p>Struts 1 tends to muddle this kind of push and pull. ActionForms are push, but we also provide a lot of servlet attributes which pages need to pull from one of the platform’s scopes (page, servlet, application). The Velocity support for Struts uses a chained context to provide access to a Velocity context as well as the platform contexts.</p>
+<p>Struts 2 creates its own context that includes references to the servlet scopes (as plain-old Maps). In this way, S2 provides the benefits of both push and pull. For testing, it’s easy to create our own action context, and at runtime, we can access the usual servlet resources. Another benefit of wrapping pull-within-push is that we can provide “first class” tag support for JSP, FreeMarker and Velocity.</p>
+<p>Personally, I’m a fan of the template approach. The Struts 1 tags mitigated the <a href="http://www.servlets.com/soapbox/problems-jsp.html" target="_blank" rel="external">damage JSP scriplets were causing back in the day</a>; before JSTL, stock JSPs were a ugly, inelegant mess. (And before Velocity people got involved in JSTL, the JSTL was a mess too.)</p>
+<p>If there is a single reason why Struts 1 was so successful, it was because we provided a JSP taglib when everyone else (Barracuda, JPublish, Maverick, Tapestry, Turbine, among others) was focused on templates and other alternative solutions.</p>
+<p>Over the years, I’ve consulted with some large concerns that standardized on templates pre-y2k. The technology worked well, but my clients eventually replaced the templates with Struts and JSPs. Not because JSP was “better”, but because JSP worker drones are easy to hire. <a href="http://www.servlets.com/soapbox/problems-jsp-reaction.html" target="_blank" rel="external">As Craig said</a>, project managers tend to choose “mainstream” technologies, regardless. We already have a hammer, so every problem must be a nail.</p>
+<p>Ironically, Struts 2 “levels the playing field”, so that “alternative” technologies like Velocity, Freemarker, and AJAX are on equal footing with “mainstream” technologies like JSP, JSF, and, well, AJAX. :)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2007/the-internet-is-the-computer/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          The Internet is the computer
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2007/view-me-first-the-crockford-clips/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">View Me First: The Crockford Clips&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2007/webdev-pushmi-pullyu/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

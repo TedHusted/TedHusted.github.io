@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>WebWork 2.2 - What&#39;s in it for me? - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="On 7 Feb 2006, Raghu Kanchustambham wrote on user@struts.apache.org:&amp;gt; I am using struts 1.2.8 and use the struts-layout&amp;gt; tags for my UI components. I have done some 50%&amp;gt; of my project work us">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WebWork 2.2 - What's in it for me?">
+<meta property="og:url" content="http://ted.husted.com/2006/webwork-2-2-whats-in-it-for-me/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="On 7 Feb 2006, Raghu Kanchustambham wrote on user@struts.apache.org:&amp;gt; I am using struts 1.2.8 and use the struts-layout&amp;gt; tags for my UI components. I have done some 50%&amp;gt; of my project work us">
+<meta property="og:updated_time" content="2017-02-20T13:33:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WebWork 2.2 - What's in it for me?">
+<meta name="twitter:description" content="On 7 Feb 2006, Raghu Kanchustambham wrote on user@struts.apache.org:&amp;gt; I am using struts 1.2.8 and use the struts-layout&amp;gt; tags for my UI components. I have done some 50%&amp;gt; of my project work us">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-webwork-2-2-whats-in-it-for-me" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      WebWork 2.2 - What&#39;s in it for me?
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2006/webwork-2-2-whats-in-it-for-me/" class="article-date">
+  <time datetime="2006-02-12T11:00:00.000Z" itemprop="datePublished">2006-02-12</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/essay/">Essay</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre>On 7 Feb 2006, Raghu Kanchustambham wrote on user@struts.apache.org:<br>&gt; I am using struts 1.2.8 and use the struts-layout<br>&gt; tags for my UI components. I have done some 50%<br>&gt; of my project work using this combination. And<br>&gt; I must say I am quite happy with what these<br>&gt; layout-tags offer so far.<br>&gt;<br>&gt; Now, how do I get webwork into my ecosystem?<br>&gt; Is it correct that webwork’s main strength is<br>&gt; its rich UI components?<br>&gt; Can I make struts-layout (or for that matter<br>&gt; any other struts based taglibs) to co-exist with<br>&gt; webwork ? Will integrating with webwork mean that<br>&gt; if I replace my current struts version with the<br>&gt; integrated new version, my earlier taglibs will<br>&gt; stop working?</pre><br>WebWorks is a very flexible platform, and there is room for creating a 1.x interceptor that mimick the Struts environment so that Struts specific taglibs could work. We could also do things like use XML transformations to migrate configuration files. I believe Don Brown’s been working on some things along those lines. But I think the heads-down work on a compatibility layer will happen after we pass the codebase through the Incubator and can work on it here.</p>
+<p>Of course, the web application platform is already open. If you wanted to use WebWork or Action 2 for some things in your current application, you could drop the new JARs into your application and have Action1 handle the .do’s and have Action2 handle the .do2’s.</p>
+<p>For new development, the WebWork UI tags already do many of the things that packages like <a href="http://struts.application-servers.com/" target="_blank" rel="external"> Struts Layout</a> do, and we can continue to extend the UI tags, so that the UI tags better meet all of our needs.</p>
+<p><pre>&gt; What does this [WebWork] integration mean<br>&gt; to a developer like me?</pre><br>Here’s the bottom line: We could spend the next six years slowly evolving Struts Action 1.x until it ends up looking like a WebWork clone, or we could all work together on creating an even better Action-based framework. Both Struts and WebWorks are already the best in some way, but as Google says: “Never settle for the best.”</p>
+<p>Of course, a lot of us have Struts 1.x application in development or in maintainance mode. We’re about to roll Struts Action 1.3.0, and on the dev@ list, people continue to talk abouta Action 1.4, and so on. Which is great! To keep a line of development alive, all we need is volunteers who want it to live.</p>
+<p><pre>&gt; In the Microsoft world, good(?),bad,ugly<br>&gt; - there is just one choice.<br>&gt; On day 1, you know “this” is what I need<br>&gt; to use in the MS world!</pre><br>I’ve been working in ASP.NET for going on two years now. It’s true that if you’re writing simple applications, yes, what they ship in the box is just fine. Just like what Java ships in the box (JSTL and JSF) is just fine.</p>
+<p>But, .NET developers writing enterprise applications are reaching for all the same tools we have for J2EE. If you look at the ASP.NET example frameworks, you can see the evolution away from simplistic, monolithic applications and toward rich, layered applications. One example uses this data access library, the next uses another. Same old, same old.</p>
+<p>I think the difference is that ASP.NET teams tend to use extra libraries and packages in stealth mode, where J2EE teams wear their extensions on their sleeves. (And, at conventions, on our T shirts!)</p>
+<p>I would agree that it’s time that we did more to help enterprise ASP.NET developers come out of the closet and embrace choice. Action 2 for C# and FastCGI anyone?</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2006/tapestry-rolling-toward-tlp/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          Tapestry: Rolling toward TLP
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2006/webwork-2-2-1-released-and-ready-for-struts/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">WebWork 2.2.1: Released and Ready for Struts!&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2006/webwork-2-2-whats-in-it-for-me/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

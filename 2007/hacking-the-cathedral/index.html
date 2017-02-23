@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hacking the Cathedral - ted.husted.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="A key reason we were able to use the Yahoo User Interface (YUI) Library is that the latest release includes a DataTable widget. Our application design uses lots of grids. Of course, there are grids fr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hacking the Cathedral">
+<meta property="og:url" content="http://ted.husted.com/2007/hacking-the-cathedral/index.html">
+<meta property="og:site_name" content="ted.husted.com">
+<meta property="og:description" content="A key reason we were able to use the Yahoo User Interface (YUI) Library is that the latest release includes a DataTable widget. Our application design uses lots of grids. Of course, there are grids fr">
+<meta property="og:updated_time" content="2017-02-20T13:39:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hacking the Cathedral">
+<meta name="twitter:description" content="A key reason we were able to use the Yahoo User Interface (YUI) Library is that the latest release includes a DataTable widget. Our application design uses lots of grids. Of course, there are grids fr">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '92185980', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-hacking-the-cathedral" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hacking the Cathedral
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/hacking-the-cathedral/" class="article-date">
+  <time datetime="2007-03-29T09:00:00.000Z" itemprop="datePublished">2007-03-29</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>A key reason we were able to use the <a href="http://developer.yahoo.com/yui/" target="_blank" rel="external">Yahoo User Interface (YUI) Library</a> is that the latest release includes a DataTable widget. Our application design uses lots of grids. Of course, there are grids from other toolkits and libraries that we could have used. But, honestly, we would have standardized on that toolkit instead.</p>
+<p>Of course, the <a href="http://developer.yahoo.com/yui/datatable/" target="_blank" rel="external">YUI DataTable</a> is new and beta and not without its shortcomings. But, every time I found a flaw, I also cobbled a patch (and filed a <a href="http://www.blogger.com/post-create.g?blogID=5208774" target="_blank" rel="external">ticket</a>).</p>
+<p>Looking at our design, what we do over and over again is Find, List, Edit, and View. The entity we want to Find/List/Edit/View changes, but the core workflow holds.</p>
+<p>We did the last application module in ASP.NET. Most workflows were represented as pages that exposed one or more composite controls. Much of the page logic involved deciding which controls needed to be exposed.</p>
+<p>For the YUI module, I’d like to have a single “chimera” widget that can reveal itself four or five different ways. As a Finder (QBE Dialog), as a Lister (DataGrid), as an Editor (Data Entry Form), as a Lister (View Only Panel), and as both a Lister and Finder in the same view. Behind the scense, the DataTable (Lister) is powered by <a href="http://developer.yahoo.com/yui/docs/ColumnSet.html" target="_blank" rel="external">ColumnSet</a> and <a href="http://developer.yahoo.com/yui/docs/RecordSet.html" target="_blank" rel="external">RecordSet</a> objects, which could also power a Finder, Editor, and Viewer.</p>
+<p>For now, I’m referring to this as a <a href="http://code.google.com/p/anvil/issues/detail?id=22" target="_blank" rel="external">FLEV Widget</a>, and I’ve started coding it through the Anvil site.</p>
+<p>Meanwhile, another earnest YUI user <a href="http://tech.groups.yahoo.com/group/ydn-javascript/message/11247" target="_blank" rel="external">posted a DataTable subclass</a> that adds filtering on a column and hiding columns. Nice work, and a fine demonstrate of how easy it is to extend YUI widgets.</p>
+<p>Since YUI doesn’t accept contributions from the user community, I wonder if we should setup a community site on SourceForge or GoogleCode, where we could contribute and jointly maintain extensions like FLEV and RowFilterDataTable.</p>
+<p>The idea would be that anyone with code to contribute would be welcome to join the site. Since widgets are granular, we could each retain our own copyrights to the original widgets, and just use the site as a one-stop shop for YUI extensions.</p>
+<p>Of course, there is already a <a href="http://www.yui-ext.com/deploy/yui-ext/docs/" target="_blank" rel="external">YUI-Ext project</a>, but that has evolved into a distinct library that supports both YUI and JQuery, and I expect other libraries one day. And YUI Ext was never a full-throttle open source project, it was always Jack Slocum’s baby.</p>
+<p>The Yahoo! team has built a cathedral. Perhaps it’s time to open a companion bazaar – a yazaar! :)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yui/">YUI</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2007/s2-tip-place-each-namespace-into-its-own-struts-configuration-file/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          S2 Tip - Place each namespace into its own Struts configuration file
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2007/asf-rules-redux/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ASF Rules Redux&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Ted Husted&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ted-husted-com';
+  
+  var disqus_url = 'http://ted.husted.com/2007/hacking-the-cathedral/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>
