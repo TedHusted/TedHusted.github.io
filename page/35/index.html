@@ -69,6 +69,80 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-free-as-in-beer-microstuff" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/free-as-in-beer-microstuff/">Free (as in beer) Microstuff</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2006/free-as-in-beer-microstuff/" class="article-date">
+  <time datetime="2006-10-01T09:00:00.000Z" itemprop="datePublished">2006-10-01</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Inch by inch, step by step, Redmond softly pads closer and closer …</p>
+<p>Earlier this year, Microsoft leapt into the free zone by making free downloads of its Express line a permanent fixture. Originally, the Express line was being positioned as low cost, but now the cost is reduced to a free download and eventual registration.</p>
+<p>To an extent, the Express line can trace its roots to Matrix, a free ASP.NET IDE that the Microsoft team cobbled up as scaffolding for Visual Studio .NET. Afterwards, some team members lobbied to make Matrix pubically available, and it was posted on ASP.NET, along with the “starter kits” and other goodies. Matrix is interesting, but it shuns code-behinds in favor of embedding scripts into the pages.</p>
+<p>Though, Express ain’t Matrix. Express is the real deal. Express is Visual Studio broken out as a set of point-applications, each focused on a specific part of the development process. If you are working on a n-tier application, then the Visual Studio suite is still the way to go. (Especially if you want to use plugins<br>like Ankh and Resharper.) But, if you are working on a simple Windows or web application, then Express may be just the thing.</p>
+<p>All together there are six products in the <a href="http://msdn.microsoft.com/vstudio/express/default.aspx" target="_blank" rel="external">Visual Express</a> line.</p>
+<ul>
+<li>Web Developer Express</li>
+<li>SQL Server Express</li>
+<li>Visual Basic Express</li>
+<li>Visual C# Express</li>
+<li>Visual C++ Express</li>
+<li>Visual J# Express<br>All permanently free for the download.</li>
+</ul>
+<p>A linchpin offering is SQL Express. Unlike its MSDE predecessor, <a href="http://blogs.msdn.com/euanga/archive/2006/03/09/545576.aspx" target="_blank" rel="external">SQL Express is not performance throttled</a>. You can use it as a production database.</p>
+<p>For ASP.NET web developers, this changes everything. In my experience with VS 2003, you can’t really get the full benefit of the platform without using SQL Server. Of course, that’s part of the plot, but, in for a penny, in for a pound. If I’m going to use a platform, I’m going to use it best I can.</p>
+<p>Of course, back in the VS 2003 days, using SQL Server was a budget item, so it wasn’t something everyone could do. (My team included.) Today, SQL Server Express<br>fits everyone’s budget: free!</p>
+<p>I’ve been working with an Oracle shop, but being renegades, we’ve been using MySQL, so that we could develop on the desktop. But, we’ve been careful to keep it all ANSI, just in case we ever have to migrate.</p>
+<p>It’s looking like that day is now coming, but instead of migrating to Oracle, we may be migrating to SQL Server Express!</p>
+<p>Of course, switching database systems is, as they say, “non-trivial”. But, as it happens, we are getting ready to roll out a new version of the database schema, with a new release of the application to match, and moving from MySQL 4 to MySQL 5 in the process. At this time, it would be just as easy, even easier, for us to move to SQL Express instead.</p>
+<p>For backup, we’ve been grabbing MySQL dumps, which are designed to reconstruct the database from scratch using SQL statements. I’ve found that by adjusting the MySQLDump parameters (mysqldump [database] –skip-opts –compatible=ansi), we can get a decent SQL Server compatible dump. We just need to make a few minor tweaks to the create table DDLs, and it’s good to go.</p>
+<p>Just as a spike, we boosted a couple of tables into SQL Express, changed the iBATIS provider, and ran some of our unit tests. So far, all signals are green!</p>
+<p>Of course, we don’t plan to sell our souls to the dark side. Our data access layer relies on iBATIS and a coarsely-grained data transfer object. It’s flexible and easy to test, and we won’t be changing that any time soon.</p>
+<p>Though, in ASP.NET 2, Microsoft is giving a nod to business objects. In fact, I was impressed by the number of good practices demonstrated in the<br><a href="mms://wm.microsoft.com/ms/uifx/asp_net_atlas.wmv" target="_blank" rel="external">Developing ASP.NET 2.0 Applications using AJAX video</a>. For example, along with business objects, Scott Guthrie relied exclusively on CSS for formatting.</p>
+<p>Toss in a some actual unit tests, and we could almost call the demo Agile. But, I’m guessing we might have to wait for ASP.NET 4 or 5 before we catch Scott writing his own unit tests :)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-struts-2-0-0-available" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -300,81 +374,8 @@ ga('send', 'pageview');
 
 
     
-      <article id="post-looking-forward-looking-back" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2006/looking-forward-looking-back/">Looking Forward, Looking Back</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2006/looking-forward-looking-back/" class="article-date">
-  <time datetime="2006-05-28T09:00:00.000Z" itemprop="datePublished">2006-05-28</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/essay/">Essay</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>With <a href="http://struts.apache.org/2.x/" target="_blank" rel="external">WebWork2 out of the incubator</a>, and this being the sixth anniversary of the creation of the first Apache Struts codebase (Memorial Day weekend), I thought it might be time to reflect on some of the things that Apache Struts, as a project, has been doing right, as well as some things that we might do better.</p>
-<p>NOTE: These are my own personal observations. Other committers may have different viewpoints (and probably do!).</p>
-<h5 id="Documentation-Documentation-Documentation"><a href="#Documentation-Documentation-Documentation" class="headerlink" title="Documentation, Documentation, Documentation"></a>Documentation, Documentation, Documentation</h5><p>One thing we have always done well – or least better than most – is documentation. When I stumbled onto the project in the summer of 2000, there was already a concise introduction to the framework in place, as well as a working example application (the infamous MailReader). Since then, the end-user documentation has continued to grow and mature. For developers, one hallmark of Apache Struts has always been detailed JavaDocs and commit logs.</p>
-<p>Although sometimes criticized for a lack of documentation, the WebWork 2 wiki is a treasure trove of information. For Struts 2, we’re extending and refining the WW2 base into a <a href="http://cwiki.apache.org/WW/home.html" target="_blank" rel="external">comprehensive documentation suite</a>. Open source products have always been “production quality”, and our documentation can be “bookstore quality” too. Following WebWork’s lead, we are maintaining the documentation in Confluence, and using a <a href="http://confluence.atlassian.com/display/CONFEXT/AutoExport+for+Confluence" target="_blank" rel="external">plugin</a> that automatically exports the pages as they are edited.</p>
-<p>An exciting aspect of documenting with Confluence is our custom “snippet” macro. The macro merges text from the source code directly into the Confluence wiki text. It’s a quick and easy way to “<a href="http://en.wikipedia.org/wiki/Single_source_publishing" target="_blank" rel="external">single-source</a>“ more of the documentation. Best of all, it encourages us to create better Javadocs and example applications, so that we can suck the source into the wiki.</p>
-<p>It would be great fun to apply the snippet macro to the Struts 1 docs too, since the codebase still bears the imprint of Craig’s very excellent JavaDocs. Personally, I think it is safe to say that the quantity and quality of Struts 1 documentation is one of the things that lead to its wild success.</p>
-<h5 id="Status-and-Summaries"><a href="#Status-and-Summaries" class="headerlink" title="Status and Summaries"></a>Status and Summaries</h5><p>One thing that we have not done well enough is to create and <em>maintain</em> current roadmaps for new features and changes. We have created roadmaps, but as “detours” arise, we forget to update the roadmap, and it gets out of synch with the nightly build.</p>
-<p>We also have not been very good about keeping the release notes up to date, so that updating the notes becomes yet-another chore that falls to the release manager.</p>
-<p>On the list, we often have extended development discussions that go on for weeks, even months. While those of us in the “thick of things” can follow along, it’s often hard for a newcomer to catch up. After six years, the advice to “read the dev@ list”, becomes a herculean task. Over the years, we have often made decisions like “the JSP taglib API will strictly observe HTML 4.01” in the midst of mailing list discussions, but, we usually don’t followup and document these decisions, outside of the thousands upon thousands of dev@ threads.</p>
-<p>I’d suggest that we try harder to maintain a coherent status report for the project, along the lines of <a href="http://svn.apache.org/viewvc/httpd/httpd/trunk/STATUS?view=markup" target="_blank" rel="external">what HTTPD does,</a> leveraging JIRA where we can. Regardless of format, I do think it’s important that the status report be something that can be automatically emailed to dev@ every month.</p>
-<h5 id="Stone-Soup"><a href="#Stone-Soup" class="headerlink" title="Stone Soup"></a>Stone Soup</h5><p>I think if one thing has held the project back, it’s the notion that the PMC ia suppose to be a steering committee, trying to decide what is best for other people. Committers (including myself) don’t always contribute some of the coolest bits that we use in our own applications. An ASF project should be like <a href="http://stonesoup.esd.ornl.gov/stonesoup.html" target="_blank" rel="external">stone soup</a>, we each throw what we have into the pot and share the wealth.</p>
-<p>Often, it seems that we don’t contribute some bits because we think our solution doesn’t have a broad-enough audience. One reading of the ASF maxim “<a href="http://jroller.com/page/TedHusted?entry=dogfood" target="_blank" rel="external">we eat our own dogfood</a>“ is that <em>we</em> are the audience. If we need it for own applications, then it follows someone else will too, and, ipso facto, it belongs in the product.</p>
-<p>When the ASF talks about a project’s <a href="http://jroller.com/page/TedHusted?entry=community" target="_blank" rel="external">community</a>, we are not talking about anyone who downloads the software. The ASF is talking about the people who contribute to the project through patches and posts. <strong>We are the community.</strong> If we need it, then it belongs in the product.</p>
-<p>I’m hoping that by creating packages like “extras” and opening the door to the idea of specialty subprojects, like Scripting, we might be able share more of our own solutions, without bloating the core distribution.</p>
-<h5 id="Best-Practices-and-Best-Practice-Examples"><a href="#Best-Practices-and-Best-Practice-Examples" class="headerlink" title="Best Practices and Best Practice Examples"></a>Best Practices and Best Practice Examples</h5><p>On the other hand, we’ve been much too reluctant to publish best practices, along with example applications that exhibit best practices. For Struts 1.3.x, the infamous MailReader application has been updated to demonstrate best practices and avoid “demonstration only” tangents. Moving forward, I would like to continue expanding the new “Cookbook” applications, to demonstrate common use cases, so that other example applications can be an example of the kind of applications that we ourselves write at our day jobs. For Struts 2, we’ve already started a <a href="http://svn.apache.org/viewvc/struts/sandbox/trunk/action2/PRACTICES.txt?view=markup" target="_blank" rel="external">list of best practices</a>, which I hope we will continue to refine and publish as part of the documentation.</p>
-<h5 id="Developer-Independence"><a href="#Developer-Independence" class="headerlink" title="Developer Independence"></a>Developer Independence</h5><p>Another weak area is reliance on key developers, both for work on the core framework as well as speciality packages, like the Validator and Tiles, and lately for key aspects of the infrastructure. Someone will start out doing a lot of the commits, and we fall into the habit of thinking that “so and so will take care of that”. Then “so-and-so” becomes busy with his or her day job, and, suddenly, we find that many new patches have not been committed. Usually, we have between one and zero active committers who are comfortable working with Tiles or the Validator. (With Struts 2, we’re liable to have the same problem with OGNL.)</p>
-<p>One tendency that contributes to this problem, I think, is that we don’t often share our work schedules with each other. We might mention off-hand that things are busy, but we don’t always stress that things might stay busy for (say) six or eight months. Aside from mentioning what we plan to do, it’s also important to mention what we plan <strong>not</strong> to do, so others can pick up the slack.</p>
-<h5 id="Going-Emeritus"><a href="#Going-Emeritus" class="headerlink" title="Going Emeritus"></a>Going Emeritus</h5><p>When an ASF developer knows that he or she won’t be able to contribute for some time (perhaps a year), it is helpful to announce that he or she is moving to “emeritus” status. Merit never expires, and an emeritus committer can reactivate his or her status upon request. But, if a committer is not going to be available for a while, it helpful to let the rest of us know. Again, so that others can pick up the slack. It’s not uncommon for Apache Struts committers to “fade away” without notice. Eventually, we do move inactive people to the emeritus column, but that’s not something we should have to do unilaterally.</p>
-<h5 id="Committer-Nominations"><a href="#Committer-Nominations" class="headerlink" title="Committer Nominations"></a>Committer Nominations</h5><p>IMHO, the first two things a new committer should do is volunteer to manage a release and start looking for another committer to nominate. Over the years, we’ve developed an image of the perfect nominee. The archetypical candidate has been someone who has been posting to the lists for at least six months, participated in development discussions in a helpful way, submitted several patches that were applied, and, most often, has created an independent Struts extension of his or her own. We’ve made some progress in breaking away from that mold this year, especially in terms of submitting a plethora of patches.</p>
-<p>As we move forward, I suggest that we take to heart the ASF criterion that a committer is someone who “we believe is devoted to the task and matches the human attitudes required to work well with others, especially in disagreement.” Patches are one way to make “welcome contributions” to the project, but there are others.</p>
-<h5 id="struts-sf-net"><a href="#struts-sf-net" class="headerlink" title="struts.sf.net"></a>struts.sf.net</h5><p>We started the Struts <a href="http://struts.sourceforge.net/" target="_blank" rel="external">sf.net site</a> some time ago, so that people could share example applications and extensions without setting up yet-another SF site or joining the ASF. The site has met with some success, and we’ve begun to use it as a staging ground for new extensions. But, we might try to promote it more, since it could also be a proving ground for new committers. (Of course, in terms of neglect, I’m the main culprit here, since I was the lunkhead who set up the site, but never cared for it properly. Many thanks to others like Don Brown and James Holmes for picking up the slack.)</p>
-<h5 id="Mailing-List-Demeanor"><a href="#Mailing-List-Demeanor" class="headerlink" title="Mailing List Demeanor"></a>Mailing List Demeanor</h5><p>From the beginning, the Apache Struts user list has always been patient and welcoming to “newbies”. Of all things, leaving the “welcome mat” out is probably what we have done the most right, and I hope we remain cordial in the future.</p>
-<p>Though, an important part of managing the user list is maintaining the separation of concerns between the user list and the dev list. Moving forward, we should continue to be quick and strict about keeping threads in the proper forum.</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/34/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="page-number" href="/page/34/">34</a><span class="page-number current">35</span><a class="page-number" href="/page/36/">36</a><a class="page-number" href="/page/37/">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/36/">下一页 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/34/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="page-number" href="/page/34/">34</a><span class="page-number current">35</span><a class="page-number" href="/page/36/">36</a><a class="page-number" href="/page/37/">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/36/">Next &raquo;</a>
       </nav>
     </section>
     <footer id="footer">

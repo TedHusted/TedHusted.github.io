@@ -69,6 +69,78 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-getting-started-with-professional-ajax" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/getting-started-with-professional-ajax/">Getting Started with Professional Ajax</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/getting-started-with-professional-ajax/" class="article-date">
+  <time datetime="2007-03-05T11:00:00.000Z" itemprop="datePublished">2007-03-05</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Like most developers of a certain age, I’m a latecomer to Ajax. We’ve adopted it whole-heartedly for my current project, so I’ll be passing along my own spin on the learning curve.</p>
+<p>In the beginning, I snagged a copy of “<a href="http://www.blogger.com/post-create.g?blogID=5208774" target="_blank" rel="external">Teach Yourself AJAX in 10 minutes</a>“, which is actually quite good. But the notion that you can do the “chapters” in 10 minutes is a bit far fetched. (Ditto for the “24-hour” books. Most chapters seem to take me 90 minutes to two hours. Maybe I’m slow.)</p>
+<p>Last week, I stumbled on a <a href="http://www.ebook.gen.tr/ajax/Professional%20Ajax%20Php.pdf" target="_blank" rel="external">PDF</a> of the first edition of Ajax Professional. The second edition is<br><a href="http://www.amazon.com/exec/obidos/tg/detail/-/0470109491/husteddotcom-20" target="_blank" rel="external"><br>hot-off-the-presses</a>, but I haven’t had a chance to pick it up yet.</p>
+<p>In the first edition, I was hoping the example application (Chapter 9) would contrast conventional versus event-driven programming, but it seemed to spend more time with the routine guts of the application, rather than the interesting Ajax bits.</p>
+<p>Chapter 1 lays a good foundation for Ajax development. Most of Chapter 2, we are handling with frameworks, but it does make one appreciate how much YUI/Dojo and Jayrock do for us, given that with Jayrock we are boiling the Ajax calls down to</p>
+<p><pre>   PhoneBook.rpc.entry_list(entryTableLoad).call(channel);</pre><br>Chapter 3 describes several patterns, most or all of which will apply<br>to my current project.</p>
+<ul>
+<li>Predictive Fetch</li>
+<li>Incremental Field Validation</li>
+<li>Multi-Stage Download</li>
+<li>Try Again</li>
+<li>Submission Throttling</li>
+<li>Periodic Refresh (“Polling”)</li>
+<li>Cancel Pending Requests<br>Another chapter provides a gentle introduction to <a href="http://json.org/" target="_blank" rel="external">JSON</a>, though I think we have a handle on that now. Since JSON is the constant notation for<br>JavaScript, I’m finding that it’s also handy for creating test data.<br>We could even create an mock RPC script for database-free testing (see<br>Anvil Issue 16).</li>
+</ul>
+<p><a href="http://yuiblog.com/assets/proajax.pdf" target="_blank" rel="external">An excerpt from the second edition is online now.</a> It’s a section from Chapter 4, “Ajax Libraries” that covers the YUI Connection Manager. The second edition adds chapters on Ajax Libraries, Request Management, Mpas and Mashups, Ajax Debugging Tools, Ajax Frameworks (including Atlas), and a .NET case study. So, I’ll probably have to get it.</p>
+<p>Meanwhile, <a href="http://www.crockford.com/" target="_blank" rel="external">Douglas Crockford’s Wrrrld Wide Web” site</a> is a menagerie of groovy links. (Crockford being responsible for the notion of JSON and JSON-RPC.) I’ve only pursued a few, but I’m sure to be back.</p>
+<p><a href="http://www.javascriptlint.com/" target="_blank" rel="external">JavaScript Lint</a> is a “must-have”. It saved me several minutes of debugging the first time I used it.</p>
+<p>So as to not let the tools have all the fun, I ordered a copy<br>of “<a href="http://www.amazon.com/exec/obidos/tg/detail/-/0596101996/husteddotcom-20" target="_blank" rel="external">JavaScript: The Definitive Guide</a>“ through the link on Crockford’s<br>site. (My pidgin JS is beginning to show!)</p>
+<p>Speaking of tools, I wasn’t thrilled with what <a href="http://www.w3.org/People/Raggett/tidy/" target="_blank" rel="external">HMTL Tidy</a> does with the JS script<br>elements. It wraps the script element but doesn’t indent the closing tag, leaving the markup looking like a awkward hanging indent. Since our HTML files are heavy with script includes, I’d rather not use Tidy as a formatter. But, it still works well for validation. (As does The HTML Validator for FireFox.)</p>
+<p>OTOH, I am thrilled to be back in a place where we can expect the pages to validate with HTML Tidy!</p>
+<p>I’m sure Ajax will be another long strange trip, but at least the path is well-traveled. I’m looking forward to sharing the ride.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">Ajax</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-make-mine-yui" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -320,82 +392,8 @@ ga('send', 'pageview');
 
 
     
-      <article id="post-free-as-in-beer-microstuff" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2006/free-as-in-beer-microstuff/">Free (as in beer) Microstuff</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2006/free-as-in-beer-microstuff/" class="article-date">
-  <time datetime="2006-10-01T09:00:00.000Z" itemprop="datePublished">2006-10-01</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/review/">Review</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Inch by inch, step by step, Redmond softly pads closer and closer …</p>
-<p>Earlier this year, Microsoft leapt into the free zone by making free downloads of its Express line a permanent fixture. Originally, the Express line was being positioned as low cost, but now the cost is reduced to a free download and eventual registration.</p>
-<p>To an extent, the Express line can trace its roots to Matrix, a free ASP.NET IDE that the Microsoft team cobbled up as scaffolding for Visual Studio .NET. Afterwards, some team members lobbied to make Matrix pubically available, and it was posted on ASP.NET, along with the “starter kits” and other goodies. Matrix is interesting, but it shuns code-behinds in favor of embedding scripts into the pages.</p>
-<p>Though, Express ain’t Matrix. Express is the real deal. Express is Visual Studio broken out as a set of point-applications, each focused on a specific part of the development process. If you are working on a n-tier application, then the Visual Studio suite is still the way to go. (Especially if you want to use plugins<br>like Ankh and Resharper.) But, if you are working on a simple Windows or web application, then Express may be just the thing.</p>
-<p>All together there are six products in the <a href="http://msdn.microsoft.com/vstudio/express/default.aspx" target="_blank" rel="external">Visual Express</a> line.</p>
-<ul>
-<li>Web Developer Express</li>
-<li>SQL Server Express</li>
-<li>Visual Basic Express</li>
-<li>Visual C# Express</li>
-<li>Visual C++ Express</li>
-<li>Visual J# Express<br>All permanently free for the download.</li>
-</ul>
-<p>A linchpin offering is SQL Express. Unlike its MSDE predecessor, <a href="http://blogs.msdn.com/euanga/archive/2006/03/09/545576.aspx" target="_blank" rel="external">SQL Express is not performance throttled</a>. You can use it as a production database.</p>
-<p>For ASP.NET web developers, this changes everything. In my experience with VS 2003, you can’t really get the full benefit of the platform without using SQL Server. Of course, that’s part of the plot, but, in for a penny, in for a pound. If I’m going to use a platform, I’m going to use it best I can.</p>
-<p>Of course, back in the VS 2003 days, using SQL Server was a budget item, so it wasn’t something everyone could do. (My team included.) Today, SQL Server Express<br>fits everyone’s budget: free!</p>
-<p>I’ve been working with an Oracle shop, but being renegades, we’ve been using MySQL, so that we could develop on the desktop. But, we’ve been careful to keep it all ANSI, just in case we ever have to migrate.</p>
-<p>It’s looking like that day is now coming, but instead of migrating to Oracle, we may be migrating to SQL Server Express!</p>
-<p>Of course, switching database systems is, as they say, “non-trivial”. But, as it happens, we are getting ready to roll out a new version of the database schema, with a new release of the application to match, and moving from MySQL 4 to MySQL 5 in the process. At this time, it would be just as easy, even easier, for us to move to SQL Express instead.</p>
-<p>For backup, we’ve been grabbing MySQL dumps, which are designed to reconstruct the database from scratch using SQL statements. I’ve found that by adjusting the MySQLDump parameters (mysqldump [database] –skip-opts –compatible=ansi), we can get a decent SQL Server compatible dump. We just need to make a few minor tweaks to the create table DDLs, and it’s good to go.</p>
-<p>Just as a spike, we boosted a couple of tables into SQL Express, changed the iBATIS provider, and ran some of our unit tests. So far, all signals are green!</p>
-<p>Of course, we don’t plan to sell our souls to the dark side. Our data access layer relies on iBATIS and a coarsely-grained data transfer object. It’s flexible and easy to test, and we won’t be changing that any time soon.</p>
-<p>Though, in ASP.NET 2, Microsoft is giving a nod to business objects. In fact, I was impressed by the number of good practices demonstrated in the<br><a href="mms://wm.microsoft.com/ms/uifx/asp_net_atlas.wmv" target="_blank" rel="external">Developing ASP.NET 2.0 Applications using AJAX video</a>. For example, along with business objects, Scott Guthrie relied exclusively on CSS for formatting.</p>
-<p>Toss in a some actual unit tests, and we could almost call the demo Agile. But, I’m guessing we might have to wait for ASP.NET 4 or 5 before we catch Scott writing his own unit tests :)</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/33/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="page-number current">34</span><a class="page-number" href="/page/35/">35</a><a class="page-number" href="/page/36/">36</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/35/">下一页 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/33/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="page-number current">34</span><a class="page-number" href="/page/35/">35</a><a class="page-number" href="/page/36/">36</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/35/">Next &raquo;</a>
       </nav>
     </section>
     <footer id="footer">

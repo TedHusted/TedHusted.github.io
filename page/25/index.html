@@ -69,6 +69,65 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-s2-tip-use-global-result-handlers-for-common-results" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/s2-tip-use-global-result-handlers-for-common-results/">S2 Tip - Use global result handlers for common results</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/s2-tip-use-global-result-handlers-for-common-results/" class="article-date">
+  <time datetime="2007-04-16T12:00:04.000Z" itemprop="datePublished">2007-04-16</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> Often, actions will share a number of common results. Rather than configure redundant result elements for each action, share common results through a global result handlers.</p>
+<pre><code>/common/Error.jsp
+
+/common/Error.jsp
+
+Login_input
+
+&lt;!-- ... --&gt;
+</code></pre><p>Using global result handlers ensures that common results will be<br>handled consistently, while reducing redundant code. Global results<br>increase coupling, but any action that needs to handle a result<br>differently can provide a local handler.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-s2-tip-if-you-are-using-jsps-try-to-name-the-jsp-folder-after-the-namespace-or-java-package" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -324,158 +383,8 @@ Exception handlers can be either global or local to an action mapping.
 
 
     
-      <article id="post-s2-tip-maintain-configuration-files-in-a-resource-folder-or-java-package" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2007/s2-tip-maintain-configuration-files-in-a-resource-folder-or-java-package/">S2 Tip - Maintain configuration files in a resource folder or Java package</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2007/s2-tip-maintain-configuration-files-in-a-resource-folder-or-java-package/" class="article-date">
-  <time datetime="2007-04-12T12:01:04.000Z" itemprop="datePublished">2007-04-12</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>The default struts.xml file is loaded from the root of the classpath. In a web application, the WEB-INF/classes folder is loaded to the root of the classpath.</p>
-<p>To avoid maintaining files directly under WEB-INF, create a resource  folder that can be copied to WEB-INF/classes when the appliication  is compiled. If subfolders are also copied, then the resource folder  can mirror the Java package system. The Struts Showcase application uses this common approach.</p>
-<pre>+ java
-
-  + receivables
-
-    - Deposit.java
-
-    - Menu.java
-
-  + payables
-
-    - Menu.java
-
-+ resources
-
-  - payables.xml
-
-  - receivables.xml
-
-  - struts.xml
-
-  + payables
-
-    - Menu.properties
-
-  + receivables
-
-    - Menu.properties
-
-+ webapp
-
-  + payables
-
-  + receivables
-
-    - Deposit-error.jsp
-
-    - Deposit-input.jsp
-
-  + WEB-INF</pre>
-Alternatively, maintain the configuration files alongside the Java packages, and have the build system copy resource files from the   Java source root. The Struts Mailreader uses this alternative approach.
-<pre>+ java
-
-+ receivables
-
-- struts.xml
-
-- Deposit.java
-
-- Menu.java
-
-- Menu.properties
-
-+ payables
-
-- struts.xml
-
-- Menu.java
-
-- Menu.properties
-
-- struts.xml
-
-+ webapp
-
-+ receivables
-
-- Deposit-error.jsp
-
-- Deposit-input.jsp
-
-+ payables
-
-+ WEB-INF</pre>
-If FreeMarker templates are used in lieu of JSPs, then all the resources for a namespace can be kept in a single folder.
-<pre>+ java
-
-+ receivables
-
-- struts.xml
-
-- Deposit.java
-
-- Deposit-input.ftl
-
-- Deposit-error.ftl
-
-- Menu.java
-
-- Menu.properties
-
-+ payables
-
-- struts.xml
-
-- Menu.java
-
-- Menu.properties
-
-- struts.xml</pre>
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/24/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><span class="page-number current">25</span><a class="page-number" href="/page/26/">26</a><a class="page-number" href="/page/27/">27</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/26/">下一页 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/24/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><span class="page-number current">25</span><a class="page-number" href="/page/26/">26</a><a class="page-number" href="/page/27/">27</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/26/">Next &raquo;</a>
       </nav>
     </section>
     <footer id="footer">

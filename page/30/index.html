@@ -69,6 +69,62 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-simulating-action" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/simulating-action/">Simulating Action</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/simulating-action/" class="article-date">
+  <time datetime="2007-03-25T09:00:00.000Z" itemprop="datePublished">2007-03-25</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Since client-side JavaScript is event-driven, Ajax libraries follow suit. For many developers, Ajax is their first time around the event-driven maypole.</p>
+<p>When event-driven controls for the first time, it’s common for a noobe to attach some application-specific behavior to a control’s onClick event. As the application grows more complex, we often want to invoke the same behavior without the help of the control. A common question then becomes “How can we send the control a change event, as if the user had himself clicked on the option?” As with many programming problems, the solution is to add a layer of abstraction. :)</p>
+<p>Instead of attaching our behavior directly to primitive events, like onClick, we should create our own idiomatic events to describe what happens when the user selects the option. Selecting the option is a means to an end. If we create own custom event for that end, the select control change event can turn around and raise our event. Then, when our custom event needs to be raised from another point in the workflow, we can just go ahead and raise it progmatically.</p>
+<p>It’s not about clicking the control, it’s about the action that the control triggers.</p>
+<p>In essence, user-interface widgets raise primitive events, like “change” and “click”. This is a Good Thing, because those events represent what widgets do (or appear to do). Applications don’t “click”. Applications update state and run reports. An event-driven application should create its own layer of idiomatic events that describes what the application does in its own terms. In that way, we are not chained to the controls, and we can call our own events whenever we like. Architectually, idiomatic events <a href="http://en.wikipedia.org/wiki/Cohesive" target="_blank" rel="external">increase cohesion</a> and <a href="http://en.wikipedia.org/wiki/Coupling_%28computer_science%29" target="_blank" rel="external">lower coupling</a>. Also Good Things.</p>
+<p>An excellent introduction to event-driven design is Christian Heilmann’s <a href="http://yuiblog.com/blog/2007/01/17/event-plan/" target="_blank" rel="external">Event-Driven Web Application Design</a> (which I like to call “Brace yourself, Bridget!).</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">Ajax</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-struts-from-square-one-part-1-text-complete" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -335,87 +391,8 @@ ga('send', 'pageview');
 
 
     
-      <article id="post-subversion-tips-svn-redux" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2007/subversion-tips-svn-redux/">Subversion Tips - SVN Redux</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2007/subversion-tips-svn-redux/" class="article-date">
-  <time datetime="2007-03-20T09:00:00.000Z" itemprop="datePublished">2007-03-20</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>When it comes to keeping track of each and every change to content, whether we like it or not, <a href="http://subversion.tigris.org/" target="_blank" rel="external">Subversion</a> is a stern gatekeeper. But, when it comes to retagging a version or rewriting a log entry, Subversion is happy to accommodate us.</p>
-<h3 id="Retagging-a-version"><a href="#Retagging-a-version" class="headerlink" title="Retagging a version"></a>Retagging a version</h3><p>Through its global revision number, every Subversion commit creates a working tag. But, instead of tracking that version 2.0.7 of your product maps to Subversion revision r520258, it’s just as easy to create a tag. Later, if we need to make changes to that version without changing the head, we can convert the tag to a branch by checking it out and making a commit.</p>
-<p>Some projects like to keep tags as a permanent record, so we often create a repository with three subfolders: trunk, tags, and branches. This particular set of folders is not required, but it’s a convenient convention.</p>
-<p>The easiest way to tag a revision is from the command line, using a command like</p>
-<pre><code>$ svn copy -r 520258
-https://svn.apache.org/repos/asf/struts/struts2/trunk
-https://svn.apache.org/repos/asf/struts/struts2/tags/STRUTS_2_0_7
--m &quot;WW-1767 Tag r520258 as Struts 2.0.7&quot;
-`&lt;/pre&gt;
-On occasion, after tagging a version, we might find a minor problem before the bits are actually released, and we might want to tag it again. Not a problem for Subversion. The tags are folders in the repository, and we can rename or recopy tags as needed. But, Subversion can also add to a tag. If you try to recopy a tag by executing the previous example command using a new revision number, it won&apos;t overwrite the old tag, but merge the two together, and we end up with a mix of revisions.
-
-That&apos;s not exactly what we want. Better to first delete the old tag
-&lt;pre&gt;`svn delete https://svn.apache.org/repos/asf/struts/struts2/tags/STRUTS_2_o_7
--m &quot;WW-1767 Removing first try at 2.0.7.&quot;
-`&lt;/pre&gt;
-Then, retag the branch as before, specifying the new revision number. If we don&apos;t specify a revision number, Subversion will use the latest revision (or &quot;HEAD&quot;). In a multi-developer environment, it&apos;s safer to use the revision so there&apos;s no doubt as to what is being tagged. Of course, since this is Subversion, we can also go back and create a tag on any revision at any time.
-
-### Rewriting a log entry
-
-Verbose Subversion log entries is an excellent practice. A smart project will have a [developers mailing list](http://www.nabble.com/Struts---Dev-f205.html), and the Subversion alerts set to automatically post to the list. In this way, we can keep everyone in the loop as part of the everyday workflow. If we put any needed explanations in the log, we don&apos;t have to send out a special email or have a special conversation later. Very smart projects will also have [ViewVC](http://svn.apache.org/viewvc/struts/) hooked up, making it easy to browse prior revisions, view the DIFFs, and review the logs.
-
-On occasion, we might fire off a commit with an inadequate or incorrect log. No worries, mate. With Subversion, we can update the log so that it reads like a good entry should. Again, the easiest way to amend a log entry is via the command line. Say for example, we left off the issue reference or maybe cited the wrong revision number. To update the log for revision 504523, we can change to the local working directory, and execute
-&lt;pre&gt;`$ svn propset --revprop -r 504523
-svn:log &quot;WW-1715 Branch for 2.0.x at Struts 2.0.6-SNAPSHOT r504196&quot;
-`&lt;/pre&gt;
-And Subversion will confirm the change
-&lt;pre&gt;`$ property &apos;svn:log&apos; set on repository revision 504523
-</code></pre><p>The change to the log won’t be echoed to the mailing list like a regular commit. If a log entry is changed, the best practice would be to send a message to the developers list to document the change. (“If it didn’t happen on the list, it didn’t happen.”)</p>
-<p>While these aren’t everyday tips, on occasion, retagging a version or rewriting a log entry can help Subversion help us.</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/29/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/31/">下一页 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/29/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/31/">Next &raquo;</a>
       </nav>
     </section>
     <footer id="footer">

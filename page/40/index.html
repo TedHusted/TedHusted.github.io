@@ -69,6 +69,65 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-webwork-2-2-whats-in-it-for-me" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/webwork-2-2-whats-in-it-for-me/">WebWork 2.2 - What&#39;s in it for me?</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2006/webwork-2-2-whats-in-it-for-me/" class="article-date">
+  <time datetime="2006-02-12T11:00:00.000Z" itemprop="datePublished">2006-02-12</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/essay/">Essay</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre>On 7 Feb 2006, Raghu Kanchustambham wrote on user@struts.apache.org:<br>&gt; I am using struts 1.2.8 and use the struts-layout<br>&gt; tags for my UI components. I have done some 50%<br>&gt; of my project work using this combination. And<br>&gt; I must say I am quite happy with what these<br>&gt; layout-tags offer so far.<br>&gt;<br>&gt; Now, how do I get webwork into my ecosystem?<br>&gt; Is it correct that webwork’s main strength is<br>&gt; its rich UI components?<br>&gt; Can I make struts-layout (or for that matter<br>&gt; any other struts based taglibs) to co-exist with<br>&gt; webwork ? Will integrating with webwork mean that<br>&gt; if I replace my current struts version with the<br>&gt; integrated new version, my earlier taglibs will<br>&gt; stop working?</pre><br>WebWorks is a very flexible platform, and there is room for creating a 1.x interceptor that mimick the Struts environment so that Struts specific taglibs could work. We could also do things like use XML transformations to migrate configuration files. I believe Don Brown’s been working on some things along those lines. But I think the heads-down work on a compatibility layer will happen after we pass the codebase through the Incubator and can work on it here.</p>
+<p>Of course, the web application platform is already open. If you wanted to use WebWork or Action 2 for some things in your current application, you could drop the new JARs into your application and have Action1 handle the .do’s and have Action2 handle the .do2’s.</p>
+<p>For new development, the WebWork UI tags already do many of the things that packages like <a href="http://struts.application-servers.com/" target="_blank" rel="external"> Struts Layout</a> do, and we can continue to extend the UI tags, so that the UI tags better meet all of our needs.</p>
+<p><pre>&gt; What does this [WebWork] integration mean<br>&gt; to a developer like me?</pre><br>Here’s the bottom line: We could spend the next six years slowly evolving Struts Action 1.x until it ends up looking like a WebWork clone, or we could all work together on creating an even better Action-based framework. Both Struts and WebWorks are already the best in some way, but as Google says: “Never settle for the best.”</p>
+<p>Of course, a lot of us have Struts 1.x application in development or in maintainance mode. We’re about to roll Struts Action 1.3.0, and on the dev@ list, people continue to talk abouta Action 1.4, and so on. Which is great! To keep a line of development alive, all we need is volunteers who want it to live.</p>
+<p><pre>&gt; In the Microsoft world, good(?),bad,ugly<br>&gt; - there is just one choice.<br>&gt; On day 1, you know “this” is what I need<br>&gt; to use in the MS world!</pre><br>I’ve been working in ASP.NET for going on two years now. It’s true that if you’re writing simple applications, yes, what they ship in the box is just fine. Just like what Java ships in the box (JSTL and JSF) is just fine.</p>
+<p>But, .NET developers writing enterprise applications are reaching for all the same tools we have for J2EE. If you look at the ASP.NET example frameworks, you can see the evolution away from simplistic, monolithic applications and toward rich, layered applications. One example uses this data access library, the next uses another. Same old, same old.</p>
+<p>I think the difference is that ASP.NET teams tend to use extra libraries and packages in stealth mode, where J2EE teams wear their extensions on their sleeves. (And, at conventions, on our T shirts!)</p>
+<p>I would agree that it’s time that we did more to help enterprise ASP.NET developers come out of the closet and embrace choice. Action 2 for C# and FastCGI anyone?</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-webwork-2-2-1-released-and-ready-for-struts" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -282,59 +341,8 @@ ga('send', 'pageview');
 
 
     
-      <article id="post-checkstyle-woes" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2006/checkstyle-woes/">CheckStyle Woes</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2006/checkstyle-woes/" class="article-date">
-  <time datetime="2006-01-27T11:07:00.000Z" itemprop="datePublished">2006-01-27</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/event/">Event</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Over the years, Struts has gone from zero Checkstyle errors to over twenty thousand. I’d like to try and slim that down to around ten thousand by using automatic reformatting tools like Jalopy and IDEA. I tried it with the Action subproject, but there was some <a href="http://www.mail-archive.com/dev@struts.apache.org/msg17321.html" target="_blank" rel="external">pushback</a>. I need to check to see if everyone is on board before proceeding one way or the other.</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/39/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="page-number" href="/page/39/">39</a><span class="page-number current">40</span><a class="page-number" href="/page/41/">41</a><a class="page-number" href="/page/42/">42</a><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/41/">下一页 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/39/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="page-number" href="/page/39/">39</a><span class="page-number current">40</span><a class="page-number" href="/page/41/">41</a><a class="page-number" href="/page/42/">42</a><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/41/">Next &raquo;</a>
       </nav>
     </section>
     <footer id="footer">

@@ -69,6 +69,58 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-a-nimble-introduction-to-force-com" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/a-nimble-introduction-to-force-com/">A Nimble Introduction to Force.com</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2012/a-nimble-introduction-to-force-com/" class="article-date">
+  <time datetime="2012-05-05T13:16:00.000Z" itemprop="datePublished">2012-05-05</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://developer.force.com/" target="_blank" rel="external"><img src="http://www.developerforce.com/assets/developerforcesite/images/forcebug.png" alt=""></a>Compared to .NET or J2EE, developing on Force.com is both very familiar and very different. It’s familiar because you still follow the same-old Software Delivery Lifecycle. You write code, queries, and unit tests using familiar syntaxes and tools. When QA signs-off, you push components from development to production. And when users come up with something that we can do to make their lives easier, we do it all over again.  Of course, there are some notable differences …</p>
+<p><a href="https://docs.google.com/document/pub?id=1N6_9Pf6RytmeMN2kabmcbymEVHUmJbjqcOKIj6Tmc_A" target="_blank" rel="external">In a brief, 12-page introduction, we walk through how the Force.com platform works, from a developers perspective. [Read More]</a></p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/salesforce/">Salesforce</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-office-data-silos-considered-harmful" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -304,77 +356,8 @@ ga('send', 'pageview');
 
 
     
-      <article id="post-catch-me-on-the-flip-side-responding-to-outbound-messages-in-salesforce-crm" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/catch-me-on-the-flip-side-responding-to-outbound-messages-in-salesforce-crm/">Catch me on the flip-side: Responding to Outbound Messages in Salesforce CRM</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2012/catch-me-on-the-flip-side-responding-to-outbound-messages-in-salesforce-crm/" class="article-date">
-  <time datetime="2012-03-29T09:00:00.000Z" itemprop="datePublished">2012-03-29</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><div class="separator" style="clear:both;text-align:center;"><a href="https://www.flickr.com/photos/spacemanbob/1084139169" target="_blank" rel="external"><img src="https://farm2.staticflickr.com/1130/1084139169_e272bc1f81_z.jpg" alt=""></a></div><br>In a <a href="http://tedhusted.blogspot.com/2012/03/unloading-salesforce-crm-data-with.html" target="_blank" rel="external">previous blog</a>, we walked through example code for an Outbound Message Listener. We covered the essentials, but Salesforce CRM offers a nifty twist on just sending an outbound message to an external system. Not only can a system receive a message, it can send back a response. For example, if the outbound message inserts a record, the external system can send back the record’s key.</p>
-<p><a name="more"></a>Our example Listener called a worker method that handled the messages in a foreach loop. Using the case of returning an external key, we can add the keys to a hashtable, and send back a batch at the end all of the responses. We’ll pickup the live action towards the end of the foreach loop from the <a href="http://tedhusted.blogspot.com/2012/03/unloading-salesforce-crm-data-with.html" target="_blank" rel="external">previous example</a>.</p>
-<p><pre> <strong>Hashtable responsePayload = newHashtable();  // Returns IDs to SF</strong><br> foreach (AccountNotification message in n.Notification)<br> {<br>     sf = message.sObject;</pre></p>
-<p><pre>     // – Check cache –<br>     // …<br>     // – handle message –<br>     // …<br>     // Queue ID for return to SF<br>     <strong>responsePayload.Add(sf.Id, my.Id);</strong><br> } // end foreach loop<br> // – Return IDs to SF –<br> <strong>log.Info(“Info: Sending response to Salesforce …”);</strong><br> <strong>Response response = new Response();</strong></pre></p>
-<p><pre> <strong>log.Info(response.Send(“Account”, responsePayload));</strong><br> return;<br>}</pre><br>The Response class is a wrapper around a <span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">SForceService</span> instance which returns a String we can use as a logging statement.</p>
-<p><pre>class Response<br>{<br>    private SforceService service;<br>    public Response() { }<br>    public String Send(String objectName, Hashtable payload)<br>    {<br>        return this.Send(objectName, payload, “External_Id__c”);<br>    }<br>    public String Send(String objectName, Hashtable payload, String syncFieldName)<br>    {<br>        if (payload == null || payload.Count == 0) return</pre></p>
-<p><pre>            “No records updated. Response.Send() not needed.”;<br>        try<br>        {<br>            service = new SforceService();<br>            LoginResult loginResult = service.login(<br>                ConfigurationManager.AppSettings[“Salesforce.Username”],<br>                ConfigurationManager.AppSettings[“Salesforce.Password”] +<br>                ConfigurationManager.AppSettings[“Salesforce.Token”]<br>            );<br>            service.SessionHeaderValue = new SessionHeader();<br>            service.SessionHeaderValue.sessionId = loginResult.sessionId;<br>            service.Url = loginResult.serverUrl;<br>            GetUserInfoResult userInfo = loginResult.userInfo;<br>            List sObjects = new List();<br>            sObject s = new sObject();<br>            XmlDocument xmlDocument = new XmlDocument();<br>            List elements;<br>            XmlElement element;<br>            foreach (String sfid in payload.Keys)<br>            {<br>                s = new sObject();<br>                s.Id = sfid;<br>                s.type = objectName;<br>                elements = newList();<br>                element = xmlDocument.CreateElement(syncFieldName);<br>                element.InnerText = ht[sfid].ToString();<br>                elements.Add(element);<br>                s.Any = elements.ToArray();<br>                sObjects.Add(s);<br>            }<br>            SaveResult[] saveResults = service.update(sObjects.ToArray());<br>            String output = String.Empty;<br>            foreach (SaveResult sr in saveResults)<br>            {<br>                if (sr.success)<br>                {<br>                    output += String.Format(</pre></p>
-<p><pre>“{0} Response Sync Success : sf.id=\”{1}\””, objectName, sr.id) + “\n”;<br>                }<br>                else<br>                {<br>                    foreach (Error err in sr.errors)<br>                    {<br>                        output += String.Format(</pre></p>
-<p><pre>“{0} Response Sync Error : sf.id=\”{1}\”, {2}”, objectName, sr.id, err.message) +</pre></p>
-<p><pre>“\n”;<br>                    }<br>                }<br>            }<br>            return output;<br>        }<br>        catch (Exception ex)<br>        {<br>            return ex.Message + “ — “ + ex.StackTrace;<br>        }<br>    }<br>}</pre><br>The credentials and API service endpoint are declared in the Web.Config file.</p>
-<p><pre></pre><br><a href="https://test.salesforce.com/services/Soap/u/24.0" target="_blank" rel="external">https://test.salesforce.com/services/Soap/u/24.0</a></p>
-<p>(In a production environment, replace “test.salesforce.com” with “www.salesforce.com”.)</p>
-<p>Some caveats are</p>
-<p>(1) The response needs credentials to login, and you might need to setup a system account for the response.</p>
-<p>(2) To keep the message from recursing, the Response User needs to have outbound messaging disabled, or be specifically excluded from the Outbound Messaging Workflow.</p>
-<p>(3) If your listener implements a producer/consumer queue, the response may not be immediate. (If tens of thousands of records are being updated by a slow system, it could be an hour or more!).</p>
-<p>(4) An outbound message response may update the record while it’s being viewed by another user. If the user makes another change without refreshing the record, Salesforce will decline the second change, and the human user will have to refresh and repeat.</p>
-<p>By allowing a response to an outbound message, Salesforce gives us the opportunity to close the loop. For example, if a record is being inserted into an external system, the response could return the external ID, for use with future updates.</p>
-<p>While not a “point-and-click” product, like the Apex Dataloader, the outbound messaging API provides developers all the hooks we need to create a full-service data connection.</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/salesforce/">Salesforce</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/7/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/9/">下一页 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
       </nav>
     </section>
     <footer id="footer">

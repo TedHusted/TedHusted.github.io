@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>ted.husted.com</title>
-  <subtitle>Business Analysis + Software Development + Continuous Delivery</subtitle>
+  <subtitle>Working Code Speaks</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ted.husted.com/"/>
@@ -55,6 +55,33 @@
     </summary>
     
       <category term="Tutorial" scheme="http://ted.husted.com/categories/tutorial/"/>
+    
+    
+      <category term="DevOps" scheme="http://ted.husted.com/tags/devops/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ant-SF: DX for the rest of us</title>
+    <link href="http://ted.husted.com/2017/ant-sf-dx-for-the-rest-of-us/"/>
+    <id>http://ted.husted.com/2017/ant-sf-dx-for-the-rest-of-us/</id>
+    <published>2017-01-17T11:00:00.000Z</published>
+    <updated>2017-02-28T02:50:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>The Ant-SF buildfile supplements tasks provided by the Ant-Salesforce JAR. The JAR provides a core set of tasks for retrieving and deploying metadata between Salesforce orgs and a Git version control repository.</p>
+<p>Moreover, the buildfile supports using task branches, where each task is a separate JIRA issue. Each task (or feature) can be developed in its own Salesforce environment, and merged back into the mainline of development.</p>
+<p>Targets are provided for both direct consulting projects and managed package products. For products, either sandboxes or trial orgs can be used with a corresponding task branch.</p>
+<p>For more, see the Ant-SF repository on <a href="https://bitbucket.org/dreamops/ant-sf" target="_blank" rel="external">Bitbucket</a> or <a href="https://github.com/DreamOps/ant-sf" target="_blank" rel="external">GitHub</a>.</p>
+<div align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Apache-Ant-logo.svg/200px-Apache-Ant-logo.svg.png"></div>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;The Ant-SF buildfile supplements tasks provided by the Ant-Salesforce JAR. The JAR provides a core set of tasks for retrieving and deploy
+    
+    </summary>
+    
+      <category term="Review" scheme="http://ted.husted.com/categories/review/"/>
     
     
       <category term="DevOps" scheme="http://ted.husted.com/tags/devops/"/>
@@ -443,29 +470,6 @@
     <summary type="html">
     
       &lt;p&gt;&lt;img style=&quot;float: right; margin: 0px 0px 0px 8px; max-height: 25%; max-width: 25%;&quot; src=&quot;http://uploads3.wikiart.org/images/m-c-escher/d
-    
-    </summary>
-    
-      <category term="Tutorial" scheme="http://ted.husted.com/categories/tutorial/"/>
-    
-    
-      <category term="Salesforce" scheme="http://ted.husted.com/tags/salesforce/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Customizing Salesforce Help - Part 2</title>
-    <link href="http://ted.husted.com/2015/customizing-salesforce-help-part-2/"/>
-    <id>http://ted.husted.com/2015/customizing-salesforce-help-part-2/</id>
-    <published>2015-02-02T11:00:00.000Z</published>
-    <updated>2017-02-23T10:59:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img style="float: left; max-width: 25%; max-height: 25%;" src="http://www.wpclipart.com/cartoon/people/kids/girl_cartoons/girlies/Help_me.png">How you can implement a custom help site for your Salesforce org, like the one at help.nimbleams.com (in three parts). Warning: There’s a lot you can do to extend Salesforce help, but we need to create a few prerequisites along the way. – <a href="http://www.nimbleams.com/blog/2015/2/2/customizing-salesforce-help-part-2/" target="_blank" rel="external">Read More at NimbleAMS.com</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img style=&quot;float: left; max-width: 25%; max-height: 25%;&quot; src=&quot;http://www.wpclipart.com/cartoon/people/kids/girl_cartoons/girlies/Help_m
     
     </summary>
     

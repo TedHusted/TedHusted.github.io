@@ -69,6 +69,76 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-google-code-successively-refines" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/google-code-successively-refines/">Google Code Successively Refines</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/google-code-successively-refines/" class="article-date">
+  <time datetime="2007-04-04T09:00:00.000Z" itemprop="datePublished">2007-04-04</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/event/">Event</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://code.google.com/hosting/%22" target="_blank" rel="external">Google Code</a> doesn’t seem to have release per se, or even announce when new features are added. Day by day, it just gets better and better.</p>
+<p>Not long ago, the ninjas added to the automatic alerts. Yesterday, I was reviewing some issues and noticed that we can now edit all the issue details. Not long ago, the details were immutable. Now I can fix the issues inadvertently named “Enter one line summary”.</p>
+<p>Here’s a run down of some other changes that I’ve noticed. Some of these may be older than others.</p>
+<ul>
+<li>We can now feature (or deprecate) wiki pages and downloads</li>
+<li>We can mark an issue “notify me of issue changes”.</li>
+<li>We can edit issue details.</li>
+<li>There are now search filters for “My Issues”, “My Starred Issues”, and “Issues to Verify”, along with “All Issues” and “Open Issues”</li>
+<li>Advanced issues search offers a “without the words” option, along with narrowing the search to labels, statuses, reporters, owners, and such.</li>
+<li>The number of people who have starred an issue is tracked and reported (as an indication that they care).<br>One search filter that is missing is “Fixed” issues. The workaround for that is to enter the word “Fixed” into an all issues search. Ditto for “WontFix”.</li>
+</ul>
+<p>Of course, there is still miles to go. Right now, the four features that I miss most on Google Code are</p>
+<ul>
+<li><a href="http://code.google.com/p/support/issues/detail?id=94" target="_blank" rel="external">JIRA/SVN style integration to support issue-driven-development</a></li>
+<li><a href="http://code.google.com/p/support/issues/detail?id=57" target="_blank" rel="external">Allow direct linking to issues from the wiki</a></li>
+<li><a href="http://code.google.com/p/support/issues/detail?id=71" target="_blank" rel="external">ViewVC support</a></li>
+<li><a href="http://code.google.com/p/support/issues/detail?id=96" target="_blank" rel="external">Email notifications on changes to project setup</a><br>The “project setup notification” issue has been marked “Won’t Fix”, but hope springs eternal.</li>
+</ul>
+<p>But, even with these missing features, Google Code is still my favorite host, though admittedly because the tab interface makes everything so quick and easy to use.</p>
+<p>Now, if we could just wrap Confluence, JIRA, Jive Forums, and (of course) Subversion in the same sort of interface, and get someone to set up a free open source hosting service – then we would really have <a href="http://jroller.com/page/TedHusted?entry=prim" target="_blank" rel="external">Team Best of Breed</a>!</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/google-code/">Google Code</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-log-me-log-yui" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -353,65 +423,8 @@ oSelf.logRecordEvent(&quot;updateEvent&quot;, oRecord, oOldRecord); // debug
 
 
     
-      <article id="post-s2-tip-place-each-namespace-into-its-own-struts-configuration-file" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2007/s2-tip-place-each-namespace-into-its-own-struts-configuration-file/">S2 Tip - Place each namespace into its own Struts configuration file</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2007/s2-tip-place-each-namespace-into-its-own-struts-configuration-file/" class="article-date">
-  <time datetime="2007-03-30T09:00:00.000Z" itemprop="datePublished">2007-03-30</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>The framework configuration supports an include element. When using packages and namespaces to organize an application, each namespace can be placed into its own configuration file, and then included by the default struts.xml configuration file.</p>
-<!-- ... -&gt;-->
-<p><br>Maintaining a separate configuration file for each module reduces coupling and increases cohesion. If different members of a team are workinmg on different segments of the application (or “module”), each group can maintain the configuration file relating to their segment.</p>
-<p>Note that configuration packages can extend one another.</p>
-<p><pre><code></code></pre></p>
-<p>… –&gt;</p>
-<p>Common configuration settings can be placed into a default file and shared between packages.</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/27/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="page-number" href="/page/27/">27</a><span class="page-number current">28</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/29/">下一页 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/27/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="page-number" href="/page/27/">27</a><span class="page-number current">28</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/29/">Next &raquo;</a>
       </nav>
     </section>
     <footer id="footer">
