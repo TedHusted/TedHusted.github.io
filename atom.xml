@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ted.husted.com/"/>
-  <updated>2017-02-23T11:38:39.000Z</updated>
+  <updated>2017-03-20T23:41:40.000Z</updated>
   <id>http://ted.husted.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://ted.husted.com/2017/the-thousand-developer-march-on-dx-ga/"/>
     <id>http://ted.husted.com/2017/the-thousand-developer-march-on-dx-ga/</id>
     <published>2017-02-06T11:00:00.000Z</published>
-    <updated>2017-02-23T11:38:39.000Z</updated>
+    <updated>2017-03-20T23:41:40.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="float: left;" src="https://pbs.twimg.com/profile_images/784609366985019392/jEp3FNFG.jpg">The Salesforce DX pilot is imminent, and it’s a pilot with a difference. Sure, DX is a groundbreaking initiative for Salesforce, breathtaking in its scope. Among other things, DX: Moves the source of truth from the cloud environment to source control – <a href="http://www.nimbleams.com/blog/2017/2/6/the-thousand-developer-march-on-dx-ga/" target="_blank" rel="external">Read More at NimbleAMS.com</a></p>
+    <content type="html"><![CDATA[<p><img style="float: left;" src="https://pbs.twimg.com/profile_images/784609366985019392/jEp3FNFG.jpg">The Salesforce DX pilot is imminent, and it’s a pilot with a difference. Sure, DX is a groundbreaking initiative for Salesforce, breathtaking in its scope. Among other things, DX: Moves the source of truth from the cloud environment to source control – <a href="http://www.nimbleuser.com/blog/the-thousand-developer-march-on-dx-ga" target="_blank" rel="external">Read More at NimbleUser</a></p>
 ]]></content>
     
     <summary type="html">
@@ -43,9 +43,9 @@
     <link href="http://ted.husted.com/2017/confluence-templates-for-all/"/>
     <id>http://ted.husted.com/2017/confluence-templates-for-all/</id>
     <published>2017-01-31T11:00:00.000Z</published>
-    <updated>2017-02-21T01:19:14.000Z</updated>
+    <updated>2017-03-20T23:23:32.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="max-width: 25%; max-height: 25%;float: right;" src="http://www.clipartkid.com/images/568/where-do-we-get-our-clip-art-and-images-from-lZK285-clipart.jpg">One of the many truly useful features of the Confluence enterprise wiki are page templates. Along with Confluence templates for sprint planning, retrospectives, and Go-No-Go decisions, we have checklist templates for routine maintenance – <a href="http://www.nimbleams.com/blog/2017/1/31/confluence-templates-for-all/" target="_blank" rel="external">Read More at NimbleAMS.com</a></p>
+    <content type="html"><![CDATA[<p><img style="max-width: 25%; max-height: 25%;float: right;" src="http://www.clipartkid.com/images/568/where-do-we-get-our-clip-art-and-images-from-lZK285-clipart.jpg">One of the many truly useful features of the Confluence enterprise wiki are page templates. Along with Confluence templates for sprint planning, retrospectives, and Go-No-Go decisions, we have checklist templates for routine maintenance – <a href="http://www.nimbleuser.com/blog/confluence-templates-for-all" target="_blank" rel="external">Read More at NimbleUser</a></p>
 ]]></content>
     
     <summary type="html">
@@ -93,9 +93,9 @@
     <link href="http://ted.husted.com/2016/why-scrum-is-smart/"/>
     <id>http://ted.husted.com/2016/why-scrum-is-smart/</id>
     <published>2016-11-17T11:00:00.000Z</published>
-    <updated>2017-02-23T11:40:22.000Z</updated>
+    <updated>2017-03-20T23:42:54.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="float: left; margin: 0px 16px 0px 0px;" src="https://www.projectsmart.co.uk/img/goals-objectives.png"><br>Folks think of Scrum as an Agile project management system, and it is, but the ceremonies are classic time-management techniques that we see in Get Things Done, SMART Objectives, Pomodoro, and the Seven Habits. – <a href="http://www.nimbleams.com/blog/2016/11/17/why-scrum-is-smart/" target="_blank" rel="external">Read More at NimbleAMS.com</a></p>
+    <content type="html"><![CDATA[<p><img style="float: left; margin: 0px 16px 0px 0px;" src="https://www.projectsmart.co.uk/img/goals-objectives.png"><br>Folks think of Scrum as an Agile project management system, and it is, but the ceremonies are classic time-management techniques that we see in Get Things Done, SMART Objectives, Pomodoro, and the Seven Habits. – <a href="http://www.nimbleuser.com/blog/why-scrum-is-smart" target="_blank" rel="external">Read More at NimbleUser</a></p>
 ]]></content>
     
     <summary type="html">
@@ -116,9 +116,9 @@
     <link href="http://ted.husted.com/2016/jira-our-nexus-of-truth/"/>
     <id>http://ted.husted.com/2016/jira-our-nexus-of-truth/</id>
     <published>2016-11-15T11:00:00.000Z</published>
-    <updated>2017-02-23T11:49:29.000Z</updated>
+    <updated>2017-03-20T23:34:28.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Once upon a time, when CVS ruled the earth, we used issue trackers, like Bugzilla and JIRA, to organize defect reports and help us squash bugs, over the web. – <a href="http://www.nimbleams.com/blog/2016/11/15/jira-our-nexus-of-truth/" target="_blank" rel="external">Read More at NimbleAMS.com</a></p>
+    <content type="html"><![CDATA[<p>Once upon a time, when CVS ruled the earth, we used issue trackers, like Bugzilla and JIRA, to organize defect reports and help us squash bugs, over the web. – <a href="http://www.nimbleuser.com/blog/jira-our-nexus-of-truth" target="_blank" rel="external">Read More at NimbleUser</a></p>
 <div align="center"><img style="max-width: 50%; max-height: 50%; margin: 12px 0px 0px 0px; " src="https://blog.hipchat.com/wp-content/uploads/2016/06/hipchat_atlassian_integrations_JIRA_Bitbucket_Confluence-2.png"></div>
 ]]></content>
     
@@ -140,9 +140,9 @@
     <link href="http://ted.husted.com/2016/life-as-a-service/"/>
     <id>http://ted.husted.com/2016/life-as-a-service/</id>
     <published>2016-11-10T11:26:07.000Z</published>
-    <updated>2017-02-23T02:32:05.000Z</updated>
+    <updated>2017-03-20T23:35:38.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="max-width: 50%; max-height: 50%; float: right; margin: 0px 8px;" src="http://screenanarchy.com/assets_c/2013/05/cable-guy-wallpaper-630-thumb-630xauto-38688.jpg">First it was “Software as a Service”, pioneered by folks like Salesforce.com, back when the century was turning. Today, more and more of the things around us are becoming “as a service”. – <a href="http://www.nimbleams.com/blog/2016/11/10/life-as-a-service/" target="_blank" rel="external">Read More at NimbleAMS.com</a></p>
+    <content type="html"><![CDATA[<p><img style="max-width: 50%; max-height: 50%; float: right; margin: 0px 8px;" src="http://screenanarchy.com/assets_c/2013/05/cable-guy-wallpaper-630-thumb-630xauto-38688.jpg">First it was “Software as a Service”, pioneered by folks like Salesforce.com, back when the century was turning. Today, more and more of the things around us are becoming “as a service”. – <a href="http://www.nimbleuser.com/blog/life-as-a-service" target="_blank" rel="external">Read More at NimbleUser</a></p>
 ]]></content>
     
     <summary type="html">
@@ -161,9 +161,9 @@
     <link href="http://ted.husted.com/2016/five-years-fifteen-releases-thousands-of-upgrades/"/>
     <id>http://ted.husted.com/2016/five-years-fifteen-releases-thousands-of-upgrades/</id>
     <published>2016-11-09T02:14:11.000Z</published>
-    <updated>2017-02-23T11:45:02.000Z</updated>
+    <updated>2017-03-20T23:27:39.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="margin: 0px 0px 0px 12px; max-width: 25%; max-height: 25%; float: right;" src="https://pbs.twimg.com/profile_images/646623384684642304/UbP0jhRM.png">With Winter ‘17 in the rear-view mirror, we’re already well on our way to Spring ‘17 – which will be our 15th major release of Nimble AMS. Fifteen seems like a milestone to me. DevOps on a cloud platform, like Salesforce, brings its own set of challenge. – <a href="http://www.nimbleams.com/blog/2016/11/8/five-years,-fifteen-releases,-thousands-of-upgrades/" target="_blank" rel="external">Read More at NimbleAMS.com</a></p>
+    <content type="html"><![CDATA[<p><img style="margin: 0px 0px 0px 12px; max-width: 25%; max-height: 25%; float: right;" src="https://pbs.twimg.com/profile_images/646623384684642304/UbP0jhRM.png">With Winter ‘17 in the rear-view mirror, we’re already well on our way to Spring ‘17 – which will be our 15th major release of Nimble AMS. Fifteen seems like a milestone to me. DevOps on a cloud platform, like Salesforce, brings its own set of challenge. – <a href="http://www.nimbleuser.com/blog/five-years-fifteen-releases-thousands-of-upgrades" target="_blank" rel="external">Read More at NimbleUser</a></p>
 ]]></content>
     
     <summary type="html">
@@ -184,9 +184,9 @@
     <link href="http://ted.husted.com/2016/election-jitters-dont-worry-we-got-this/"/>
     <id>http://ted.husted.com/2016/election-jitters-dont-worry-we-got-this/</id>
     <published>2016-11-03T10:00:00.000Z</published>
-    <updated>2017-02-23T02:36:00.000Z</updated>
+    <updated>2017-03-20T23:26:54.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="max-width: 25%; max-height: 25%; float: left; margin: 0px 8px;" src="https://www.ausm.org/images/graphics/votecounts2016.png">As a DevOps devotee, there’s nothing I like better than a system with failsafes, checks, and balances. One great pleasure of working with Salesforce DevOps is that the APIs fail fast, fail safe, and log verbosely. Success means success. – <a href="http://www.nimbleams.com/blog/2016/11/3/election-jitters-dont-worry-we-got-this/" target="_blank" rel="external">Read More at NimbleAMS.com</a></p>
+    <content type="html"><![CDATA[<p><img style="max-width: 25%; max-height: 25%; float: left; margin: 0px 8px;" src="https://www.ausm.org/images/graphics/votecounts2016.png">As a DevOps devotee, there’s nothing I like better than a system with failsafes, checks, and balances. One great pleasure of working with Salesforce DevOps is that the APIs fail fast, fail safe, and log verbosely. Success means success. – <a href="http://www.nimbleuser.com/blog/election-jitters-dont-worry-we-got-this" target="_blank" rel="external">Read More at NimbleUser</a></p>
 ]]></content>
     
     <summary type="html">
@@ -205,9 +205,9 @@
     <link href="http://ted.husted.com/2016/yoda-user-stories/"/>
     <id>http://ted.husted.com/2016/yoda-user-stories/</id>
     <published>2016-11-01T10:00:00.000Z</published>
-    <updated>2017-02-23T02:37:47.000Z</updated>
+    <updated>2017-03-20T23:43:40.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="max-width: 50%; max-height: 50%; float: right;" src="http://designmodo.com/wp-content/uploads/2015/10/user-stories-ux.jpg">Most software folks are familiar with the classic user story format: As a user role, I need this capability, for this benefit. User stories are great way to kick off deeper design discussions, except for one major flaw: – <a href="http://www.nimbleams.com/blog/2016/11/1/yoda-user-stories/" target="_blank" rel="external">Read More at NimbleAMS.com</a></p>
+    <content type="html"><![CDATA[<p><img style="max-width: 50%; max-height: 50%; float: right;" src="http://designmodo.com/wp-content/uploads/2015/10/user-stories-ux.jpg">Most software folks are familiar with the classic user story format: As a user role, I need this capability, for this benefit. User stories are great way to kick off deeper design discussions, except for one major flaw: – <a href="http://www.nimbleuser.com/blog/yoda-user-stories" target="_blank" rel="external">Read More at NimbleUser</a></p>
 ]]></content>
     
     <summary type="html">
@@ -228,9 +228,9 @@
     <link href="http://ted.husted.com/2016/principle-soup-yum/"/>
     <id>http://ted.husted.com/2016/principle-soup-yum/</id>
     <published>2016-10-27T10:00:00.000Z</published>
-    <updated>2017-02-23T02:41:40.000Z</updated>
+    <updated>2017-03-20T23:49:41.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="max-width: 25%; max-height: 25%; float: right;" src="http://www.fridaysfounder.com/wp-content/uploads/2013/06/image63.jpg">OK, I admit it, I’m a principle geek. In this topsy-turvy world, I cling to developer manifestos and self-help principles like flotsam and jetsam in a flood zone. – <a href="http://www.nimbleams.com/blog/2016/10/27/principle-soup-(yum!" target="_blank" rel="external">Read More at NimbleAMS.com</a>/)</p>
+    <content type="html"><![CDATA[<p><img style="max-width: 25%; max-height: 25%; float: right;" src="http://www.fridaysfounder.com/wp-content/uploads/2013/06/image63.jpg">OK, I admit it, I’m a principle geek. In this topsy-turvy world, I cling to developer manifestos and self-help principles like flotsam and jetsam in a flood zone. – <a href="http://www.nimbleuser.com/blog/principle-soup-yum" target="_blank" rel="external">Read More at NimbleUser</a></p>
 ]]></content>
     
     <summary type="html">
@@ -251,9 +251,9 @@
     <link href="http://ted.husted.com/2016/source-driven-development-huh-what/"/>
     <id>http://ted.husted.com/2016/source-driven-development-huh-what/</id>
     <published>2016-10-25T10:00:00.000Z</published>
-    <updated>2017-02-23T11:45:33.000Z</updated>
+    <updated>2017-03-20T23:39:24.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="max-width: 30%; max-height: 30%; float: left;" src="https://c1.sfdcstatic.com/content/dam/web/en_us/www/images/app-cloud/app-cloud-salesforce-dx.png">In a classic Ted Talk, Tom Hulme asks “What can we learn from shortcuts?”. For years, many of us  have been looking for shortcuts through the Salesforce application lifecycle, so that we can use continuous delivery to develop packages – <a href="http://www.nimbleams.com/blog/2016/10/25/source-driven-development-huh-what/" target="_blank" rel="external">Read More at NimbleAMS.com</a></p>
+    <content type="html"><![CDATA[<p><img style="max-width: 30%; max-height: 30%; float: left;" src="https://c1.sfdcstatic.com/content/dam/web/en_us/www/images/app-cloud/app-cloud-salesforce-dx.png">In a classic Ted Talk, Tom Hulme asks “What can we learn from shortcuts?”. For years, many of us  have been looking for shortcuts through the Salesforce application lifecycle, so that we can use continuous delivery to develop packages – <a href="http://www.nimbleuser.com/blog/source-driven-development-huh-what" target="_blank" rel="external">Read More at NimbleUser</a></p>
 ]]></content>
     
     <summary type="html">
@@ -276,9 +276,9 @@
     <link href="http://ted.husted.com/2016/write-better-apex-with-codescan/"/>
     <id>http://ted.husted.com/2016/write-better-apex-with-codescan/</id>
     <published>2016-10-20T10:00:00.000Z</published>
-    <updated>2017-02-23T02:50:00.000Z</updated>
+    <updated>2017-03-20T23:43:14.000Z</updated>
     
-    <content type="html"><![CDATA[<p>As the maker of two managed packages, we have a vested interest in developing the very best code we can. According to Economics of Software Quality (by Caspers Jones), the most effective software quality assurance tools are – <a href="http://www.nimbleams.com/blog/2016/10/20/write-better-apex-with-codescan/" target="_blank" rel="external">Read More at NimbleAMS.com</a></p>
+    <content type="html"><![CDATA[<p>As the maker of two managed packages, we have a vested interest in developing the very best code we can. According to Economics of Software Quality (by Caspers Jones), the most effective software quality assurance tools are – <a href="http://www.nimbleuser.com/blog/write-better-apex-with-codescan" target="_blank" rel="external">Read More at NimbleUser</a></p>
 ]]></content>
     
     <summary type="html">
@@ -301,9 +301,9 @@
     <link href="http://ted.husted.com/2016/from-waterfall-to-pipeline-to-mobius-strip/"/>
     <id>http://ted.husted.com/2016/from-waterfall-to-pipeline-to-mobius-strip/</id>
     <published>2016-10-18T10:00:00.000Z</published>
-    <updated>2017-02-20T13:31:04.000Z</updated>
+    <updated>2017-03-20T23:28:02.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Once upon a time, a man named Royce published his recommended improvements to how large projects delivered software and accidentally popularized the “Waterfall” methodology. – <a href="http://www.nimbleams.com/blog/2016/10/18/from-waterfall-to-pipeline-to-mobius-strip/" target="_blank" rel="external">Read More at NimbleAMS.com</a></p>
+    <content type="html"><![CDATA[<p>Once upon a time, a man named Royce published his recommended improvements to how large projects delivered software and accidentally popularized the “Waterfall” methodology. – <a href="http://www.nimbleuser.com/blog/from-waterfall-to-pipeline-to-mobius-strip" target="_blank" rel="external">Read More at NimbleUser</a></p>
 ]]></content>
     
     <summary type="html">
@@ -324,9 +324,9 @@
     <link href="http://ted.husted.com/2016/bitbucket-pipelines-beta/"/>
     <id>http://ted.husted.com/2016/bitbucket-pipelines-beta/</id>
     <published>2016-05-25T10:00:00.000Z</published>
-    <updated>2017-02-23T11:44:03.000Z</updated>
+    <updated>2017-03-20T23:18:32.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="float: left;" src="http://atlassian.wpengine.netdna-cdn.com/wp-content/uploads/Bitbucket_Pipeline_Illustration_100.png" width="50%" height="50%">Running development builds continuously is de rigeur for most software teams now (65% the survey says). Since the mainstay of development builds is pulling code from development source code repositories, Atlasssian is making a play for simplifying the process – <a href="http://www.nimbleams.com/blog/2016/5/25/bitbucket-pipelines-(beta" target="_blank" rel="external">Read More at NimbleAMS.com</a>/)</p>
+    <content type="html"><![CDATA[<p><img style="float: left;" src="http://atlassian.wpengine.netdna-cdn.com/wp-content/uploads/Bitbucket_Pipeline_Illustration_100.png" width="50%" height="50%">Running development builds continuously is de rigeur for most software teams now (65% the survey says). Since the mainstay of development builds is pulling code from development source code repositories, Atlasssian is making a play for simplifying the process – <a href="http://www.nimbleuser.com/blog/bitbucket-pipelines-beta" target="_blank" rel="external">Read More at NimbleUser</a></p>
 ]]></content>
     
     <summary type="html">
@@ -347,9 +347,9 @@
     <link href="http://ted.husted.com/2015/rotating-versions-with-confluence-spaces/"/>
     <id>http://ted.husted.com/2015/rotating-versions-with-confluence-spaces/</id>
     <published>2015-11-17T11:00:00.000Z</published>
-    <updated>2017-02-23T04:48:02.000Z</updated>
+    <updated>2017-03-20T23:50:03.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="float: right;" src="https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/5478/large/1431127911/ship-it-squirrel.png">Professional technical writing platforms, like the DITA platform, are an excellent way to create single-source documentation. Hands-down. Though, in real life, the editing software is not mere-mortal friendly. – <a href="http://www.nimbleams.com/blog/2015/11/17/rotating-versions-with-confluence-spaces/" target="_blank" rel="external">Read More at NimbleAMS.com</a></p>
+    <content type="html"><![CDATA[<p><img style="float: right;" src="https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/5478/large/1431127911/ship-it-squirrel.png">Professional technical writing platforms, like the DITA platform, are an excellent way to create single-source documentation. Hands-down. Though, in real life, the editing software is not mere-mortal friendly. – <a href="http://www.nimbleuser.com/blog/rotating-versions-with-confluence-spaces" target="_blank" rel="external">Read More at NimbleUser</a></p>
 ]]></content>
     
     <summary type="html">
@@ -370,14 +370,14 @@
     <link href="http://ted.husted.com/2015/using-task-lists-to-get-more-done-better/"/>
     <id>http://ted.husted.com/2015/using-task-lists-to-get-more-done-better/</id>
     <published>2015-09-27T10:00:00.000Z</published>
-    <updated>2017-02-23T05:12:37.000Z</updated>
+    <updated>2017-03-20T23:51:35.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="float: right;" src="http://www.nimbleams.com/media/187430/allthethings.png" width="250" height="157" rel="250,157">As much as I try to Automate All The Things, I still find myself walking through routine tasks with several simple steps. On busy days, it’s easy to miss a step, and on busier days, it’s easy to gloss over some of the fine details. – <a href="http://www.nimbleams.com/blog/2015/9/27/using-task-lists-to-get-more-done-better/" target="_blank" rel="external">Read More at NimbleAMS.com</a></p>
+    <content type="html"><![CDATA[<p><img style="float: right;" src="https://www.nimbleuser.com/uploads/9/4/3/7/94371761/allthethings.png" width="250" height="157" rel="250,157">As much as I try to Automate All The Things, I still find myself walking through routine tasks with several simple steps. On busy days, it’s easy to miss a step, and on busier days, it’s easy to gloss over some of the fine details. – <a href="http://www.nimbleuser.com/blog/using-task-lists-to-get-more-done-better" target="_blank" rel="external">Read More at NimbleUser</a></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img style=&quot;float: right;&quot; src=&quot;http://www.nimbleams.com/media/187430/allthethings.png&quot; width=&quot;250&quot; height=&quot;157&quot; rel=&quot;250,157&quot;&gt;As much as
+      &lt;p&gt;&lt;img style=&quot;float: right;&quot; src=&quot;https://www.nimbleuser.com/uploads/9/4/3/7/94371761/allthethings.png&quot; width=&quot;250&quot; height=&quot;157&quot; rel=&quot;250,1
     
     </summary>
     
@@ -393,9 +393,9 @@
     <link href="http://ted.husted.com/2015/dita-best-practices-use-the-maps-folks-use-the-maps/"/>
     <id>http://ted.husted.com/2015/dita-best-practices-use-the-maps-folks-use-the-maps/</id>
     <published>2015-03-17T10:00:00.000Z</published>
-    <updated>2017-02-23T05:23:34.000Z</updated>
+    <updated>2017-03-20T23:48:23.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="float: right; margin: 4px 0px 0px 4px;" src="http://www.pdfpower.com/XML2005Proceedings/ship/239/maps_and_topics.PNG" alt="" width="435" height="121">DITA is a tool created from the ground up for technical writers. It is, quite literally, an embodiment of best practices for people creating documents for software and hardware products. DITA stands for Darwin Information Typing Architecture. – <a href="http://www.nimbleams.com/blog/2015/3/17/dita-best-practices-use-the-maps,-folks-use-the-maps/" target="_blank" rel="external">Read More at NimbleAMS.com</a></p>
+    <content type="html"><![CDATA[<p><img style="float: right; margin: 4px 0px 0px 4px;" src="http://www.pdfpower.com/XML2005Proceedings/ship/239/maps_and_topics.PNG" alt="" width="435" height="121">DITA is a tool created from the ground up for technical writers. It is, quite literally, an embodiment of best practices for people creating documents for software and hardware products. DITA stands for Darwin Information Typing Architecture. – <a href="http://www.nimbleuser.com/blog/dita-best-practices-use-the-maps-folks-use-the-maps" target="_blank" rel="external">Read More at NimbleUser</a></p>
 ]]></content>
     
     <summary type="html">
@@ -416,9 +416,9 @@
     <link href="http://ted.husted.com/2015/a-tale-of-two-teams/"/>
     <id>http://ted.husted.com/2015/a-tale-of-two-teams/</id>
     <published>2015-03-04T11:00:00.000Z</published>
-    <updated>2017-02-23T11:37:28.000Z</updated>
+    <updated>2017-03-20T23:18:44.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="float: left; margin: 0px 12px 0px 0px;" src="http://scrumtrainingseries.com/srm.png">Teaching through dramatizations (or parables) is an ancient practice that is making its way into IT. For the Agile. Lean, and Devops inclined, I can strongly recommend the Scrum Training Series videos and The Phoenix Project. – <a href="http://www.nimbleams.com/blog/2015/3/4/a-tale-of-two-teams/" target="_blank" rel="external">Read More at NimbleAMS.com</a></p>
+    <content type="html"><![CDATA[<p><img style="float: left; margin: 0px 12px 0px 0px;" src="http://scrumtrainingseries.com/srm.png">Teaching through dramatizations (or parables) is an ancient practice that is making its way into IT. For the Agile. Lean, and Devops inclined, I can strongly recommend the Scrum Training Series videos and The Phoenix Project. – <a href="http://www.nimbleuser.com/blog/a-tale-of-two-teams" target="_blank" rel="external">Read More at NimbleUser</a></p>
 ]]></content>
     
     <summary type="html">
@@ -439,9 +439,9 @@
     <link href="http://ted.husted.com/2015/lag-measures-versus-lead-measures/"/>
     <id>http://ted.husted.com/2015/lag-measures-versus-lead-measures/</id>
     <published>2015-02-17T11:00:00.000Z</published>
-    <updated>2017-02-23T11:36:02.000Z</updated>
+    <updated>2017-03-20T23:35:03.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="float: left; margin: 0px 12px 0px 0px; max-width: 33%; max-height: 33%;" src="http://www.franklincovey.com/tc/public/images/4dx-edu-2.jpg"><br>The Four Disciplines of Execution (4DX) is a truly useful framework for getting things done at the enterprise level. Of the four disciplines, the trickiest one may be “Act on the Lead Measures”. – <a href="http://www.nimbleams.com/blog/2015/2/17/lag-measures-versus-lead-measures/" target="_blank" rel="external">Read More at NimbleAMS.com</a></p>
+    <content type="html"><![CDATA[<p><img style="float: left; margin: 0px 12px 0px 0px; max-width: 33%; max-height: 33%;" src="http://www.franklincovey.com/tc/public/images/4dx-edu-2.jpg"><br>The Four Disciplines of Execution (4DX) is a truly useful framework for getting things done at the enterprise level. Of the four disciplines, the trickiest one may be “Act on the Lead Measures”. – <a href="http://www.nimbleuser.com/blog/lag-measures-versus-lead-measures" target="_blank" rel="external">Read More at NimbleUser</a></p>
 ]]></content>
     
     <summary type="html">
@@ -462,9 +462,9 @@
     <link href="http://ted.husted.com/2015/customizing-salesforce-help-part-3/"/>
     <id>http://ted.husted.com/2015/customizing-salesforce-help-part-3/</id>
     <published>2015-02-04T11:00:00.000Z</published>
-    <updated>2017-02-23T11:31:31.000Z</updated>
+    <updated>2017-03-20T23:24:45.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="float: right; margin: 0px 0px 0px 8px; max-height: 25%; max-width: 25%;" src="http://uploads3.wikiart.org/images/m-c-escher/drawing-hands.jpg!Blog.jpg">How you can implement a custom help site for your Salesforce org, like the one at help.nimbleams.com (in three parts). Warning: There’s a lot you can do to extend Salesforce help, but we need to create a few prerequisites along the way. – <a href="http://www.nimbleams.com/blog/2015/2/4/customizing-salesforce-help-part-3/" target="_blank" rel="external">Read More at NimbleAMS.com</a></p>
+    <content type="html"><![CDATA[<p><img style="float: right; margin: 0px 0px 0px 8px; max-height: 25%; max-width: 25%;" src="http://uploads3.wikiart.org/images/m-c-escher/drawing-hands.jpg!Blog.jpg">How you can implement a custom help site for your Salesforce org, like the one at help.nimbleams.com (in three parts). Warning: There’s a lot you can do to extend Salesforce help, but we need to create a few prerequisites along the way. – <a href="http://www.nimbleuser.com/blog/customizing-salesforce-help-part-3" target="_blank" rel="external">Read More at NimbleUser</a></p>
 ]]></content>
     
     <summary type="html">
