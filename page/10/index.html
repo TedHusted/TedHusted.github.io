@@ -69,6 +69,191 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-toggling-pdf-mode-in-a-visualforce-apex-page" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/toggling-pdf-mode-in-a-visualforce-apex-page/">Toggling PDF Mode In a Visualforce Apex Page</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2012/toggling-pdf-mode-in-a-visualforce-apex-page/" class="article-date">
+  <time datetime="2012-03-15T09:00:00.000Z" itemprop="datePublished">2012-03-15</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class="separator" style="clear:both;text-align:center;"><a href="http://onsoftware.en.softonic.com/top-free-tools-to-open-create-and-edit-pdf-documents" target="_blank" rel="external"><img src="http://screenshots.en.sftcdn.net/blog/en/2009/02/pdfbotoncico.png" alt=""></a></div>Salesforce.com has made it easy to blend custom Visualforce pages into a standard Salesforce CRM site. Using the standard stylesheets and a smattering of markup, we can cobble up a custom Account, Contact, or Opportunity page, with an absolute minimum of effort.  </p>
+<p>It’s also easy to construct a wholly custom page resemble a native Salesforce CRM page. While the page looks great, it may not be printer-friendly, and users may have trouble sharing the output with their non-Salesforce brethren. One solution is to render the pages as a very-printable PDF. Salesforce.com has also made the PDF option blazingly easy. Just include a “renderas=PDF” attribute at the top of your page and – voilà – instant PDF.   </p>
+<p><a name="more"></a>Of course,  we don’t want to maintain two versions of the page, or give either our pretty or printable versions, and so the next thing is be able to switch between the HTML and PDF versions.  </p>
+<p>Happily, there is a <a href="http://blogs.developerforce.com/developer-relations/2008/06/dynamically-cho.html" target="_blank" rel="external">venerable blog posting</a> that provides a great leg up, but I ran into an issue where I wanted to offer another option on top of PDF/HTML.  </p>
+<p>Aside from PDF printing, we also wanted to support two flavors of the same database query. One version aggregated rows with a status column set to either “Value A” or “Value B”, and a second version aggregated rows set to “Value C”. Our case was different, but a common case might a report that showed “Cold or Warm” leads, and another that showed only “Hot” leads.  </p>
+<p>Bottom line is that we wanted to present the page as either HTML or PDF, using either Query A or Query B, and keep all the markup and source code together.  </p>
+<p>Here’s my solution:  </p>
+<p><div class="separator" style="clear:both;text-align:center;"></div><div class="separator" style="clear:both;text-align:center;"><a href="https://tedhusted.files.wordpress.com/2012/03/9173f-pdf-foo.png" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2012/03/9173f-pdf-foo.png?w=300" alt=""></a></div><br><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;white-space:pre;">// and the backend </span></p>
+<p><pre><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;"><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;"><br>/**</span></span></pre></p>
+<ul>
+<li><p>Computes and transforms data for use by the Campaign Profile page.<br>*/<br>public class Foo_Ctrl {</p>
+<p> // PDF parameter.<br> private final static String PDF = ‘p’;</p>
+<p> // HTML parameter.<br> private final static String MODE = ‘m’;</p>
+<p> // Stores Account to use with the Campaign Profile.<br> private Account myAccount = null;</p>
+<p> // Stores set of query constraints based on Mode parameter.<br> // “AND My_Mode__c IN :myMode”<br> private Set myMode = null;    </p>
+<p> // Assembles and returns URI reflecting current parameter settings.<br> private String doEnable(Boolean doPDF, Boolean doRollup) {</p>
+<pre><code>String parameters = &apos;/apex/Foo?&apos;;
+if (myAccount!=null) parameters += &apos;id=&apos; + MyID;
+if (doPDF) parameters += &apos;&amp;amp;&apos; + PDF + &apos;=true&apos;;
+if (doRollup) parameters += &apos;&amp;amp;&apos; + MODE + &apos;=true&apos;;
+return parameters;
+</code></pre><p> }</p>
+<p> /**</p>
+<ul>
+<li><p>Stores current or desired state “Status”.<br>*/<br>public boolean IsModeB { get; set; }</p>
+<p>/**</p>
+</li>
+<li><p>Reflects absence of “Rollup” parameter.<br>*/<br>public boolean IsModeA {<br> get {return !IsModeB;}<br> set {IsModeB = !value;}<br>}   </p>
+<p>/**</p>
+</li>
+<li><p>Handles runtime “PDF” parameter ‘p’.<br>*/<br>public boolean IsPDF { get; set; }</p>
+<p>/**</p>
+</li>
+<li><p>Reflects absence of “PDF” parameter.<br>*/<br>public boolean IsHTML {<br> get {return !IsPDF;}<br> set {IsPDF = !value;}<br>}   </p>
+<p>/**</p>
+</li>
+<li><p>Returns current account ID, or null.<br>*/<br>public Id MyId {<br> get {return (myAccount==null) ? null : myAccount.Id;}<br>}</p>
+<p>/**</p>
+</li>
+<li>Returns updated URI including PDF parameter,</li>
+<li><p>and the current value of MODE parameter.<br>*/<br>public String doEnablePDF {<br> get{return doEnable(true,IsModeB);}<br>}</p>
+<p>/**</p>
+</li>
+<li>Returns updated URI excluding PDF parameter,</li>
+<li><p>and the including current value of MODE parameter.<br>*/<br>public String doEnableHTML {<br> get{return doEnable(false,IsModeB);}<br>}</p>
+<p>/**</p>
+</li>
+<li>Returns updated URI including MODE parameter,</li>
+<li><p>and the current value of PDF parameter.<br>*/<br>public String doEnableModeB {<br> get{return doEnable(IsPDF,true);}<br>}</p>
+<p>/**</p>
+</li>
+<li>Returns updated URI excluding MODE parameter,</li>
+<li><p>and including the current value of PDF parameter.<br>*/<br>public String doEnableModeA {<br> get{return doEnable(IsPDF,false);}<br>}</p>
+<p>/**</p>
+</li>
+<li>Constructs the controller object, capturing the current Account and year.<br>*/<br>public Foo_Ctrl(ApexPages.StandardController controller) {<br> if (controller.getId() == null) {<pre><code>ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, &apos;Id is required&apos;));
+</code></pre> } else {<pre><code>if (myAccount == null) myAccount = (Account) controller.getRecord();
+</code></pre> }<br> // Instatiate the rest, to avoid runtime errors …<br> IsPDF = (ApexPages.currentPage().getParameters().get(PDF)==’true’);<br> IsModeB = (ApexPages.currentPage().getParameters().get(MODE)==’true’);<br> myMode = new Set();<br> if (IsModeB) {<pre><code>myMode.add(&apos;Status B&apos;);
+myMode.add(&apos;Status C&apos;);
+</code></pre> } else {<pre><code>myMode.add(&apos;Status A&apos;);
+</code></pre> }<br>}<br>}</li>
+</ul>
+</li>
+</ul>
+<p>// And, of course, a test suite</p>
+<p>@IsTest<br>public class NU_TEST_Foo_Page {</p>
+<pre><code>static Account myAccount = null;
+static Foo_Ctrl myCtrl = null;
+</code></pre><p>   static private void mySetUp() {<br>        Test.setCurrentPageReference(Page.Foo);<br>        // Constructor Scaffolding<br>        if (myAccount==null) {<br>            myAccount = new Account(name=’Alpha Bravo’,<br>            NU_Andar_Account_Number__c=’1’);<br>            insert myAccount;<br>            myCtrl = new Foo_Ctrl(new ApexPages.StandardController(myAccount));<br>        }<br>    }</p>
+<pre><code>static testMethod void PDF_Test() {
+    mySetUp();
+    String nextPage = myCtrl.doEnablePDF;
+    System.assertEquals(&apos;/apex/Foo?id=&apos; + myAccount.Id + &apos;&amp;amp;&apos; + Foo_Ctrl.PDF + &apos;=true&apos;,nextPage);
+}
+
+static testMethod void HTML_Test() {
+    mySetUp();
+    String nextPage = myCtrl.doEnableHTML;
+    System.assertEquals(&apos;/apex/Foo?id=&apos; + myAccount.Id + &apos;&apos;,nextPage);         
+}
+
+static testMethod void ModeB_Test() {
+    mySetup();
+    String nextPage = myCtrl.doEnableModeB;
+    System.assertEquals(&apos;/apex/Foo?id=&apos; + myAccount.Id + &apos;&amp;amp;&apos; + Foo_Ctrl.MODE + &apos;=true&apos;,nextPage);
+}
+
+static testMethod void ModeA_Test() {
+    mySetUp();
+    String nextPage = myCtrl.doEnableModeA;
+    System.assertEquals(&apos;/apex/Foo?id=&apos; + myAccount.Id + &apos;&apos;,nextPage);         
+}
+
+static testMethod void PDF_ModeB_Test() {
+    mySetUp();
+    ApexPages.currentPage().getParameters().put(Foo_Ctrl.PDF, &apos;true&apos;);
+    Foo_Ctrl ctrlPDF = new Foo_Ctrl(new ApexPages.StandardController(myAccount));
+    String nextPage = ctrlPDF.doEnableModeB;
+    System.assertEquals(&apos;/apex/Foo?id=&apos; + myAccount.Id + &apos;&amp;amp;&apos; + Foo_Ctrl.PDF + &apos;=true&apos; + &apos;&amp;amp;&apos; + Foo_Ctrl.MODE + &apos;=true&apos;,nextPage);
+    System.assertEquals(true,ctrlPDF.isPDF);
+    System.assertEquals(false,ctrlPDF.isHTML);
+    ctrlPDF.isHTML = true;
+    System.assertEquals(false,ctrlPDF.isPDF);
+}
+
+static testMethod void ModeB_PDF_Test() {
+    mySetUp();
+    ApexPages.currentPage().getParameters().put(Foo_Ctrl.MODE, &apos;true&apos;);
+    Foo_Ctrl ctrlMode = new Foo_Ctrl(new ApexPages.StandardController(myAccount));
+    String nextPage = ctrlMode.doEnablePDF;
+    System.assertEquals(true,ctrlMode.isModeB);
+    System.assertEquals(false,ctrlMode.isModeA);       
+    System.assertEquals(&apos;/apex/Foo?id=&apos; + myAccount.Id + &apos;&amp;amp;&apos; + Foo_Ctrl.PDF + &apos;=true&apos; + &apos;&amp;amp;&apos; + Foo_Ctrl.MODE + &apos;=true&apos;,nextPage);
+}
+
+ static testMethod void PDF_Flag_Test() {
+    mySetUp();
+    ApexPages.currentPage().getParameters().put(Foo_Ctrl.PDF, &apos;true&apos;);
+    Foo_Ctrl ctrlPDF = new Foo_Ctrl(new ApexPages.StandardController(myAccount));
+    System.assertEquals(true,ctrlPDF.isPDF);
+    System.assertEquals(false,ctrlPDF.isHTML);
+    ctrlPDF.isHTML = true;
+    System.assertEquals(false,ctrlPDF.isPDF);
+}
+
+ static testMethod void Mode_Flag_Test() {
+    mySetUp();
+    ApexPages.currentPage().getParameters().put(Foo_Ctrl.MODE, &apos;true&apos;);
+    Foo_Ctrl ctrlMode = new Foo_Ctrl(new ApexPages.StandardController(myAccount));
+    System.assertEquals(true,ctrlMode.isModeB);
+    System.assertEquals(false,ctrlMode.isModeA);
+    ctrlMode.isModeA = true;
+    System.assertEquals(false,ctrlMode.isModeB);
+}
+</code></pre><p>}<span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;"><br></span><br><span class="Apple-style-span" style="font-family:inherit;">For more Visualforce PDF trickery, <a href="http://force.siddheshkabe.co.in/2011/04/some-pdf-tricks-on-visualforce.html" target="_blank" rel="external">see this nifty blog</a> on May The Force Be With You.  </span></p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/salesforce/">Salesforce</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/visualforce/">Visualforce</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-salesforce-certification-a-winwin" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -516,78 +701,8 @@ System.Assert(success,&apos;Expected no opps on batch delete.&apos;);
 
 
     
-      <article id="post-keeping-salesforce-implementations-on-track-with-milestones-pm-and-changeit" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/keeping-salesforce-implementations-on-track-with-milestones-pm-and-changeit/">Keeping Salesforce Implementations on Track with Milestones PM and ChangeIT</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2012/keeping-salesforce-implementations-on-track-with-milestones-pm-and-changeit/" class="article-date">
-  <time datetime="2012-01-04T14:01:00.000Z" itemprop="datePublished">2012-01-04</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/review/">Review</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>A secret to the success of Salesforce CRM is how easy it is to customize and extend. Out of the box, Salesforce provides new users with a world-class framework for enabling collaboration between staff members and customers, or between staff and staff, or even between customers and customers (if you dare!). If that wasn’t enough, Salesforce provides a variety of ways to tailor your instance of the framework, so that it fits your own processes like a glove. </p>
-<p>When folks first implement Salesforce, it’s easy to get carried away. Salesforce CRM can do so much, it’s tempting (but not practical) to try and do everything at once. In fact, Salesforce.com recommends that people spread out customization plans, so that refinement becomes an ongoing process. </p>
-<p>Happily, two of the many Salesforce extensions include a project tracking app called “<a href="http://appexchange.salesforce.com/listingDetail?listingId=a0N30000005tvt6EAA" target="_blank" rel="external">Milestones PM</a>“ and a change tracking app called “<a href="http://appexchange.salesforce.com/listingDetail?listingId=a0N300000016ct3EAA" target="_blank" rel="external">ChangeIt</a>“. You can use Milestones PM to organize implementation projects, and ChangeIt to gather and prioritize new change requests. Both can be installed into your environment from the <a href="http://appexchange.salesforce.com/home" target="_blank" rel="external">Salesforce AppExchange</a>, free of additional charge.</p>
-<p><strong>Milestones PM</strong></p>
-<p>Milestones PM is an elegant approach to project tracking that makes it easy to capture and follow a classic work breakdown structure. It’s a great fit for IT projects, but the app would work just as well for any type of task-based project, such as organizing a retreat, publishing a newsletter, or planning an office move. </p>
-<p>The application uses six objects to track progress: Project, Log, Milestone, Task, Time, and Expense, as shown in the illustration.</p>
-<p><a href="https://tedhusted.files.wordpress.com/2012/01/9ef16-6a00d8341cded353ef014e5f4794a0970c-pi.png" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2012/01/9ef16-6a00d8341cded353ef014e5f4794a0970c-pi.png?w=300" alt=""></a><strong>Project</strong> is the top-level container for the other five objects. Aside from tracking key details – like a Kick-Off Date, Deadline, and Description – a Project contains a set of Milestones, along with an optional Log records.</p>
-<p><strong>Logs</strong> are generic memo records that you can attach to a Project, Task, Time, or Expense record. Logs can be used to capture any miscellaneous detail that doesn’t fit neatly into the other fields. </p>
-<p><strong>Milestones</strong> are the key organizing object within a project. To be useful, a Project must contain at least one Milestone record, which in turn can contain Task, Time, or Expense records. Milestones can have their own Kickoff and Deadline Dates, and be linked to Parent, Predecessor, or Successor Milestones. While not as featureful as Microsoft Project dependencies, good use of the Parent, Predecessor, and Successor Milestone groupings can make complex projects easier to understand and navigate. </p>
-<p>The backbone of any project are the <strong>Tasks</strong>. Every Task must have a Name and be assigned to a Milestone, and can also track an Assignee, Start and Due Dates, statuses like Priority (0-4), Stage (In progress, Resolved, Closed) and Class (Ad Hoc, Defect, Rework), Estimates, and other properties. </p>
-<p><strong>Time</strong> and <strong>Expense</strong> records can be attached to Tasks, which are tallied as part of the Project’s overall metrics. </p>
-<p><a href="https://tedhusted.files.wordpress.com/2012/01/17a07-mpm-dashboard.png" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2012/01/17a07-mpm-dashboard.png?w=300" alt=""></a>As shown in the screen shot, Milestones PM makes excellent use of native Salesforce metrics, and integrates with other native features like Chatter and Calendar It also supports batch operations based on views and comes bundled with two dozen ready-to-run Reports.</p>
-<p>Even better, Milestones PM is an <a href="http://appexchange.salesforce.com/results?filter=9&amp;sort=6&amp;type=Apps" target="_blank" rel="external">Aloha App</a>, so it doesn’t count against the number of tabs or objects your Salesforce instance consumes.</p>
-<p><strong>ChangeIT</strong></p>
-<p>Like housework, a good Salesforce implementation is never done. The platform is so flexible and so deep, there will always be ways to make it work even better for your users. The ChangeIT application provides a vehicle for tracking new features and fixes (which you could then turn into Milestone PM tasks).</p>
-<p>In a nutshell, ChangeIT provides a simple way to manage changes to your Salesforce instance, and to notify team members when changes are scheduled or implemented. It also helps coordinate change requests, so developers and administrators are not stepping on each other.</p>
-<p><div class="separator" style="clear:both;text-align:center;"><a href="https://tedhusted.files.wordpress.com/2012/01/5f96e-changeit.png" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2012/01/5f96e-changeit.png?w=300" alt=""></a></div>The application provides a single, simple tab with a form for making change requests, as shown in the illustration.</p>
-<p>Saving the initial request triggers an approval workflow to the individuals that you set up. Once the initial request is approved or denied, the request can be worked on by developers or administrators (and/or transferred to Milestones PM). The application also includes a dashboard and supporting reports to view the pipeline of request changes. </p>
-<p>Since the applications are independent, you can use either or both – your instance, your choice!</p>
-<p>We’re always exploring better approaches to project tracking, with applications like Basecamp, Tom’s Planner, JIRA, and OnTime. Do you have a favorite tool? What features do you love? What features do you miss?</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/salesforce/">Salesforce</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/44/">44</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
       </nav>
     </section>
     <footer id="footer">

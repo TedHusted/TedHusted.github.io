@@ -69,6 +69,98 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-13-asf-practices" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/13-asf-practices/">13 ASF Practices</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/13-asf-practices/" class="article-date">
+  <time datetime="2007-03-21T09:00:00.000Z" itemprop="datePublished">2007-03-21</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/essay/">Essay</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>People often mention “Apache Rules”. We don’t actually have a rule book, but if we did, here’s what I believe might be the top thirteen practices.</p>
+<p><table border="1" cellpadding="8"></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><th>0</th></p>
+<p><td>Projects must be managed in a collaborative, meritocratic way, so that new volunteers are encouraged to join the project group, and so that the volunteers doing the work are the volunteers who make the decisions.</td><br></p>
+<p><tr></tr></p>
+<p><th>1</th></p>
+<p><td>A project’s primary web site and mailing lists must be maintained on ASF hardware. Resources maintained elsewhere are not ASF resources, even if maintained by ASF committers.</td><br></p>
+<p><tr></tr></p>
+<p><th>2</th></p>
+<p><td>Code and documentation donated to the ASF must be maintained on ASF hardware.</td><br></p>
+<p><tr></tr></p>
+<p><th>3</th></p>
+<p><td>Project source code and documentation must be donated to the ASF under a <a href="http://apache.org/licenses/index.html#clas" target="_blank" rel="external">Contributor’s License Agreement</a>.</td><br></p>
+<p><tr></tr></p>
+<p><th>4</th></p>
+<p><td>Donated source code and documentation must carry the ASF copyright and be placed under the Apache License.</td><br></p>
+<p><tr></tr></p>
+<p><th>5</th></p>
+<p><td>Other libraries included with a distribution must be redistributable under the Apache license.</td><br></p>
+<p><tr></tr></p>
+<p><th>6</th></p>
+<p><td>PMC members can veto a product change with a technical justification.</td><br></p>
+<p><tr></tr></p>
+<p><th>7</th></p>
+<p><td>An ASF release must be approved by at least three members of the PMC. A release cannot be vetoed.</td><br></p>
+<p><tr></tr></p>
+<p><th>8</th></p>
+<p><td>Releases must be digitally signed by a release manager.</td><br></p>
+<p><tr></tr></p>
+<p><th>9</th></p>
+<p><td>The PMC chair/Project VP must submit a status report to the ASF board every three months</td><br></p>
+<p><tr></tr></p>
+<p><th>A</th></p>
+<p><td>PMC members are encouraged to nominate qualified contributors as new committers. ASF Members are encouraged to nominate qualified committers as new members.</td><br></p>
+<p><tr></tr></p>
+<p><th>B</th></p>
+<p><td>Obtaining a non-exclusive ASF copyright on all material in the ASF repository is encouraged.</td><br></p>
+<p><tr></tr></p>
+<p><th>C</th></p>
+<p><td><a href="http://tinyurl.com/mw7t6" target="_blank" rel="external">Author tags</a> in source code are discouraged but permitted.</td><br><br><br><br>Of course, there are other customs, but I believe that most other ASF practices would stem from this initial set. And, as with all things ASF, YMMV! :)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/asf/">ASF</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-subversion-tips-svn-redux" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -368,91 +460,8 @@ And Subversion will confirm the change
 
 
     
-      <article id="post-s2-tip-always-set-devmode-to-false-in-production" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2007/s2-tip-always-set-devmode-to-false-in-production/">S2 Tip - Always set devMode to false in production</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2007/s2-tip-always-set-devmode-to-false-in-production/" class="article-date">
-  <time datetime="2007-03-16T09:00:00.000Z" itemprop="datePublished">2007-03-16</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>In the Struts 2.0.6 release, we made the mistake of setting devMode to true in some of the example applications. As a result, some developers copied the setting, and then wondered why their Struts 2 application seemed sluggish!</p>
-<p>As of Struts 2.0.7 (hopefully coming soon), we’ve added a <a href="http://struts.apache.org/2.x/docs/performance-tuning.html" target="_blank" rel="external">Performance Tuning</a> page to the documentation. Here’s the highlights:</p>
-<p>&nbsp;</p>
-<ul>
-<li>Do not use interceptors you do not need<br>&nbsp;</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li>Use the correct HTTP headers (Cache-Control &amp; Expires)<br>&nbsp;</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li>Copy the static content from the Struts 2 JAR when using the Ajax theme (Dojo) or the Calendar tag<br>&nbsp;</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li>Create a <code>freemarker.properties</code> file in your <code>WEB-INF/classes</code>directory<br>&nbsp;</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li>Copy the <code>/template</code> directory from the Struts 2 JAR into your web application’s root<br>&nbsp;</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li>When overriding a theme, copy all necessary templates to the <code>theme</code> directory</li>
-<li>Do not create sessions unless you need them<br>&nbsp;</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li>When using FreemarkerResult, try to use the Freemarker equivalents rather than the JSP tags<br>&nbsp;</li>
-</ul>
-<p>For the nitty-gritty, visit the latest copy of the <a href="http://struts.apache.org/2.x/docs/performance-tuning.html" target="_blank" rel="external">page</a>.</p>
-<p>Kudos to Philip Luppens for starting the tuning page. If you have any tuning tips of your own, feel free to post comments directly to the page. (Gotta love Confluence!)</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/30/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/32/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/30/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="space">&hellip;</span><a class="page-number" href="/page/44/">44</a><a class="extend next" rel="next" href="/page/32/">Next &raquo;</a>
       </nav>
     </section>
     <footer id="footer">

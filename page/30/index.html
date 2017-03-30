@@ -69,6 +69,75 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-mvc-convergence-mr-action-meet-ms-asp-net" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/mvc-convergence-mr-action-meet-ms-asp-net/">MVC Convergence: Mr Action meet Ms ASP.NET</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/mvc-convergence-mr-action-meet-ms-asp-net/" class="article-date">
+  <time datetime="2007-03-26T09:00:00.000Z" itemprop="datePublished">2007-03-26</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Over the years, there’s been a steady trend within Microsoft example applications. The trend has been away from what Java geeks calls Model 1 and toward Model 2 development. It’s been a forced, dragged-by-the-hair trend. At every step, the architect seems to be looking for alternatives to MVC/Model 2, and every time, the alternative comes up short, and the next iteration is one step closr to Java-style MVC.</p>
+<p>The trend is clear if you spend a day reviewing the various ASP.NET application that were developed for ASP.NET 1.x. The trend is even more evident in ASP.NET 2.X. The platforms now offers an actual business logic component that can also be used to separate the data access code from the rest of the application. The only problem is that the component is still embedded in the web application, and, as far as I can tell, these “business logic” components can’t be tested outside of the web application. Though, it is most definitely another baby step in the right direction.</p>
+<p>Rumor now has it that Microsoft is ready for another step toward MVC/Model 2. In his CodeBetter blog, Jeffrey Palmero outlines a new feature that Scott Guthrie is supposedly developing for the next generation of ASP.NET.</p>
+<p><a href="http://codebetter.com/blogs/jeffrey.palermo/archive/2007/03/16/Big-News-_2D00_-MVC-framework-for-ASP.NET-in-the-works-_2D00_-level-300.aspx" target="_blank" rel="external">According to the blog</a>:</p>
+<blockquote>
+<hr>
+<p>A url might look like <a href="http://localhost/myApp/ShoppingCart.mvc/CheckOut" target="_blank" rel="external">http://localhost/myApp/ShoppingCart.mvc/CheckOut</a> where ShoppingCart is the Controller class and “CheckOut” is a method like:</p>
+<pre><code>[Action]
+public void CheckOut(){
+ //do so
+</code></pre><p>}</p>
+<p>The MVC model can be used with regular control-based pages. The url determines the handler that’s activated, so it can be mixed an matched. In fact, a Controller could dispatch a view that <em>uses</em> some controls. i.e. Telerik controls could still be used without Telerik modifying them. From what I saw, no capabilities are taken away, just more options are added.</p>
+<p>In this prototype, the controller loads the appropriate view by relative path to the .aspx. The view can be only markup - pure template, or it can take advantage of controls. This can work without postbacks, or you can use postbacks if you prefer.</p>
+<p>The view has to inherit from PageView or if it needs properties from the controller (like the Model to display), it can inherit from PageView where T is the type of the controller it depends on. Then the view can grab specific properties off of the controller.</p>
+<p>I would recommend making “T” an interface so that the view doesn’t bind directly to the controller type. I’ve been collaborating with Scott Guthrie to work out the kinks. There is still a lot of work to do. This is only in prototype form.</p>
+<hr>
+<p>Of course, Microsoft has been warming up to <a href="http://msdn2.microsoft.com/en-us/library/ms998516.aspx" target="_blank" rel="external">MVC and front controllers</a> patterns for some time. This is not <a href="http://msdn2.microsoft.com/en-us/library/aa478961.aspx" target="_blank" rel="external">the first time we’ve heard that MVC or front controller will be in the “next” version of ASP.NET</a>.</p>
+</blockquote>
+<p>But, not to worry. If Microsoft comes out with a MVC technology, we will do what we always do … reinvent it as a JSR.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-simulating-action" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -299,100 +368,8 @@ ga('send', 'pageview');
 
 
     
-      <article id="post-13-asf-practices" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2007/13-asf-practices/">13 ASF Practices</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2007/13-asf-practices/" class="article-date">
-  <time datetime="2007-03-21T09:00:00.000Z" itemprop="datePublished">2007-03-21</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/essay/">Essay</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>People often mention “Apache Rules”. We don’t actually have a rule book, but if we did, here’s what I believe might be the top thirteen practices.</p>
-<p><table border="1" cellpadding="8"></table></p>
-<p><tbody></tbody></p>
-<p><tr></tr></p>
-<p><th>0</th></p>
-<p><td>Projects must be managed in a collaborative, meritocratic way, so that new volunteers are encouraged to join the project group, and so that the volunteers doing the work are the volunteers who make the decisions.</td><br></p>
-<p><tr></tr></p>
-<p><th>1</th></p>
-<p><td>A project’s primary web site and mailing lists must be maintained on ASF hardware. Resources maintained elsewhere are not ASF resources, even if maintained by ASF committers.</td><br></p>
-<p><tr></tr></p>
-<p><th>2</th></p>
-<p><td>Code and documentation donated to the ASF must be maintained on ASF hardware.</td><br></p>
-<p><tr></tr></p>
-<p><th>3</th></p>
-<p><td>Project source code and documentation must be donated to the ASF under a <a href="http://apache.org/licenses/index.html#clas" target="_blank" rel="external">Contributor’s License Agreement</a>.</td><br></p>
-<p><tr></tr></p>
-<p><th>4</th></p>
-<p><td>Donated source code and documentation must carry the ASF copyright and be placed under the Apache License.</td><br></p>
-<p><tr></tr></p>
-<p><th>5</th></p>
-<p><td>Other libraries included with a distribution must be redistributable under the Apache license.</td><br></p>
-<p><tr></tr></p>
-<p><th>6</th></p>
-<p><td>PMC members can veto a product change with a technical justification.</td><br></p>
-<p><tr></tr></p>
-<p><th>7</th></p>
-<p><td>An ASF release must be approved by at least three members of the PMC. A release cannot be vetoed.</td><br></p>
-<p><tr></tr></p>
-<p><th>8</th></p>
-<p><td>Releases must be digitally signed by a release manager.</td><br></p>
-<p><tr></tr></p>
-<p><th>9</th></p>
-<p><td>The PMC chair/Project VP must submit a status report to the ASF board every three months</td><br></p>
-<p><tr></tr></p>
-<p><th>A</th></p>
-<p><td>PMC members are encouraged to nominate qualified contributors as new committers. ASF Members are encouraged to nominate qualified committers as new members.</td><br></p>
-<p><tr></tr></p>
-<p><th>B</th></p>
-<p><td>Obtaining a non-exclusive ASF copyright on all material in the ASF repository is encouraged.</td><br></p>
-<p><tr></tr></p>
-<p><th>C</th></p>
-<p><td><a href="http://tinyurl.com/mw7t6" target="_blank" rel="external">Author tags</a> in source code are discouraged but permitted.</td><br><br><br><br>Of course, there are other customs, but I believe that most other ASF practices would stem from this initial set. And, as with all things ASF, YMMV! :)</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/asf/">ASF</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/29/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/31/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/29/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/44/">44</a><a class="extend next" rel="next" href="/page/31/">Next &raquo;</a>
       </nav>
     </section>
     <footer id="footer">

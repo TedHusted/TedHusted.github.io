@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ted.husted.com/"/>
-  <updated>2017-03-20T23:41:40.000Z</updated>
+  <updated>2017-03-30T10:22:10.000Z</updated>
   <id>http://ted.husted.com/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Pilot Madness!</title>
+    <link href="http://ted.husted.com/2017/pilot-madness/"/>
+    <id>http://ted.husted.com/2017/pilot-madness/</id>
+    <published>2017-03-10T11:00:00.000Z</published>
+    <updated>2017-03-30T10:22:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Like many forward-looking Salesforce partners, we’ve been enrolling in the new developer pilots that are hitting the streets now. Here’s some public background links on the various pilots in progress now. – <a href="https://www.nimbleuser.com/blog/pilot-madness" target="_blank" rel="external">Read more at NimbleUser</a></p>
+<div align="center"><img src="https://www.nimbleuser.com/uploads/9/4/3/7/94371761/snag-0821_orig.jpg"></div>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Like many forward-looking Salesforce partners, we’ve been enrolling in the new developer pilots that are hitting the streets now. Here’s 
+    
+    </summary>
+    
+      <category term="Review" scheme="http://ted.husted.com/categories/review/"/>
+    
+    
+      <category term="Salesforce DX" scheme="http://ted.husted.com/tags/salesforce-dx/"/>
+    
+  </entry>
   
   <entry>
     <title>The Thousand Developer March on DX GA</title>
@@ -454,29 +478,6 @@
     
     
       <category term="Productivity" scheme="http://ted.husted.com/tags/productivity/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Customizing Salesforce Help - Part 3</title>
-    <link href="http://ted.husted.com/2015/customizing-salesforce-help-part-3/"/>
-    <id>http://ted.husted.com/2015/customizing-salesforce-help-part-3/</id>
-    <published>2015-02-04T11:00:00.000Z</published>
-    <updated>2017-03-20T23:24:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img style="float: right; margin: 0px 0px 0px 8px; max-height: 25%; max-width: 25%;" src="http://uploads3.wikiart.org/images/m-c-escher/drawing-hands.jpg!Blog.jpg">How you can implement a custom help site for your Salesforce org, like the one at help.nimbleams.com (in three parts). Warning: There’s a lot you can do to extend Salesforce help, but we need to create a few prerequisites along the way. – <a href="http://www.nimbleuser.com/blog/customizing-salesforce-help-part-3" target="_blank" rel="external">Read More at NimbleUser</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img style=&quot;float: right; margin: 0px 0px 0px 8px; max-height: 25%; max-width: 25%;&quot; src=&quot;http://uploads3.wikiart.org/images/m-c-escher/d
-    
-    </summary>
-    
-      <category term="Tutorial" scheme="http://ted.husted.com/categories/tutorial/"/>
-    
-    
-      <category term="Salesforce" scheme="http://ted.husted.com/tags/salesforce/"/>
     
   </entry>
   

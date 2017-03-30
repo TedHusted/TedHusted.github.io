@@ -69,6 +69,76 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-keeping-salesforce-implementations-on-track-with-milestones-pm-and-changeit" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/keeping-salesforce-implementations-on-track-with-milestones-pm-and-changeit/">Keeping Salesforce Implementations on Track with Milestones PM and ChangeIT</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2012/keeping-salesforce-implementations-on-track-with-milestones-pm-and-changeit/" class="article-date">
+  <time datetime="2012-01-04T14:01:00.000Z" itemprop="datePublished">2012-01-04</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>A secret to the success of Salesforce CRM is how easy it is to customize and extend. Out of the box, Salesforce provides new users with a world-class framework for enabling collaboration between staff members and customers, or between staff and staff, or even between customers and customers (if you dare!). If that wasn’t enough, Salesforce provides a variety of ways to tailor your instance of the framework, so that it fits your own processes like a glove. </p>
+<p>When folks first implement Salesforce, it’s easy to get carried away. Salesforce CRM can do so much, it’s tempting (but not practical) to try and do everything at once. In fact, Salesforce.com recommends that people spread out customization plans, so that refinement becomes an ongoing process. </p>
+<p>Happily, two of the many Salesforce extensions include a project tracking app called “<a href="http://appexchange.salesforce.com/listingDetail?listingId=a0N30000005tvt6EAA" target="_blank" rel="external">Milestones PM</a>“ and a change tracking app called “<a href="http://appexchange.salesforce.com/listingDetail?listingId=a0N300000016ct3EAA" target="_blank" rel="external">ChangeIt</a>“. You can use Milestones PM to organize implementation projects, and ChangeIt to gather and prioritize new change requests. Both can be installed into your environment from the <a href="http://appexchange.salesforce.com/home" target="_blank" rel="external">Salesforce AppExchange</a>, free of additional charge.</p>
+<p><strong>Milestones PM</strong></p>
+<p>Milestones PM is an elegant approach to project tracking that makes it easy to capture and follow a classic work breakdown structure. It’s a great fit for IT projects, but the app would work just as well for any type of task-based project, such as organizing a retreat, publishing a newsletter, or planning an office move. </p>
+<p>The application uses six objects to track progress: Project, Log, Milestone, Task, Time, and Expense, as shown in the illustration.</p>
+<p><a href="https://tedhusted.files.wordpress.com/2012/01/9ef16-6a00d8341cded353ef014e5f4794a0970c-pi.png" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2012/01/9ef16-6a00d8341cded353ef014e5f4794a0970c-pi.png?w=300" alt=""></a><strong>Project</strong> is the top-level container for the other five objects. Aside from tracking key details – like a Kick-Off Date, Deadline, and Description – a Project contains a set of Milestones, along with an optional Log records.</p>
+<p><strong>Logs</strong> are generic memo records that you can attach to a Project, Task, Time, or Expense record. Logs can be used to capture any miscellaneous detail that doesn’t fit neatly into the other fields. </p>
+<p><strong>Milestones</strong> are the key organizing object within a project. To be useful, a Project must contain at least one Milestone record, which in turn can contain Task, Time, or Expense records. Milestones can have their own Kickoff and Deadline Dates, and be linked to Parent, Predecessor, or Successor Milestones. While not as featureful as Microsoft Project dependencies, good use of the Parent, Predecessor, and Successor Milestone groupings can make complex projects easier to understand and navigate. </p>
+<p>The backbone of any project are the <strong>Tasks</strong>. Every Task must have a Name and be assigned to a Milestone, and can also track an Assignee, Start and Due Dates, statuses like Priority (0-4), Stage (In progress, Resolved, Closed) and Class (Ad Hoc, Defect, Rework), Estimates, and other properties. </p>
+<p><strong>Time</strong> and <strong>Expense</strong> records can be attached to Tasks, which are tallied as part of the Project’s overall metrics. </p>
+<p><a href="https://tedhusted.files.wordpress.com/2012/01/17a07-mpm-dashboard.png" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2012/01/17a07-mpm-dashboard.png?w=300" alt=""></a>As shown in the screen shot, Milestones PM makes excellent use of native Salesforce metrics, and integrates with other native features like Chatter and Calendar It also supports batch operations based on views and comes bundled with two dozen ready-to-run Reports.</p>
+<p>Even better, Milestones PM is an <a href="http://appexchange.salesforce.com/results?filter=9&amp;sort=6&amp;type=Apps" target="_blank" rel="external">Aloha App</a>, so it doesn’t count against the number of tabs or objects your Salesforce instance consumes.</p>
+<p><strong>ChangeIT</strong></p>
+<p>Like housework, a good Salesforce implementation is never done. The platform is so flexible and so deep, there will always be ways to make it work even better for your users. The ChangeIT application provides a vehicle for tracking new features and fixes (which you could then turn into Milestone PM tasks).</p>
+<p>In a nutshell, ChangeIT provides a simple way to manage changes to your Salesforce instance, and to notify team members when changes are scheduled or implemented. It also helps coordinate change requests, so developers and administrators are not stepping on each other.</p>
+<p><div class="separator" style="clear:both;text-align:center;"><a href="https://tedhusted.files.wordpress.com/2012/01/5f96e-changeit.png" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2012/01/5f96e-changeit.png?w=300" alt=""></a></div>The application provides a single, simple tab with a form for making change requests, as shown in the illustration.</p>
+<p>Saving the initial request triggers an approval workflow to the individuals that you set up. Once the initial request is approved or denied, the request can be worked on by developers or administrators (and/or transferred to Milestones PM). The application also includes a dashboard and supporting reports to view the pipeline of request changes. </p>
+<p>Since the applications are independent, you can use either or both – your instance, your choice!</p>
+<p>We’re always exploring better approaches to project tracking, with applications like Basecamp, Tom’s Planner, JIRA, and OnTime. Do you have a favorite tool? What features do you love? What features do you miss?</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/salesforce/">Salesforce</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-ted-at-apachecon" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -320,76 +390,8 @@ ga('send', 'pageview');
 
 
     
-      <article id="post-dreamforce-recap-2011-salesforce-roadmap" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2011/dreamforce-recap-2011-salesforce-roadmap/">Dreamforce Recap / 2011 Salesforce Roadmap</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2011/dreamforce-recap-2011-salesforce-roadmap/" class="article-date">
-  <time datetime="2011-01-10T18:00:00.000Z" itemprop="datePublished">2011-01-10</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/event/">Event</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><div class="separator" style="clear:both;text-align:center;"><a href="https://tedhusted.files.wordpress.com/2011/01/9558c-salesforce-logo-2009.jpg" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2011/01/9558c-salesforce-logo-2009.jpg" alt=""></a></div><br>A key takeaway from Dreamforce 2010 is that the Saleforce cloud is expanding beyond sales and that 2011 will see the launch of several exciting tools for enterprise development. When the current roadmap runs its course, there will be five ways to build Salesforce applications.</p>
-<ol>
-<li><a href="http://www.salesforce.com/platform/appforce/" target="_blank" rel="external">Appforce</a> (classic Force.com) - <strong>Today </strong>- Appforce is the tried and true platform we use today, which combines Salesforce CRM, the force.com platform, and the VisualForce user interface library.</li>
-<li><a href="http://www.salesforce.com/platform/siteforce/" target="_blank" rel="external">Siteforce</a> (web sites) - <strong>GA Summer 2010</strong> - Siteforce combines content managmement with database management to create compelling web sites, for internal or external use.</li>
-<li><a href="http://www.vmforce.com/" target="_blank" rel="external">VMForce</a> (enterprise Java apps) - <strong>GA in 2011</strong> - VMForce is SFDC’s partnership with VMWare to deliver an enterprise Java cloud.</li>
-<li><a href="http://www.heroku.com/" target="_blank" rel="external">Heroku</a> (Ruby apps) - <strong>Today </strong>- Heroku is an established, cloud-based Ruby web application platform, available through its own website.</li>
-<li><a href="http://www.salesforce.com/platform/isvforce/" target="_blank" rel="external">ISVForce</a> (AppExchange) - <strong>Today </strong>- ISVForce provides the tools and technologies partners need to package applications for distribution.<br>Supporting the five development streams are two other products</li>
-</ol>
-<ul>
-<li><a href="https://www.salesforce.com/company/news-press/press-releases/2010/12/101208-2.jsp" target="_blank" rel="external">RemedyForce</a> - <strong>Today </strong>- IT help desk.</li>
-<li><a href="http://database.com/" target="_blank" rel="external">Database.com</a> - <strong>Summer 2011</strong> - By providing a trusted database platform for any language and any device, Salesforce hopes to help more customers move enterprise applications to the cloud.<br>A key point is that Salesforce is providing a separate application platform and a separate database platform. Developers can use the platforms together, or mix-and-match with other platforms and services. You might host an ASP.NET application on your own server, or on Azure, but reach out to database.com for storage. Or you might host an application on Siteforce and reach out to your own web service for crucial data.</li>
-</ul>
-<p>Mobile applications are a great fit for cloud based development tools. There is no app server running on your mobile device, but by reaching out to a cloud database, you can connect the mobile app to other people in your enterprise.</p>
-<p><span style="font-size:large;">More about Siteforce</span><br>The Siteforce mission to make the building and management of web sites dramatically easier. Technically, Salesforce is combining a cloud version of dreamweaver with a cloud web CMS with 24x7 hosting technology and an easy point-and-click, drag-and -drop design interface that non-techical people can use to build applications.</p>
-<p>Developers can drag existing applications into the CMS and build templates that people can use to build websites. The Siteforce architecture will also provide different views for different devices, simplifying mobile support. Since people do not want their web sites subject to scheduled mainenance, Siteforce will use a different infrastructure that will sites to stay online 24x7x365.</p>
-<p>Initially, the primary focus for SiteForce will be on marketing web sites, but the platform will be expanded to make building collaborative sites easier too. An open component architecture allows developers to build connections to the SFDC database and develop functionality like forums and wikis. Using the component architecture, Salesforce is expecting that the development community will provide a  wide array of custom Siteforce extensions and components through the AppExchange.</p>
-<p>Siteforce also includes full support for VisualForce pages and integrated authentification with the customer service and platform portals. Salesforce is extending its offering to appeal to both code-driven and visual developers.</p>
-<p><span style="font-size:large;">More about VMForce </span><br>The Saleforce vision for VMForce is simple: Give Java developers a path to the cloud so that they can run their enterprise applications on our services. Java developers can use their existing tools, using the SpringSource tools suite, based on Eclipse. Developers can deploy to our cloud service simply by dragging a WAR file onto a Salesforce server. Developers can also use Java JPA code and Java objects to connect to database.com. The focus is on the Spring Framework and standard Java (rather than the full J2EE stack). Apex and VisualForce are not going away – Salesforce is extending its offerings to appeal to a wider range of developers.<br><span style="font-size:large;"><br>Getting Started </span><br>While some of the new SFDC development offerings are a work in progress, you can get up and running with a free Force.com site today. Just vist free.force.com and dive in.</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/salesforce/">Salesforce</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/44/">44</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
       </nav>
     </section>
     <footer id="footer">

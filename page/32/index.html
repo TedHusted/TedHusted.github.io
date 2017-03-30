@@ -69,6 +69,89 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-s2-tip-always-set-devmode-to-false-in-production" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/s2-tip-always-set-devmode-to-false-in-production/">S2 Tip - Always set devMode to false in production</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/s2-tip-always-set-devmode-to-false-in-production/" class="article-date">
+  <time datetime="2007-03-16T09:00:00.000Z" itemprop="datePublished">2007-03-16</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>In the Struts 2.0.6 release, we made the mistake of setting devMode to true in some of the example applications. As a result, some developers copied the setting, and then wondered why their Struts 2 application seemed sluggish!</p>
+<p>As of Struts 2.0.7 (hopefully coming soon), we’ve added a <a href="http://struts.apache.org/2.x/docs/performance-tuning.html" target="_blank" rel="external">Performance Tuning</a> page to the documentation. Here’s the highlights:</p>
+<p>&nbsp;</p>
+<ul>
+<li>Do not use interceptors you do not need<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Use the correct HTTP headers (Cache-Control &amp; Expires)<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Copy the static content from the Struts 2 JAR when using the Ajax theme (Dojo) or the Calendar tag<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Create a <code>freemarker.properties</code> file in your <code>WEB-INF/classes</code>directory<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Copy the <code>/template</code> directory from the Struts 2 JAR into your web application’s root<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>When overriding a theme, copy all necessary templates to the <code>theme</code> directory</li>
+<li>Do not create sessions unless you need them<br>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>When using FreemarkerResult, try to use the Freemarker equivalents rather than the JSP tags<br>&nbsp;</li>
+</ul>
+<p>For the nitty-gritty, visit the latest copy of the <a href="http://struts.apache.org/2.x/docs/performance-tuning.html" target="_blank" rel="external">page</a>.</p>
+<p>Kudos to Philip Luppens for starting the tuning page. If you have any tuning tips of your own, feel free to post comments directly to the page. (Gotta love Confluence!)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-incremental-refactoring" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -340,60 +423,8 @@ New Revision: 182
 
 
     
-      <article id="post-java-web-frameworks-order-from-chaos" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2007/java-web-frameworks-order-from-chaos/">Java Web Frameworks: Order from Chaos</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2007/java-web-frameworks-order-from-chaos/" class="article-date">
-  <time datetime="2007-03-11T10:00:00.000Z" itemprop="datePublished">2007-03-11</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/review/">Review</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>People often comment on the number of Java web development frameworks. The Evolutionary Goo blog has an excellent summary of <a href="http://evolutionarygoo.com/blog/?p=94" target="_blank" rel="external">Java web framework taxonomies</a>.</p>
-<p>Now, can someone do the same for Ajax libraries? I’ve heard tell that there are about 200 Ajax libraries in use today – which puts the Java framework community to shame, especially when we’ve had a five-year head start. :)</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">Ajax</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/31/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="page-number" href="/page/31/">31</a><span class="page-number current">32</span><a class="page-number" href="/page/33/">33</a><a class="page-number" href="/page/34/">34</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/33/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/31/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="page-number" href="/page/31/">31</a><span class="page-number current">32</span><a class="page-number" href="/page/33/">33</a><a class="page-number" href="/page/34/">34</a><span class="space">&hellip;</span><a class="page-number" href="/page/44/">44</a><a class="extend next" rel="next" href="/page/33/">Next &raquo;</a>
       </nav>
     </section>
     <footer id="footer">

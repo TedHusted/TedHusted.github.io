@@ -69,6 +69,64 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-ajax-experience-2008-day-3-at-your-service" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2008/ajax-experience-2008-day-3-at-your-service/">Ajax Experience 2008, Day 3, At Your Service</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2008/ajax-experience-2008-day-3-at-your-service/" class="article-date">
+  <time datetime="2008-10-02T23:30:00.000Z" itemprop="datePublished">2008-10-02</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/event/">Event</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The highlight of my <a href="http://www.slideshare.net/ted.husted/testing-tools-presentation" title="testing tools talk" target="_blank" rel="external">testing tools talk</a> turned out to be my new-best-friend, <a href="https://hudson.dev.java.net/" title="Hudson" target="_blank" rel="external">Hudson</a>, an extensible <a href="https://hudson.dev.java.net/" title="continuous integration server" target="_blank" rel="external">continuous integration server</a>. The talk was in one of the 90-minute slots, so I split the agenda between reviewing some of the available tools and demoing a simple-but-complete continuous integration workflow. (By complete, I mean that on every checkin, we build the distribution and run a suite of both unit and integration tests.) Originally, the demo was to include <a href="http://developer.yahoo.com/yui/yuitest/" title="YUI Test" target="_blank" rel="external">YUI Test</a>, <a href="http://selenium.openqa.org/" title="Selenium" target="_blank" rel="external">Selenium</a>, and <a href="http://cruisecontrol.sourceforge.net/" title="Cruise Control" target="_blank" rel="external">Cruise Control</a>. At the last minute I switched in Hudson for Cruise Control.</p>
+<p>Setting up Hudson has to be the easiest/hardest thing I’ve ever done. (The previous runner-up being using iBATIS for Query-By-Example database searches.) Most CI servers are designed to run as standalone critters. Hudson runs as a standard Java web application, and it is configured using a web UI. (A clean and elegant UI, I might add.) The totally cool part is that the server can be installed by dropping the hudson.war into our favorite Java container … or running it standalone from the command line!</p>
+<p><a href="http://hudson.gotdns.com/latest/hudson.war" title="Download the WAR" target="_blank" rel="external">Download the WAR</a>, run</p>
+<p><span class="quote">&gt; java -jar hudson.war</span></p>
+<p>and <a href="http://hudson.gotdns.com/wiki/download/thumbnails/753667/1.png" title="up pops Hudson" target="_blank" rel="external">up pops Hudson</a>, at your service, ready for configuration. (The one prerequesite being a recent Java executable on your system path.)</p>
+<p>By default, Hudson stores its jobs in your home directory (even on Windows), so once it’s running, you can just have at it. Tell Hudson where to checkout your project from SVN or CVS, check a box or two, and you are good to go. (<a href="http://hudson.gotdns.com/wiki/display/HUDSON/Plugins#Plugins-Sourcecodemanagement" title="Other SCMs" target="_blank" rel="external">Other SCMs</a> also supported) For extra credit, you can indicate an Ant file to run along with Hudson’s default build. (<a href="http://hudson.gotdns.com/wiki/display/HUDSON/Plugins#Plugins-Buildtools" title="Other build systems" target="_blank" rel="external">Other build systems</a> also supported.) Fill out a few more fields in the web UI, and you’ll be getting an email nag whenever the build or test suite fails.</p>
+<p>With a continuous integration server in place, the remaining trick is to export Selenium tests to JUnit (or C#, or Ruby, or Python) to run both acceptance tests and any JavaScript unit tests. While running YUI Unit won’t trigger a JUnit failure out-of-the-box, we can use Selenium to watch for the outcome of the tests on the test logger. If <a href="http://developer.yahoo.com/yui/examples/yuitest/yt-simple-example.html" target="_blank" rel="external">“Failed:0” doesn’t materialize</a>, then we know the YUI test failed.</p>
+<p>Summing up: If you have a chance to go to Ajax Experience 2009, I’d say: “take it”. The organizers always manage to come up with a nice mix of introductory and advanced presentations, many by the people who are creating the technologies we use – people like Brendan Eich, Nicholas C. Zakas, and John Resig, to name a few. Even better, it’s a great chance to mingle with other real-live developers all trying to do the very same things you are trying to do. (And then discovering your organization isn’t so backward, after all!)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">Ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/continuous-integration/">Continuous Integration</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hudson/">Hudson</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/">Jenkins</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-ajax-experience-2008-day-2-return-of-the-yui" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -389,87 +447,8 @@ ga('send', 'pageview');
 
 
     
-      <article id="post-ajax-experience-2008-more-ted-nuff-said" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2008/ajax-experience-2008-more-ted-nuff-said/">Ajax Experience 2008 - More Ted, &#39;nuff said</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2008/ajax-experience-2008-more-ted-nuff-said/" class="article-date">
-  <time datetime="2008-07-22T09:00:00.000Z" itemprop="datePublished">2008-07-22</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/event/">Event</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>I’ll be giving three – count ‘em three – presentations at the Ajax Experience at the end of September. Two talks are Struts-related reprisals form last year, and the third talk, new this year!, dives into popular tools for testing Ajax applications.</p>
-<p><a href="http://ajaxexperience.techtarget.com/html/index.html" target="_blank" rel="external">Hope to see you there!</a></p>
-<h3 id="Ajax-Testing-Tool-Review"><a href="#Ajax-Testing-Tool-Review" class="headerlink" title="Ajax Testing Tool Review"></a>Ajax Testing Tool Review</h3><p>Not long ago, testing Ajax components meant play-testing a page by hand. Today, there are a growing number of tools we can use to simplify and automate Ajax testing.</p>
-<p>In this session we will cover when to test, what to test and how to test Ajax components. You learn how to create automatic tests with various tools, including YUI Test, OpenQA Selenium and TIBCO Test Automation Kit, and how to use Ajax testing tools with IDEs and Continuous Integration systems.</p>
-<p>In this session, you will learn:</p>
-<ul>
-<li>When, where and how to test Ajax components;</li>
-<li>How to create automatic tests with various tools;</li>
-<li>How to use Ajax testing tools with IDEs and Continuous Integration systems.</li>
-</ul>
-<h3 id="Struts-on-Ajax-Retrofitting-Struts-with-Ajax-Taglibs"><a href="#Struts-on-Ajax-Retrofitting-Struts-with-Ajax-Taglibs" class="headerlink" title="Struts on Ajax: Retrofitting Struts with Ajax Taglibs"></a>Struts on Ajax: Retrofitting Struts with Ajax Taglibs</h3><p>Struts is Java’s most popular web framework. Ajax is the web’s hottest user interface. What happens when we put Struts on Ajax?</p>
-<p>In this session, we stir some Ajax wizardry into a conventional Struts application, without all the sweat and bother of writing our own JavaScript. Struts 1 and Struts 2 both support Ajax taglibs that look and feel just like ordinary JSP tags. If it’s just a little bit of Ajax that you want, these tags will get you around the learning curve in record time.</p>
-<p>During the session, we will cover</p>
-<ul>
-<li>Using the Java Web Parts taglib with Struts 1</li>
-<li>Using the Ajax YUI plugin with Struts 2<br>Who should attend: Struts developers who would like to utilize Ajax with existing applications, and Ajax developers who would like to utilize Struts as a backend.</li>
-</ul>
-<p>To get the most from this session, some familiarity with Struts or a similar framework is helpful.</p>
-<p>To register, visit <a href="http://ajaxexperience.techtarget.com/index.html" target="_blank" rel="external">Ajax Experience site</a>.</p>
-<h3 id="Ajax-on-Struts-Coding-an-Ajax-Application-with-Struts-2"><a href="#Ajax-on-Struts-Coding-an-Ajax-Application-with-Struts-2" class="headerlink" title="Ajax on Struts: Coding an Ajax Application with Struts 2"></a>Ajax on Struts: Coding an Ajax Application with Struts 2</h3><p>Ajax is the web’s hottest user interface. Struts is Java’s most popular web framework. What happens when we put Ajax on Struts?</p>
-<p>In this session, , we look at writing a new Struts 2 application from square one, using the Yahoo User Interface (YUI) Library on the front end, and Struts 2 on the backend. YUI provides the glitz and the glamour, and Struts 2 provides the dreary business logic, input validation, and text formatting.</p>
-<p>During the session, we will cover</p>
-<ul>
-<li>How to integrate an Ajax UI with Struts 2</li>
-<li>Basics of the Yahoo User Interface (YUI) Library</li>
-<li>Business services Struts can provide to an Ajax UI<br>Who should attend: Ajax developers who would like to utilize Struts as a back-end, and Struts developers who would like to utilize Ajax as a front-end.</li>
-</ul>
-<p>To get the most from this session, some familiarity with an Ajax library, like YUI or Dojo, is helpful.</p>
-<p>Visit the <a href="http://ajaxexperience.techtarget.com/index.html" target="_blank" rel="external">Ajax Experience site</a> to register.</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">Ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/18/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/20/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/18/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/44/">44</a><a class="extend next" rel="next" href="/page/20/">Next &raquo;</a>
       </nav>
     </section>
     <footer id="footer">
