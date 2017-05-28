@@ -69,6 +69,219 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-yui-test-the-new-kid-on-block" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2008/yui-test-the-new-kid-on-block/">YUI Test - The New Kid on Block</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2008/yui-test-the-new-kid-on-block/" class="article-date">
+  <time datetime="2008-09-23T09:00:00.000Z" itemprop="datePublished">2008-09-23</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>One of the great features of the <a href="http://ektron.com/" title="Ektron" target="_blank" rel="external">Ektron</a> content management system platform is that it plays well with other technologies. At <a href="http://www.vandamme.com/content.aspx?id=362" target="_blank" rel="external">VanDamme Associates</a>, we often mix custom JavaScript and AJAX elements into our Ektron solutions.</p>
+<p>Ektron itself is no stranger to AJAX, and it even bundles a tweaked version of JQuery in the standard distribution. One good tool for testing JavaScript, that <a href="http://dev.ektron.com/blogs.aspx?id=13568" target="_blank" rel="external">Ektron has blogged about</a>, is the venerable <a href="http://jsunit.org/" target="_blank" rel="external">JsUnit</a> framework. While JsUnit is a solid tool, there are drawbacks.</p>
+<ul>
+<li>Although JsUnit has been available since 2001, it’s still the love child of a sole developer.<br>JsUnit’s release schedule is irregular. (Release 2.2 has been in “beta” for over two years now.)</li>
+</ul>
+<h4 id="Look-Ahead"><a href="#Look-Ahead" class="headerlink" title="Look Ahead"></a>Look Ahead</h4><p>Happily, there’s a new kid on the block: <a href="http://developer.yahoo.com/yui/yuitest/" target="_blank" rel="external">YUI Test</a>. YT is bundled with the Yahoo! User Interface Library (YUI). To quote the YUI site:</p>
+<blockquote>
+<p>“<em>YUI Test is a testing framework for browser-based JavaScript solutions. Using YUI Test, you can easily add unit testing to your JavaScript solutions. While not a direct port from any specific xUnit framework,YUI Test does derive some characteristics from nUnit and JUnit.</em>“</p>
+</blockquote>
+<p>Key features of YUI Test include:</p>
+<ol>
+<li>Rapid creation of test cases through simple syntax.</li>
+<li>Advanced failure detection for methods that throw errors.</li>
+<li>Grouping of related test cases using test suites.</li>
+<li>Asynchronous tests for testing events and Ajax communication.</li>
+<li>DOM Event simulation in all A-grade browsers.<br>YUI Test has been available since July 2007 (YUI 2.3.0), and made “GA” grade in February 2008 (YUI 2.5.0). The YT framework was created by Yahoo! engineer <a href="http://www.nczonline.net/" target="_blank" rel="external">Nicholas C. Zakas</a>. It’s regularly released and maintained with the rest of the library, and its distributed under the library’s BSD license. (All together, there seem to be about sixteen developers on the YUI team, maintaining about thirty components).</li>
+</ol>
+<p>(!) Note that YUI Test can be used to test <strong>any</strong> JavaScript code – the application doesn’t need to be based on YUI to use YUI Test.</p>
+<p>One of the pleasures of YUI Test is that it can use the YUI TestLogger as a test harness.</p>
+<p><a href="http://developer.yahoo.com/yui/logger/" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2008/09/6bbdc-yui-test.png" alt=""></a></p>
+<p>TestLogger is a subclass of <a href="http://developer.yahoo.com/yui/logger/" target="_blank" rel="external">YUI Logger</a>, which can be used for general-purpose JavaScript logging and debugging, giving us two great capabilities in one flexible component. YUI Test can also be used in collaboration with the new YUI Profiler (another Zakas creation) to create performance-based tests.</p>
+<h4 id="Trip-the-Rift"><a href="#Trip-the-Rift" class="headerlink" title="Trip the Rift"></a>Trip the Rift</h4><p>Unit testing conventional, classical code often relies on exercising the “API Contract”. If we pass certain parameters to method, the method should return a certain result, or raise a certain exception. Since, JavaScript is event-driven, in order to determine the outcome of a method, we often need to know what events it raises. Meanwhile, in an Ajax application, there can be a disconnect between when a method is called and when the event is ultimately reaised. YUI Test helps us bridge the gap with a “wait/resume” feature. A test can subscribe to an event, and call “resume” in the event handler. When the test reaches the point where an action might take an indeterminate amount of time, we can call “wait”, and the test continues when the event fires.</p>
+<p>For example, here’s a test that calls a time-consuming animiation routine. The test registers an event handler, starts the animation, and waits for the event to fire. When the animation completes, the test confirms that the routine accomplished the expected result.</p>
+<p><span style="font-family:courier new, monospace;"> </span></p>
+<div id="testLogger"></div>
+
+<p><span style="font-family:courier new, monospace;"> </span></p>
+<div id="testDiv" style="position:absolute;width:10px;height:10px;"></div>
+
+<p><span style="font-family:courier new, monospace;"> YAHOO.namespace(“example.yuitest”);</span> <span style="font-family:courier new, monospace;"> YAHOO.example.yuitest.AsyncTestCase = new YAHOO.tool.TestCase({</span> <span style="font-family:courier new, monospace;"> name : “Animation Tests”, </span> <span style="font-family:courier new, monospace;"> testAnimation : function (){</span> <span style="font-family:courier new, monospace;"> var Assert = YAHOO.util.Assert;</span> <span style="font-family:courier new, monospace;"> var YUD = YAHOO.util.Dom;</span> <span style="font-family:courier new, monospace;"> var myAnim = new YAHOO.util.Anim(‘testDiv’,</span></p>
+<p>{ width: { to: 400 } }, 3, YAHOO.util.Easing.easeOut); <span style="font-family:courier new, monospace;"> myAnim.onComplete.subscribe(function(){</span> <span style="font-family:courier new, monospace;"> this.resume(function(){ </span> <span style="font-family:courier new, monospace;"> Assert.areEqual(YUD.get(“testDiv”).offsetWidth,</span></p>
+<p>400, “Width of the DIV should be 400.”); <span style="font-family:courier new, monospace;"> });</span> <span style="font-family:courier new, monospace;"> }, this, true);</span> <span style="font-family:courier new, monospace;"> // Start the animation and wait for the resume function</span> <span style="font-family:courier new, monospace;"> myAnim.animate();</span> <span style="font-family:courier new, monospace;"> this.wait(); </span> <span style="font-family:courier new, monospace;"> }</span> <span style="font-family:courier new, monospace;"> });</span> <span style="font-family:courier new, monospace;"> YAHOO.util.Event.onDOMReady(function (){</span> <span style="font-family:courier new, monospace;"> var logger = new YAHOO.tool.TestLogger(“testLogger”);</span> <span style="font-family:courier new, monospace;"> YAHOO.tool.TestRunner.add(YAHOO.example.yuitest.AsyncTestCase);</span> <span style="font-family:courier new, monospace;"> // Run the tests when DOM is ready</span> <span style="font-family:courier new, monospace;"> YAHOO.tool.TestRunner.run();</span> <span style="font-family:courier new, monospace;"> });</span></p>
+<p>Not every test needs to use wait/resume, but, when we do, it’s an indispensible feature.</p>
+<h4 id="Be-Assertive"><a href="#Be-Assertive" class="headerlink" title="Be Assertive"></a>Be Assertive</h4><p>Asynchronous or not, essentially, unit testing is about making assertions. We unit test by invoking a method and passing in known parameters and observing the outcome. We might expect the method to return a simple value, or another object, like a Date Type, with certain attributes set to certain values. Or, we might expect the method to fail and raise an exception, or to succeed and raise and event.</p>
+<p>Since we’re talking JavaScript, YUI not only supports all the usual assertions, but type cohersion to boot.</p>
+<blockquote>
+<p>var oTestCase = new YAHOO.tool.TestCase({</p>
+<p>name: “TestCase Name”,</p>
+<p>testEqualityAsserts : function () {</p>
+<p>var Assert = YAHOO.util.Assert;</p>
+<p>Assert.areEqual(5, 5); //passes</p>
+<p>Assert.areEqual(5, “5”); //passes</p>
+<p>Assert.areNotEqual(5, 6); //passes</p>
+<p>Assert.areEqual(5, 6, “Five was expected.”); //fails</p>
+<p>}</p>
+<p>});<br>For more precise testing, YUI Test provides for Sameness Assertions.<br>var oTestCase = new YAHOO.tool.TestCase({</p>
+<p>name: “TestCase Name”,</p>
+<p>testSamenessAsserts : function () {</p>
+<p>var Assert = YAHOO.util.Assert;</p>
+<p>Assert.areSame(5, 5); //passes</p>
+<p>Assert.areSame(5, “5”); //fails</p>
+<p>Assert.areNotSame(5, 6); //passes</p>
+<p>Assert.areNotSame(5, “5”); //passes</p>
+<p>Assert.areSame(5, 6, “Five was expected.”); //fails</p>
+<p>}</p>
+<p>});<br>Since JavaScript is loosely typed, asserting data types is a common need. YUI Test provides assertions for all the usual suspects; Array, Boolean, Function, Number, Object, String. To close the loop, an <span style="font-family:courier new, monospace;">isTypeOf</span> assertion interprets the data type as string.<br>var oTestCase = new YAHOO.tool.TestCase({</p>
+<p><span style="font-family:courier new, monospace;"> name: “TestCase Name”,</span></p>
+<p>testTypeOf : function () {</p>
+<p>var Assert = YAHOO.util.Assert;</p>
+<p>Assert.isTypeOf(“string”, “Hello world”); //passes</p>
+<p>Assert.isTypeOf(“number”, 1); //passes</p>
+<p>Assert.isTypeOf(“boolean”, true); //passes</p>
+<p>Assert.isTypeOf(“number”, 1.5); //passes</p>
+<p>Assert.isTypeOf(“function”, function(){}); //passes</p>
+<p>Assert.isTypeOf(“object”, {}); //passes</p>
+<p>Assert.isTypeOf(“undefined”, this.blah); //passes</p>
+<p>Assert.isTypeOf(“number”, “Hello world”, “Value should be a number.”); //fails</p>
+<p>}</p>
+<p>});<br>A companion assertion, <span style="font-family:courier new, monospace;">isInstanceOf</span>, can be used to evaluate object types (Array, Function, Object). Other assertions are available for evaluating JavaScript-isms like NaN, Undefined, and truthiness.</p>
+</blockquote>
+<p>Finally, YUI Test also supports date and time assertions, forced failures, skipping tests, and test suites.</p>
+<h4 id="Push-the-Envelope"><a href="#Push-the-Envelope" class="headerlink" title="Push the Envelope"></a>Push the Envelope</h4><p>Aside from exposing the usual xUnit API, YUI Test goes a step further, and provides support for <em>UserActions</em> and <em>Asyncronous Tests</em>.</p>
+<ul>
+<li><strong>User Actions</strong> are simulated user-initiated events that can be used to test how scripts react to mouse or keyboard events.</li>
+<li><strong>Asyncronous Tests</strong> can be programmed to pause for a certain amount of time (while an out of process action occurs), or to pause until an event handler in the test script calls a “resume” method.<br>Whether you’ve outgrown JsUnit, or whether you’re finally ready to start unit testing JavaScript for the first time, be sure to give YUI Test a try.</li>
+</ul>
+<h4 id="More-about-YUI-Test"><a href="#More-about-YUI-Test" class="headerlink" title="More about YUI Test"></a>More about YUI Test</h4><ul>
+<li><a href="http://www.insideria.com/2008/05/writing-your-first-yui-applica.html" target="_blank" rel="external">Writing Your First YUI Application</a>, <a href="http://www.oreillynet.com/pub/au/3447" target="_blank" rel="external"><span style="color:#0066cc;">Eric Miraglia</span></a> (2008 May).</li>
+</ul>
+<h4 id="More-about-JsUnit"><a href="#More-about-JsUnit" class="headerlink" title="More about JsUnit"></a>More about JsUnit</h4><ul>
+<li><a href="http://www.litfuel.net/plush/?postid=117" title="Permanent Link: AJAX and Unit Testing - it" target="_blank" rel="external"><span style="color:#0066cc;">AJAX and Unit Testing - it’s time to mingle</span></a>, Jim Plush (2006 Feb),</li>
+<li><a href="http://www.litfuel.net/plush/?postid=154" title="Permanent Link: Ajax and Unit Testing Part Two, The Wrath of Mock" target="_blank" rel="external"><span style="color:#0066cc;">Ajax and Unit Testing Part Two, The Wrath of Mock</span></a>, Jim Plush (2006 Nov).</li>
+</ul>
+<h4 id="More-about-Open-Source-Testing-Tools"><a href="#More-about-Open-Source-Testing-Tools" class="headerlink" title="More about Open Source Testing Tools"></a>More about Open Source Testing Tools</h4><ul>
+<li><a href="http://www.opensourcetesting.org/" target="_blank" rel="external">Open Source Testing Tools Site</a></li>
+<li><a href="http://junit.sourceforge.net/doc/testinfected/testing.htm" target="_blank" rel="external">Test Infected - The Seminal Tutorial by Beck and Gamma</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yui/">YUI</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-haromonizing-the-good-parts" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2008/haromonizing-the-good-parts/">Haromonizing the Good Parts</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2008/haromonizing-the-good-parts/" class="article-date">
+  <time datetime="2008-09-16T09:00:00.000Z" itemprop="datePublished">2008-09-16</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>“Sometimes a step backward is a step in the right direction …”</em></p>
+<p>Over the summer, there have been two loosely related events on the JavaScript landscript:_ ECMAScript Harmony _and <em>JavaScript: The Good Parts</em>.</p>
+<h3 id="ECMAScript-Harmony"><a href="#ECMAScript-Harmony" class="headerlink" title="ECMAScript Harmony"></a>ECMAScript Harmony</h3><p>In the land of JavaScript, the “tyranny of the installed base” rules supreme. A key frustration of JavaScript developers is that platform innovations are metered by the glacial rate at which the marketplace upgrades browser clients.</p>
+<p>Ironically, JavaScript pundits have been equally concerned about there being too much innovation in the ECAMScript 4 specification. The new specification includes ambitious notions like packages, namespaces and early binding.</p>
+<p>In August, the working group met in Oslo and arrived at a new focus for the future of JavaScript, dubbed the <em>ECMAScript Harmony</em> project. The core of ES Harmony can be expressed in a set of four goals.</p>
+<ol>
+<li>Focus work on ECMAScript 3.1 with full collaboration of all parties, and target two interoperable implementations by early next year.</li>
+<li>Collaborate on the next step beyond ECMAScript 3.1, which will include syntactic extensions but which will be more modest than ECMAScript 4 in both semantic and syntactic innovation.</li>
+<li>Some ECMAScript 4 proposals have been deemed unsound for the Web, and are off the table for good: packages, namespaces and early binding. This conclusion is key to Harmony.</li>
+<li>Other goals and ideas from ECMAScript 4 are being rephrased to keep consensus in the committee; these include a notion of classes based on existing ES3 concepts combined with proposed ECMAScript 3.1 extensi<br>For more about ECMAScript Harmony, visit <a href="http://ejohn.org/blog/ecmascript-harmony/" target="_blank" rel="external">John Resig’s blog</a>.</li>
+</ol>
+<h3 id="JavaScript-The-Good-Parts"><a href="#JavaScript-The-Good-Parts" class="headerlink" title="JavaScript: The Good Parts"></a>JavaScript: The Good Parts</h3><p>Admist the ES4 turmoil, workers at both Mozilla and Yahoo! have advocated moderation. John Resig, of Mozilla, went on a <a href="http://ejohn.org/blog/ecmascript-4-speaking-tour/" target="_blank" rel="external">ES4 speaking tour</a> to raise awareness, and Douglas Crockford, of Yahoo!, brought out <a href="http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742/" target="_blank" rel="external">JavaScript: The Good Parts</a>, a testament to the doctine of “less is more”.</p>
+<p>In “The Good Parts”, Crockford walks through both the good and the bad of JavaScript, pointing out best practices to embrace and design flaws to avoid. While Crockford tries to “accentuate the positive”, one can’t help but notice that many best practices are driven by design flaws.</p>
+<h3 id="Some-Design-Flaws"><a href="#Some-Design-Flaws" class="headerlink" title="Some Design Flaws"></a>Some Design Flaws</h3><ul>
+<li>Reliance on global variables weakens the resiliency of programs [p25].</li>
+<li>Inner variables set to functions are bound to the global object (not the “this” of the outer function) [p28].</li>
+<li>Arguments are not really an array [p31].</li>
+<li>Support for block syntax implies a block scope, but there is no block scope [p36].</li>
+</ul>
+<h3 id="Some-Best-Practices"><a href="#Some-Best-Practices" class="headerlink" title="Some Best Practices"></a>Some Best Practices</h3><ul>
+<li>Reduce your global footprint to a single name (like YUI’s YAHOO namespace) [p26].</li>
+<li>Throw exceptions when a mishap is detected [p32].</li>
+<li>Declare all variables used in a function at the top of the function body [p36].</li>
+<li>Use the module pattern to eliminate the use of global variable [p41].<br>Crockford is presenting a talk on the Good Parts at the <a href="http://ajaxexperience.techtarget.com/html/index.html" target="_blank" rel="external">Ajax Experience 2008</a> in Boston on September 29th. Sadly, his talk is up against my own talk “Ajax Testing Tool Review”. I just hope someone shows up for mine …</li>
+</ul>
+<h2 id="Preaching-to-the-Choir"><a href="#Preaching-to-the-Choir" class="headerlink" title="Preaching to the Choir"></a>Preaching to the Choir</h2><p>At <a href="http://www.vandamme.com/blog.aspx?id=1940&amp;blogid=238" target="_blank" rel="external">VanDamme Associates</a>, we make good use of John Resig’s JQuery library and Yahoo’s YUI library in our Ektron-based web applications. Together, these packages already deliver the same utility that an overly-ambitous ES4 might provide. A kinder, gentler ES4 means a more stable and robust development environment for us and our clients. To quote a famous, if fictional, engineer: “The more they fancy up the plumbing, the easier it is to gum up the works.”</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-ajax-experience-2008-more-ted-nuff-said" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -239,114 +452,6 @@ ga('send', 'pageview');
       <footer class="article-footer">
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
-      <article id="post-sun-snaps-up-database-firm-mysql" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2008/sun-snaps-up-database-firm-mysql/">Sun Snaps Up Database Firm, MySQL</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2008/sun-snaps-up-database-firm-mysql/" class="article-date">
-  <time datetime="2008-01-17T11:00:00.000Z" itemprop="datePublished">2008-01-17</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/event/">Event</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>“Sun Microsystems elbowed into the enterprise database market Wednesday with the announcement of a proposed $1 billion acquisition of MySQL, an open-source database software company.”</p>
-<p>For more see, the <a href="http://www.forbes.com/home/technology/2008/01/16/sun-mysql-linux-tech-enter-cx_ag_0116sun.html" target="_blank" rel="external">Forbes article</a>.<br>You know, one thing that MySQL buys Sun is experience in making money from GPL software. Now that Java is Sun’s ticker symbol, perhaps they are ready to create more Java revenue. Maybe it’s not about becoming a “database” company, but about becoming a “GPL” company.</p>
-</blockquote>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/open-source/">Open Source</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
-      <article id="post-building-struts-2-apps-without-xml-gluecode" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2008/building-struts-2-apps-without-xml-gluecode/">Building Struts 2 Apps without XML GlueCode</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2008/building-struts-2-apps-without-xml-gluecode/" class="article-date">
-  <time datetime="2008-01-08T11:00:00.000Z" itemprop="datePublished">2008-01-08</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>TheServerSide has kindly published an article I wrote a while back about the SmartURLs plugin.</p>
-<ul>
-<li><a href="http://www.theserverside.com/tt/articles/article.tss?l=SmartURLs" target="_blank" rel="external">Building Struts 2 Apps without XML GlueCode</a><br>I’ll be updating this piece for the new Conventions plugin, now in the Apache Struts Sandbox, which merges ZeroConfig and CodeBehind with SmartURLs. Film at 11 …</li>
-</ul>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web-development/">Web Development</a></li></ul>
 
       </footer>
     

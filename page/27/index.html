@@ -69,6 +69,129 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-unobstrusive-javascript-validation-with-yui" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/unobstrusive-javascript-validation-with-yui/">Unobstrusive Javascript Validation with YUI</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/unobstrusive-javascript-validation-with-yui/" class="article-date">
+  <time datetime="2007-04-11T12:00:53.000Z" itemprop="datePublished">2007-04-11</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://blog.jc21.com/2007-02-05/yui-unobstrusive-javascript-validation/" target="_blank" rel="external">A very cool approach to validation that plugs right into the YUI library.</a></p>
+<p>I’m using this to provide validation to the <a href="http://www.geocities.com/planetyazaar/examples/dataform/tutorial-tabview.html" target="_blank" rel="external">DataForm Widget</a>, which is a stepping stone toward the <a href="http://jroller.com/page/TedHusted?entry=flev_01" target="_blank" rel="external">FLEV Widget</a>.</p>
+<p>Meanwhile, on the Java front:</p>
+<ul>
+<li><a href="http://apache.org/index.html#sun_jck_letter" target="_blank" rel="external">The ASF’s Open Letter to Sun regarding the Harmony Java Compatibility Kit</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yui/">YUI</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-fortifying-ajax" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/fortifying-ajax/">Fortifying Ajax</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/fortifying-ajax/" class="article-date">
+  <time datetime="2007-04-10T12:00:05.000Z" itemprop="datePublished">2007-04-10</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Last month, Fortify Software posted a <a href="http://www.fortifysoftware.com/servlet/downloads/public/JavaScript_Hijacking.pdf" target="_blank" rel="external">white paper</a> describing a security exploit dubbed JavaScript Hijacking. Being a slow news month, a number of online journals trotted out “the end is near” headlines.</p>
+<p>Of course, Ajax development groups have been quick to post responses to the “advisory”. Despite the hyperbole, engines like Dojo, GWT, and YUI are not “vulnerable”. Certain applications using Ajax engines may fit a “vulnerability profile”, and if so, there are simple and concrete steps that developers can take.</p>
+<p>If your Ajax application exposes sensitive data via raw JSON, do this:</p>
+<ul>
+<li>Enclose JSON responses in JavaScript comment characters, and</li>
+<li>Strip the comments before parsing the response<br>Click. Done.</li>
+</ul>
+<p>Like many security issues, the “vulnerability” is mainly a developer education issue.</p>
+<p>The Dojo Toolkit is providing patches in version 0.4.3 “to inform developers of the potential risks their server-side components may be exposing them to and making it even easier to do the right thing on the client side”.</p>
+<p>The Yahoo! User Interface (YUI) Library is now adding a specific header to each request. The server side code looks for the header and refuses to service the request if the header is absent or not valid.</p>
+<p>For more about security Ajax applications, see</p>
+<ul>
+<li><a href="http://dojotoolkit.org/node/619" target="_blank" rel="external">A Note on “JavaScript Hijacking</a>“ (Dojo)</li>
+<li><a href="http://tech.groups.yahoo.com/group/ydn-javascript/message/11723" target="_blank" rel="external">YUI Security</a>“ and <a href="http://developer.yahoo.com/security/" target="_blank" rel="external">Yahoo! Developer Network - Security Best Practices</a></li>
+<li><a href="http://groups.google.com/group/Google-Web-Toolkit/web/security-for-gwt-applications" target="_blank" rel="external">Security for GWT Applications</a><br>Since many developers were not aware of this exploit, it is a Good Thing that a White Hat brought it to our attention before the Black Hats did. Though, I hope the next White Hat takes the high road and alerts the development group first. That way, we can have a response out the day the alert is posted, rather than a week or two later.</li>
+</ul>
+<p>But, of course, if you happen to be a security consultant, a blindside brouhaha is not bad for business!</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">Ajax</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-tour-de-blog-wordpress" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -224,124 +347,6 @@ ga('send', 'pageview');
       <footer class="article-footer">
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/productivity/">Productivity</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
-      <article id="post-ajax-smackdown-dojo-versus-yui" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2007/ajax-smackdown-dojo-versus-yui/">Ajax Smackdown: Dojo versus YUI!</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2007/ajax-smackdown-dojo-versus-yui/" class="article-date">
-  <time datetime="2007-04-07T09:00:00.000Z" itemprop="datePublished">2007-04-07</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/event/">Event</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>Note: I was going to blob about the FLEV widget today, but I thought I should mention the smackdown presentation first, since it’s on Tuesday. I’ll follow up on that with the slides and a written article. In the meantime, <a href="http://www.geocities.com/planetyazaar/examples/dataform/tutorial-tabview.html" target="_blank" rel="external">check out the FLEV test page</a>!<br>Here’s a description of a presentation scheduled for Tuesday, April 10, here in Rochester NY:</p>
-</blockquote>
-<p>Since Jesse James Garrett coined the term Ajax in February 2005, the development landscape has exploded with Ajax frameworks, toolkits, and libraries. Although there are literally hundreds of libraries available today, two of the top contenders are the Dojo JavaScript Toolkit and the Yahoo! User Interface (YUI) Library.</p>
-<p>On a recent Ajax spike, my team created the same example application in both Dojo and YUI. Let’s compare the implementations, and see how the underlying Ajax products differ. Both Dojo and YUI are excellent products in their own way. But, which is the best fit for you, your application, and your organization?</p>
-<p>Bio: Ted Husted is a software engineer and team mentor. His specialty is building agile web applications with open source products like Yahoo! User Interface Library, Struts, Spring, iBATIS, and MySQL, for either Java or Microsoft .NET, and helping others do the same.</p>
-<p>Ted is a member of the Apache Software Foundation, an active member of the Apache Struts and Apache iBATIS projects, and co-founder of the Jakarta Commons. His books include JUnit in Action, Struts in Action, and Professional JSP Site Design. Ted has consulted with teams throughout the United States, including CitiGroup, Nationwide Insurance, and Pepsi Bottling Group. He is currently working with the Oklahoma State Department of Environmental Services to improve their permitting system.</p>
-<ul>
-<li>Meetings start at 6:00 pm and end around 8:00 pm<br>&amp; Meetings are held on the Third floor of the Golisano building, at RIT, room 70-3000 - CS conference room.</li>
-<li>Directions to RIT can be found at [url=<a href="http://www.rjug.org]www.rjug.org[/url" target="_blank" rel="external">http://www.rjug.org]www.rjug.org[/url</a>]</li>
-<li>Members of RJUG are now entitled to discounts on O’Reilly books. Details will be available at the meeting.</li>
-</ul>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">Ajax</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
-      <article id="post-s2-tip-within-a-namespace-reuse-names-for-common-concepts" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2007/s2-tip-within-a-namespace-reuse-names-for-common-concepts/">S2 Tip - Within a namespace, reuse names for common concepts</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2007/s2-tip-within-a-namespace-reuse-names-for-common-concepts/" class="article-date">
-  <time datetime="2007-04-06T09:00:00.000Z" itemprop="datePublished">2007-04-06</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>In practice, most applications are composed of a small number of workflows that repeat within the application. When configuration elements in different namespaces serve the same role, use the same identifier for each element. If each namespace includes a “Menu” or a “Help” action, use those same names with each namespace.</p>
-<p>/receivables/Menu.jsp</p>
-<!-- ... -->
-<p>/payables/Menu.jsp</p>
-<!-- ... -->
-<p>Since the namespace feature avoids collisions between element names, we can increase cohesion within the application by using a consistent naming pattern.</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
 
       </footer>
     

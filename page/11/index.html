@@ -69,6 +69,204 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-test-driven-development-with-apex-triggers-on-force-com" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/test-driven-development-with-apex-triggers-on-force-com/">Test Driven Development with Apex Triggers on Force.com</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2012/test-driven-development-with-apex-triggers-on-force-com/" class="article-date">
+  <time datetime="2012-03-05T11:00:00.000Z" itemprop="datePublished">2012-03-05</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div class="separator" style="clear:both;text-align:center;"><a href="http://en.wikipedia.org/wiki/Drawing_Hands" target="_blank" rel="external"><img src="http://upload.wikimedia.org/wikipedia/en/b/ba/DrawingHands.jpg" alt=""></a></div><a href="http://tedhusted.blogspot.com/2012/03/test-driven-development-with-apex-on.html" target="_blank" rel="external">In an earlier blog</a>, we examined a simple example of Test Driven Development (TDD). Here, we dive into a real-life example of using TDD to develop production Apex code for Salesforce CRM.<br><strong><br>How does TDD work in practice?</strong><br><br>Let’s walk through a non-trivial example of using test-driving development to craft a complex Apex trigger.<br><br><strong>Problem: </strong>An off-the-shelf integration requires the existence of a specific Salesforce CRM Opportunity object. When the object is present, the integration acts on the Account related to the Opportunity. When the object is not present. the integration bypasses the Account.<br><br><a name="more"></a><strong>User Story:</strong> As a CRM User, I need to easily manage the Opportunity that signals the integration, for example, by selecting a checkbox that creates or removes the related integration object.<br><br><strong>Solution:</strong> Provide an Account trigger that observes the checkbox and inserts or deletes the related integration object.<br><br><strong>How do we test an Apex trigger?</strong><br><br>In the case of an Apex trigger, we can’t invoke the behavior directly. The purpose of a trigger is to create a side effect when we insert, update, or delete objects. Basically, we do something like<br><br>| <span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">Account a = new Account(name = ‘test’,);</span></span><br>| <span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">insert(a);</span></span><br><br>and observe the state changes.<br><br>(Note: Another approach is to have the trigger call a worker class, and then write tests against the worker class. Here, we are using the direct approach, and keeping the trigger code in the trigger.)<br><br>As we saw in Part 1, a good place to start any coding exercise is to clearly define the expected state change. We can then code tests against the expected state changes, call the relevant DML operations (insert, update, and/or delete), and observe the outcome. (DML = Database Manipulation Language.)<br><br>Let’s express our expectations (or requirements) in the form of a documentation comment for the trigger under test.<br><div><span style="font-size:x-small;"><br></span></div><div><span style="font-size:x-small;">// Integration Account trigger requirements<br><br>/<strong><br> <em> Manages a2z Opportunity by referring to the “Do Import” checkbox on the Account object (NU_isA2zImport__c).
+ </em> When an a2z Opportunity exists, the Account is imported to a2z.<br> <em> The trigger handles three transitional states:
+ </em> (1) if insert and doImport, insert opportunity;<br> <em> (2) if update and !doImport and hasOpp, delete opportunity;    
+ </em> (3) if update and doImport and !hasOpp, insert opportunity.<br> <em> By inference, the trigger also handles:
+ </em> (4) if insert and !doImport, exit;<br> <em> (5) if update and doImport and hasOpp, exit;
+ </em> (6) if !doImport and !hasOpp, exit.<br> */</strong></span></div><br>To start coding the trigger that implements this logic, according to test driven development, we need a failing test. Let’s start with (1) and write a test for the Insert case. Since this is a non-trivial example, there is some scaffolding for the test.<br><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// Test for Insert case<br><br>final static Id A2Z_RECORD_TYPE_ID = Schema.SObjectType.Opportunity.<br>  getRecordTypeInfosByName().get(‘a2z’).getRecordTypeId();<br>final static String A2Z_STAGE_NAME = ‘Closed Won’;<br><br>/<br> <em> Exercises “Insert Import” (1) by inserting an new Account with the checkbox set,
+ </em> and observing whether a corresponding Opportunity is created.<br> <em>/<br>static testMethod void testInsImp() {<br>       // Bootstrap a test account, passing in values for needed fields.<br>       Account a = new Account(name = ‘test’, NU_isA2zImport__c=true);<br>       // Insert and Select the test Account<br>       insert(a);<br>       // Do we have an a2z opp?<br>       Integer opps = [<br>                SELECT COUNT()<br>                FROM Opportunity<br>                WHERE AccountId = :a.id<br>                      AND  RecordTypeId = :A2Z_RECORD_TYPE_ID<br>                      AND StageName = :A2Z_STAGE_NAME<br>           ];<br>       Boolean hasOpp = (opps&gt;0);<br>       System.assert(hasOpp,’Expected opp on insert.’);<br>}</em></span></span><br><div style="font-family:inherit;"><br></div><div style="font-family:inherit;"><span style="font-size:small;">When we run this test, it fails, because no one has written a trigger to insert the opportunity when the checkbox is true. Next!</span></div><div style="font-family:inherit;"><br></div><div style="font-family:inherit;"><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// Code for the Insert case<br><br>/**
+  Manages a2z Opportunity by referring to the “Do Import” checkbox<br> <em> on the Account object.
+ </em> …<br> <em>/<br>trigger NU_a2zCreateOpportunity on Account (after insert, after update) {<br><br>    final static Id A2Z_RECORD_TYPE_ID = Schema.SObjectType.Opportunity.<br>      getRecordTypeInfosByName().get(‘a2z’).getRecordTypeId();<br>    final static String A2Z_STAGE_NAME = ‘Closed Won’;<br><br>    // (1) On insert, if isImport, insert opp<br>    if (Trigger.isInsert) {<br>            List delta = new List();<br>            for (Account a : Trigger.new) {<br>                if (a.NU_isA2zImport__c) {<br>                    Opportunity o = new Opportunity(<br>                            AccountId = a.Id,<br>                            Name = ‘a2z’,<br>                            RecordTypeId = A2Z_RECORD_TYPE_ID,<br>                            StageName = A2Z_STAGE_NAME,<br>                            CloseDate = Date.Today()<br>                    );<br>                    delta.add(o);<br>               }<br>       }<br>       if (delta.size()&gt;0) insert(delta);<br>}</em></span></span></div><div style="font-family:inherit;"><br></div><div style="font-family:inherit;">When we run the test again, it succeeds, because we now have the trigger code that inserts the a2z Opportunity.<br><br>(Note: If you haven’t written Apex triggers, the for-loop might seem odd. As a performance tweak, Apex triggers work with batches. Most times, it’s a batch of one. But, if data is being imported, a batch could contain 200, or even 2000, objects to insert, update, or delete.)<br><br>Since unit testing is baked into Apex, we don’t need to undo any database operations that occur with an actual testMethod. While the testMethod is running, the trigger can insert all the opportunities it likes, but when the test ends, Force.com rolls it all back for us. No fuss. No muss. No left-over cruft.<br><br>Looking back at the code, I see things I don’t like. There are redundant constants, and we are also doing a lot of heavy lifting inline, obscuring the flow of the code. Since we have a passing test, let’s improve the design, and run the test again.<br><br>First, since we will need to share constants and helpers between the tests and the code-under-test, let’s extract existing code into a static helper class.</div><div style="font-family:inherit;"><br></div><div style="font-family:inherit;"><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// Extracting a utility class to share test and domain code.<br><br>/**
+  Encapsulates tools used by a2z Opportunity test and domain code.<br> <em>/<br>public Class NU_a2zOpps {<br><br>    /**
+     </em> Defines an a2z Opp with a particular Record Type ID and Stage Name.<br>     <em> (TODO: Transfer to custom settings and expose to validation rule.)
+     </em>/<br>    final static public String A2Z_STAGE_NAME = ‘Closed Won’;<br>    final static public Id A2Z_RECORD_TYPE_ID = Schema.SObjectType.Opportunity.<br>      getRecordTypeInfosByName().get(‘a2z’).getRecordTypeId();<br><br>    /<strong><br>     <em> Declares a default name for generated opportunities.
+     </em>/<br>    static public String A2Z_NAME = ‘a2z Import’;<br><br>    /</strong><br>     <em> Returns a ready-to-use a2z Opportunity.
+     </em>/<br>    static public Opportunity newOpp(Account a) {<br>            return new Opportunity(<br>                    AccountId = a.Id,<br>                    RecordTypeId = A2Z_RECORD_TYPE_ID,<br>                    Name = A2Z_NAME,<br>                    StageName = A2Z_STAGE_NAME,<br>                    CloseDate = Date.Today()<br>            );<br>    }<br><br>    /<strong><br>     <em> Determines if a given Account has an A2z Opportunity.
+     </em>/<br>    static public Boolean hasOpp(Account a) {<br>            Integer opps = [<br>                  SELECT COUNT()<br>                  FROM Opportunity<br>                  WHERE AccountId = :a.id<br>                      AND RecordTypeId = :A2Z_RECORD_TYPE_ID<br>                      AND StageName = :A2Z_STAGE_NAME<br>                ];<br>            return (opps&gt;0);<br>    }<br>}</strong></span></span></div><div style="font-family:inherit;"></div><div style="font-family:inherit;"><br>Replacing the extracted code with references to the static class, our test and trigger are now easier to follow.</div><div style="font-family:inherit;"><br></div><div style="font-family:inherit;"><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// Test and domain classes refactored to use new utility class.<br><br>@isTest<br>private class NU_TEST_a2zCreateOpportunity {<br><br>    /<br>      <em> Generates an account with the NU_isA2zImport__c raised or lowered.
+      </em> Assumes default is false.<br>      <em>/<br>    static Account newAccount(Boolean doImport) {<br>            Account a = new Account(Name = ‘Test Account’,<br>            CompanyNumber<strong>c = ‘1’;<br>            if (doImport) a.NU_isA2zImport</strong>c = true; // False is default<br>            return a;<br>    }<br><br>    /**
+      </em> Inserts the given account, and returns it again from a select.<br>      <em>/<br>    static Account doInsert(Account a) {<br>            insert(a);<br>            return [<br>                SELECT id, NU_isA2zImport<strong>c, CompanyNumber</strong>c<br>                FROM Account<br>                WHERE id = :a.id<br>            ];<br>    }<br><br>    /**
+     </em> Exercises “Insert Import”.<br>     <em>/<br>    static testMethod void testInsImp() {<br>            Account a = newAccount(true);<br>            Account a2 = doInsert(a);<br>            System.assert(NU_a2zOpps.hasOpp(a2), ‘Expected opp on insert.’);<br>    }<br>}<br><br>trigger NU_a2zCreateOpportunity on Account (after insert, after update) {<br>    // (1) On insert, if isImport, insert opp<br>    if (Trigger.isInsert) {<br>            List delta = new List();<br>            for (Account a : Trigger.new) {<br>                    if (a.NU_isA2zImport__c) {<br>                        delta.add(NU_a2zOpps.newOpp(a));<br>                    }<br>            }<br>            if (delta.size()&gt;0) insert delta ;<br>    }<br>}</em></span></span></div><div style="font-family:inherit;"><span style="font-size:small;"><br></span></div>We implemented the first requirement using a classic TDD pattern:<br><div style="font-family:inherit;">
+
+   Create a failing test that proves a desired behavior is not present.<br><em>   Write just enough code to pass the test.
+</em>   Once the test succeeds, improve the design (refactor) so that it’s easy to maintain.Let’s continue to follow the TDD pattern with our second requirement: “if update and !doImport and hasOpp, delete opp”.<br>First, the failing test:<br><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// Test deleting a related opportunity </span></span><br><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">static testMethod void testUpdImpNoImp() {</span><br><span style="font-family:'Courier New', Courier, monospace;">    Account a = newAccount(true); // Import</span><br><span style="font-family:'Courier New', Courier, monospace;">    Account a2 = doInsert(a); <strong>// Line 2</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">    a2.NU_isA2zImport<strong>c = false; // No Import</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">    update a2; <strong>// Line 4</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">    System.assert(!NU_a2zOpps.hasOpp(a2),’Expected no opps on update.’);</span><br><span style="font-family:'Courier New', Courier, monospace;">}</span></span><br><br>When  we run the test, it fails, because our trigger inserts a new a2z  Opportunity (at line 2) but does not delete the Opportunity (at line 4).<br><br>OK,  let’s update the trigger to provide the behavior expected by line 4. As  before, we need to write the trigger to loop through a batch, while  minimizing database calls to stay within governor limits.<br><span style="font-size:x-small;"><br><span style="font-family:'Courier New', Courier, monospace;">// (2) On update, if not isImport and haveOpp, delete opp</span><span style="font-family:'Courier New', Courier, monospace;"> </span></span><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">if (Trigger.isUpdate) {</span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">           </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">Map opps = NU_a2zOpps.getOpps(Trigger.new);</span><br><span style="font-family:'Courier New', Courier, monospace;">           Set ids = opps.Keyset();</span><br><span style="font-family:'Courier New', Courier, monospace;">           List omega = new List();</span><br><span style="font-family:'Courier New', Courier, monospace;">           for (Account a : Trigger.new) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                   if ( !a.NU_isA2zImportc &amp;&amp; ids.contains(a.Id)) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                       omega.add(opps.get(a.Id)); // (2)</span><br><span style="font-family:'Courier New', Courier, monospace;">                   }  </span><br><span style="font-family:'Courier New', Courier, monospace;">           }</span><br><span style="font-family:'Courier New', Courier, monospace;">           if (omega.size()&gt;0) delete omega;</span><br><span style="font-family:'Courier New', Courier, monospace;">}</span></span><br><br>The  crux of the code change is determining if we have a related opportunity  to delete. Easy enough with one Account, but in the case of a trigger,  we might have to check 200 accounts, and <a href="http://www.salesforce.com/us/developer/docs/apexcode/Content/apex_gov_limits.htm" target="_blank" rel="external">our query limit is only 100</a>.  Since the trigger passes us the set of Accounts in the batch, it’s not  difficult to retrieve the set of Opportunities related to those  Accounts. Though, now that we have a utility class, we should keep the  query details encapsulated behind another helper method.<br><br>The <span style="font-family:'Courier New', Courier, monospace;">getOpps</span> helper method returns a Map itemizing the accounts  in our batch that have related a2z opportunities.<br><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// The getOpps helper method </span><br><br><span style="font-family:'Courier New', Courier, monospace;">static public Map getOpps(List accounts) {    </span><br><span style="font-family:'Courier New', Courier, monospace;">        List oppsList = new List();</span><br><span style="font-family:'Courier New', Courier, monospace;">        Map opps = new Map();</span><br><span style="font-family:'Courier New', Courier, monospace;">        Integer count = [</span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">                </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">SELECT COUNT() </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">                </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">FROM Opportunity </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">                </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">WHERE RecordTypeId = :A2Z_RECORD_TYPE_ID </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">                    </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">AND StageName = :A2Z_STAGE_NAME </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">                    </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">AND AccountId IN :accounts</span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">        </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">];</span><br><span style="font-family:'Courier New', Courier, monospace;">        if (count&gt;0) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                oppsList = [</span><br><span style="font-family:'Courier New', Courier, monospace;">                    SELECT AccountId FROM Opportunity</span><br><span style="font-family:'Courier New', Courier, monospace;">                    WHERE RecordTypeId = :A2Z_RECORD_TYPE_ID</span><br><span style="font-family:'Courier New', Courier, monospace;">                        AND StageName = :A2Z_STAGE_NAME</span><br><span style="font-family:'Courier New', Courier, monospace;">                        AND AccountId IN :accounts</span><br><span style="font-family:'Courier New', Courier, monospace;">                ];</span><br><span style="font-family:'Courier New', Courier, monospace;">                for (Opportunity o : oppsList) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                    opps.put(o.AccountId,o);</span><br><span style="font-family:'Courier New', Courier, monospace;">                }</span><br><span style="font-family:'Courier New', Courier, monospace;">        }</span><br><span style="font-family:'Courier New', Courier, monospace;">        return opps;</span><br><span style="font-family:'Courier New', Courier, monospace;">}    </span></span><br><br>A critical clause in the helper’s SELECT statement is “<span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">AccountId IN :accounts</span></span>“.  This clause ensures that we only retrieve the Opportunities that are  related to Accounts in the current batch. Without this clause, we could  retrieve more Opportunities than allowed by the Force.com governor  (50,000). The helper also makes a point of returning an empty Map if  there are no matching opportunities, simplifying life for the caller.<br><br>While  we’ve been coding the trigger to act on a batch, our tests have not  been passing a batch of objects to the trigger. Let’s add a test to be  sure batch mode is working.<br><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// Test to verify that insert works with batches of records</span><br><br><span style="font-family:'Courier New', Courier, monospace;">/<strong></strong></span><br><span style="font-family:'Courier New', Courier, monospace;"> <em> Exercise Insert Import in batch mode.</em></span><br><span style="font-family:'Courier New', Courier, monospace;"> /</span><br><span style="font-family:'Courier New', Courier, monospace;">static testMethod void verifyBatchInsert() {</span><br><span style="font-family:'Courier New', Courier, monospace;">        List rows = new List();</span><br><span style="font-family:'Courier New', Courier, monospace;">        for (Integer r=0; r&lt;200; r++) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                rows.add(newAccount(true, r));</span><br><span style="font-family:'Courier New', Courier, monospace;">        }</span><br><span style="font-family:'Courier New', Courier, monospace;">        insert(rows);</span><br><span style="font-family:'Courier New', Courier, monospace;">        List inserted = [</span><br><span style="font-family:'Courier New', Courier, monospace;">              SELECT id, NU_isA2zImport<strong>c, CompanyNumber</strong>c</span><br><span style="font-family:'Courier New', Courier, monospace;">              FROM Account</span><br><span style="font-family:'Courier New', Courier, monospace;">              WHERE id in :rows</span><br><span style="font-family:'Courier New', Courier, monospace;">        ];</span><br><span style="font-family:'Courier New', Courier, monospace;">        Set ids = NU_a2zOpps.getOpps(inserted).Keyset();</span><br><span style="font-family:'Courier New', Courier, monospace;">          Boolean  success = true;</span><br><span style="font-family:'Courier New', Courier, monospace;">          for (Account a : inserted) {        </span><br><span style="font-family:'Courier New', Courier, monospace;">                   success = success &amp;&amp; ids.contains(a.Id);            </span><br><span style="font-family:'Courier New', Courier, monospace;">          }</span><br><span style="font-family:'Courier New', Courier, monospace;">          System.assert(success,’Expected opps on batch insert.’);</span><br><span style="font-family:'Courier New', Courier, monospace;">}</span></span><br><br>Running  the test, initially, we hit a problem with a helper method. This  particular organization includes an external ID that must be unique for  each record. In batch mode, our external IDs are not unique, and so we  hit a validation error. A quick fix is to pass in the counter from the  loop, creating a serial number for each Account.<br><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// newAccount with offset parameter </span></span><br><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">static Account newAccount(Boolean doImport, Integer offset<strong>) {</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">        Account a = new Account(</span><br><span style="font-family:'Courier New', Courier, monospace;">                Name = ‘Test Account’,</span><br><span style="font-family:'Courier New', Courier, monospace;">                CompanyNumber<strong>c = String.valueOf(offset)</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">        );</span><br><span style="font-family:'Courier New', Courier, monospace;">        if (doImport) a.NU_isA2zImportc = true; // False is default</span><br><span style="font-family:'Courier New', Courier, monospace;">        return a;</span><br><span style="font-family:'Courier New', Courier, monospace;">}</span><br><br><span style="font-family:'Courier New', Courier, monospace;">// for backward-compatibility</span><br><span style="font-family:'Courier New', Courier, monospace;">static Account newAccount(Boolean doImport) {</span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">        </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">return newAccount(doImport, 0);</span><br><span style="font-family:'Courier New', Courier, monospace;">}</span></span><br><br>And, a batch delete test.<br><br><div><span style="font-size:x-small;">// batchDelete </span></div><div><br></div><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">static testMethod void batchDelete() {</span><br><span style="font-family:'Courier New', Courier, monospace;">        List rows = new List();</span><br><span style="font-family:'Courier New', Courier, monospace;">            for (Integer r=0; r&lt;200; r++) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                rows.add(newAccount(true, r));</span><br><span style="font-family:'Courier New', Courier, monospace;">        }</span><br><span style="font-family:'Courier New', Courier, monospace;">        insert rows;</span><br><span style="font-family:'Courier New', Courier, monospace;">        List inserted = [</span><br><span style="font-family:'Courier New', Courier, monospace;">               SELECT id, NU_isA2zImport<strong>c, CompanyNumber</strong>c</span><br><span style="font-family:'Courier New', Courier, monospace;">               FROM Account</span><br><span style="font-family:'Courier New', Courier, monospace;">               WHERE id in :rows</span><br><span style="font-family:'Courier New', Courier, monospace;">        ];</span><br><span style="font-family:'Courier New', Courier, monospace;">        for (Account a : inserted) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                a.NU_isA2zImport<strong>c = false;</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">        }</span><br><span style="font-family:'Courier New', Courier, monospace;">        update inserted;</span><br><span style="font-family:'Courier New', Courier, monospace;">        Set ids = NU_a2zOpps.getOpps(inserted).Keyset();        </span><br><span style="font-family:'Courier New', Courier, monospace;">        Boolean success = true;</span><br><span style="font-family:'Courier New', Courier, monospace;">        for (Account a : inserted) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                success = success &amp;&amp; !ids.contains(a.Id);            </span><br><span style="font-family:'Courier New', Courier, monospace;">        }</span><br><span style="font-family:'Courier New', Courier, monospace;">        System.assert(success,’Expected no opps on batch delete.’);        </span><br><span style="font-family:'Courier New', Courier, monospace;">}</span></span><br><br>Both  of the new tests are passing, but they seem to repeat a lot of code,  and we have a third requirement coming up that will also need batch mode  testing. Let’s see if we can create a helper class that can serve both  tests.<br><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// batchHelper method</span></span><br><span style="font-size:x-small;"><br><span style="font-family:'Courier New', Courier, monospace;">static void batchHelper(Boolean insImp) {</span><br><span style="font-family:'Courier New', Courier, monospace;">       List rows = new List();</span><br><span style="font-family:'Courier New', Courier, monospace;">       for (Integer r=0; r&lt;200; r++) {</span><br><span style="font-family:'Courier New', Courier, monospace;">               rows.add(newAccount(insImp, r));</span><br><span style="font-family:'Courier New', Courier, monospace;">       }</span><br><span style="font-family:'Courier New', Courier, monospace;">       insert rows;</span><br><span style="font-family:'Courier New', Courier, monospace;">       List inserted = [</span><br><span style="font-family:'Courier New', Courier, monospace;">               SELECT id, NU_isA2zImportc, CompanyNumber<strong>c</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">               FROM Account</span><br><span style="font-family:'Courier New', Courier, monospace;">               WHERE id in :rows</span><br><span style="font-family:'Courier New', Courier, monospace;">       ];</span><br><span style="font-family:'Courier New', Courier, monospace;">       // For delete, we need to update the flag</span><br><span style="font-family:'Courier New', Courier, monospace;">       if (!insImp) {</span><br><span style="font-family:'Courier New', Courier, monospace;">               for (Account a : inserted) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                       a.NU_isA2zImportc = false;            </span><br><span style="font-family:'Courier New', Courier, monospace;">               }</span><br><span style="font-family:'Courier New', Courier, monospace;">               update inserted;</span><br><span style="font-family:'Courier New', Courier, monospace;">       }</span><br><span style="font-family:'Courier New', Courier, monospace;">       Set ids = NU_a2zOpps2.getOpps(inserted).Keyset();        </span><br><span style="font-family:'Courier New', Courier, monospace;">       Boolean success = true;</span><br><span style="font-family:'Courier New', Courier, monospace;">       if (insImp) {</span><br><span style="font-family:'Courier New', Courier, monospace;">               for (Account a : inserted) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                       success = success &amp;&amp; ids.contains(a.Id);            </span><br><span style="font-family:'Courier New', Courier, monospace;">               }</span><br><span style="font-family:'Courier New', Courier, monospace;">               System.assert(success,’Expected opps on batch insert.’);</span><br><span style="font-family:'Courier New', Courier, monospace;">       } else {</span><br><span style="font-family:'Courier New', Courier, monospace;">               for (Account a : inserted) {</span><br><span style="font-family:'Courier New', Courier, monospace;">                       success = success &amp;&amp; !ids.contains(a.Id);            </span><br><span style="font-family:'Courier New', Courier, monospace;">               }</span><br><span style="font-family:'Courier New', Courier, monospace;">               System.assert(success,’Expected no opps on batch delete.’);        </span><br><span style="font-family:'Courier New', Courier, monospace;">       }</span><br><span style="font-family:'Courier New', Courier, monospace;">}</span><br><br><span style="font-family:'Courier New', Courier, monospace;">/</span><br><span style="font-family:'Courier New', Courier, monospace;"> <em> Exercises Batch insert.</em></span><br><span style="font-family:'Courier New', Courier, monospace;"> /</span><br><span style="font-family:'Courier New', Courier, monospace;">static testMethod void batchHelperIns() {</span><br><span style="font-family:'Courier New', Courier, monospace;">    batchHelper(false);</span><br><span style="font-family:'Courier New', Courier, monospace;">}</span><br><br><span style="font-family:'Courier New', Courier, monospace;">/<em>*</em></span><br><span style="font-family:'Courier New', Courier, monospace;">  Exercises Batch delete.</span><br><span style="font-family:'Courier New', Courier, monospace;"> <em>/</em></span><br><span style="font-family:'Courier New', Courier, monospace;">static testMethod void batchHelperDel() {</span><br><span style="font-family:'Courier New', Courier, monospace;">    batchHelper(true);</span><br><span style="font-family:'Courier New', Courier, monospace;">}    </span></span><br><br>By passing a flag, we are able to use one utility for both cases, and share 90% of the code.<br><br>Repeating  the patterns we’ve seen, we can test and refactor our way into a  robust, reliable trigger to manage our integration object.<br><br>For the complete production source  code (without the play-by-play), see <a href="http://tedhusted.blogspot.com/2012/03/managing-related-object-via-checkbox-in.html" target="_blank" rel="external">Managing a Related Object via a  Checkbox in Salesforce CRM</a>.<br><div style="font-family:inherit;"><br></div>Key takeaways are: 
+
+   Use a utility class to share code between test and domain classes.<br><em>   Use helper methods to share code between similar test methods.
+</em>   Use the SELECT-IN-SET pattern to keep triggers within governor limits.Test Driven Development is a rigorous, structured approach that  helps us create robust and reliable code. Since TDD uses successive  refinement, we can easily extend and improve the code over time.</div><div style="font-family:inherit;"><br></div>
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/force-com/">Force.com</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-test-driven-development-with-apex-on-force-com" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/test-driven-development-with-apex-on-force-com/">Test Driven Development with Apex on Force.com</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2012/test-driven-development-with-apex-on-force-com/" class="article-date">
+  <time datetime="2012-03-04T11:00:00.000Z" itemprop="datePublished">2012-03-04</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class="separator" style="clear:both;text-align:center;"><a href="http://teachingunderground.blogspot.com/2011/04/catching-carrot-and-breaking-stick.html" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2012/03/968d3-carrot-with-stick.jpg" alt=""></a></div><br>As far as I know, Force.com – the software development platform for Salesforce CRM – is the only platform that <strong>requires</strong> unit test coverage for production code. Before an Apex developer can deploy custom code to a production environment, the overall unit test coverage for the environment must be 75% or better.</p>
+<p><span style="font-size:large;"><strong><span style="font-size:small;">What is Unit Test Coverage?</span></strong></span></p>
+<p>Let’s look at a simplistic, contrived example of unit test coverage. For demonstration purposes, the <span style="font-family:'Courier New', Courier, monospace;">HelloWorld</span> Class shows an Apex function that tests whether the text of a string matches “Hello World” or not.<br><a name="more"></a><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// HelloWord Class</span></span></p>
+<p><span style="font-family:'Courier New', Courier, monospace;">public class HelloWorld {</span><span style="font-family:'Courier New', Courier, monospace;"><br>public static String isHelloWorld(String myString) {</span><br><span style="font-family:'Courier New', Courier, monospace;">    if (myString.equals(‘Hello World’)) return ‘Yes it is!’; <strong>// Line 1</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">    else return ‘No it is not!’: <strong>// Line 2</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">  }</span><br><span style="font-family:'Courier New', Courier, monospace;">}</span></p>
+<p>The <span style="font-family:'Courier New', Courier, monospace;">verifyIsHelloWorld</span> test method exercises our gratuitous example</p>
+<p><span style="font-family:'Courier New', Courier, monospace;font-size:x-small;">// verifyIsHelloWorld test method</span></p>
+<p>@isTest<br>private class TEST_HelloWorld {<br>static testMethod void verifyIsHelloWorld () {<br>String outcome = HelloWorld.isHelloWorld (‘Hello World’);<br>System.assert(outcome == ‘Yes it is!’, ‘Expected positive message.’) ;<br>}<br>}</p>
+<p>At this point, we have 66% test coverage, because our test exercises only one of the two statements in <span style="font-family:'Courier New', Courier, monospace;">isHelloWorld</span> (line 1).</p>
+<p>To bring test coverage up to 100%, we need to add another test method.</p>
+<p><div><span style="font-size:x-small;"> </span></div></p>
+<div>
+
+<p><span style="font-size:x-small;">// Another test method</span></p>
+<p>static testMethod void verifyIsHelloWorldFalse() {<br>String outcome = HelloWorld.isHelloWorld (‘Hello Kitty’);<br>System.assert(outcome == ‘No it is not!’, ‘Expected negative message.’) ;<br>}</p>
+<p></p></div><br>With both of these test methods in play, our code now has 100% coverage.<p></p>
+<p><strong>Why is test coverage important?</strong></p>
+<p>Salesforce.com has high standards for its own code and expects custom Apex code to also be robust and error-free. One of the best ways to increase code quality is to encourage developers to write unit tests. <a href="http://nparc.cisti-icist.nrc-cnrc.gc.ca/npsi/ctrl?action=shwart&amp;index=an&amp;req=5763742&amp;lang=en" target="_blank" rel="external">Witness a 2005 study found that unit tests increased both coder productivity and code quality.</a></p>
+<p>While it’s possible for developers to boost code coverage with pointless tests, hardcore coders see unit tests as a way to release better code sooner – the keyword being “release”. The time spent on proactive unit testing is a trade-off with the time spent on reactive debugging. We can find our own bugs ourselves with unit tests, or wait and fix them later when a feature comes back with a QA ticket attached.</p>
+<p>In my own work, I’ve found that the best way to ensure that code has adequate test coverage to practice test-driven development (TDD).</p>
+<p><strong>What is Test Driven Development (TDD)?</strong></p>
+<p>For the uninitiated, a classic way to bootstrap unit testing (and TDD) is to start with defect reports. Before fixing a bug, a developer first writes a test that proves that the defect exists. For example, if someone reports that <span style="font-family:'Courier New', Courier, monospace;">isHelloWorld</span> fails if we pass in a null string, we could start with a test like the one shown by <span style="font-family:'Courier New', Courier, monospace;">verifyIsHelloWorldNull</span>.</p>
+<p><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// verifyIsHelloWorldNull</span></span></p>
+<p>static testMethod void verifyIsHelloWorldNull() {<br>String outcome = HelloWorld.isHelloWorld (null);<br>System.assert(outcome == ‘No it is not!’, ‘Expected negative message.’) ;<br>}</p>
+<p><div style="font-family:inherit;"></div></p>
+<p><div style="font-family:inherit;"><span style="font-size:x-small;"> </span></div><br>If we run this test, it raises an exception “System.NullPointerException: Attempt to de-reference a null object”.</p>
+<p>Since an exception counts as a failing test, we can proceed with the fix, say, by changing the code from:</p>
+<p>| <span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">if (myString.equals(‘Hello World’)) return ‘Yes it is!’; <strong>// Line 1</strong></span></span></p>
+<p>to:</p>
+<p>| <span style="font-family:'Courier New', Courier, monospace;font-size:x-small;">if ‘HelloWorld’.equals(‘myString’) return ‘Yes it is!’; <strong>// Line 1</strong></span></p>
+<p>and maybe, for good measure, including a fourth test case for an empty string.</p>
+<div>
+
+<p><span style="font-size:x-small;">// Test for empty String</span></p>
+<p>final static String EMPTY = ‘’;<br>static testMethod void verifyIsHelloWorldEmpty() {<br>String outcome = HelloWorld.isHelloWorld (EMPTY);<br>System.assert(outcome == ‘No it is not!’, ‘Expected negative message.’) ;<br>}</p>
+<p></p></div><br><span style="font-family:inherit;">Once all of our tests are passing, we could even refactor the code, and improve the internal design by using a constant and a single comparison.</span><p></p>
+<div>
+
+<p><span style="font-size:x-small;">// Code refactored</span></p>
+<p>public class HelloWorld {<br>public final static String HELLO_WORLD = ‘Hello World’;<br>public final static String YES_WORLD = ‘Yes it is!’;<br>public final static String NO_WORLD = ‘No it is not!’;<br>public static String isHelloWorld(String myString) {<br>return (HELLO_WORLD.equals(myString)) ? YES_WORLD : NO_WORLD;<br>}<br>}</p>
+<p></p></div><br><span style="font-family:inherit;">If our tests pass (they do), we can be confident that our refactoring did not break the code’s external behavior. Passing tests give us the courage to refine existing code and improve the internal design.</span><p></p>
+<p>The key idea behind TDD is to “never write a line of code without a failing test”. If we are going to write the test anyway, better to write it first, code to the test, and receive full benefit for the time we invest.</p>
+<p><strong>How do we test code that doesn’t exist?</strong></p>
+<p>In an Apex environment, a unit test usually operates at the class level. To bootstrap testing a class or method that does not exist, we can start coding the test, create a stub class with stub methods, sufficient to compile the test, confirm that it fails, and then fill-in functionality to pass the test.</p>
+<p>Let’s start over from scratch. First, we should define our requirements for the <span style="font-family:'Courier New', Courier, monospace;">isHelloWorld</span> method.</p>
+<p><span style="font-family:inherit;"> <span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// isHelloWorld requirements</span></span></span></p>
+<p>/**</p>
+<ul>
+<li>The isHelloWorld method determines if a String equals ‘Hello World’.</li>
+<li>(1) Given the String ‘Hello World’, the method returns “Yes, it Is.”</li>
+<li>(2) Given some other String, the method returns ‘No, it is not!’.</li>
+<li>(3) Given a null or empty string, the method returns ‘No, it is not!’.<br>*/<br><div style="font-family:inherit;"></div><br><div style="font-family:inherit;"><span style="font-size:small;">Then, we can write a “happy path” test for the first requirement.</span></div><br><div style="font-family:inherit;"></div><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// A happy path test for requirement (1)</span></span></li>
+</ul>
+<p>final static String POSITIVE = ‘Expected positive message.’;<br>static testMethod void verifyIsHelloWorld () {<br>String outcome = HelloWorld.isHelloWorld (‘Hello World’);<br>System.assert(outcome == HelloWorld.YES_WORLD,POSITIVE ) ;<br>}<span style="font-family:inherit;"> </span></p>
+<p><div style="font-family:inherit;"><span style="font-size:small;">provide a stub Hello World class to compile the test</span></div></p>
+<p><div style="font-family:inherit;"><span style="font-size:x-small;"> </span></div><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;"><br>// A HelloWorld stub class</span></span></p>
+<p>public class HelloWorld {<br>public static String isHelloWorld(String myString) {<br>return null;<br>}<br>}</p>
+<p><div style="font-family:inherit;"><span style="font-size:small;">add just enough behavior to pass one test for one requirement</span></div><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;"><span style="font-size:small;"><br></span>// Coding requirement (1)</span></span></p>
+<p>public final static String HELLO_WORLD = ‘Hello World’;<br>public final static String YES_WORLD = ‘Yes it is!’;</p>
+<p>public static String isHelloWorld(String myString) {<br>return HELLO_WORLD.equals(myString) ? YES_WORLD : return null;<br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">}</span></span></p>
+<p><div style="font-family:inherit;"></div></p>
+<p><div style="font-family:inherit;"><span style="font-size:small;">then another requirement</span></div><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;"><br>// Testing requirement (2)</span></span></p>
+<p>final static String NEGATIVE =’Expected negative message.’;<br>static testMethod void verifyIsHelloWorldFalse () {<br>String outcome = HelloWorld.isHelloWorld (‘Hello Kitty’);<br>System.assert(outcome == HelloWorld.NO_WORLD,NEGATIVE ) ;<br>}</p>
+<p>// Coding requirements (1) and (2)</p>
+<p>public final static String HELLO_WORLD = ‘Hello World’;<br>public final static String YES_WORLD = ‘Yes it is!’;<br>public final static String NO_WORLD = ‘No it is not!’;</p>
+<p>public static String isHelloWorld(String myString) {<br>return HELLO_WORLD.equals(myString) ? YES_WORLD : NO_WORLD;<br>}</p>
+<p><div style="font-family:inherit;"><span style="font-size:small;">and a third</span></div><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">  </span></span><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// Testing requirement (3)</span></span></p>
+<p>static testMethod void verifyIsHelloWorldNull() {<br>String outcome = HelloWorld.isHelloWorld (null);<br>System.assert(outcome == HelloWorld.NO_WORLD,NEGATIVE );<br>}</p>
+<p>final static String EMPTY = ‘’;<br>static testMethod void verifyIsHelloWorldEmpty() {<br>String outcome = HelloWorld.isHelloWorld (EMPTY);<br>System.assert(outcome == HelloWorld.NO_WORLD,NEGATIVE );<br>}<br><span style="font-family:inherit;font-size:small;"><span style="font-family:'Courier New', Courier, monospace;"> </span> </span><br><span style="font-family:inherit;font-size:small;">For requirement 3, we added two test methods, but did not need to change any code, since the current implementation passed the tests.</span></p>
+<p>To fully test the method, we might also <a href="http://developer.force.com/cookbook/recipe/construct-random-strings-of-large-sizes-in-your-apex-tests" target="_blank" rel="external">add a test for a string of maximum length</a>, so that we test both boundaries. But, as it stands, we have 100% test coverage, and a test for each stated requirement, which meets my own personal “definition of done”.</p>
+<p>Three takeaways from this exercise are:</p>
+<ul>
+<li><span style="font-family:inherit;font-size:small;"> Never write a line of code without a failing test.</span></li>
+<li><span style="font-family:inherit;font-size:small;"> Test every requirement, one requirement at a time.</span></li>
+<li><span style="font-family:inherit;font-size:small;"> Passing tests give us the courage to refactor.</span><br><span style="font-family:inherit;font-size:small;"> In a followup blog, <a href="http://tedhusted.blogspot.com/2012/03/test-driven-development-with-apex.html" target="_blank" rel="external">TDD with Apex Triggers,</a> we look at how Test Driven Development works in practice, with a real-life non-trivial example.</span><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;"><span style="font-family:inherit;"></span></span></span></li>
+</ul>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/force-com/">Force.com</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-keeping-salesforce-implementations-on-track-with-milestones-pm-and-changeit" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -245,136 +443,6 @@ ga('send', 'pageview');
       <footer class="article-footer">
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rochester-ny/">Rochester NY</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/salesforce/">Salesforce</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
-      <article id="post-the-facilitative-business-analyst-and-iiba-rochester-ny-chapter-general-meeting" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2011/the-facilitative-business-analyst-and-iiba-rochester-ny-chapter-general-meeting/">The Facilitative Business Analyst and IIBA Rochester NY Chapter General Meeting</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2011/the-facilitative-business-analyst-and-iiba-rochester-ny-chapter-general-meeting/" class="article-date">
-  <time datetime="2011-06-01T10:47:00.000Z" itemprop="datePublished">2011-06-01</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/event/">Event</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Business Analysts develop requirements as process experts – not as content experts. Business analysis is the same regardless of the industry. Facilitators guide groups as process experts – not as content experts. Facilitation is the same regardless of the business. So, a Business Analyst should be a Facilitator.</p>
-<ul>
-<li>Time: Wednesday, June 8 · <span class="dtstart"> 5:30pm</span> - <span class="dtend"> 8:30pm</span></li>
-<li><p>Location: <span class="fn org">Valicia’s Ristorante, </span>2155 Long Pond Road, Greece NY<br>When the session is completed, the attendees will be able to:</p>
-</li>
-<li><p>Understand and describe why Facilitators and Business Analysts have the same skills.</p>
-</li>
-<li>Incorporate facilitation into their role as Business Analyst.</li>
-<li>Use Facilitation skills to help develop requirements.<br><div class="separator" style="clear:both;text-align:center;"><a href="http://mgrconsulting.com/images/stories/NewImages/gfx-dsc_140.jpg" target="_blank" rel="external"><img src="http://mgrconsulting.com/images/stories/NewImages/gfx-dsc_140.jpg" alt=""></a></div><br>Gary Rush, IAF CPF, Founder and President of MGR Consulting (mgrconsulting.com), attended the U.S. Naval Academy, has written numerous “how to” books and continues to be the leader in the field of facilitation and Facilitator training. He was Chair of the International Association of Facilitators (IAF) from 2008 through 2010.<br>Gary created FoCuSeDTM – the next revolution in structured facilitation. The FoCuSeDTM Facilitator Academy is the most complete, most comprehensive, and most effective facilitation class providing detailed training on the concepts of Holistic Facilitation. His facilitation technique is used widely around the world and his alumni are amongst the most successful.<br><a href="http://june82011generalmeeting.eventbrite.com/" target="_blank" rel="external">Register via Eventbrite</a></li>
-</ul>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iiba-rochester/">IIBA Rochester</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rochester-ny/">Rochester NY</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
-      <article id="post-remembering-the-habits" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2011/remembering-the-habits/">Remembering the Habits</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2011/remembering-the-habits/" class="article-date">
-  <time datetime="2011-05-01T09:00:00.000Z" itemprop="datePublished">2011-05-01</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/essay/">Essay</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><div class="separator" style="clear:both;text-align:center;"><a href="http://www.principalspage.com/theblog/archives/do-you-need-a-good-memory-to-work-at-a-school-i-hope-not" target="_blank" rel="external"><img src="http://www.principalspage.com/theblog/wp-content/uploads//2008/04/memory.jpg" alt=""></a></div><br>I’m a longtime fan of Covey’s Habits of Highly Effective People. What I like most about the habits is that they are a system. The habits are not a simple set of best practices, but a rich network of interrelated behaviors that reinforce one another.</p>
-<p>Here’s the habits, which I like to remember in the form of a litany:</p>
-<p>“Be proactive, begin with the end in mind, and put first things first. Seek first to understand then to be understood, think win-win, and synergize. Sharpen the saw, teach the habits, and introspect.”</p>
-<p>There are three sets of behaviors within the habits: public, private, and renewal, which I express in the three sentences of the litany.</p>
-<ul>
-<li>Personal: Be proactive, begin with the end in mind, and put first things first.</li>
-<li>Public: Seek first to understand then to be understood, think win-win, and synergize.</li>
-<li>Renewal: Sharpen the saw, teach the habits, and introspect.<br>Originally, there were seven habits, but after a while, Covey realized that there was a eighth habit, always implied, but not called out separately: “Teach the habits.”</li>
-</ul>
-<p>Ironically, Covey himself practiced “Teach the habits” by writing the original seven habits book, but had to go back and practice it once again in an “eighth habit” book.</p>
-<p>Likewise, in the litany, there is added a ninth habit: <em>Introspect</em>.</p>
-<p>In the Seven Habits, there is a key question that Covey asks us to consider:</p>
-<ul>
-<li>“What is one thing you could do, that, if you did it on a regular basis, would make a tremendous positive difference in your personal or professional life?”<br>(Or: What am I not doing that I should be doing in order to be more effective?)</li>
-</ul>
-<p>In my mind, asking this question goes beyond a background process. The question helps us choose which jungles to harvest. I see “Introspection” as a separate habit, a final link in the chain. A thoughtful answer to the “regular-basis” question closes the loop and brings us back to Habit 1: <em>Be proactive</em>.</p>
-<p>Brother Covey also numbers the public habits slightly differently than the order found in the litany. The canonical order for the public habits is “win-win”, “seek-first”, and “synergize” (4, 5, and 6). But, from a systems perspective, that order seems sideways to me.</p>
-<p>The order of the personal habits (1, 2, 3) lead us from bootstrapping, into goal setting, and onto prioritization. Likewise, the public habits should lead us from empathy, into collaboration, and onto teamwork.</p>
-<p>With the litany, I’m never stuck when someone asks me: Can you name the seven habits? The litany walks through the internal creation of an idea and its external manifestation, step by step.</p>
-<p>Just don’t get me started on remembering the NATO AlphaBravo alphabet. :)</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/productivity/">Productivity</a></li></ul>
 
       </footer>
     

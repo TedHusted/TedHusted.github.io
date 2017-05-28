@@ -69,6 +69,123 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-googlecode-a-go-go" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/googlecode-a-go-go/">GoogleCode-a-Go-Go</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/googlecode-a-go-go/" class="article-date">
+  <time datetime="2007-03-03T11:00:00.000Z" itemprop="datePublished">2007-03-03</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I’m now the proud caretaker of two different Google Code projects.</p>
+<p><a href="http://code.google.com/p/anvil/" target="_blank" rel="external">Anvil</a> is a business logic framework based on the context and chain of command patterns. The Anvil core is a port of the Jakarta Commons Chain of Responsibility, used by Struts 1.3. It’s available for C# now. We use Spring.NET for the object factory, and iBATIS.NET for data access (so this would be an easy port back to Java). Anvil is still way under-documented, but it works well for us. Best of all, Anvil made the transition to Ajax without missing a beat.</p>
+<p>When we created Anvil, our original goal was to keep as much code as possible out of the ASPX pages and code-behinds, including validation and formatting. As it turns out, that same goal makes the framework an ideal backend to Ajax pages.</p>
+<p>The other new project is <a href="http://code.google.com/p/sq1-struts2/" target="_blank" rel="external">Apache Struts from Square One</a>, which hosts materials used by my training course including slide presentations, coding exercises, and a companion textbook. The text is new, but the slides and other materials have been available at the <a href="http://www.strutsuniversity.org/" target="_blank" rel="external">Struts University</a> site for some time.</p>
+<p>The course is something I’ve been creating through successive refinement. When Struts first came out, people asked me to come in for “Train the Trainer” sessions, where consultants wanted to learn Struts so they could teach it to their clients and other consultants. Then, it was direct requests from development teams who wanted to jumpstart a new project using Struts. By the time Struts 1.2 came around, people were asking me to come in and review what they’ve been doing in Struts, to see if they were on the right track.</p>
+<p><a href="http://husted.com/ted/vita.html" target="_blank" rel="external">On each trip</a>, I’d create a new session or improve an old session, and eventually it all evolved into a course based on the Struts MailReader application. The course has now made the jump to Struts 2, and I’m working on a companion text to the original training materials, which I might offer through <a href="http://lulu.com/" target="_blank" rel="external">LuLu</a> when it’s “ready for primetime”.</p>
+<p>An early and incomplete draft of Part 1 of the book (‘Carpe Diem’) is available for <a href="http://sourceforge.net/project/showfiles.php?group_id=49385&amp;package_id=223769&amp;release_id=490486" target="_blank" rel="external">download</a>. The complete set of slides and other materials are available through the <a href="http://www.strutsuniversity.org/" target="_blank" rel="external">Struts University site</a>. There’s even a new <a href="http://groups.google.com/group/sq1-struts2" target="_blank" rel="external">Google Group</a> for questions and feedback.</p>
+<p>Of course, although the text is a work in progress, the live course is complete, and I’ve presented it several times. Drop by <a href="http://www.strutsmentor.com/" target="_blank" rel="external">Struts Mentor</a> for more about the live course.</p>
+<p>Many thanks to the Google Code ninjas who are making project hosting possible for grunts like me. There are rough edges still, but I can see where Google Code is going, and I’m happy to tag along for the ride.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/google-code/">Google Code</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-struts-2-0-6-voted-ready-for-primetime" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/struts-2-0-6-voted-ready-for-primetime/">Struts 2.0.6 Voted Ready for Primetime</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/struts-2-0-6-voted-ready-for-primetime/" class="article-date">
+  <time datetime="2007-03-02T11:00:00.000Z" itemprop="datePublished">2007-03-02</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/event/">Event</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I may be late to the dance, but, let me cut in and whisper in your ear: “Struts 2.0.6 is General Availability.” How’s that for a sweet something?</p>
+<p>The GA vote went down just over a week ago, on 22 February 2007. In retrospect, the Struts 2.0.1 release was also ready for primetime. Many people have been joyfully using 2.0.1 in production since September. The holdup was that our major dependency, XWork 2, stubbornly clung to beta status from September to January. The actual code was fine, but the XWork committers wanted to spruce up the documentation and did not want to stamp the distribution “final” yet. Since then, the XWork group has changed to a milestone release system, as Struts uses. Now, we can grade both Struts and XWork releases based on experience rather than expectation.</p>
+<p>Whilst XWork 2 twiddled with documentation, Struts 2 did not stand still. Struts 2.0.6 boasts several new heavyweight features, like plugins and a zero-configuration approach (Yes, Virginia, there is no XML!). We even moved the internal dependency injection over to Crazy Bob Lee’s new secret project, <a href="http://code.google.com/p/google-guice/" target="_blank" rel="external">Google Guice</a>.</p>
+<p>Of course, by “we”, I mean our star committer Don Brown. We were going to hold off on some of these changes until after our first GA, but as an expectant father, Don was worried that the bundle of joy would cut into his committing time. So, Don managed to put aside his Nintendo Wii long enough to commit a stunning array of new features. For more about the many joyful features of Struts 2.0.6, pop by the <a href="http://struts.apache.org/" target="_blank" rel="external">Apache Struts website</a>.</p>
+<p>But, wait, there’s more! The Struts 2.0.7 release might be available next week. No earthshaking new features, just the usual successive refinements and odd code fix. Of course, it will be a drop-in binary replacement for Struts 2.0.6, so there’s no reason to wait!</p>
+<p>For Struts 2.1.x, we planning to migrate both the portlet support and the Ajax/Dojo tags to plugins. Since we’re now using the Yahoo User Interface Library (YUI) at work, I’m also thinking we might be able to offer a Ajax/YUI plugin too. But, that’s another post. :)</p>
+<p>Meanwhile, Struts 1.3.x is ramping up for another release, and there’s continued talk of a Struts 1.4. Test builds for Struts 1.3.7 are available, and a 1.3.8 build should follow on its heels to correct an oversight with Action redirects.</p>
+<p>As always, the best is yet to come!</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-java-web-frameworks-simplified" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -252,125 +369,6 @@ ga('send', 'pageview');
 <p>But the sparkle on Struts 2.0.0 has to be the distribution itself. The “all” distribution weighs int 40mb, but it includes ready-to-deploy WARs of the example application, binary dependencies, source code, Java 4 compatabilility JARS, and the new and improved documentation.</p>
 <p>The WebWork 2.2 documentation is actually quite good, and given a fresh coat of paint, the Struts 2.0 documentation almost glistens. The docs are now organized into three main parts: Tutorials, Guides, and FAQs. The Tutorials are designed to get people up and running. The Guides provide the detailed information people need as applications are created and improved, and the FAQs fill in any gaps.</p>
 <p>If you are looking for the Next Big Thing in action-based frameworks, take <a href="http://struts.apache.org/2.x/" target="_blank" rel="external">Apache Struts 2.0.0</a> for a spin. You won’t be disappointed.</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
-      <article id="post-sportsforge-a-working-example" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2006/sportsforge-a-working-example/">SportsForge: A Working Example</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2006/sportsforge-a-working-example/" class="article-date">
-  <time datetime="2006-09-16T09:00:00.000Z" itemprop="datePublished">2006-09-16</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Once upon a time, Jeff Wellings, an earnest entrepreneur with technical savvy, setup a website to post stories and statistics about local high school athletes. Since he lives in New York State’s Section 10, the website became <a href="http://www.sectionxsports.com/" target="_blank" rel="external">SectionXSports.com</a>. It’s up and running, and doing quite well, thank you.</p>
-<p>Well … but not quite well enough.</p>
-<p>Like many Model 1 JSP applications, SectionXSports grew in the telling, and the application has become difficult to extend. It works, but making it work better has become a challenge.</p>
-<p>A challenge that open source might be able to answer.</p>
-<p>Jeff has placed the original SectionXSports code under the Apache License, and we setup a Struts “SportsForge” project to work on migrating the application to Struts 2. My ambition is to grow SportsForge into the archetypical Struts example. Not just a showcase or a random demo, but a real application that people use everyday.</p>
-<p>Towards that end, we’ve setup a portal site with requirements, use cases, and issue tickets. The whole nine yards. <a href="http://opensource.atlassian.com/confluence/oss/display/sportsforge/Home" target="_blank" rel="external">Feel free to drop by and see what we’re up to</a>, and even lend a hand if you like.</p>
-<p>Who knows, before long, you might want to setup your own friendly neighborhood SportsForge to track the goings on for your kid’s team.!</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
-      <article id="post-struts-2-spring-love-fest" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2006/struts-2-spring-love-fest/">Struts 2: Spring Love Fest!</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2006/struts-2-spring-love-fest/" class="article-date">
-  <time datetime="2006-09-06T09:00:00.000Z" itemprop="datePublished">2006-09-06</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>In my own work, my (latest) favorite Struts 2 feature is the <a href="http://cwiki.apache.org/WW/spring.html" target="_blank" rel="external">Spring integration</a>.</p>
-<p>Want to expose a Spring bean named “peopleFinder” on your Action?</p>
-<ol>
-<li>Add a “peopleFinder” property to your Action.<br>&lt;&gt; Done. The framework sees that there’s a peopleFinder Spring bean and a peopleFinder Action property, and Struts 2 does the math.</li>
-</ol>
-<p>Or, would you prefer to snag the several beans from the Action by name. No problem. But, it does take three steps.</p>
-<ol>
-<li>Implement BeanFactory on your Action.</li>
-<li>Add a Spring bean element for your Action.</li>
-<li>In the Struts config, use the bean Id for the <code>class</code> attribute.<br>&lt;&gt; Done. If you want this Spring bean or that Spring bean or some other Spring bean, the Action can just ask the BeanFactory for it.</li>
-</ol>
-<p>If you do use Spring to instantiate Actions, you can use Spring to populate any properties you like, or call any constructors you care to create. It would be more verbose, but I can’t help but wonder if we should support using the Spring DTD to define it all!</p>
 
       
     </div>

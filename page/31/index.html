@@ -69,6 +69,122 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-s2-tip-use-namespaces-to-organize-your-application-into-logical-modules" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/s2-tip-use-namespaces-to-organize-your-application-into-logical-modules/">S2 Tip - Use namespaces to organize your application into logical modules</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/s2-tip-use-namespaces-to-organize-your-application-into-logical-modules/" class="article-date">
+  <time datetime="2007-03-23T09:00:00.000Z" itemprop="datePublished">2007-03-23</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Many Struts applications contain hundreds of pages. To help organize large applications, the Struts configuration is designed around the notions of “packages” and “namespaces”. Each package can set its own defaults, including a namespace setting.</p>
+<p>/example/HelloWorld.jsp</p>
+<p>Add actions here</p>
+<p>Use the namespace attribute to create logical modules or units of work within an application, each with its own identifying prefix. In an accounting application, the actions relating to “payables” might be in one namespace, and actions relating to “receivables” in another.</p>
+<p>Namespaces avoid conflicts between action names. Each namespace can have it’s own “menu” or “help” action, each with its own implementation. While the prefix appears in the browser URI, the tags are “namespace aware”, so the namespace prefix does not need to be embedded in forms and links.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-how-much-is-open-source-worth" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/how-much-is-open-source-worth/">How much is open source worth?</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/how-much-is-open-source-worth/" class="article-date">
+  <time datetime="2007-03-22T09:00:00.000Z" itemprop="datePublished">2007-03-22</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/essay/">Essay</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>It’s official! WebWork is “worth” more than Struts 2! About 4x more! And they are both written “primarily in JavaScript”!</p>
+<p>… at least according to the <a href="http://www.ohloh.net/" target="_blank" rel="external">www.oloh.net</a> “Explore Open Source” website.</p>
+<p>It seems that based on metrics like “lines of code”, the WebWork codebase is “worth” a wopping $7,849,557. Meanwhile, Struts 1 weighs in at a paltry $1,761,104. Struts 2 falls in between at $2,305,602.</p>
+<p>Obviously, there’s something askew with the <a href="http://www.ohloh.net/projects/4312" target="_blank" rel="external">WebWork metric</a>. I expect it refers to WebWork 1, which included what is now XWork, and imported JavaScript libraries that the project didn’t code.</p>
+<p>The <a href="http://www.ohloh.net/projects/3562" target="_blank" rel="external">Struts 1 metrics</a> are also weird. Although the project is six years old, and we have the history of every commit from day one, Struts 1 is rated as having a short version control history. Stranger yet, Craig McClanahan is not listed as one of the contributors! That’s just not right. :)</p>
+<p>The <a href="http://www.ohloh.net/projects/3569" target="_blank" rel="external">Struts 2</a> contributor metrics seem about right, though the language metric doesn’t realize that most JavaScript libraries are imported rather than coded by the host project. But, I have to admit, the ohloh site design is pleasant, and it looks like they are trying to build a community around both contributors and other users. Given a sane set of metrics, ohloh would be interesting indeed. There’s a good number of projects onboard now, though a few are still missing, like <a href="http://www2.sqlonrails.org/" target="_blank" rel="external">SQL on Rails</a> (don’t overlook the screencast!).</p>
+<p>Another “fly on the wall of open source” project is <a href="http://www.sourcekibitzer.org/" target="_blank" rel="external">SourceKibitzer</a>. Rather than provide digital metrics, the Kibitzer specializes in trend reports. Evidentially, the idea is that we should choose open source projects using the same sort of charts we use to pick stocks (Buy!Buy!Buy!Ching!). Where ohloh offers metrics regarding lines of code, languages, licenses, and contributors, Kibitzer offers charts describing progress, completeness, complexity, and size.</p>
+<p>Once upon a time, I tried submitting similar statistics about Struts as part of an <a href="http://svn.apache.org/viewvc/struts/current/STATUS.txt?revision=51337&amp;view=markup" target="_blank" rel="external">ASF board report</a>. The numbers I collected related to the number of mailing list subscriptions, new posts, new issues, newly resolved issues, and total number of issues. At the board level, there was zero interest in this sort of thing. From the ASF perspective, so long as the interpersonal relationship between the PMC members is warm and fuzzy, the rest will take care of itself :)</p>
+<p>Of course, I’m not only an ASF engineer, I’m an engineer, and, personally, I do like to see hard numbers. But, sites like ohloh and Kibitzer have to move beyond codebase analyses. To the user-only community, the things that matter are the mailing list and issue tracker. Kibitzer tries to track completeness by looking for semantic clues like “TODO” comments. In practice, we are far more likely to log TODOs in the issue tracker. While it’s interesting that so-and-so contributes a lot of code, to someone casing a project, it’s more interesting the so-and-so will answer my question on the mailing list.</p>
+<p>In the same vein, it would also be important to analyze the project documentation. How many lines of text compared to how many lines of code? Is the wording complex? How many contributors? Are related books and articles being published outside of the project?</p>
+<p>I suspect that the mailing list and issue tracker statistics might be more reliable than either code or documentation analysis. Compared with reality as we know it, much of the code-based analysis <a href="http://www.sucks-rocks.com/rate/struts2/tapestry/jsf/wicket/stripes" target="_blank" rel="external">seems dodgy</a>, and a dodgy statistic can worth less than Ted’s best guessimate at a release date :)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/open-source/">Open Source</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-13-asf-practices" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -283,168 +399,6 @@ And Subversion will confirm the change
       <footer class="article-footer">
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">Ajax</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
-      <article id="post-geek-spike" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2007/geek-spike/">Geek Spike</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2007/geek-spike/" class="article-date">
-  <time datetime="2007-03-18T09:00:00.000Z" itemprop="datePublished">2007-03-18</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>When learning a new technology, I like to start with a “canonical example spike”. A spike is a XP term for trying something new in a short burst to get a better idea how long a full implementation is going to take. When trying a new framework (or Ajax library), I look first for an example application that demonstrates common uses cases from your target application.</p>
-<p>At work, we have a PhoneBook application that we used when we were first learning .NET. At the time, it was an actual intranet application. Even after we started building other applications, we would often go back and try something new with the PhoneBook example first. Over time, it became our best-practices reference application.</p>
-<p>So, when it came time to lean YUI, the first thing we did is reach for the <a href="http://code.google.com/p/anvil/wiki/UseCase_PhoneBook" target="_blank" rel="external">PhoneBook use case</a> and have at it. It took some time to do, but it’s much easier to learn a new technology in the comfort of a well-known application.</p>
-<p>And, of course, starting with a throw-away example gives you a chance to make all the mistakes up front. :) I think that’s what I like best about software development: You only have to get it right the last time!</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
-      <article id="post-but-can-ajax-make-popcorn" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2007/but-can-ajax-make-popcorn/">But can Ajax make popcorn?</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2007/but-can-ajax-make-popcorn/" class="article-date">
-  <time datetime="2007-03-17T09:00:00.000Z" itemprop="datePublished">2007-03-17</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/review/">Review</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>If you’re a Struts developer dabbling with Ajax, the new Ajax tags in Struts 2 can make it easy to get started. Both Struts 1 and Struts 2 are excellent Ajax environments for Java web developers. A S1 action can return whatever text stream your Ajax widgets might need. For S2, pop in the JSON <a href="http://cwiki.apache.org/S2PLUGINS/home.html" target="_blank" rel="external">plugin</a>, and, bingo, instant Ajax computability! Better yet, just fire up <a href="http://getahead.org/dwr/" target="_blank" rel="external">DWR</a>.</p>
-<p>If the Ajax bug bites, and you go beyond dabbling, it’s likely that you will want to add an Ajax library to the mix. After peeking at the source for an Ajax library, it may begin to dawn that you don’t know so much about JavaScript after all. YUI and Dojo are not the tinkertoy scripts we cut and paste into our markup for the odd special effect.</p>
-<p>An excellent way for a Java developer to lean more about Ajax is the <a href="http://developer.yahoo.com/yui/theater/" target="_blank" rel="external">YUI Theater site</a>. It’s a virtual convention, featuring sessions with Douglas Crockford (JSON), Joe Hewitt (Firebug), and Chris Wilson (IE). You can’t pop out a question, but you can pause the action, and view the material at your own pace.</p>
-<p>For starters, I heartily recommend the “Browser Wars Episode II” clip. It’s an absolute must-see for anyone doing web development, whether it be bleeding edge or trailing edge. You won’t learn many stupid browser tricks, but you will get a look around the bend at what’s happening with browser development</p>
-<p>For frontline JavaScript development, Doug crockford’s video trilogy is another must-see. For more about that, see my <a href="http://jroller.com/page/TedHusted?entry=crockford_clips" target="_blank" rel="external">prior blog</a>.</p>
-<p>Featured this week is a brief but rich session with Gopal Venkatesan: <strong>“Writing Efficient JavaScript”</strong>. Some of the material overlaps with the Crockford Clips, but there’s are new goodies too. At 22 minutes, it’s well worth the time.</p>
-<p>Sadly, the slides aren’t posted with the video clip, though I’m told that they will be posted eventually. [Evidentially, the laptop with the presentation and Venkaesanis are now in different zip codes :)] In the meantime, here’s a set of summary bullets:</p>
-<p>&nbsp;</p>
-<ul>
-<li>Do not use eval() when there are alternatives<br>&nbsp;</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li>Do not pass a function as a string to setTimeout. (It uses eval.) Pass an inline function instead.<br>&nbsp;</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li>Do not use the “with” statement. Set a local var instead.<br>&nbsp;</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li>Do not use try/catch wihin loops. Put the loop inside try/catch.<br>&nbsp;</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li>Avoid global variables. Period.<br>&nbsp;</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li>When concatenating several strings (or DOM), use Array.join() or String.concat()<br>&nbsp;</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li>Hide element before modifying several properties<br>&nbsp;</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li>Avoid setting multiple element attributes by replacing the CSSText property<br>&nbsp;</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li>Setting HTML to the innerHTML attribute is faster than going through DOM (but less pure)<br>&nbsp;</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li>Detach DOM properties before appending several elements<br>&nbsp;</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li>Attach common event handlers to the elements’ container and let the events bubble up<br>&nbsp;</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li>Use consistent naming conventions to help identify elements that share event handlers<br>&nbsp;</li>
-</ul>
-<p>Next in line for me is Joe Hewitt’s Firebug video. I truly enjoyed Firebug 1, but the latest version is so featureful, I feel a bit lost. Hopefully, Joe can machete me a path through the new interface.</p>
-<p>Or, maybe I should just use <a href="http://www.aptana.com/" target="_blank" rel="external">Aptiva</a>, which embeds Firebug into a very slick-looking Ajax IDE.</p>
-<p>You know, sometimes, I do feel like <a href="http://www.youtube.com/watch?v=NLlGopyXT_g" target="_blank" rel="external">the machine is us/ing us</a>!</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">Ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
 
       </footer>
     

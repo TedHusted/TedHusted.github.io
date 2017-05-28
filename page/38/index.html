@@ -69,6 +69,150 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-the-truth-with-jokes" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/the-truth-with-jokes/">The Truth with Jokes</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2006/the-truth-with-jokes/" class="article-date">
+  <time datetime="2006-04-01T11:00:00.000Z" itemprop="datePublished">2006-04-01</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/essay/">Essay</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>Q: Are ASF committers arrogant?</em></p>
+<p>A: Yes, we are.</p>
+<p><em>Q: Is the ASF a club? </em></p>
+<p>A: The ASF is a non-profit corporation, but, yes, it’s organized like a club. We have meetings, and minutes, and a board of directors. Just like your kid’s soccer club!</p>
+<p><em>Q: Is the ASF exclusive? </em></p>
+<p>A: Yes, it is. We exclude committership to “people that we believe are devoted to the task and match the human attitudes required to work well with others, especially in disagreement”. Even so, most projects manage to attract ten or twenty active committers. Very large projects, like Jakarta, have hundreds of committers. Of course, not all of these committers are arrogant. Some are merely smug.</p>
+<p><em>Q: Why not lower the bar to commit rights? Why not hand out write access to anyone who asks?</em></p>
+<p>A: It’s simpler for us to expect people to first submit patches. (And, of course, it’s all about us!) Just to play hard to get, we usually string people along this way for at least six months before offering commit access. Mainly, this is because creating accounts is a bother.</p>
+<p><em>Q: Why not change the system? </em></p>
+<p>A: The system works for us, where “us” is defined as thirty top-level ASF projects with almost two thousand ASF committers. Some projects, like Cocoon and Struts, were created here. Others, like iBATIS, Lucene, MyFaces, and Tapestry, began elsewhere and then joined the ASF. Some projects, like Ant and Tomcat, were created elsewhere and then reinvented here. Evidentally, arrogance loves company!</p>
+<p><em>Q: Don’t the people who download and use your products have rights too? </em></p>
+<p>A: Yes. Users have all those rights conveyed to them by the business-friendly Apache License. We like to say “business-friendly” in a smug way, because some other licenses are just plain mean.</p>
+<p><em>Q: But aren’t you creating software for use by the general public? Doesn’t that give the general public a stake in the project?</em></p>
+<p>A: The software is created and maintained by the development community for its own use, and then, just to neighborly, we share the product with the general public, at no charge. We do accepts tips, but only in the form of a patch.</p>
+<p><em>Q: Shouldn’t open source be more open than that?</em></p>
+<p>A: Our goal is to (deep breath) … foster an environment where people are able to collaborate on software development in a respectful, honest, technical-based way in order to create consistently high quality software that faithfully implements standards, while retaining security as a mandatory feature. (Whew!) After over a decade of experience working in open source, we believe the ASF process is the best way to nurture that environment. We also find it’s the best way to retain the trademark ASF arrogance.</p>
+<p><em>Q: Can other projects join the ASF?</em></p>
+<p>A: Yes, but they have to bend over, grab their ankles, and exclaim “Thank you Incubator! May we please have another?” while ripping out any dependency with an unsavory license. A podling can only embrace what it means to be an ASF project by stumbling through a haze of pain.</p>
+<p>(OK, here’s the joke:)</p>
+<p><em>Q: How many ASF committers does it take to change a lightbulb? </em></p>
+<p>A: Three. One to hold the bulb and two to turn the ladder while chanting “+1”.</p>
+<p>PS: Be sure to enjoy this special day!</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/satire/">Satire</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-action2-cookbook-sizzles" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/action2-cookbook-sizzles/">Action2 Cookbook Sizzles</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2006/action2-cookbook-sizzles/" class="article-date">
+  <time datetime="2006-03-12T11:00:00.000Z" itemprop="datePublished">2006-03-12</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/review/">Review</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>So far, there’s been only one thing I missed while setting up a new<br><a href="http://planetstruts.org/action2-cookbook/Home.jsp" target="_blank" rel="external">Struts Cookbook for Action 2</a>. An essential part of the Cookbook is displaying the source files used to code the example. In the Stuts Action 1.3 version, we were using the Bean tags to dynamically read the file into a page variable and then output it with the tags filtered. The Struts Bean tag idiom is:</p>
+<p>I couldn’t find an obvious way to do this with the WebWork tags and started a thread on the WebWork user list. After a post or two, we hit on the idea of using a WebWork result to display source code as plaintext. Before I had the chance to write it myself (in the Apache Way), WebWork committer Toby Jee posted a new PlainText result to the HEAD, which I happily plugged into my work in progress.</p>
+<p>The WebWork idiom moves all the references from the pages into the configuration file. The simplest example is a one-page “Hello World” recipe. The mapping for the PlainText result looks like this:</p>
+<pre>  
+/pages/Hello/Result.jsp
+/WEB-INF/classes/xwork-Hello.xml
+</pre>
+
+<p>In the page, the links are coded like this:</p>
+<h2 id="Server-Pages"><a href="#Server-Pages" class="headerlink" title="Server Pages"></a>Server Pages</h2><ul>
+<li><a>Result.jsp</a><br>The cool part, is that through use of namespaces, each example can have its own “View=Result” action. We need to refer to the namespace on on the Home page, but after that all the tags render themselves relative to the namespace. Here’s are the the home page links (one for the icon and another for the text):</li>
+</ul>
+<pre> namespace="/Hello" 
+Execute
+</pre>
+
+<p>But once we link into the “/Hello” namespace, the ww tags take care of injecting the rest of the path.</p>
+<p>Of course, any post-Struts-1.1 developer is going to be saying, “Oh, namespaces are modules!”, and you’d be right. Everything in WebWork is very much the same as Struts 1.x. Only better!</p>
+<p>If you reviewed the previous code snippet, you probably noticed the reference to “icon-open,jsp”. The Cookbook uses icons for navigation, which I removed to their own server pages and then brought back in using ww:include as needed. As a result, all the image markup is centralized and not scattered throughout the application.</p>
+<p>The new Cookbook also uses ww:include to post navigational header at the top of the pages. The nifty part is that the WW tags track the current namespaces. If we consistently name the entry action to each example “Open”, we can reuse the same menu link for every example/namespace. When the Hello namespace includes this snippet –</p>
+<p>– the action location renders as “/Hello/Open.do”. When the Simple namespace renders the same snippet, the location renders “/Simple/Open.do”. Quick, easy, effective.</p>
+<p>I’ll be heads-down on the Cookbook this week, and will surely post more about the Cookbook again next week. In the meantime, you can track the progress in the <a href="http://svn.apache.org/viewcvs.cgi/struts/sandbox/trunk/action2/apps/cookbook/src/" target="_blank" rel="external">Apache Struts sandbox</a>, and I’ll try to keep the <a href="http://planetstruts.org/action2-cookbook/Home.jsp" target="_blank" rel="external">online demo</a> fairly current.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-action2-cookbook-is-off-the-backburner" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -232,110 +376,6 @@ ga('send', 'pageview');
       <footer class="article-footer">
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-roller/">Apache Roller</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
-      <article id="post-easy-start-page-for-webwork-docs" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2006/easy-start-page-for-webwork-docs/">Easy start page for WebWork docs</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2006/easy-start-page-for-webwork-docs/" class="article-date">
-  <time datetime="2006-02-26T11:01:00.000Z" itemprop="datePublished">2006-02-26</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/review/">Review</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>The Confluence wiki has been a great way to compose the documentation for WebWork 2, but it doesn’t always do a good job of revealing just how much documentation there really is (e.g. 700 wiki pages!). To make the documentation more accessible, Philip Luppens cobbled up a new documentation <a href="http://wiki.opensymphony.com/display/WW/EasyStartPage" target="_blank" rel="external">start page</a>. Great work, Phillip!.</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
-      <article id="post-requirewhats" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2006/requirewhats/">Requirewhats?</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2006/requirewhats/" class="article-date">
-  <time datetime="2006-02-26T11:00:00.000Z" itemprop="datePublished">2006-02-26</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/essay/">Essay</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>It started out innocently enough. I wanted to get started on a MailReader for WebWork to serve as the basis of a new MailReader training course. In setting up the folders, it occured to me that I should get started on the “Cookbook” application too, and add generic cases to the Cookbook for everything in MailReader. Since the MailReader has a set of Use Cases now, it only made sense to have Use Cases for the Cookbook too. Since, ultimately, the Cookbook should illustrate all the primary uses of the framework, then, gee, the framework should have its own set of use cases too.</p>
-<p>For Use Cases, I like the <a href="http://strutsuniversity.org/Use+Cases" target="_blank" rel="external">Cockburn format</a> (“co-burn”). In his svelte <a href="http://www.amazon.com/exec/obidos/tg/detail/-/0201702258/apachesoftwar-20/" target="_blank" rel="external">Writing Effective Use Cases</a>, Cockburn points out that while Use Cases are part of the requirements, they are not all of the requirements. Cockburn also provides what he calls <a href="http://strutsuniversity.org/Requirements" target="_blank" rel="external">“A plausible requirements outline,”</a> and he puts the Use Cases in chapter 3. If the Action 2 framework was going to have Use Cases, may be it should have a Requirements document too.</p>
-<p>I got a good start on drafting some <a href="http://strutsuniversity.org/Action2+Requirements" target="_blank" rel="external">plausible software requirements for WebWork/Action2,</a> but only a start. First, I needed to finish up on <a href="http://www.strutscentral.net/" target="_blank" rel="external">StrutsCentral.net</a> and <a href="http://www.planetstruts.org/roller/" target="_blank" rel="external">PlanetStruts.org.</a> Those are ready to launch now, and so I can get back to the WebWork Use Cases, Cookbook, and MailReader this week.</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
 
       </footer>
     

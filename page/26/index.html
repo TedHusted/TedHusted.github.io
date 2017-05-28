@@ -69,6 +69,157 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-s2-tip-use-exception-handlers" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/s2-tip-use-exception-handlers/">S2 Tip - Use Exception handlers</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/s2-tip-use-exception-handlers/" class="article-date">
+  <time datetime="2007-04-14T12:00:31.000Z" itemprop="datePublished">2007-04-14</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">Tutorial</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Since Action classes tend to access the same business layer, most Actions often need to catch the same set of exceptions. Rather than sprinkle Actions with  nearly identical try..catch blocks, configure an Exception handler to catch whatever exceptions an Action may throw.</p>
+<pre><code>&amp;lt;struts&amp;gt;
+
+&amp;lt;global-results&amp;gt;
+
+    &amp;lt;result name=&quot;error&quot;&amp;gt;/Error.jsp&amp;lt;/result&amp;gt;
+
+  &amp;lt;/global-results&amp;gt;`  &amp;lt;global-exception-mappings&amp;gt;
+
+    &amp;lt;exception-mapping
+
+      result=&quot;error&quot;
+
+      exception=&quot;java.lang.Throwable&quot;/&amp;gt;
+
+  &amp;lt;/global-exception-mappings&amp;gt;
+
+  &amp;lt;!-- ... --&amp;gt;
+
+&amp;lt;/struts&amp;gt;&lt;/pre&gt;
+Exception handlers can be either global or local to an action mapping.
+&lt;pre&gt;`&amp;lt;struts&amp;gt;
+
+  &amp;lt;action name=&quot;Login&quot;  class=&quot;actions.Login&quot;&amp;gt;
+
+    &amp;lt;!-- ... --&amp;gt;
+
+    &amp;lt;result name=&quot;expired&quot; type=&quot;chain&quot;&amp;gt;
+
+      ChangePassword
+
+    &amp;lt;/result&amp;gt;
+
+    &amp;lt;exception-mapping
+
+      exception=&quot;dao.ExpiredPasswordException&quot;
+
+      result=&quot;expired&quot;/&amp;gt;
+
+  &amp;lt;/action&amp;gt;
+
+  &amp;lt;!-- ... --&amp;gt;
+
+&amp;lt;/struts&amp;gt;
+</code></pre><p>Use of exception handlers separates concerns and reduces redundant code. Each Action has fewer lines of code to maintain, and we know that exceptions are being handled consistently.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-ready-to-give-back-help-sponsor-apachecon" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2007/ready-to-give-back-help-sponsor-apachecon/">Ready to give back? Help sponsor ApacheCon!</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2007/ready-to-give-back-help-sponsor-apachecon/" class="article-date">
+  <time datetime="2007-04-13T12:01:55.000Z" itemprop="datePublished">2007-04-13</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/event/">Event</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>Newsflash:</em><a href="http://www.eu.apachecon.com/sponsors/" target="_blank" rel="external">
+</a></p>
+<p><a href="http://www.eu.apachecon.com/sponsors/" target="_blank" rel="external">Sponsorships for ApacheCon Europe 2007 are still available!</a></p>
+<p>The conference opens May 1 in Amsterdam, The Netherlands, so time is short, but if your organization might be able to help, please contact Delia Frees at delia@apachecon.com or on +1 707 765 0823. Various sponsorship levels and other custom strategies are available. Our willingness to work with people does extend to convention sponsorship!</p>
+<p>ApacheCon Europe 2007 is the official conference of the Apache Software Foundation  (ASF). ApacheCon draws ASF Members, innovators,  programmers, developers, vendors, and users to experience the future of Open Source development. Meet, mingle, and exchange ideas with like-minded participants on groundbreaking technologies and emerging industry trends, through informal networking, peer discussions, birds-of-a-feather sessions, and entertaining social events.</p>
+<p>In related news, the US conference will be held in Atlanta GA, November 12-16, 2007.  For Atlanta, I’m hoping to snag one of the whole-day training sessions or maybe an “Ajax Smackdown” presention, and then do that meet and mingle thing :)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/asf/">ASF</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-s2-tipo-if-you-are-using-templates-bundle-the-templates-with-the-actions" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -308,129 +459,6 @@ If FreeMarker templates are used in lieu of JSPs, then all the resources for a n
       <footer class="article-footer">
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
-      <article id="post-unobstrusive-javascript-validation-with-yui" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2007/unobstrusive-javascript-validation-with-yui/">Unobstrusive Javascript Validation with YUI</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2007/unobstrusive-javascript-validation-with-yui/" class="article-date">
-  <time datetime="2007-04-11T12:00:53.000Z" itemprop="datePublished">2007-04-11</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/review/">Review</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://blog.jc21.com/2007-02-05/yui-unobstrusive-javascript-validation/" target="_blank" rel="external">A very cool approach to validation that plugs right into the YUI library.</a></p>
-<p>I’m using this to provide validation to the <a href="http://www.geocities.com/planetyazaar/examples/dataform/tutorial-tabview.html" target="_blank" rel="external">DataForm Widget</a>, which is a stepping stone toward the <a href="http://jroller.com/page/TedHusted?entry=flev_01" target="_blank" rel="external">FLEV Widget</a>.</p>
-<p>Meanwhile, on the Java front:</p>
-<ul>
-<li><a href="http://apache.org/index.html#sun_jck_letter" target="_blank" rel="external">The ASF’s Open Letter to Sun regarding the Harmony Java Compatibility Kit</a></li>
-</ul>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yui/">YUI</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
-      <article id="post-fortifying-ajax" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2007/fortifying-ajax/">Fortifying Ajax</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2007/fortifying-ajax/" class="article-date">
-  <time datetime="2007-04-10T12:00:05.000Z" itemprop="datePublished">2007-04-10</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/review/">Review</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Last month, Fortify Software posted a <a href="http://www.fortifysoftware.com/servlet/downloads/public/JavaScript_Hijacking.pdf" target="_blank" rel="external">white paper</a> describing a security exploit dubbed JavaScript Hijacking. Being a slow news month, a number of online journals trotted out “the end is near” headlines.</p>
-<p>Of course, Ajax development groups have been quick to post responses to the “advisory”. Despite the hyperbole, engines like Dojo, GWT, and YUI are not “vulnerable”. Certain applications using Ajax engines may fit a “vulnerability profile”, and if so, there are simple and concrete steps that developers can take.</p>
-<p>If your Ajax application exposes sensitive data via raw JSON, do this:</p>
-<ul>
-<li>Enclose JSON responses in JavaScript comment characters, and</li>
-<li>Strip the comments before parsing the response<br>Click. Done.</li>
-</ul>
-<p>Like many security issues, the “vulnerability” is mainly a developer education issue.</p>
-<p>The Dojo Toolkit is providing patches in version 0.4.3 “to inform developers of the potential risks their server-side components may be exposing them to and making it even easier to do the right thing on the client side”.</p>
-<p>The Yahoo! User Interface (YUI) Library is now adding a specific header to each request. The server side code looks for the header and refuses to service the request if the header is absent or not valid.</p>
-<p>For more about security Ajax applications, see</p>
-<ul>
-<li><a href="http://dojotoolkit.org/node/619" target="_blank" rel="external">A Note on “JavaScript Hijacking</a>“ (Dojo)</li>
-<li><a href="http://tech.groups.yahoo.com/group/ydn-javascript/message/11723" target="_blank" rel="external">YUI Security</a>“ and <a href="http://developer.yahoo.com/security/" target="_blank" rel="external">Yahoo! Developer Network - Security Best Practices</a></li>
-<li><a href="http://groups.google.com/group/Google-Web-Toolkit/web/security-for-gwt-applications" target="_blank" rel="external">Security for GWT Applications</a><br>Since many developers were not aware of this exploit, it is a Good Thing that a White Hat brought it to our attention before the Black Hats did. Though, I hope the next White Hat takes the high road and alerts the development group first. That way, we can have a response out the day the alert is posted, rather than a week or two later.</li>
-</ul>
-<p>But, of course, if you happen to be a security consultant, a blindside brouhaha is not bad for business!</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">Ajax</a></li></ul>
 
       </footer>
     

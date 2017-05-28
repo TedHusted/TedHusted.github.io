@@ -69,6 +69,124 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-struts-mentor" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2006/struts-mentor/">Struts Mentor</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2006/struts-mentor/" class="article-date">
+  <time datetime="2006-01-27T11:00:00.000Z" itemprop="datePublished">2006-01-27</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/event/">Event</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The first prototype of the <a href="http://www.strutsmentor.com/" target="_blank" rel="external">Struts Mentor</a> site is up. There’s 400+ hours left on the Oklahoma contract, but once we wrap that up, I’d like to focus on training. The twist is that the Struts Mentor training materials will be open source too: “Open source courseware for an open source framework.” Hopefully, other people will teach from the materials too, so that the courseware will benefit more people that anyone of us could reach on our own.</p>
+<p>Over at <a href="http://strutsuniversity.org/" target="_blank" rel="external">Struts University</a>, I dabbled a bit with a MailReader Training Course for Action 1, but I think the better place to start would be Action 2 (WebWork) or Shale.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
+      <article id="post-to-orm-or-to-map" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2004/to-orm-or-to-map/">To ORM or to Map?</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2004/to-orm-or-to-map/" class="article-date">
+  <time datetime="2004-04-25T09:00:00.000Z" itemprop="datePublished">2004-04-25</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/essay/">Essay</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The Java community (incuding Sun itself) have been working with SQL generators for several years now. Results have been mixed. The current wisdom is that SQL generation is a good thing when you</p>
+<p>(1) Have complete control over your database implementation</p>
+<p>(2) Do not have a Database Adminisrator or SQL Guru on the team</p>
+<p>(3) Need to model the problem domain outside the database as an object graph.</p>
+<p>When one or more of these conditions are not meant, many developers are turning to SQL mapping tools.</p>
+<p>A mapping tool lets you assign a logical name to a SQL query. The parameters the query needs can be taken from a single object passed at runtime, or as a primitive number or string. Likewise, the result of a query is passed back in a disconnected object.</p>
+<p>A mapping tool is less like a “persistence layer” and more like a lightweight wrapper to simplify using ADO.NET. You still have full control of the SQL, but you can test and manage the SQL code outside of the application.</p>
+<p>The best time to use a mapping tool is when:</p>
+<p>(1) You do not have complete control over the database implementation, or want to continue to access a legacy database as it is being refactored.</p>
+<p>(2) You have database administrators or SQL gurus on the team.</p>
+<p>(3) The database is being used to model the problem domain, and the application’s primary role is help the client use the database model.</p>
+<p>For a time, there was a feeling in the Java community that developers shouldn’t need to worry about SQL. After some bad experiences, this feeling is changing. More developers now recognize that SQL is here to stay. We’ve been using SQL and the Relational Model virtually unchanged for 40 years now — which is more than we can say for any other development platform. :) The question for many teams is not how we can “hide” SQL, but how we can ~manage~ SQL.</p>
+<p>For managing SQL, the <a href="http://ibatis.com/common/sqlmaps.html" target="_blank" rel="external">iBATIS Database Layer</a> for Java has become quite popular. There is also a .NET version called <a href="http://sourceforge.net/projects/nausicaa" target="_blank" rel="external">Nausicaa</a>. It’s code-complete and is now working on porting the iBATIS documentation.</p>
+<p>Of course, some projects have a rich business object layer that models the problem domain independently of the database. In other projects, the SQL is not complex and is mainly grunt work. Some projects need to migrate to different database systems, for example, from Access to SQL Server. In these cases, a solid object-to-relational “persistence layer” can be a very good thing. Many of these have been written for Java, most based in whole or in part on Scott Ambler’s famous <a href="http://www.ambysoft.com/persistenceLayer.html" target="_blank" rel="external">white papers</a>.</p>
+<p>Most Java implementations require developers to specify a good deal of metadata. There is a new implementation for .NET that cuts the redtape to a minimum and faithfully follows Ambler’s architecture, called <a href="http://www.mertner.com/projects/gentle/" target="_blank" rel="external">Gentle.NET</a>. I took Gentle for a test drive the other day, and it works very, very well.</p>
+<p>But, at the end of the day, most of my projects work better with a mapping approach, like that taken by iBATIS and Nausicaa. But, then, I actually enjoy writing SQL :)</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-xxe-and-subversion-my-new-best-friends" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -229,110 +347,6 @@ ga('send', 'pageview');
       <footer class="article-footer">
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
-      <article id="post-fanning-the-flames" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2003/fanning-the-flames/">Fanning the Flames</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2003/fanning-the-flames/" class="article-date">
-  <time datetime="2003-04-03T12:46:00.000Z" itemprop="datePublished">2003-04-03</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/event/">Event</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Still haven’t gotten to write any tests for the auction program =:(. There’s way more business logic in the JSPs than I realized. I started to enter some bidding data to develop the tests and ended up debugging the errorhandling on the JavaServer pages. But it works, and that’s the endgame. As soon as this iteration ships, I’d like to take this whole thing back to drawing board and rebuild it, test by test. The reinstall on the new server cured our missing library woes, and everything went up just fine. Once we straighed out which keystore we were using, and the correct certificate type, the SSL certificate updated just fine too. Only glitch is that port 443 is not responding on the new server. It seems to be a firewall issue, but the sysop hasn’t found the problem yet. I tried SSL over 80 and that worked well enough.</p>
-<p>The kids need shoes! We got Jake a new pair last night at the mall. Katie almost found a pair, but the purple ones didn’t come in her size. Stopped at Friendlys: slow service, great food. Tried the open meatloaf sandwich. Hmm, hmm good. Jake entertained his mom with the story of the Donner family, while Katie patiently awaited her sundae. Even managed to get back in time for Wife and Kids!</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache-struts/">Apache Struts</a></li></ul>
-
-      </footer>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-    
-      <article id="post-buy-it-now-buys-it" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2003/buy-it-now-buys-it/">Buy It Now Buys it</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2003/buy-it-now-buys-it/" class="article-date">
-  <time datetime="2003-04-02T14:22:00.000Z" itemprop="datePublished">2003-04-02</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/event/">Event</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Got the new Buy It Now feature up and running now. Wanted to get some tests running against the bid process in the bargain, but the opporunity never presented itself. By the time I got the feature cut into the (monsterous) JSPs, there was very little business logic left. All I needed to do was put in a short clause to close the lot if a valid BIN bid came by. Not to be foiled, I’m forging on with the Retract Bid story. There <em>must</em> be something in there I justifiably test!</p>
-<p>Meanwhile, the sysops ran a fresh install on the new server, with the X-Window libraries this time, so Java could run on native threads. JVM and Resin went in just fine. (Tracing that one down drove me nuts!) Still couldn’t get the MySQL benchmark RPM installed. Seems to be some RPM naming glitch (Mysql vs MySql.) N’suth.</p>
-
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
 
       </footer>
     

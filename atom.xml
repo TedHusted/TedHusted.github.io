@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ted.husted.com/"/>
-  <updated>2017-03-30T10:22:10.000Z</updated>
+  <updated>2017-05-28T16:49:50.000Z</updated>
   <id>http://ted.husted.com/</id>
   
   <author>
@@ -14,6 +14,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Creating a JIRA Change Log in Confluence</title>
+    <link href="http://ted.husted.com/2017/creating-a-jira-change-log-in-confluence/"/>
+    <id>http://ted.husted.com/2017/creating-a-jira-change-log-in-confluence/</id>
+    <published>2017-05-27T08:00:00.000Z</published>
+    <updated>2017-05-28T16:49:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><div align="center"><img style="max-width: 50%; max-height: 50%; float: left; padding-right: 16px;" src="https://www.linkedin.com/mpr/mpr/AAEAAQAAAAAAAAryAAAAJDhjMmZjYThlLWMyZDQtNGEzZS1hZWIzLTBmMTAzOTA3NDQwYQ.png"></div>With only a few clicks, it’s simple to setup a JIRA Change Log in your Confluence wiki, where your devops stakeholders can easily find it. –<a href="ht.ly/Xk7v30c5FUt">Read More at LinkedIn.com</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;div align=&quot;center&quot;&gt;&lt;img style=&quot;max-width: 50%; max-height: 50%; float: left; padding-right: 16px;&quot; src=&quot;https://www.linkedin.com/mpr/mpr
+    
+    </summary>
+    
+      <category term="Tutorial" scheme="http://ted.husted.com/categories/tutorial/"/>
+    
+    
+      <category term="DevOps" scheme="http://ted.husted.com/tags/devops/"/>
+    
+      <category term="JIRA" scheme="http://ted.husted.com/tags/jira/"/>
+    
+      <category term="Confluence" scheme="http://ted.husted.com/tags/confluence/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Updating Multiple Sites from Jenkins</title>
+    <link href="http://ted.husted.com/2017/updating-multiple-sites-from-jenkins/"/>
+    <id>http://ted.husted.com/2017/updating-multiple-sites-from-jenkins/</id>
+    <published>2017-05-22T08:00:00.000Z</published>
+    <updated>2017-05-28T16:48:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><div align="center"><img style="max-width: 50%; max-height: 50%; float: right;" src="https://www.linkedin.com/mpr/mpr/AAEAAQAAAAAAAA2jAAAAJDhjYjZmYzZmLTc2MWQtNDBkMy1hZGI0LWQ1OTEyMzhhNzA1Mg.jpg"></div><br>If you need to run the same Jenkins project with multiple sets of parameters, say to roll out an upgrade to a variety of client sites, here is a way to use a CSV to launch any number of sub-projects. –<a href="https://www.linkedin.com/post/edit/updating-multiple-sites-from-jenkins-ted-husted" target="_blank" rel="external">Read More at LinkedIn.com</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;div align=&quot;center&quot;&gt;&lt;img style=&quot;max-width: 50%; max-height: 50%; float: right;&quot; src=&quot;https://www.linkedin.com/mpr/mpr/AAEAAQAAAAAAAA2jAAA
+    
+    </summary>
+    
+      <category term="Tutorial" scheme="http://ted.husted.com/categories/tutorial/"/>
+    
+    
+      <category term="Jenkins" scheme="http://ted.husted.com/tags/jenkins/"/>
+    
+      <category term="DevP[s" scheme="http://ted.husted.com/tags/devp-s/"/>
+    
+  </entry>
   
   <entry>
     <title>Pilot Madness!</title>
@@ -432,52 +484,6 @@
     
     
       <category term="Programming" scheme="http://ted.husted.com/tags/programming/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>A Tale of Two Teams</title>
-    <link href="http://ted.husted.com/2015/a-tale-of-two-teams/"/>
-    <id>http://ted.husted.com/2015/a-tale-of-two-teams/</id>
-    <published>2015-03-04T11:00:00.000Z</published>
-    <updated>2017-03-20T23:18:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img style="float: left; margin: 0px 12px 0px 0px;" src="http://scrumtrainingseries.com/srm.png">Teaching through dramatizations (or parables) is an ancient practice that is making its way into IT. For the Agile. Lean, and Devops inclined, I can strongly recommend the Scrum Training Series videos and The Phoenix Project. – <a href="http://www.nimbleuser.com/blog/a-tale-of-two-teams" target="_blank" rel="external">Read More at NimbleUser</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img style=&quot;float: left; margin: 0px 12px 0px 0px;&quot; src=&quot;http://scrumtrainingseries.com/srm.png&quot;&gt;Teaching through dramatizations (or para
-    
-    </summary>
-    
-      <category term="Review" scheme="http://ted.husted.com/categories/review/"/>
-    
-    
-      <category term="Agile" scheme="http://ted.husted.com/tags/agile/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Lag Measures Versus Lead Measures</title>
-    <link href="http://ted.husted.com/2015/lag-measures-versus-lead-measures/"/>
-    <id>http://ted.husted.com/2015/lag-measures-versus-lead-measures/</id>
-    <published>2015-02-17T11:00:00.000Z</published>
-    <updated>2017-03-20T23:35:03.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img style="float: left; margin: 0px 12px 0px 0px; max-width: 33%; max-height: 33%;" src="http://www.franklincovey.com/tc/public/images/4dx-edu-2.jpg"><br>The Four Disciplines of Execution (4DX) is a truly useful framework for getting things done at the enterprise level. Of the four disciplines, the trickiest one may be “Act on the Lead Measures”. – <a href="http://www.nimbleuser.com/blog/lag-measures-versus-lead-measures" target="_blank" rel="external">Read More at NimbleUser</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img style=&quot;float: left; margin: 0px 12px 0px 0px; max-width: 33%; max-height: 33%;&quot; src=&quot;http://www.franklincovey.com/tc/public/images/4
-    
-    </summary>
-    
-      <category term="Review" scheme="http://ted.husted.com/categories/review/"/>
-    
-    
-      <category term="Productivity" scheme="http://ted.husted.com/tags/productivity/"/>
     
   </entry>
   
