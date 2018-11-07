@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>ted.husted.com</title>
@@ -11,6 +11,7 @@
 <meta property="og:url" content="http://ted.husted.com/page/25/index.html">
 <meta property="og:site_name" content="ted.husted.com">
 <meta property="og:description" content="Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.">
+<meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ted.husted.com">
 <meta name="twitter:description" content="Ted Husted is a coder, writer, and speaker. All told, Ted has been creating and deploying business applications since 1984, first for the desktop, then for the Internet, and now for the Cloud.">
@@ -18,7 +19,7 @@
   
     <link rel="icon" href="/favicon.ico">
   
-  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/ptserif/main.css" rel="stylesheet" type="text/css">
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css">
   
@@ -37,7 +38,7 @@ ga('send', 'pageview');
 
 
 </head>
-
+</html>
 <body>
   <div id="container">
     <header id="header">
@@ -62,14 +63,14 @@ ga('send', 'pageview');
       </nav>
       <nav id="sub-nav">
         <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
         </div>
       </nav>
     </div>
   </div>
 </header>
     <section id="main" class="outer">
-      <article id="post-yui-version-222-bug-fix-release" class="article article-type-post" itemscope itemprop="blogPost">
+      <article id="post-yui-version-222-bug-fix-release" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -96,12 +97,12 @@ ga('send', 'pageview');
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p> <a href="http://yuiblog.com/blog/2007/04/18/yui-2-2-2-released/" target="_blank" rel="external">Version 2.2.2 of the Yahoo! User Interface (YUI) Library</a> is now available.</p>
-<p>Usually this kind of update means downloading the new scripts, dropping them into your development folder, and ultimately updating the server. But since YUI is also <a href="http://developer.yahoo.com/yui/articles/hosting/" target="_blank" rel="external">serving the minified scripts from Yahoo! servers,</a> downloading the release is optional, all you may have to do is replace references to “<a href="http://yui.yahooapis.com/2.2.0/" target="_blank" rel="external">http://yui.yahooapis.com/2.2.0/</a>“ with a reference to “<a href="http://yui.yahooapis.com/2.2.2/" target="_blank" rel="external">http://yui.yahooapis.com/2.2.2/</a>“.</p>
+        <p> <a href="http://yuiblog.com/blog/2007/04/18/yui-2-2-2-released/" target="_blank" rel="noopener">Version 2.2.2 of the Yahoo! User Interface (YUI) Library</a> is now available.</p>
+<p>Usually this kind of update means downloading the new scripts, dropping them into your development folder, and ultimately updating the server. But since YUI is also <a href="http://developer.yahoo.com/yui/articles/hosting/" target="_blank" rel="noopener">serving the minified scripts from Yahoo! servers,</a> downloading the release is optional, all you may have to do is replace references to “<a href="http://yui.yahooapis.com/2.2.0/&quot;" target="_blank" rel="noopener">http://yui.yahooapis.com/2.2.0/&quot;</a> with a reference to “<a href="http://yui.yahooapis.com/2.2.2/&quot;" target="_blank" rel="noopener">http://yui.yahooapis.com/2.2.2/&quot;</a>.</p>
 <p>Of course, any decent IDE will do the search and replace for you, so it’s not any more work. We simply trade updating our local copies of the scripts with touching all the files that use the script. Since my team wasn’t checking in the YUI scripts, it’s actually less work, since only one of us has to do it once, and we don’t have to touch the server at all.</p>
-<p>One handy result of the trade-off is the potential for mixing and matching versions. The 2.2.2 release is suppose to be a bug-fix, though the beta (repeat <em>beta</em>) DataTable saw some significant internal changes. In fact, my <a href="http://www.geocities.com/planetyazaar/examples/dataform/tutorial-tabview.html" target="_blank" rel="external">DataForm widget</a> can’t use the new version (yet). But, no worries, I changed that reference back to  2.2.0 and its running, giving me breathing-space to sort out the problem. (Which I’m sure will be yet-another case of me pushing the envelope, and the envelope pushing back!)</p>
-<p>Meanwhile … the YUI release notes are helpful but high-level. That’s not a bad thing, but if you are working closely with the library, and perhaps building your own widgets on top of YUI’s, then it can also be helpful to have a line-by-line change log. Towards that end, I’ve checked in the last two YUI releases to the <a href="http://www.geocities.com/planetyazaar/" target="_blank" rel="external">Yazaar project</a>. Having the releases under SVN means that we can obtain DIFFs between versions, and review the line by line changes. To keep the YUI archive out of the way, I tucked it under the <a href="http://yazaar.googlecode.com/svn/branches/yui/build/" target="_blank" rel="external">branches</a> folder.  (Gotta love Subversion!)</p>
-<p>Of course, I’ll be resolving my DataTable glitch today, and looking to see if <a href="http://yuiblog.com/blog/2007/03/" target="_blank" rel="external">Jenny Han Donnelly and company</a> slipped in any new goodies.</p>
+<p>One handy result of the trade-off is the potential for mixing and matching versions. The 2.2.2 release is suppose to be a bug-fix, though the beta (repeat <em>beta</em>) DataTable saw some significant internal changes. In fact, my <a href="http://www.geocities.com/planetyazaar/examples/dataform/tutorial-tabview.html" target="_blank" rel="noopener">DataForm widget</a> can’t use the new version (yet). But, no worries, I changed that reference back to  2.2.0 and its running, giving me breathing-space to sort out the problem. (Which I’m sure will be yet-another case of me pushing the envelope, and the envelope pushing back!)</p>
+<p>Meanwhile … the YUI release notes are helpful but high-level. That’s not a bad thing, but if you are working closely with the library, and perhaps building your own widgets on top of YUI’s, then it can also be helpful to have a line-by-line change log. Towards that end, I’ve checked in the last two YUI releases to the <a href="http://www.geocities.com/planetyazaar/" target="_blank" rel="noopener">Yazaar project</a>. Having the releases under SVN means that we can obtain DIFFs between versions, and review the line by line changes. To keep the YUI archive out of the way, I tucked it under the <a href="http://yazaar.googlecode.com/svn/branches/yui/build/" target="_blank" rel="noopener">branches</a> folder.  (Gotta love Subversion!)</p>
+<p>Of course, I’ll be resolving my DataTable glitch today, and looking to see if <a href="http://yuiblog.com/blog/2007/03/" target="_blank" rel="noopener">Jenny Han Donnelly and company</a> slipped in any new goodies.</p>
 
       
     </div>
@@ -125,7 +126,7 @@ ga('send', 'pageview');
 
 
     
-      <article id="post-apachecon-us-2007-cfp-submissions" class="article article-type-post" itemscope itemprop="blogPost">
+      <article id="post-apachecon-us-2007-cfp-submissions" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -152,9 +153,9 @@ ga('send', 'pageview');
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>I submitted my <a href="http://apachecon.com/2007/US/" target="_blank" rel="external">ApacheCon 2007 US</a> proposals in this morning. I often submit multiple proposals, but I’ve never had more than one accepted at a time.</p>
+        <p>I submitted my <a href="http://apachecon.com/2007/US/" target="_blank" rel="noopener">ApacheCon 2007 US</a> proposals in this morning. I often submit multiple proposals, but I’ve never had more than one accepted at a time.</p>
 <p><em>Migrating to Ajax</em> - Leverage your hard-earned web development experience and learn how to migrate old-school web applications to Ajax and RPC. This full-day training session covers “Model 2” applications based on frameworks like Struts, as well as “Model 1” applications based on PHP or JSP. Prior Ajax experience is not required.</p>
-<p><em> Ajax Petstore Smackdown</em> - Let’s compare conventional implementations of Petstore using Struts or Tapestry with Web 2.0 implementions using Ajax and RPC. Which is better, faster, cheaper … or just more fun to write!</p>
+<p>_ Ajax Petstore Smackdown_ - Let’s compare conventional implementations of Petstore using Struts or Tapestry with Web 2.0 implementions using Ajax and RPC. Which is better, faster, cheaper … or just more fun to write!</p>
 <p><em>.NET @ Apache.org</em> - Like it or not, many open source developers are moving to the Microsoft .NET platform, and we’re bringing our favorite tools with us! In this session, we look inside ASF projects that are creating software for .NET and Mono … iBATIS, Logging, and Lucene … and show how to create leading-edge ASP.NET applications with open source libraries.</p>
 <p>Whether one of these are accepted or not, I expect I’ll wander down to Atlanta this November. It’s one of the few places where I can get a direct flight!</p>
 
@@ -180,7 +181,7 @@ ga('send', 'pageview');
 
 
     
-      <article id="post-call-for-papers-opens-for-apachecon-us-2007" class="article article-type-post" itemscope itemprop="blogPost">
+      <article id="post-call-for-papers-opens-for-apachecon-us-2007" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -210,7 +211,7 @@ ga('send', 'pageview');
         <blockquote>
 <p><em>The CFP announcement was inadvertently delayed, so the deadline is unusually close this year. If you’d like to submit a proposal, act today!</em><br>The Call for Papers is now open for ApacheCon US, to be held November 12-16 at the Peachtree Westin, Atlanta. The conference will consist of two day of tutorials (November 12-13) and three days of regular conference sessions (November 14-16).</p>
 </blockquote>
-<p>Please log in to the website at <a href="http://apachecon.com/html/login.html" target="_blank" rel="external">http://apachecon.com/html/login.html</a> to submit your proposal. Further details about fees and are avaialable on the CFP form. Topics appropriate for submission to this conference are manifold, and may include but are not restricted to:</p>
+<p>Please log in to the website at <a href="http://apachecon.com/html/login.html" target="_blank" rel="noopener">http://apachecon.com/html/login.html</a> to submit your proposal. Further details about fees and are avaialable on the CFP form. Topics appropriate for submission to this conference are manifold, and may include but are not restricted to:</p>
 <ul>
 <li>ASF projects</li>
 <li>ASF-Incubated projects</li>
@@ -243,7 +244,7 @@ ga('send', 'pageview');
 
 
     
-      <article id="post-s2-tip-use-global-result-handlers-for-common-results" class="article article-type-post" itemscope itemprop="blogPost">
+      <article id="post-s2-tip-use-global-result-handlers-for-common-results" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -302,7 +303,7 @@ Login_input
 
 
     
-      <article id="post-s2-tip-if-you-are-using-jsps-try-to-name-the-jsp-folder-after-the-namespace-or-java-package" class="article article-type-post" itemscope itemprop="blogPost">
+      <article id="post-s2-tip-if-you-are-using-jsps-try-to-name-the-jsp-folder-after-the-namespace-or-java-package" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -362,7 +363,7 @@ Login_input
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Ted Husted&nbsp;
+      &copy; 2018 Ted Husted&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>

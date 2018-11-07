@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>Test Driven Development with Apex on Force.com - ted.husted.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="As far as I know, Force.com – the software development platform for Salesforce CRM – is the only platform that requires unit test coverage for production code. Before an Apex developer can deploy cust">
+<meta name="keywords" content="Force.com">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Test Driven Development with Apex on Force.com">
 <meta property="og:url" content="http://ted.husted.com/2012/test-driven-development-with-apex-on-force-com/index.html">
 <meta property="og:site_name" content="ted.husted.com">
 <meta property="og:description" content="As far as I know, Force.com – the software development platform for Salesforce CRM – is the only platform that requires unit test coverage for production code. Before an Apex developer can deploy cust">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="https://tedhusted.files.wordpress.com/2012/03/968d3-carrot-with-stick.jpg">
-<meta property="og:updated_time" content="2017-02-20T13:39:01.000Z">
+<meta property="og:updated_time" content="2018-11-06T22:53:50.403Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Test Driven Development with Apex on Force.com">
 <meta name="twitter:description" content="As far as I know, Force.com – the software development platform for Salesforce CRM – is the only platform that requires unit test coverage for production code. Before an Apex developer can deploy cust">
@@ -21,7 +23,7 @@
   
     <link rel="icon" href="/favicon.ico">
   
-  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/ptserif/main.css" rel="stylesheet" type="text/css">
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css">
   
@@ -40,7 +42,7 @@ ga('send', 'pageview');
 
 
 </head>
-
+</html>
 <body>
   <div id="container">
     <header id="header">
@@ -65,13 +67,13 @@ ga('send', 'pageview');
       </nav>
       <nav id="sub-nav">
         <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
         </div>
       </nav>
     </div>
   </div>
 </header>
-    <section id="main" class="outer"><article id="post-test-driven-development-with-apex-on-force-com" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-test-driven-development-with-apex-on-force-com" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -98,7 +100,7 @@ ga('send', 'pageview');
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><div class="separator" style="clear:both;text-align:center;"><a href="http://teachingunderground.blogspot.com/2011/04/catching-carrot-and-breaking-stick.html" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2012/03/968d3-carrot-with-stick.jpg" alt=""></a></div><br>As far as I know, Force.com – the software development platform for Salesforce CRM – is the only platform that <strong>requires</strong> unit test coverage for production code. Before an Apex developer can deploy custom code to a production environment, the overall unit test coverage for the environment must be 75% or better.</p>
+        <p><div class="separator" style="clear:both;text-align:center;"><a href="http://teachingunderground.blogspot.com/2011/04/catching-carrot-and-breaking-stick.html" target="_blank" rel="noopener"><img src="https://tedhusted.files.wordpress.com/2012/03/968d3-carrot-with-stick.jpg" alt=""></a></div><br>As far as I know, Force.com – the software development platform for Salesforce CRM – is the only platform that <strong>requires</strong> unit test coverage for production code. Before an Apex developer can deploy custom code to a production environment, the overall unit test coverage for the environment must be 75% or better.</p>
 <p><span style="font-size:large;"><strong><span style="font-size:small;">What is Unit Test Coverage?</span></strong></span></p>
 <p>Let’s look at a simplistic, contrived example of unit test coverage. For demonstration purposes, the <span style="font-family:'Courier New', Courier, monospace;">HelloWorld</span> Class shows an Apex function that tests whether the text of a string matches “Hello World” or not.<br><a name="more"></a><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// HelloWord Class</span></span></p>
 <p><span style="font-family:'Courier New', Courier, monospace;">public class HelloWorld {</span><span style="font-family:'Courier New', Courier, monospace;"><br>public static String isHelloWorld(String myString) {</span><br><span style="font-family:'Courier New', Courier, monospace;">    if (myString.equals(‘Hello World’)) return ‘Yes it is!’; <strong>// Line 1</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">    else return ‘No it is not!’: <strong>// Line 2</strong></span><br><span style="font-family:'Courier New', Courier, monospace;">  }</span><br><span style="font-family:'Courier New', Courier, monospace;">}</span></p>
@@ -114,7 +116,7 @@ ga('send', 'pageview');
 <p>static testMethod void verifyIsHelloWorldFalse() {<br>String outcome = HelloWorld.isHelloWorld (‘Hello Kitty’);<br>System.assert(outcome == ‘No it is not!’, ‘Expected negative message.’) ;<br>}</p>
 <p></p></div><br>With both of these test methods in play, our code now has 100% coverage.<p></p>
 <p><strong>Why is test coverage important?</strong></p>
-<p>Salesforce.com has high standards for its own code and expects custom Apex code to also be robust and error-free. One of the best ways to increase code quality is to encourage developers to write unit tests. <a href="http://nparc.cisti-icist.nrc-cnrc.gc.ca/npsi/ctrl?action=shwart&amp;index=an&amp;req=5763742&amp;lang=en" target="_blank" rel="external">Witness a 2005 study found that unit tests increased both coder productivity and code quality.</a></p>
+<p>Salesforce.com has high standards for its own code and expects custom Apex code to also be robust and error-free. One of the best ways to increase code quality is to encourage developers to write unit tests. <a href="http://nparc.cisti-icist.nrc-cnrc.gc.ca/npsi/ctrl?action=shwart&amp;index=an&amp;req=5763742&amp;lang=en" target="_blank" rel="noopener">Witness a 2005 study found that unit tests increased both coder productivity and code quality.</a></p>
 <p>While it’s possible for developers to boost code coverage with pointless tests, hardcore coders see unit tests as a way to release better code sooner – the keyword being “release”. The time spent on proactive unit testing is a trade-off with the time spent on reactive debugging. We can find our own bugs ourselves with unit tests, or wait and fix them later when a feature comes back with a QA ticket attached.</p>
 <p>In my own work, I’ve found that the best way to ensure that code has adequate test coverage to practice test-driven development (TDD).</p>
 <p><strong>What is Test Driven Development (TDD)?</strong></p>
@@ -166,12 +168,12 @@ ga('send', 'pageview');
 <p><div style="font-family:inherit;"><span style="font-size:small;">and a third</span></div><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">  </span></span><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">// Testing requirement (3)</span></span></p>
 <p>static testMethod void verifyIsHelloWorldNull() {<br>String outcome = HelloWorld.isHelloWorld (null);<br>System.assert(outcome == HelloWorld.NO_WORLD,NEGATIVE );<br>}</p>
 <p>final static String EMPTY = ‘’;<br>static testMethod void verifyIsHelloWorldEmpty() {<br>String outcome = HelloWorld.isHelloWorld (EMPTY);<br>System.assert(outcome == HelloWorld.NO_WORLD,NEGATIVE );<br>}<br><span style="font-family:inherit;font-size:small;"><span style="font-family:'Courier New', Courier, monospace;"> </span> </span><br><span style="font-family:inherit;font-size:small;">For requirement 3, we added two test methods, but did not need to change any code, since the current implementation passed the tests.</span></p>
-<p>To fully test the method, we might also <a href="http://developer.force.com/cookbook/recipe/construct-random-strings-of-large-sizes-in-your-apex-tests" target="_blank" rel="external">add a test for a string of maximum length</a>, so that we test both boundaries. But, as it stands, we have 100% test coverage, and a test for each stated requirement, which meets my own personal “definition of done”.</p>
+<p>To fully test the method, we might also <a href="http://developer.force.com/cookbook/recipe/construct-random-strings-of-large-sizes-in-your-apex-tests" target="_blank" rel="noopener">add a test for a string of maximum length</a>, so that we test both boundaries. But, as it stands, we have 100% test coverage, and a test for each stated requirement, which meets my own personal “definition of done”.</p>
 <p>Three takeaways from this exercise are:</p>
 <ul>
 <li><span style="font-family:inherit;font-size:small;"> Never write a line of code without a failing test.</span></li>
 <li><span style="font-family:inherit;font-size:small;"> Test every requirement, one requirement at a time.</span></li>
-<li><span style="font-family:inherit;font-size:small;"> Passing tests give us the courage to refactor.</span><br><span style="font-family:inherit;font-size:small;"> In a followup blog, <a href="http://tedhusted.blogspot.com/2012/03/test-driven-development-with-apex.html" target="_blank" rel="external">TDD with Apex Triggers,</a> we look at how Test Driven Development works in practice, with a real-life non-trivial example.</span><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;"><span style="font-family:inherit;"></span></span></span></li>
+<li><span style="font-family:inherit;font-size:small;"> Passing tests give us the courage to refactor.</span><br><span style="font-family:inherit;font-size:small;"> In a followup blog, <a href="http://tedhusted.blogspot.com/2012/03/test-driven-development-with-apex.html" target="_blank" rel="noopener">TDD with Apex Triggers,</a> we look at how Test Driven Development works in practice, with a real-life non-trivial example.</span><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;"><span style="font-family:inherit;"></span></span></span></li>
 </ul>
 
       
@@ -235,7 +237,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Ted Husted&nbsp;
+      &copy; 2018 Ted Husted&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>

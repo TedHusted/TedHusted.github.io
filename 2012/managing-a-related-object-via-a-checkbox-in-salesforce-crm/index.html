@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>Managing a Related Object via a Checkbox in Salesforce CRM - ted.husted.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This Force.com recipe shows how to use a checkbox to manage a related object via an Apex trigger. 
-Problem: An off-the-shelf integration requires the existence  of a specific Salesforce CRM Opportunit">
+  <meta name="description" content="This Force.com recipe shows how to use a checkbox to manage a related object via an Apex trigger.  Problem: An off-the-shelf integration requires the existence  of a specific Salesforce CRM Opportunit">
+<meta name="keywords" content="Salesforce">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Managing a Related Object via a Checkbox in Salesforce CRM">
 <meta property="og:url" content="http://ted.husted.com/2012/managing-a-related-object-via-a-checkbox-in-salesforce-crm/index.html">
 <meta property="og:site_name" content="ted.husted.com">
-<meta property="og:description" content="This Force.com recipe shows how to use a checkbox to manage a related object via an Apex trigger. 
-Problem: An off-the-shelf integration requires the existence  of a specific Salesforce CRM Opportunit">
+<meta property="og:description" content="This Force.com recipe shows how to use a checkbox to manage a related object via an Apex trigger.  Problem: An off-the-shelf integration requires the existence  of a specific Salesforce CRM Opportunit">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="http://suvendugiri.files.wordpress.com/2012/02/checkbox.png">
-<meta property="og:updated_time" content="2017-02-20T13:34:21.000Z">
+<meta property="og:updated_time" content="2018-11-06T22:53:50.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Managing a Related Object via a Checkbox in Salesforce CRM">
-<meta name="twitter:description" content="This Force.com recipe shows how to use a checkbox to manage a related object via an Apex trigger. 
-Problem: An off-the-shelf integration requires the existence  of a specific Salesforce CRM Opportunit">
+<meta name="twitter:description" content="This Force.com recipe shows how to use a checkbox to manage a related object via an Apex trigger.  Problem: An off-the-shelf integration requires the existence  of a specific Salesforce CRM Opportunit">
 <meta name="twitter:image" content="http://suvendugiri.files.wordpress.com/2012/02/checkbox.png">
   
   
     <link rel="icon" href="/favicon.ico">
   
-  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/ptserif/main.css" rel="stylesheet" type="text/css">
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css">
   
@@ -43,7 +42,7 @@ ga('send', 'pageview');
 
 
 </head>
-
+</html>
 <body>
   <div id="container">
     <header id="header">
@@ -68,13 +67,13 @@ ga('send', 'pageview');
       </nav>
       <nav id="sub-nav">
         <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
         </div>
       </nav>
     </div>
   </div>
 </header>
-    <section id="main" class="outer"><article id="post-managing-a-related-object-via-a-checkbox-in-salesforce-crm" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-managing-a-related-object-via-a-checkbox-in-salesforce-crm" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -101,7 +100,7 @@ ga('send', 'pageview');
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><div class="separator" style="clear:both;text-align:center;"><a href="http://suvendugiri.wordpress.com/2012/02/09/android-using-checkbox-with-example/" target="_blank" rel="external"><img src="http://suvendugiri.files.wordpress.com/2012/02/checkbox.png" alt=""></a></div>This Force.com recipe shows how to use a checkbox to manage a related object via an Apex trigger. </p>
+        <p><div class="separator" style="clear:both;text-align:center;"><a href="http://suvendugiri.wordpress.com/2012/02/09/android-using-checkbox-with-example/" target="_blank" rel="noopener"><img src="http://suvendugiri.files.wordpress.com/2012/02/checkbox.png" alt=""></a></div>This Force.com recipe shows how to use a checkbox to manage a related object via an Apex trigger. </p>
 <p><strong>Problem: </strong>An off-the-shelf integration requires the existence  of a specific Salesforce CRM Opportunity object. When the object is  present, the integration acts on the Account related to the Opportunity.  When the object is not present. the integration bypasses the Account.</p>
 <p><strong>User Story:</strong> As a CRM User, I need to easily manage the Opportunity that signals the  integration, for example, by selecting a checkbox that creates or  removes the related integration object.</p>
 <p><strong>Solution:</strong> Implement an Account trigger that observes the checkbox and inserts or deletes the related integration object.</p>
@@ -179,7 +178,7 @@ if (delta.size()&amp;gt;0) insert(delta);
 <li><p>Assumes default is false.<br>*/<br>static Account newAccount(Boolean doImport) {<br> return newAccount(doImport, 0, ‘’);<br>}</p>
 <p>/** </p>
 </li>
-<li><p>Inserts the given account, and returns it again from a select.<br>*/<br>static Account doInsert(Account a) {<br> insert(a);<br> return [<br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">SELECT id, NU_isA2zImport<strong>c, CompanyNumber</strong>c<br></span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">FROM Account<br></span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">WHERE id = :a.id</span></span><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">        </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">];<br>}</span></span></p>
+<li><p>Inserts the given account, and returns it again from a select.<br>*/<br>static Account doInsert(Account a) {<br> insert(a);<br> return [<br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">SELECT id, NU_isA2zImport__c, CompanyNumber__c<br></span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">FROM Account<br></span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">WHERE id = :a.id</span></span><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">        </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">];<br>}</span></span></p>
 <p>/** </p>
 </li>
 <li><p>Exercises “Insert Import”.<br>*/<br>static testMethod void testInsImp(){<br> Account a = newAccount(true);<br> Account a2 = doInsert(a);<br> System.Assert(NU_a2zOpps.hasOpp(a2),’Expected opp on insert.’);<br>}</p>
@@ -206,7 +205,7 @@ if (delta.size()&amp;gt;0) insert(delta);
 <p>/** </p>
 </li>
 <li><p>Exercises “Update NoImportNoImport”.<br>*/<br>static testMethod void testUpdNoImpNoImp(){<br> updateHelper(false,false);<br>}</p>
-<p>static List getInserted(List rows) {<br> return [<span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">SELECT id, NU_isA2zImport<strong>c, CompanyNumber</strong>c<br></span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">FROM Account </span></span><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">WHERE id in :rows</span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;"><br> </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">];<br>}</span></span></p>
+<p>static List getInserted(List rows) {<br> return [<span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">SELECT id, NU_isA2zImport__c, CompanyNumber__c<br></span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">FROM Account </span></span><br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">            </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">WHERE id in :rows</span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;"><br> </span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">];<br>}</span></span></p>
 <p>/** </p>
 </li>
 <li><p>Creates, inserts, and updates an account,<br><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">     <em> </em></span></span><span style="font-size:x-small;"><span style="font-family:'Courier New', Courier, monospace;">changing the import settings in between, for a batch of accounts.
@@ -304,7 +303,7 @@ System.Assert(success,&apos;Expected no opps on batch delete.&apos;);
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Ted Husted&nbsp;
+      &copy; 2018 Ted Husted&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>

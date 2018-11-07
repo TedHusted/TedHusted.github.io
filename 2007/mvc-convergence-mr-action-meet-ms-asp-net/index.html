@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>MVC Convergence: Mr Action meet Ms ASP.NET - ted.husted.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Over the years, there’s been a steady trend within Microsoft example applications. The trend has been away from what Java geeks calls Model 1 and toward Model 2 development. It’s been a forced, dragge">
+<meta name="keywords" content="Programming">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MVC Convergence: Mr Action meet Ms ASP.NET">
 <meta property="og:url" content="http://ted.husted.com/2007/mvc-convergence-mr-action-meet-ms-asp-net/index.html">
 <meta property="og:site_name" content="ted.husted.com">
 <meta property="og:description" content="Over the years, there’s been a steady trend within Microsoft example applications. The trend has been away from what Java geeks calls Model 1 and toward Model 2 development. It’s been a forced, dragge">
-<meta property="og:updated_time" content="2017-02-20T13:39:01.000Z">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-06T22:53:50.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MVC Convergence: Mr Action meet Ms ASP.NET">
 <meta name="twitter:description" content="Over the years, there’s been a steady trend within Microsoft example applications. The trend has been away from what Java geeks calls Model 1 and toward Model 2 development. It’s been a forced, dragge">
@@ -19,7 +21,7 @@
   
     <link rel="icon" href="/favicon.ico">
   
-  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/ptserif/main.css" rel="stylesheet" type="text/css">
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css">
   
@@ -38,7 +40,7 @@ ga('send', 'pageview');
 
 
 </head>
-
+</html>
 <body>
   <div id="container">
     <header id="header">
@@ -63,13 +65,13 @@ ga('send', 'pageview');
       </nav>
       <nav id="sub-nav">
         <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
         </div>
       </nav>
     </div>
   </div>
 </header>
-    <section id="main" class="outer"><article id="post-mvc-convergence-mr-action-meet-ms-asp-net" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-mvc-convergence-mr-action-meet-ms-asp-net" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -99,10 +101,10 @@ ga('send', 'pageview');
         <p>Over the years, there’s been a steady trend within Microsoft example applications. The trend has been away from what Java geeks calls Model 1 and toward Model 2 development. It’s been a forced, dragged-by-the-hair trend. At every step, the architect seems to be looking for alternatives to MVC/Model 2, and every time, the alternative comes up short, and the next iteration is one step closr to Java-style MVC.</p>
 <p>The trend is clear if you spend a day reviewing the various ASP.NET application that were developed for ASP.NET 1.x. The trend is even more evident in ASP.NET 2.X. The platforms now offers an actual business logic component that can also be used to separate the data access code from the rest of the application. The only problem is that the component is still embedded in the web application, and, as far as I can tell, these “business logic” components can’t be tested outside of the web application. Though, it is most definitely another baby step in the right direction.</p>
 <p>Rumor now has it that Microsoft is ready for another step toward MVC/Model 2. In his CodeBetter blog, Jeffrey Palmero outlines a new feature that Scott Guthrie is supposedly developing for the next generation of ASP.NET.</p>
-<p><a href="http://codebetter.com/blogs/jeffrey.palermo/archive/2007/03/16/Big-News-_2D00_-MVC-framework-for-ASP.NET-in-the-works-_2D00_-level-300.aspx" target="_blank" rel="external">According to the blog</a>:</p>
+<p><a href="http://codebetter.com/blogs/jeffrey.palermo/archive/2007/03/16/Big-News-_2D00_-MVC-framework-for-ASP.NET-in-the-works-_2D00_-level-300.aspx" target="_blank" rel="noopener">According to the blog</a>:</p>
 <blockquote>
 <hr>
-<p>A url might look like <a href="http://localhost/myApp/ShoppingCart.mvc/CheckOut" target="_blank" rel="external">http://localhost/myApp/ShoppingCart.mvc/CheckOut</a> where ShoppingCart is the Controller class and “CheckOut” is a method like:</p>
+<p>A url might look like <a href="http://localhost/myApp/ShoppingCart.mvc/CheckOut" target="_blank" rel="noopener">http://localhost/myApp/ShoppingCart.mvc/CheckOut</a> where ShoppingCart is the Controller class and “CheckOut” is a method like:</p>
 <pre><code>[Action]
 public void CheckOut(){
  //do so
@@ -112,7 +114,7 @@ public void CheckOut(){
 <p>The view has to inherit from PageView or if it needs properties from the controller (like the Model to display), it can inherit from PageView where T is the type of the controller it depends on. Then the view can grab specific properties off of the controller.</p>
 <p>I would recommend making “T” an interface so that the view doesn’t bind directly to the controller type. I’ve been collaborating with Scott Guthrie to work out the kinks. There is still a lot of work to do. This is only in prototype form.</p>
 <hr>
-<p>Of course, Microsoft has been warming up to <a href="http://msdn2.microsoft.com/en-us/library/ms998516.aspx" target="_blank" rel="external">MVC and front controllers</a> patterns for some time. This is not <a href="http://msdn2.microsoft.com/en-us/library/aa478961.aspx" target="_blank" rel="external">the first time we’ve heard that MVC or front controller will be in the “next” version of ASP.NET</a>.</p>
+<p>Of course, Microsoft has been warming up to <a href="http://msdn2.microsoft.com/en-us/library/ms998516.aspx" target="_blank" rel="noopener">MVC and front controllers</a> patterns for some time. This is not <a href="http://msdn2.microsoft.com/en-us/library/aa478961.aspx" target="_blank" rel="noopener">the first time we’ve heard that MVC or front controller will be in the “next” version of ASP.NET</a>.</p>
 </blockquote>
 <p>But, not to worry. If Microsoft comes out with a MVC technology, we will do what we always do … reinvent it as a JSR.</p>
 
@@ -177,7 +179,7 @@ public void CheckOut(){
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Ted Husted&nbsp;
+      &copy; 2018 Ted Husted&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>

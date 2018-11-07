@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>ted.husted.com</title>
-  <subtitle>Working Code Speaks</subtitle>
+  
+  <subtitle>be the change</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ted.husted.com/"/>
-  <updated>2017-05-28T16:49:50.000Z</updated>
+  <updated>2018-11-06T23:05:03.687Z</updated>
   <id>http://ted.husted.com/</id>
   
   <author>
@@ -20,14 +21,16 @@
     <link href="http://ted.husted.com/2017/creating-a-jira-change-log-in-confluence/"/>
     <id>http://ted.husted.com/2017/creating-a-jira-change-log-in-confluence/</id>
     <published>2017-05-27T08:00:00.000Z</published>
-    <updated>2017-05-28T16:49:50.000Z</updated>
+    <updated>2018-11-06T23:05:03.687Z</updated>
     
-    <content type="html"><![CDATA[<p><div align="center"><img style="max-width: 50%; max-height: 50%; float: left; padding-right: 16px;" src="https://www.linkedin.com/mpr/mpr/AAEAAQAAAAAAAAryAAAAJDhjMmZjYThlLWMyZDQtNGEzZS1hZWIzLTBmMTAzOTA3NDQwYQ.png"></div>With only a few clicks, it’s simple to setup a JIRA Change Log in your Confluence wiki, where your devops stakeholders can easily find it. –<a href="ht.ly/Xk7v30c5FUt">Read More at LinkedIn.com</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p><div align="center"><img style="max-width: 50%; max-height: 50%; float: left; padding-right: 16px;" src="https://media.licdn.com/media/gcrc/dms/image/C5612AQEhECGtJSehRQ/article-cover_image-shrink_720_1280/0?e=1547078400&v=beta&t=_FVPpxCR6Prdn3v8qN4DHaCtXk7Jy1CDKdRPUdq9QJI"></div>With only a few clicks, it’s simple to setup a JIRA Change Log in your Confluence wiki, where your devops stakeholders can easily find it. –<a href="https://www.linkedin.com/pulse/creating-jira-change-log-confluence-ted-husted/" target="_blank" rel="noopener">Read More at LinkedIn.com</a></p><!-- moreIf you need to run the same Jenkins project with multiple sets of parameters, say to roll out an upgrade to a variety of client sites, here is a way to use a CSV to launch any number of sub-projects.The solution uses a parent build to launch a number of child builds.First, the parent build has to fetch the CSV. It could be stored in source control or copied from another location using, say, Ant, BASH, or cURL.Second, use the Python script from this Gist to convert the CSV to a number of properties files, one file for each row. <script src="//gist.github.com/623c629ebb6199cf948903d3271cceca.js?file=csv_to_properties.py"></script>   <p>In the script, the CSV is named “child_builds.csv”, but you can use any name you like.</p><p>Speaking of names, the script is designed to expose the first three columns of each row as a composite file name. This design lets you selectively run a subset of child projects. For example, the Group 1 test environments, or the Group 2 live environments.</p><p>You can now use the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Parameterized+Trigger+Plugin">Parameterized Trigger plugin</a> to launch a build on another project for every property file generated from the CSV.</p><p>To selectively run a subset of projects, you can use wildcards in the File Pattern field that the plugin provides.</p><p>Such as</p><ul><li>org-data/*.1.test.properties</li></ul><p>or</p><ul><li>org-data/*.1.live.properties</li></ul><p>The Parameterized Trigger approach works especially well with the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Parameterized+Trigger+Plugin">Amazon EC2 Plugin</a>, which allows for spinning up any number of temporary build agents. Both are a great addition to any devops tool belt.</p><p>~Voila!~<br>–&gt;</p>-->]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;div align=&quot;center&quot;&gt;&lt;img style=&quot;max-width: 50%; max-height: 50%; float: left; padding-right: 16px;&quot; src=&quot;https://www.linkedin.com/mpr/mpr
+      
+      
+        &lt;p&gt;&lt;div align=&quot;center&quot;&gt;&lt;img style=&quot;max-width: 50%; max-height: 50%; float: left; padding-right: 16px;&quot; src=&quot;https://media.licdn.com/media/gc
+      
     
     </summary>
     
@@ -47,14 +50,16 @@
     <link href="http://ted.husted.com/2017/updating-multiple-sites-from-jenkins/"/>
     <id>http://ted.husted.com/2017/updating-multiple-sites-from-jenkins/</id>
     <published>2017-05-22T08:00:00.000Z</published>
-    <updated>2017-05-28T16:48:18.000Z</updated>
+    <updated>2018-11-06T23:07:46.426Z</updated>
     
-    <content type="html"><![CDATA[<p><div align="center"><img style="max-width: 50%; max-height: 50%; float: right;" src="https://www.linkedin.com/mpr/mpr/AAEAAQAAAAAAAA2jAAAAJDhjYjZmYzZmLTc2MWQtNDBkMy1hZGI0LWQ1OTEyMzhhNzA1Mg.jpg"></div><br>If you need to run the same Jenkins project with multiple sets of parameters, say to roll out an upgrade to a variety of client sites, here is a way to use a CSV to launch any number of sub-projects. –<a href="https://www.linkedin.com/post/edit/updating-multiple-sites-from-jenkins-ted-husted" target="_blank" rel="external">Read More at LinkedIn.com</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p><div align="center"><img style="max-width: 30%; max-height: 30%; float: right;" src="https://media.licdn.com/dms/image/C5612AQG8XH6b_7epkg/article-cover_image-shrink_423_752/0?e=1547078400&v=beta&t=L4oSoU1nPQcCR0QyYVx_wfHyVApMaT02VWrjRrURETU"></div><br>If you need to run the same Jenkins project with multiple sets of parameters, say to roll out an upgrade to a variety of client sites, here is a way to use a CSV to launch any number of sub-projects. –<a href="https://www.linkedin.com/pulse/updating-multiple-sites-from-jenkins-ted-husted" target="_blank" rel="noopener">Read More at LinkedIn.com</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;div align=&quot;center&quot;&gt;&lt;img style=&quot;max-width: 50%; max-height: 50%; float: right;&quot; src=&quot;https://www.linkedin.com/mpr/mpr/AAEAAQAAAAAAAA2jAAA
+      
+      
+        &lt;p&gt;&lt;div align=&quot;center&quot;&gt;&lt;img style=&quot;max-width: 30%; max-height: 30%; float: right;&quot; src=&quot;https://media.licdn.com/dms/image/C5612AQG8XH6b_7epk
+      
     
     </summary>
     
@@ -63,7 +68,7 @@
     
       <category term="Jenkins" scheme="http://ted.husted.com/tags/jenkins/"/>
     
-      <category term="DevP[s" scheme="http://ted.husted.com/tags/devp-s/"/>
+      <category term="DevOps" scheme="http://ted.husted.com/tags/devops/"/>
     
   </entry>
   
@@ -72,15 +77,16 @@
     <link href="http://ted.husted.com/2017/pilot-madness/"/>
     <id>http://ted.husted.com/2017/pilot-madness/</id>
     <published>2017-03-10T11:00:00.000Z</published>
-    <updated>2017-03-30T10:22:10.000Z</updated>
+    <updated>2018-11-06T23:15:15.217Z</updated>
     
-    <content type="html"><![CDATA[<p>Like many forward-looking Salesforce partners, we’ve been enrolling in the new developer pilots that are hitting the streets now. Here’s some public background links on the various pilots in progress now. – <a href="https://www.nimbleuser.com/blog/pilot-madness" target="_blank" rel="external">Read more at NimbleUser</a></p>
-<div align="center"><img src="https://www.nimbleuser.com/uploads/9/4/3/7/94371761/snag-0821_orig.jpg"></div>
-]]></content>
+    <content type="html"><![CDATA[<p>Like many forward-looking Salesforce partners, we’ve been enrolling in the new developer pilots that are hitting the streets now. Here’s some public background links on the various pilots in progress now. – <a href="https://www.nimbleuser.com/blog/pilot-madness" target="_blank" rel="noopener">Read more at NimbleUser</a></p><div align="center"><img style="max-width: 30%; max-height: 30%;" src="https://www.nimbleams.com/wp-content/uploads/old-blog-images/snag-0821_orig.jpg"></div>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Like many forward-looking Salesforce partners, we’ve been enrolling in the new developer pilots that are hitting the streets now. Here’s 
+      
+      
+        &lt;p&gt;Like many forward-looking Salesforce partners, we’ve been enrolling in the new developer pilots that are hitting the streets now. Here’s 
+      
     
     </summary>
     
@@ -98,12 +104,14 @@
     <published>2017-02-06T11:00:00.000Z</published>
     <updated>2017-03-20T23:41:40.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="float: left;" src="https://pbs.twimg.com/profile_images/784609366985019392/jEp3FNFG.jpg">The Salesforce DX pilot is imminent, and it’s a pilot with a difference. Sure, DX is a groundbreaking initiative for Salesforce, breathtaking in its scope. Among other things, DX: Moves the source of truth from the cloud environment to source control – <a href="http://www.nimbleuser.com/blog/the-thousand-developer-march-on-dx-ga" target="_blank" rel="external">Read More at NimbleUser</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p><img style="float: left;" src="https://pbs.twimg.com/profile_images/784609366985019392/jEp3FNFG.jpg">The Salesforce DX pilot is imminent, and it’s a pilot with a difference. Sure, DX is a groundbreaking initiative for Salesforce, breathtaking in its scope. Among other things, DX: Moves the source of truth from the cloud environment to source control – <a href="http://www.nimbleuser.com/blog/the-thousand-developer-march-on-dx-ga" target="_blank" rel="external">Read More at NimbleUser</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img style=&quot;float: left;&quot; src=&quot;https://pbs.twimg.com/profile_images/784609366985019392/jEp3FNFG.jpg&quot;&gt;The Salesforce DX pilot is imminent,
+      
+      
+        &lt;p&gt;&lt;img style=&quot;float: left;&quot; src=&quot;https://pbs.twimg.com/profile_images/784609366985019392/jEp3FNFG.jpg&quot;&gt;The Salesforce DX pilot is imminent,
+      
     
     </summary>
     
@@ -121,12 +129,14 @@
     <published>2017-01-31T11:00:00.000Z</published>
     <updated>2017-03-20T23:23:32.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="max-width: 25%; max-height: 25%;float: right;" src="http://www.clipartkid.com/images/568/where-do-we-get-our-clip-art-and-images-from-lZK285-clipart.jpg">One of the many truly useful features of the Confluence enterprise wiki are page templates. Along with Confluence templates for sprint planning, retrospectives, and Go-No-Go decisions, we have checklist templates for routine maintenance – <a href="http://www.nimbleuser.com/blog/confluence-templates-for-all" target="_blank" rel="external">Read More at NimbleUser</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p><img style="max-width: 25%; max-height: 25%;float: right;" src="http://www.clipartkid.com/images/568/where-do-we-get-our-clip-art-and-images-from-lZK285-clipart.jpg">One of the many truly useful features of the Confluence enterprise wiki are page templates. Along with Confluence templates for sprint planning, retrospectives, and Go-No-Go decisions, we have checklist templates for routine maintenance – <a href="http://www.nimbleuser.com/blog/confluence-templates-for-all" target="_blank" rel="external">Read More at NimbleUser</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img style=&quot;max-width: 25%; max-height: 25%;float: right;&quot; src=&quot;http://www.clipartkid.com/images/568/where-do-we-get-our-clip-art-and-ima
+      
+      
+        &lt;p&gt;&lt;img style=&quot;max-width: 25%; max-height: 25%;float: right;&quot; src=&quot;http://www.clipartkid.com/images/568/where-do-we-get-our-clip-art-and-ima
+      
     
     </summary>
     
@@ -144,16 +154,14 @@
     <published>2017-01-17T11:00:00.000Z</published>
     <updated>2017-02-28T02:50:07.000Z</updated>
     
-    <content type="html"><![CDATA[<p>The Ant-SF buildfile supplements tasks provided by the Ant-Salesforce JAR. The JAR provides a core set of tasks for retrieving and deploying metadata between Salesforce orgs and a Git version control repository.</p>
-<p>Moreover, the buildfile supports using task branches, where each task is a separate JIRA issue. Each task (or feature) can be developed in its own Salesforce environment, and merged back into the mainline of development.</p>
-<p>Targets are provided for both direct consulting projects and managed package products. For products, either sandboxes or trial orgs can be used with a corresponding task branch.</p>
-<p>For more, see the Ant-SF repository on <a href="https://bitbucket.org/dreamops/ant-sf" target="_blank" rel="external">Bitbucket</a> or <a href="https://github.com/DreamOps/ant-sf" target="_blank" rel="external">GitHub</a>.</p>
-<div align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Apache-Ant-logo.svg/200px-Apache-Ant-logo.svg.png"></div>
-]]></content>
+    <content type="html"><![CDATA[<p>The Ant-SF buildfile supplements tasks provided by the Ant-Salesforce JAR. The JAR provides a core set of tasks for retrieving and deploying metadata between Salesforce orgs and a Git version control repository.</p><p>Moreover, the buildfile supports using task branches, where each task is a separate JIRA issue. Each task (or feature) can be developed in its own Salesforce environment, and merged back into the mainline of development.</p><p>Targets are provided for both direct consulting projects and managed package products. For products, either sandboxes or trial orgs can be used with a corresponding task branch.</p><p>For more, see the Ant-SF repository on <a href="https://bitbucket.org/dreamops/ant-sf" target="_blank" rel="external">Bitbucket</a> or <a href="https://github.com/DreamOps/ant-sf" target="_blank" rel="external">GitHub</a>.</p><div align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Apache-Ant-logo.svg/200px-Apache-Ant-logo.svg.png"></div>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;The Ant-SF buildfile supplements tasks provided by the Ant-Salesforce JAR. The JAR provides a core set of tasks for retrieving and deploy
+      
+      
+        &lt;p&gt;The Ant-SF buildfile supplements tasks provided by the Ant-Salesforce JAR. The JAR provides a core set of tasks for retrieving and deploy
+      
     
     </summary>
     
@@ -171,12 +179,14 @@
     <published>2016-11-17T11:00:00.000Z</published>
     <updated>2017-03-20T23:42:54.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="float: left; margin: 0px 16px 0px 0px;" src="https://www.projectsmart.co.uk/img/goals-objectives.png"><br>Folks think of Scrum as an Agile project management system, and it is, but the ceremonies are classic time-management techniques that we see in Get Things Done, SMART Objectives, Pomodoro, and the Seven Habits. – <a href="http://www.nimbleuser.com/blog/why-scrum-is-smart" target="_blank" rel="external">Read More at NimbleUser</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p><img style="float: left; margin: 0px 16px 0px 0px;" src="https://www.projectsmart.co.uk/img/goals-objectives.png"><br>Folks think of Scrum as an Agile project management system, and it is, but the ceremonies are classic time-management techniques that we see in Get Things Done, SMART Objectives, Pomodoro, and the Seven Habits. – <a href="http://www.nimbleuser.com/blog/why-scrum-is-smart" target="_blank" rel="external">Read More at NimbleUser</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img style=&quot;float: left; margin: 0px 16px 0px 0px;&quot; src=&quot;https://www.projectsmart.co.uk/img/goals-objectives.png&quot;&gt;&lt;br&gt;Folks think of Scru
+      
+      
+        &lt;p&gt;&lt;img style=&quot;float: left; margin: 0px 16px 0px 0px;&quot; src=&quot;https://www.projectsmart.co.uk/img/goals-objectives.png&quot;&gt;&lt;br&gt;Folks think of Scru
+      
     
     </summary>
     
@@ -194,13 +204,14 @@
     <published>2016-11-15T11:00:00.000Z</published>
     <updated>2017-03-20T23:34:28.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Once upon a time, when CVS ruled the earth, we used issue trackers, like Bugzilla and JIRA, to organize defect reports and help us squash bugs, over the web. – <a href="http://www.nimbleuser.com/blog/jira-our-nexus-of-truth" target="_blank" rel="external">Read More at NimbleUser</a></p>
-<div align="center"><img style="max-width: 50%; max-height: 50%; margin: 12px 0px 0px 0px; " src="https://blog.hipchat.com/wp-content/uploads/2016/06/hipchat_atlassian_integrations_JIRA_Bitbucket_Confluence-2.png"></div>
-]]></content>
+    <content type="html"><![CDATA[<p>Once upon a time, when CVS ruled the earth, we used issue trackers, like Bugzilla and JIRA, to organize defect reports and help us squash bugs, over the web. – <a href="http://www.nimbleuser.com/blog/jira-our-nexus-of-truth" target="_blank" rel="external">Read More at NimbleUser</a></p><div align="center"><img style="max-width: 50%; max-height: 50%; margin: 12px 0px 0px 0px; " src="https://blog.hipchat.com/wp-content/uploads/2016/06/hipchat_atlassian_integrations_JIRA_Bitbucket_Confluence-2.png"></div>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Once upon a time, when CVS ruled the earth, we used issue trackers, like Bugzilla and JIRA, to organize defect reports and help us squash
+      
+      
+        &lt;p&gt;Once upon a time, when CVS ruled the earth, we used issue trackers, like Bugzilla and JIRA, to organize defect reports and help us squash
+      
     
     </summary>
     
@@ -218,12 +229,14 @@
     <published>2016-11-10T11:26:07.000Z</published>
     <updated>2017-03-20T23:35:38.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="max-width: 50%; max-height: 50%; float: right; margin: 0px 8px;" src="http://screenanarchy.com/assets_c/2013/05/cable-guy-wallpaper-630-thumb-630xauto-38688.jpg">First it was “Software as a Service”, pioneered by folks like Salesforce.com, back when the century was turning. Today, more and more of the things around us are becoming “as a service”. – <a href="http://www.nimbleuser.com/blog/life-as-a-service" target="_blank" rel="external">Read More at NimbleUser</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p><img style="max-width: 50%; max-height: 50%; float: right; margin: 0px 8px;" src="http://screenanarchy.com/assets_c/2013/05/cable-guy-wallpaper-630-thumb-630xauto-38688.jpg">First it was “Software as a Service”, pioneered by folks like Salesforce.com, back when the century was turning. Today, more and more of the things around us are becoming “as a service”. – <a href="http://www.nimbleuser.com/blog/life-as-a-service" target="_blank" rel="external">Read More at NimbleUser</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img style=&quot;max-width: 50%; max-height: 50%; float: right; margin: 0px 8px;&quot; src=&quot;http://screenanarchy.com/assets_c/2013/05/cable-guy-wal
+      
+      
+        &lt;p&gt;&lt;img style=&quot;max-width: 50%; max-height: 50%; float: right; margin: 0px 8px;&quot; src=&quot;http://screenanarchy.com/assets_c/2013/05/cable-guy-wal
+      
     
     </summary>
     
@@ -239,12 +252,14 @@
     <published>2016-11-09T02:14:11.000Z</published>
     <updated>2017-03-20T23:27:39.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="margin: 0px 0px 0px 12px; max-width: 25%; max-height: 25%; float: right;" src="https://pbs.twimg.com/profile_images/646623384684642304/UbP0jhRM.png">With Winter ‘17 in the rear-view mirror, we’re already well on our way to Spring ‘17 – which will be our 15th major release of Nimble AMS. Fifteen seems like a milestone to me. DevOps on a cloud platform, like Salesforce, brings its own set of challenge. – <a href="http://www.nimbleuser.com/blog/five-years-fifteen-releases-thousands-of-upgrades" target="_blank" rel="external">Read More at NimbleUser</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p><img style="margin: 0px 0px 0px 12px; max-width: 25%; max-height: 25%; float: right;" src="https://pbs.twimg.com/profile_images/646623384684642304/UbP0jhRM.png">With Winter ‘17 in the rear-view mirror, we’re already well on our way to Spring ‘17 – which will be our 15th major release of Nimble AMS. Fifteen seems like a milestone to me. DevOps on a cloud platform, like Salesforce, brings its own set of challenge. – <a href="http://www.nimbleuser.com/blog/five-years-fifteen-releases-thousands-of-upgrades" target="_blank" rel="external">Read More at NimbleUser</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img style=&quot;margin: 0px 0px 0px 12px; max-width: 25%; max-height: 25%; float: right;&quot; src=&quot;https://pbs.twimg.com/profile_images/646623384
+      
+      
+        &lt;p&gt;&lt;img style=&quot;margin: 0px 0px 0px 12px; max-width: 25%; max-height: 25%; float: right;&quot; src=&quot;https://pbs.twimg.com/profile_images/646623384
+      
     
     </summary>
     
@@ -262,12 +277,14 @@
     <published>2016-11-03T10:00:00.000Z</published>
     <updated>2017-03-20T23:26:54.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="max-width: 25%; max-height: 25%; float: left; margin: 0px 8px;" src="https://www.ausm.org/images/graphics/votecounts2016.png">As a DevOps devotee, there’s nothing I like better than a system with failsafes, checks, and balances. One great pleasure of working with Salesforce DevOps is that the APIs fail fast, fail safe, and log verbosely. Success means success. – <a href="http://www.nimbleuser.com/blog/election-jitters-dont-worry-we-got-this" target="_blank" rel="external">Read More at NimbleUser</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p><img style="max-width: 25%; max-height: 25%; float: left; margin: 0px 8px;" src="https://www.ausm.org/images/graphics/votecounts2016.png">As a DevOps devotee, there’s nothing I like better than a system with failsafes, checks, and balances. One great pleasure of working with Salesforce DevOps is that the APIs fail fast, fail safe, and log verbosely. Success means success. – <a href="http://www.nimbleuser.com/blog/election-jitters-dont-worry-we-got-this" target="_blank" rel="external">Read More at NimbleUser</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img style=&quot;max-width: 25%; max-height: 25%; float: left; margin: 0px 8px;&quot; src=&quot;https://www.ausm.org/images/graphics/votecounts2016.png&quot;
+      
+      
+        &lt;p&gt;&lt;img style=&quot;max-width: 25%; max-height: 25%; float: left; margin: 0px 8px;&quot; src=&quot;https://www.ausm.org/images/graphics/votecounts2016.png&quot;
+      
     
     </summary>
     
@@ -283,12 +300,14 @@
     <published>2016-11-01T10:00:00.000Z</published>
     <updated>2017-03-20T23:43:40.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="max-width: 50%; max-height: 50%; float: right;" src="http://designmodo.com/wp-content/uploads/2015/10/user-stories-ux.jpg">Most software folks are familiar with the classic user story format: As a user role, I need this capability, for this benefit. User stories are great way to kick off deeper design discussions, except for one major flaw: – <a href="http://www.nimbleuser.com/blog/yoda-user-stories" target="_blank" rel="external">Read More at NimbleUser</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p><img style="max-width: 50%; max-height: 50%; float: right;" src="http://designmodo.com/wp-content/uploads/2015/10/user-stories-ux.jpg">Most software folks are familiar with the classic user story format: As a user role, I need this capability, for this benefit. User stories are great way to kick off deeper design discussions, except for one major flaw: – <a href="http://www.nimbleuser.com/blog/yoda-user-stories" target="_blank" rel="external">Read More at NimbleUser</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img style=&quot;max-width: 50%; max-height: 50%; float: right;&quot; src=&quot;http://designmodo.com/wp-content/uploads/2015/10/user-stories-ux.jpg&quot;&gt;Mo
+      
+      
+        &lt;p&gt;&lt;img style=&quot;max-width: 50%; max-height: 50%; float: right;&quot; src=&quot;http://designmodo.com/wp-content/uploads/2015/10/user-stories-ux.jpg&quot;&gt;Mo
+      
     
     </summary>
     
@@ -306,12 +325,14 @@
     <published>2016-10-27T10:00:00.000Z</published>
     <updated>2017-03-20T23:49:41.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="max-width: 25%; max-height: 25%; float: right;" src="http://www.fridaysfounder.com/wp-content/uploads/2013/06/image63.jpg">OK, I admit it, I’m a principle geek. In this topsy-turvy world, I cling to developer manifestos and self-help principles like flotsam and jetsam in a flood zone. – <a href="http://www.nimbleuser.com/blog/principle-soup-yum" target="_blank" rel="external">Read More at NimbleUser</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p><img style="max-width: 25%; max-height: 25%; float: right;" src="http://www.fridaysfounder.com/wp-content/uploads/2013/06/image63.jpg">OK, I admit it, I’m a principle geek. In this topsy-turvy world, I cling to developer manifestos and self-help principles like flotsam and jetsam in a flood zone. – <a href="http://www.nimbleuser.com/blog/principle-soup-yum" target="_blank" rel="external">Read More at NimbleUser</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img style=&quot;max-width: 25%; max-height: 25%; float: right;&quot; src=&quot;http://www.fridaysfounder.com/wp-content/uploads/2013/06/image63.jpg&quot;&gt;OK
+      
+      
+        &lt;p&gt;&lt;img style=&quot;max-width: 25%; max-height: 25%; float: right;&quot; src=&quot;http://www.fridaysfounder.com/wp-content/uploads/2013/06/image63.jpg&quot;&gt;OK
+      
     
     </summary>
     
@@ -329,12 +350,14 @@
     <published>2016-10-25T10:00:00.000Z</published>
     <updated>2017-03-20T23:39:24.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="max-width: 30%; max-height: 30%; float: left;" src="https://c1.sfdcstatic.com/content/dam/web/en_us/www/images/app-cloud/app-cloud-salesforce-dx.png">In a classic Ted Talk, Tom Hulme asks “What can we learn from shortcuts?”. For years, many of us  have been looking for shortcuts through the Salesforce application lifecycle, so that we can use continuous delivery to develop packages – <a href="http://www.nimbleuser.com/blog/source-driven-development-huh-what" target="_blank" rel="external">Read More at NimbleUser</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p><img style="max-width: 30%; max-height: 30%; float: left;" src="https://c1.sfdcstatic.com/content/dam/web/en_us/www/images/app-cloud/app-cloud-salesforce-dx.png">In a classic Ted Talk, Tom Hulme asks “What can we learn from shortcuts?”. For years, many of us  have been looking for shortcuts through the Salesforce application lifecycle, so that we can use continuous delivery to develop packages – <a href="http://www.nimbleuser.com/blog/source-driven-development-huh-what" target="_blank" rel="external">Read More at NimbleUser</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img style=&quot;max-width: 30%; max-height: 30%; float: left;&quot; src=&quot;https://c1.sfdcstatic.com/content/dam/web/en_us/www/images/app-cloud/app-
+      
+      
+        &lt;p&gt;&lt;img style=&quot;max-width: 30%; max-height: 30%; float: left;&quot; src=&quot;https://c1.sfdcstatic.com/content/dam/web/en_us/www/images/app-cloud/app-
+      
     
     </summary>
     
@@ -354,12 +377,14 @@
     <published>2016-10-20T10:00:00.000Z</published>
     <updated>2017-03-20T23:43:14.000Z</updated>
     
-    <content type="html"><![CDATA[<p>As the maker of two managed packages, we have a vested interest in developing the very best code we can. According to Economics of Software Quality (by Caspers Jones), the most effective software quality assurance tools are – <a href="http://www.nimbleuser.com/blog/write-better-apex-with-codescan" target="_blank" rel="external">Read More at NimbleUser</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p>As the maker of two managed packages, we have a vested interest in developing the very best code we can. According to Economics of Software Quality (by Caspers Jones), the most effective software quality assurance tools are – <a href="http://www.nimbleuser.com/blog/write-better-apex-with-codescan" target="_blank" rel="external">Read More at NimbleUser</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;As the maker of two managed packages, we have a vested interest in developing the very best code we can. According to Economics of Softwa
+      
+      
+        &lt;p&gt;As the maker of two managed packages, we have a vested interest in developing the very best code we can. According to Economics of Softwa
+      
     
     </summary>
     
@@ -379,12 +404,14 @@
     <published>2016-10-18T10:00:00.000Z</published>
     <updated>2017-03-20T23:28:02.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Once upon a time, a man named Royce published his recommended improvements to how large projects delivered software and accidentally popularized the “Waterfall” methodology. – <a href="http://www.nimbleuser.com/blog/from-waterfall-to-pipeline-to-mobius-strip" target="_blank" rel="external">Read More at NimbleUser</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p>Once upon a time, a man named Royce published his recommended improvements to how large projects delivered software and accidentally popularized the “Waterfall” methodology. – <a href="http://www.nimbleuser.com/blog/from-waterfall-to-pipeline-to-mobius-strip" target="_blank" rel="external">Read More at NimbleUser</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Once upon a time, a man named Royce published his recommended improvements to how large projects delivered software and accidentally popu
+      
+      
+        &lt;p&gt;Once upon a time, a man named Royce published his recommended improvements to how large projects delivered software and accidentally popu
+      
     
     </summary>
     
@@ -402,12 +429,14 @@
     <published>2016-05-25T10:00:00.000Z</published>
     <updated>2017-03-20T23:18:32.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="float: left;" src="http://atlassian.wpengine.netdna-cdn.com/wp-content/uploads/Bitbucket_Pipeline_Illustration_100.png" width="50%" height="50%">Running development builds continuously is de rigeur for most software teams now (65% the survey says). Since the mainstay of development builds is pulling code from development source code repositories, Atlasssian is making a play for simplifying the process – <a href="http://www.nimbleuser.com/blog/bitbucket-pipelines-beta" target="_blank" rel="external">Read More at NimbleUser</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p><img style="float: left;" src="http://atlassian.wpengine.netdna-cdn.com/wp-content/uploads/Bitbucket_Pipeline_Illustration_100.png" width="50%" height="50%">Running development builds continuously is de rigeur for most software teams now (65% the survey says). Since the mainstay of development builds is pulling code from development source code repositories, Atlasssian is making a play for simplifying the process – <a href="http://www.nimbleuser.com/blog/bitbucket-pipelines-beta" target="_blank" rel="external">Read More at NimbleUser</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img style=&quot;float: left;&quot; src=&quot;http://atlassian.wpengine.netdna-cdn.com/wp-content/uploads/Bitbucket_Pipeline_Illustration_100.png&quot; width
+      
+      
+        &lt;p&gt;&lt;img style=&quot;float: left;&quot; src=&quot;http://atlassian.wpengine.netdna-cdn.com/wp-content/uploads/Bitbucket_Pipeline_Illustration_100.png&quot; width
+      
     
     </summary>
     
@@ -425,12 +454,14 @@
     <published>2015-11-17T11:00:00.000Z</published>
     <updated>2017-03-20T23:50:03.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="float: right;" src="https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/5478/large/1431127911/ship-it-squirrel.png">Professional technical writing platforms, like the DITA platform, are an excellent way to create single-source documentation. Hands-down. Though, in real life, the editing software is not mere-mortal friendly. – <a href="http://www.nimbleuser.com/blog/rotating-versions-with-confluence-spaces" target="_blank" rel="external">Read More at NimbleUser</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p><img style="float: right;" src="https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/5478/large/1431127911/ship-it-squirrel.png">Professional technical writing platforms, like the DITA platform, are an excellent way to create single-source documentation. Hands-down. Though, in real life, the editing software is not mere-mortal friendly. – <a href="http://www.nimbleuser.com/blog/rotating-versions-with-confluence-spaces" target="_blank" rel="external">Read More at NimbleUser</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img style=&quot;float: right;&quot; src=&quot;https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/5478/large/1431127911/ship-it-squirrel.pn
+      
+      
+        &lt;p&gt;&lt;img style=&quot;float: right;&quot; src=&quot;https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/5478/large/1431127911/ship-it-squirrel.pn
+      
     
     </summary>
     
@@ -446,14 +477,16 @@
     <link href="http://ted.husted.com/2015/using-task-lists-to-get-more-done-better/"/>
     <id>http://ted.husted.com/2015/using-task-lists-to-get-more-done-better/</id>
     <published>2015-09-27T10:00:00.000Z</published>
-    <updated>2017-03-20T23:51:35.000Z</updated>
+    <updated>2018-11-06T21:53:07.063Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="float: right;" src="https://www.nimbleuser.com/uploads/9/4/3/7/94371761/allthethings.png" width="250" height="157" rel="250,157">As much as I try to Automate All The Things, I still find myself walking through routine tasks with several simple steps. On busy days, it’s easy to miss a step, and on busier days, it’s easy to gloss over some of the fine details. – <a href="http://www.nimbleuser.com/blog/using-task-lists-to-get-more-done-better" target="_blank" rel="external">Read More at NimbleUser</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p><img style="float: right;" src="https://www.nimbleuser.com/uploads/9/4/3/7/94371761/allthethings.png" width="250" height="157" rel="250,157">As much as I try to Automate All The Things, I still find myself walking through routine tasks with several simple steps. On busy days, it’s easy to miss a step, and on busier days, it’s easy to gloss over some of the fine details. – <a href="http://www.nimbleuser.com/blog/using-task-lists-to-get-more-done-better" target="_blank" rel="noopener">Read More at NimbleUser</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img style=&quot;float: right;&quot; src=&quot;https://www.nimbleuser.com/uploads/9/4/3/7/94371761/allthethings.png&quot; width=&quot;250&quot; height=&quot;157&quot; rel=&quot;250,1
+      
+      
+        &lt;p&gt;&lt;img style=&quot;float: right;&quot; src=&quot;https://www.nimbleuser.com/uploads/9/4/3/7/94371761/allthethings.png&quot; width=&quot;250&quot; height=&quot;157&quot; rel=&quot;250,1
+      
     
     </summary>
     
@@ -471,12 +504,14 @@
     <published>2015-03-17T10:00:00.000Z</published>
     <updated>2017-03-20T23:48:23.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img style="float: right; margin: 4px 0px 0px 4px;" src="http://www.pdfpower.com/XML2005Proceedings/ship/239/maps_and_topics.PNG" alt="" width="435" height="121">DITA is a tool created from the ground up for technical writers. It is, quite literally, an embodiment of best practices for people creating documents for software and hardware products. DITA stands for Darwin Information Typing Architecture. – <a href="http://www.nimbleuser.com/blog/dita-best-practices-use-the-maps-folks-use-the-maps" target="_blank" rel="external">Read More at NimbleUser</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p><img style="float: right; margin: 4px 0px 0px 4px;" src="http://www.pdfpower.com/XML2005Proceedings/ship/239/maps_and_topics.PNG" alt="" width="435" height="121">DITA is a tool created from the ground up for technical writers. It is, quite literally, an embodiment of best practices for people creating documents for software and hardware products. DITA stands for Darwin Information Typing Architecture. – <a href="http://www.nimbleuser.com/blog/dita-best-practices-use-the-maps-folks-use-the-maps" target="_blank" rel="external">Read More at NimbleUser</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img style=&quot;float: right; margin: 4px 0px 0px 4px;&quot; src=&quot;http://www.pdfpower.com/XML2005Proceedings/ship/239/maps_and_topics.PNG&quot; alt=&quot;&quot; 
+      
+      
+        &lt;p&gt;&lt;img style=&quot;float: right; margin: 4px 0px 0px 4px;&quot; src=&quot;http://www.pdfpower.com/XML2005Proceedings/ship/239/maps_and_topics.PNG&quot; alt=&quot;&quot; 
+      
     
     </summary>
     

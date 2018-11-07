@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>WebDev Pushmi-Pullyu - ted.husted.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="As might be expected, the Struts 2 GA announcement had its share of comments on The Server Side last week.
-One subtopic was push versus pull. As with many terms, I think we sometimes use “push” and “p">
+  <meta name="description" content="As might be expected, the Struts 2 GA announcement had its share of comments on The Server Side last week. One subtopic was push versus pull. As with many terms, I think we sometimes use “push” and “p">
+<meta name="keywords" content="Apache Struts">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WebDev Pushmi-Pullyu">
 <meta property="og:url" content="http://ted.husted.com/2007/webdev-pushmi-pullyu/index.html">
 <meta property="og:site_name" content="ted.husted.com">
-<meta property="og:description" content="As might be expected, the Struts 2 GA announcement had its share of comments on The Server Side last week.
-One subtopic was push versus pull. As with many terms, I think we sometimes use “push” and “p">
-<meta property="og:updated_time" content="2017-02-20T13:33:36.000Z">
+<meta property="og:description" content="As might be expected, the Struts 2 GA announcement had its share of comments on The Server Side last week. One subtopic was push versus pull. As with many terms, I think we sometimes use “push” and “p">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-06T22:53:50.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WebDev Pushmi-Pullyu">
-<meta name="twitter:description" content="As might be expected, the Struts 2 GA announcement had its share of comments on The Server Side last week.
-One subtopic was push versus pull. As with many terms, I think we sometimes use “push” and “p">
+<meta name="twitter:description" content="As might be expected, the Struts 2 GA announcement had its share of comments on The Server Side last week. One subtopic was push versus pull. As with many terms, I think we sometimes use “push” and “p">
   
   
     <link rel="icon" href="/favicon.ico">
   
-  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/ptserif/main.css" rel="stylesheet" type="text/css">
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css">
   
@@ -41,7 +40,7 @@ ga('send', 'pageview');
 
 
 </head>
-
+</html>
 <body>
   <div id="container">
     <header id="header">
@@ -66,13 +65,13 @@ ga('send', 'pageview');
       </nav>
       <nav id="sub-nav">
         <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
         </div>
       </nav>
     </div>
   </div>
 </header>
-    <section id="main" class="outer"><article id="post-webdev-pushmi-pullyu" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-webdev-pushmi-pullyu" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -99,15 +98,15 @@ ga('send', 'pageview');
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>As might be expected, the Struts 2 GA announcement had its share of comments on <a href="http://www.theserverside.com/news/thread.tss?thread_id=44429" target="_blank" rel="external">The Server Side</a> last week.</p>
-<p>One subtopic was push versus pull. As with many terms, I think we sometimes use “push” and “pull” to mean different things. Sometimes we mean it to contrast <a href="http://www.theserverside.com/news/thread.tss?thread_id=44429#228491" target="_blank" rel="external">component versus action paradigms</a>. Other times, we mean to contrast <a href="http://jakarta.apache.org/turbine/turbine/turbine-2.3.2/pullmodel.html" target="_blank" rel="external">creating a custom context</a> (or API) for each page that exposes only what that page is suppose to know (push), or whether we should create a global context (or API) that can be exposed to every page, so each page can pick and choose (pull) whatever it wants.</p>
+        <p>As might be expected, the Struts 2 GA announcement had its share of comments on <a href="http://www.theserverside.com/news/thread.tss?thread_id=44429" target="_blank" rel="noopener">The Server Side</a> last week.</p>
+<p>One subtopic was push versus pull. As with many terms, I think we sometimes use “push” and “pull” to mean different things. Sometimes we mean it to contrast <a href="http://www.theserverside.com/news/thread.tss?thread_id=44429#228491" target="_blank" rel="noopener">component versus action paradigms</a>. Other times, we mean to contrast <a href="http://jakarta.apache.org/turbine/turbine/turbine-2.3.2/pullmodel.html" target="_blank" rel="noopener">creating a custom context</a> (or API) for each page that exposes only what that page is suppose to know (push), or whether we should create a global context (or API) that can be exposed to every page, so each page can pick and choose (pull) whatever it wants.</p>
 <p>Another use of the “push/pull” term is to contrast “merge” templates, like Velocity and FreeMarker, with “scriptlet” templates, like ASP, JSP, and PHP. In this usage, the point is whether it is better to push out to the page a prepared context, or whether the page should use scriplets to pull values from the platform’s shared context.</p>
 <p>One benefit of push is that it easier to use the technology outside of the environment, since we can create a prepared context independent of the target platform. One benefit of pull is that its easier to share values with other application resources, since the context is shared.</p>
 <p>Struts 1 tends to muddle this kind of push and pull. ActionForms are push, but we also provide a lot of servlet attributes which pages need to pull from one of the platform’s scopes (page, servlet, application). The Velocity support for Struts uses a chained context to provide access to a Velocity context as well as the platform contexts.</p>
 <p>Struts 2 creates its own context that includes references to the servlet scopes (as plain-old Maps). In this way, S2 provides the benefits of both push and pull. For testing, it’s easy to create our own action context, and at runtime, we can access the usual servlet resources. Another benefit of wrapping pull-within-push is that we can provide “first class” tag support for JSP, FreeMarker and Velocity.</p>
-<p>Personally, I’m a fan of the template approach. The Struts 1 tags mitigated the <a href="http://www.servlets.com/soapbox/problems-jsp.html" target="_blank" rel="external">damage JSP scriplets were causing back in the day</a>; before JSTL, stock JSPs were a ugly, inelegant mess. (And before Velocity people got involved in JSTL, the JSTL was a mess too.)</p>
+<p>Personally, I’m a fan of the template approach. The Struts 1 tags mitigated the <a href="http://www.servlets.com/soapbox/problems-jsp.html" target="_blank" rel="noopener">damage JSP scriplets were causing back in the day</a>; before JSTL, stock JSPs were a ugly, inelegant mess. (And before Velocity people got involved in JSTL, the JSTL was a mess too.)</p>
 <p>If there is a single reason why Struts 1 was so successful, it was because we provided a JSP taglib when everyone else (Barracuda, JPublish, Maverick, Tapestry, Turbine, among others) was focused on templates and other alternative solutions.</p>
-<p>Over the years, I’ve consulted with some large concerns that standardized on templates pre-y2k. The technology worked well, but my clients eventually replaced the templates with Struts and JSPs. Not because JSP was “better”, but because JSP worker drones are easy to hire. <a href="http://www.servlets.com/soapbox/problems-jsp-reaction.html" target="_blank" rel="external">As Craig said</a>, project managers tend to choose “mainstream” technologies, regardless. We already have a hammer, so every problem must be a nail.</p>
+<p>Over the years, I’ve consulted with some large concerns that standardized on templates pre-y2k. The technology worked well, but my clients eventually replaced the templates with Struts and JSPs. Not because JSP was “better”, but because JSP worker drones are easy to hire. <a href="http://www.servlets.com/soapbox/problems-jsp-reaction.html" target="_blank" rel="noopener">As Craig said</a>, project managers tend to choose “mainstream” technologies, regardless. We already have a hammer, so every problem must be a nail.</p>
 <p>Ironically, Struts 2 “levels the playing field”, so that “alternative” technologies like Velocity, Freemarker, and AJAX are on equal footing with “mainstream” technologies like JSP, JSF, and, well, AJAX. :)</p>
 
       
@@ -171,7 +170,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Ted Husted&nbsp;
+      &copy; 2018 Ted Husted&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>

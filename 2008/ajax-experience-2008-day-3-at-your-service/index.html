@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>Ajax Experience 2008, Day 3, At Your Service - ted.husted.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="The highlight of my testing tools talk turned out to be my new-best-friend, Hudson, an extensible continuous integration server. The talk was in one of the 90-minute slots, so I split the agenda betwe">
+<meta name="keywords" content="Ajax,Continuous Integration,Hudson,Jenkins">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ajax Experience 2008, Day 3, At Your Service">
 <meta property="og:url" content="http://ted.husted.com/2008/ajax-experience-2008-day-3-at-your-service/index.html">
 <meta property="og:site_name" content="ted.husted.com">
 <meta property="og:description" content="The highlight of my testing tools talk turned out to be my new-best-friend, Hudson, an extensible continuous integration server. The talk was in one of the 90-minute slots, so I split the agenda betwe">
-<meta property="og:updated_time" content="2017-02-20T13:37:08.000Z">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-06T22:53:50.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax Experience 2008, Day 3, At Your Service">
 <meta name="twitter:description" content="The highlight of my testing tools talk turned out to be my new-best-friend, Hudson, an extensible continuous integration server. The talk was in one of the 90-minute slots, so I split the agenda betwe">
@@ -19,7 +21,7 @@
   
     <link rel="icon" href="/favicon.ico">
   
-  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/ptserif/main.css" rel="stylesheet" type="text/css">
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css">
   
@@ -38,7 +40,7 @@ ga('send', 'pageview');
 
 
 </head>
-
+</html>
 <body>
   <div id="container">
     <header id="header">
@@ -63,13 +65,13 @@ ga('send', 'pageview');
       </nav>
       <nav id="sub-nav">
         <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
         </div>
       </nav>
     </div>
   </div>
 </header>
-    <section id="main" class="outer"><article id="post-ajax-experience-2008-day-3-at-your-service" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-ajax-experience-2008-day-3-at-your-service" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -96,13 +98,13 @@ ga('send', 'pageview');
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>The highlight of my <a href="http://www.slideshare.net/ted.husted/testing-tools-presentation" title="testing tools talk" target="_blank" rel="external">testing tools talk</a> turned out to be my new-best-friend, <a href="https://hudson.dev.java.net/" title="Hudson" target="_blank" rel="external">Hudson</a>, an extensible <a href="https://hudson.dev.java.net/" title="continuous integration server" target="_blank" rel="external">continuous integration server</a>. The talk was in one of the 90-minute slots, so I split the agenda between reviewing some of the available tools and demoing a simple-but-complete continuous integration workflow. (By complete, I mean that on every checkin, we build the distribution and run a suite of both unit and integration tests.) Originally, the demo was to include <a href="http://developer.yahoo.com/yui/yuitest/" title="YUI Test" target="_blank" rel="external">YUI Test</a>, <a href="http://selenium.openqa.org/" title="Selenium" target="_blank" rel="external">Selenium</a>, and <a href="http://cruisecontrol.sourceforge.net/" title="Cruise Control" target="_blank" rel="external">Cruise Control</a>. At the last minute I switched in Hudson for Cruise Control.</p>
+        <p>The highlight of my <a href="http://www.slideshare.net/ted.husted/testing-tools-presentation" title="testing tools talk" target="_blank" rel="noopener">testing tools talk</a> turned out to be my new-best-friend, <a href="https://hudson.dev.java.net/" title="Hudson" target="_blank" rel="noopener">Hudson</a>, an extensible <a href="https://hudson.dev.java.net/" title="continuous integration server" target="_blank" rel="noopener">continuous integration server</a>. The talk was in one of the 90-minute slots, so I split the agenda between reviewing some of the available tools and demoing a simple-but-complete continuous integration workflow. (By complete, I mean that on every checkin, we build the distribution and run a suite of both unit and integration tests.) Originally, the demo was to include <a href="http://developer.yahoo.com/yui/yuitest/" title="YUI Test" target="_blank" rel="noopener">YUI Test</a>, <a href="http://selenium.openqa.org/" title="Selenium" target="_blank" rel="noopener">Selenium</a>, and <a href="http://cruisecontrol.sourceforge.net/" title="Cruise Control" target="_blank" rel="noopener">Cruise Control</a>. At the last minute I switched in Hudson for Cruise Control.</p>
 <p>Setting up Hudson has to be the easiest/hardest thing I’ve ever done. (The previous runner-up being using iBATIS for Query-By-Example database searches.) Most CI servers are designed to run as standalone critters. Hudson runs as a standard Java web application, and it is configured using a web UI. (A clean and elegant UI, I might add.) The totally cool part is that the server can be installed by dropping the hudson.war into our favorite Java container … or running it standalone from the command line!</p>
-<p><a href="http://hudson.gotdns.com/latest/hudson.war" title="Download the WAR" target="_blank" rel="external">Download the WAR</a>, run</p>
+<p><a href="http://hudson.gotdns.com/latest/hudson.war" title="Download the WAR" target="_blank" rel="noopener">Download the WAR</a>, run</p>
 <p><span class="quote">&gt; java -jar hudson.war</span></p>
-<p>and <a href="http://hudson.gotdns.com/wiki/download/thumbnails/753667/1.png" title="up pops Hudson" target="_blank" rel="external">up pops Hudson</a>, at your service, ready for configuration. (The one prerequesite being a recent Java executable on your system path.)</p>
-<p>By default, Hudson stores its jobs in your home directory (even on Windows), so once it’s running, you can just have at it. Tell Hudson where to checkout your project from SVN or CVS, check a box or two, and you are good to go. (<a href="http://hudson.gotdns.com/wiki/display/HUDSON/Plugins#Plugins-Sourcecodemanagement" title="Other SCMs" target="_blank" rel="external">Other SCMs</a> also supported) For extra credit, you can indicate an Ant file to run along with Hudson’s default build. (<a href="http://hudson.gotdns.com/wiki/display/HUDSON/Plugins#Plugins-Buildtools" title="Other build systems" target="_blank" rel="external">Other build systems</a> also supported.) Fill out a few more fields in the web UI, and you’ll be getting an email nag whenever the build or test suite fails.</p>
-<p>With a continuous integration server in place, the remaining trick is to export Selenium tests to JUnit (or C#, or Ruby, or Python) to run both acceptance tests and any JavaScript unit tests. While running YUI Unit won’t trigger a JUnit failure out-of-the-box, we can use Selenium to watch for the outcome of the tests on the test logger. If <a href="http://developer.yahoo.com/yui/examples/yuitest/yt-simple-example.html" target="_blank" rel="external">“Failed:0” doesn’t materialize</a>, then we know the YUI test failed.</p>
+<p>and <a href="http://hudson.gotdns.com/wiki/download/thumbnails/753667/1.png" title="up pops Hudson" target="_blank" rel="noopener">up pops Hudson</a>, at your service, ready for configuration. (The one prerequesite being a recent Java executable on your system path.)</p>
+<p>By default, Hudson stores its jobs in your home directory (even on Windows), so once it’s running, you can just have at it. Tell Hudson where to checkout your project from SVN or CVS, check a box or two, and you are good to go. (<a href="http://hudson.gotdns.com/wiki/display/HUDSON/Plugins#Plugins-Sourcecodemanagement" title="Other SCMs" target="_blank" rel="noopener">Other SCMs</a> also supported) For extra credit, you can indicate an Ant file to run along with Hudson’s default build. (<a href="http://hudson.gotdns.com/wiki/display/HUDSON/Plugins#Plugins-Buildtools" title="Other build systems" target="_blank" rel="noopener">Other build systems</a> also supported.) Fill out a few more fields in the web UI, and you’ll be getting an email nag whenever the build or test suite fails.</p>
+<p>With a continuous integration server in place, the remaining trick is to export Selenium tests to JUnit (or C#, or Ruby, or Python) to run both acceptance tests and any JavaScript unit tests. While running YUI Unit won’t trigger a JUnit failure out-of-the-box, we can use Selenium to watch for the outcome of the tests on the test logger. If <a href="http://developer.yahoo.com/yui/examples/yuitest/yt-simple-example.html" target="_blank" rel="noopener">“Failed:0” doesn’t materialize</a>, then we know the YUI test failed.</p>
 <p>Summing up: If you have a chance to go to Ajax Experience 2009, I’d say: “take it”. The organizers always manage to come up with a nice mix of introductory and advanced presentations, many by the people who are creating the technologies we use – people like Brendan Eich, Nicholas C. Zakas, and John Resig, to name a few. Even better, it’s a great chance to mingle with other real-live developers all trying to do the very same things you are trying to do. (And then discovering your organization isn’t so backward, after all!)</p>
 
       
@@ -166,7 +168,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Ted Husted&nbsp;
+      &copy; 2018 Ted Husted&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>

@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>Make Mine YUI - ted.husted.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="After two years of bashing our brains against ASP.NET at my day job, we’re diving into Ajax for our next frontend.
-We looked at Microsoft’s AJAX.NET, and at Anthem, and GWT, and Dojo, and we settled o">
+  <meta name="description" content="After two years of bashing our brains against ASP.NET at my day job, we’re diving into Ajax for our next frontend. We looked at Microsoft’s AJAX.NET, and at Anthem, and GWT, and Dojo, and we settled o">
+<meta name="keywords" content="YUI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Make Mine YUI">
 <meta property="og:url" content="http://ted.husted.com/2007/make-mine-yui/index.html">
 <meta property="og:site_name" content="ted.husted.com">
-<meta property="og:description" content="After two years of bashing our brains against ASP.NET at my day job, we’re diving into Ajax for our next frontend.
-We looked at Microsoft’s AJAX.NET, and at Anthem, and GWT, and Dojo, and we settled o">
-<meta property="og:updated_time" content="2017-02-20T13:39:01.000Z">
+<meta property="og:description" content="After two years of bashing our brains against ASP.NET at my day job, we’re diving into Ajax for our next frontend. We looked at Microsoft’s AJAX.NET, and at Anthem, and GWT, and Dojo, and we settled o">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-06T22:53:50.753Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Make Mine YUI">
-<meta name="twitter:description" content="After two years of bashing our brains against ASP.NET at my day job, we’re diving into Ajax for our next frontend.
-We looked at Microsoft’s AJAX.NET, and at Anthem, and GWT, and Dojo, and we settled o">
+<meta name="twitter:description" content="After two years of bashing our brains against ASP.NET at my day job, we’re diving into Ajax for our next frontend. We looked at Microsoft’s AJAX.NET, and at Anthem, and GWT, and Dojo, and we settled o">
   
   
     <link rel="icon" href="/favicon.ico">
   
-  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/ptserif/main.css" rel="stylesheet" type="text/css">
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css">
   
@@ -41,7 +40,7 @@ ga('send', 'pageview');
 
 
 </head>
-
+</html>
 <body>
   <div id="container">
     <header id="header">
@@ -66,13 +65,13 @@ ga('send', 'pageview');
       </nav>
       <nav id="sub-nav">
         <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
         </div>
       </nav>
     </div>
   </div>
 </header>
-    <section id="main" class="outer"><article id="post-make-mine-yui" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-make-mine-yui" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -101,14 +100,14 @@ ga('send', 'pageview');
       
         <p>After two years of bashing our brains against ASP.NET at my day job, we’re diving into Ajax for our next frontend.</p>
 <p>We looked at Microsoft’s AJAX.NET, and at Anthem, and GWT, and Dojo, and we settled on the Yahoo User Interface Library. Out of the box, the widgets aren’t as sexy as some others, but the library is well documented, easy enough to use, and Yahoo seems committed to supporting YUI over the long haul. (I haven’t run any benchmarks, but it also seems like its the fastest.)</p>
-<p>Of course, I’m also liking that Yahoo <a href="http://yuiblog.com/blog/2007/02/20/yui-220-released/" target="_blank" rel="external">eats their own dog food</a> … “the YUI you can download here is exactly the same YUI Library used all across Yahoo!”.</p>
-<p>Though, it’s not YUI that’s really making the move from ASPX to HTML-and-Ajax possible for us. The “reality check” kudos go to a .NET JSON-RPC libary named “Jayrock”. Using <a href="http://jayrock.berlios.de/" target="_blank" rel="external">Jayrock</a>, we are able to create a paper-thin ASHX handler (“servlet”) that calls our business logic framework (<a href="http://code.google.com/p/anvil/" target="_blank" rel="external">Anvil</a>).</p>
+<p>Of course, I’m also liking that Yahoo <a href="http://yuiblog.com/blog/2007/02/20/yui-220-released/" target="_blank" rel="noopener">eats their own dog food</a> … “the YUI you can download here is exactly the same YUI Library used all across Yahoo!”.</p>
+<p>Though, it’s not YUI that’s really making the move from ASPX to HTML-and-Ajax possible for us. The “reality check” kudos go to a .NET JSON-RPC libary named “Jayrock”. Using <a href="http://jayrock.berlios.de/" target="_blank" rel="noopener">Jayrock</a>, we are able to create a paper-thin ASHX handler (“servlet”) that calls our business logic framework (<a href="http://code.google.com/p/anvil/" target="_blank" rel="noopener">Anvil</a>).</p>
 <p>From a coding perspective, the handler is a “plain-old” C# class with some annotations to enable the JSON-RPC voodoo.</p>
 <p><pre>[JsonRpcMethod]<br> public AppEntry entry(string key)<br> {<br>    // … arbitrary business logic to obtain a value object (JavaBean)<br>    return appEntry;<br>}</pre><br>On the JavaScript side, Jayrock bundles a utility script that generates the JSON API gluecode for us. In the end, we can just call a method on the handler and pass in our parameters and a callback function. Click. Done. Sweet.</p>
 <p><pre>  PhoneBook.rpc.entry(entry_key,onEdit_load).call(av_channel);</pre><br>If anything does go sour, the handler can throw an exception, which, on the JavaScript side, is automatically routed to a separate error callback. Once there, it’s trivial to display the message, and even the stack trace, if we want it.</p>
 <p>Happily, we are already doing all the data conversion and formatting on the business logic layer, so for Ajax, we are good to go.</p>
 <p>We did an initial “spike” using Dojo and our canonical example application (a simple PhoneBook). We then did the same thing with YUI. A keen happenstance was that we were able to use Jayrock to switch “channels” behind the scenes, so that the application could connect to the server using Dojo or using YUI, just by changing one line of code.</p>
-<p>Along with the clear separation of concerns, I think what we like most about Ajax is that it plays well with others. We can start with YUI as a foundation, but if we want to toss in some <a href="http://dojotoolkit.org/" target="_blank" rel="external">Dojo</a> or <a href="http://www.yui-ext.com/deploy/yui-ext/docs/" target="_blank" rel="external">Ext</a> widgets, we can. No sweat.</p>
+<p>Along with the clear separation of concerns, I think what we like most about Ajax is that it plays well with others. We can start with YUI as a foundation, but if we want to toss in some <a href="http://dojotoolkit.org/" target="_blank" rel="noopener">Dojo</a> or <a href="http://www.yui-ext.com/deploy/yui-ext/docs/" target="_blank" rel="noopener">Ext</a> widgets, we can. No sweat.</p>
 <p>I’m thinking this feeling is what JetBrains means by “Develop with pleasure!” :)</p>
 
       
@@ -172,7 +171,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Ted Husted&nbsp;
+      &copy; 2018 Ted Husted&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>

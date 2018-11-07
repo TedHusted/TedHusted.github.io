@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>Simulating Action - ted.husted.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Since client-side JavaScript is event-driven, Ajax libraries follow suit. For many developers, Ajax is their first time around the event-driven maypole.
-When event-driven controls for the first time,">
+  <meta name="description" content="Since client-side JavaScript is event-driven, Ajax libraries follow suit. For many developers, Ajax is their first time around the event-driven maypole. When event-driven controls for the first time,">
+<meta name="keywords" content="Ajax">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Simulating Action">
 <meta property="og:url" content="http://ted.husted.com/2007/simulating-action/index.html">
 <meta property="og:site_name" content="ted.husted.com">
-<meta property="og:description" content="Since client-side JavaScript is event-driven, Ajax libraries follow suit. For many developers, Ajax is their first time around the event-driven maypole.
-When event-driven controls for the first time,">
-<meta property="og:updated_time" content="2017-02-20T13:39:01.000Z">
+<meta property="og:description" content="Since client-side JavaScript is event-driven, Ajax libraries follow suit. For many developers, Ajax is their first time around the event-driven maypole. When event-driven controls for the first time,">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-06T22:53:50.750Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Simulating Action">
-<meta name="twitter:description" content="Since client-side JavaScript is event-driven, Ajax libraries follow suit. For many developers, Ajax is their first time around the event-driven maypole.
-When event-driven controls for the first time,">
+<meta name="twitter:description" content="Since client-side JavaScript is event-driven, Ajax libraries follow suit. For many developers, Ajax is their first time around the event-driven maypole. When event-driven controls for the first time,">
   
   
     <link rel="icon" href="/favicon.ico">
   
-  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/ptserif/main.css" rel="stylesheet" type="text/css">
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css">
   
@@ -41,7 +40,7 @@ ga('send', 'pageview');
 
 
 </head>
-
+</html>
 <body>
   <div id="container">
     <header id="header">
@@ -66,13 +65,13 @@ ga('send', 'pageview');
       </nav>
       <nav id="sub-nav">
         <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
         </div>
       </nav>
     </div>
   </div>
 </header>
-    <section id="main" class="outer"><article id="post-simulating-action" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-simulating-action" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -103,8 +102,8 @@ ga('send', 'pageview');
 <p>When event-driven controls for the first time, it’s common for a noobe to attach some application-specific behavior to a control’s onClick event. As the application grows more complex, we often want to invoke the same behavior without the help of the control. A common question then becomes “How can we send the control a change event, as if the user had himself clicked on the option?” As with many programming problems, the solution is to add a layer of abstraction. :)</p>
 <p>Instead of attaching our behavior directly to primitive events, like onClick, we should create our own idiomatic events to describe what happens when the user selects the option. Selecting the option is a means to an end. If we create own custom event for that end, the select control change event can turn around and raise our event. Then, when our custom event needs to be raised from another point in the workflow, we can just go ahead and raise it progmatically.</p>
 <p>It’s not about clicking the control, it’s about the action that the control triggers.</p>
-<p>In essence, user-interface widgets raise primitive events, like “change” and “click”. This is a Good Thing, because those events represent what widgets do (or appear to do). Applications don’t “click”. Applications update state and run reports. An event-driven application should create its own layer of idiomatic events that describes what the application does in its own terms. In that way, we are not chained to the controls, and we can call our own events whenever we like. Architectually, idiomatic events <a href="http://en.wikipedia.org/wiki/Cohesive" target="_blank" rel="external">increase cohesion</a> and <a href="http://en.wikipedia.org/wiki/Coupling_%28computer_science%29" target="_blank" rel="external">lower coupling</a>. Also Good Things.</p>
-<p>An excellent introduction to event-driven design is Christian Heilmann’s <a href="http://yuiblog.com/blog/2007/01/17/event-plan/" target="_blank" rel="external">Event-Driven Web Application Design</a> (which I like to call “Brace yourself, Bridget!).</p>
+<p>In essence, user-interface widgets raise primitive events, like “change” and “click”. This is a Good Thing, because those events represent what widgets do (or appear to do). Applications don’t “click”. Applications update state and run reports. An event-driven application should create its own layer of idiomatic events that describes what the application does in its own terms. In that way, we are not chained to the controls, and we can call our own events whenever we like. Architectually, idiomatic events <a href="http://en.wikipedia.org/wiki/Cohesive" target="_blank" rel="noopener">increase cohesion</a> and <a href="http://en.wikipedia.org/wiki/Coupling_%28computer_science%29" target="_blank" rel="noopener">lower coupling</a>. Also Good Things.</p>
+<p>An excellent introduction to event-driven design is Christian Heilmann’s <a href="http://yuiblog.com/blog/2007/01/17/event-plan/" target="_blank" rel="noopener">Event-Driven Web Application Design</a> (which I like to call “Brace yourself, Bridget!).</p>
 
       
     </div>
@@ -167,7 +166,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Ted Husted&nbsp;
+      &copy; 2018 Ted Husted&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>

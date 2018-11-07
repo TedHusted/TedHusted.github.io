@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>Ajax: The usual suspects - ted.husted.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Blogger Cheng Chun Kit seems to building a survey of Ajax Toolkits, Frameworks, and Libraries. He has a good start, with twenty detailed listings. Though, he still has miles to go, since Douglas Crock">
+<meta name="keywords" content="Ajax">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ajax: The usual suspects">
 <meta property="og:url" content="http://ted.husted.com/2007/ajax-the-usual-suspects/index.html">
 <meta property="og:site_name" content="ted.husted.com">
 <meta property="og:description" content="Blogger Cheng Chun Kit seems to building a survey of Ajax Toolkits, Frameworks, and Libraries. He has a good start, with twenty detailed listings. Though, he still has miles to go, since Douglas Crock">
-<meta property="og:updated_time" content="2017-02-20T13:39:01.000Z">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-06T22:53:50.106Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax: The usual suspects">
 <meta name="twitter:description" content="Blogger Cheng Chun Kit seems to building a survey of Ajax Toolkits, Frameworks, and Libraries. He has a good start, with twenty detailed listings. Though, he still has miles to go, since Douglas Crock">
@@ -19,7 +21,7 @@
   
     <link rel="icon" href="/favicon.ico">
   
-  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/ptserif/main.css" rel="stylesheet" type="text/css">
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css">
   
@@ -38,7 +40,7 @@ ga('send', 'pageview');
 
 
 </head>
-
+</html>
 <body>
   <div id="container">
     <header id="header">
@@ -63,13 +65,13 @@ ga('send', 'pageview');
       </nav>
       <nav id="sub-nav">
         <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
         </div>
       </nav>
     </div>
   </div>
 </header>
-    <section id="main" class="outer"><article id="post-ajax-the-usual-suspects" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-ajax-the-usual-suspects" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -96,13 +98,13 @@ ga('send', 'pageview');
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Blogger <a href="http://jaycck.blogspot.com/2007/03/wk-8-full-list-of-ajax.html" target="_blank" rel="external">Cheng Chun Kit</a> seems to building a survey of Ajax Toolkits, Frameworks, and Libraries. He has a good start, with twenty detailed listings. Though, he still has miles to go, since <a href="http://jroller.com/page/TedHusted?entry=crockford_clips" target="_blank" rel="external">Douglas Crockford</a> believes that there are at least two hundred Ajax library available today. But, I think Cheng has at least covered the top contenders.</p>
+        <p>Blogger <a href="http://jaycck.blogspot.com/2007/03/wk-8-full-list-of-ajax.html" target="_blank" rel="noopener">Cheng Chun Kit</a> seems to building a survey of Ajax Toolkits, Frameworks, and Libraries. He has a good start, with twenty detailed listings. Though, he still has miles to go, since <a href="http://jroller.com/page/TedHusted?entry=crockford_clips" target="_blank" rel="noopener">Douglas Crockford</a> believes that there are at least two hundred Ajax library available today. But, I think Cheng has at least covered the top contenders.</p>
 <p>Of the top contenders, the top-top four libraries seem to be Prototype, script.aculo.us, Dojo, and Yahoo! User Interface (YUI) Library. Happily, it’s not an election of remedies. If need be, it’s possible to mix and match libraries on the same page.</p>
-<p>For example, during our <a href="http://www.blogger.com/%20http://jroller.com/page/TedHusted?entry=spike" target="_blank" rel="external">Ajax spike</a>, we coded the same test application in Dojo and YUI. At one point, we had a mix of Dojo and YUI controls in the same application, and it all worked just fine. We even had the Dojo widgets going through YUI Connection Manager to talk to the server.</p>
+<p>For example, during our <a href="http://www.blogger.com/%20http://jroller.com/page/TedHusted?entry=spike" target="_blank" rel="noopener">Ajax spike</a>, we coded the same test application in Dojo and YUI. At one point, we had a mix of Dojo and YUI controls in the same application, and it all worked just fine. We even had the Dojo widgets going through YUI Connection Manager to talk to the server.</p>
 <p>You can do the same kind of mash-ups with Java web frameworks too. There’s nothing stopping us from having Tapestry answer some requests and Struts 2 answer some others. In fact, running Struts 1 and Struts 2 side-by-side is one of the recommended migration paths.</p>
-<p>But, I digress … Ajax widgets aside, there are a number of Ajax helpers that can work with any library. The <a href="http://designcreatology.wordpress.com/2007/03/12/ajax-tools/" target="_blank" rel="external">DesignCreatology Ajax Tools roundup</a> includes a few Ajax extensions, like Behavior and Event-Selectors. With <a href="http://bennolan.com/behaviour/" target="_blank" rel="external">Behaviour</a>, you can add a JavaScript event to an element using a CSS selectors. Likewise, <a href="http://encytemedia.com/event-selectors/" target="_blank" rel="external">Event-Selector</a> binds events to elements using CSS style syntax.</p>
-<p>Two other nifty Ajax helpers are DWR (for Java) and Jayock for .NET). <a href="https://dwr.dev.java.net/" target="_blank" rel="external">DWR</a> stands for Direct Web Remoting. DWR allows code in a browser to use Java functions running on a web server just as if it was in the browser. On the .NET side, <a href="http://jayrock.berlios.de/" target="_blank" rel="external">Jayrock</a> is able to call into server-side methods using JSON as the wire format and JSON-RPC as the procedure invocation protocol.</p>
-<p>With DWR or Jayrock, it starts to feel like we are working with a full JavaScript stack. We can call server-side methods as if they were JavaScript functions. Meanwhile, with the <a href="http://www.onjava.com/pub/a/onjava/2006/04/26/mustang-meets-rhino-java-se-6-scripting.html" target="_blank" rel="external">scripting support in Java 6</a>, we could actually be calling server-side JavaScript methods!</p>
+<p>But, I digress … Ajax widgets aside, there are a number of Ajax helpers that can work with any library. The <a href="http://designcreatology.wordpress.com/2007/03/12/ajax-tools/" target="_blank" rel="noopener">DesignCreatology Ajax Tools roundup</a> includes a few Ajax extensions, like Behavior and Event-Selectors. With <a href="http://bennolan.com/behaviour/" target="_blank" rel="noopener">Behaviour</a>, you can add a JavaScript event to an element using a CSS selectors. Likewise, <a href="http://encytemedia.com/event-selectors/" target="_blank" rel="noopener">Event-Selector</a> binds events to elements using CSS style syntax.</p>
+<p>Two other nifty Ajax helpers are DWR (for Java) and Jayock for .NET). <a href="https://dwr.dev.java.net/" target="_blank" rel="noopener">DWR</a> stands for Direct Web Remoting. DWR allows code in a browser to use Java functions running on a web server just as if it was in the browser. On the .NET side, <a href="http://jayrock.berlios.de/" target="_blank" rel="noopener">Jayrock</a> is able to call into server-side methods using JSON as the wire format and JSON-RPC as the procedure invocation protocol.</p>
+<p>With DWR or Jayrock, it starts to feel like we are working with a full JavaScript stack. We can call server-side methods as if they were JavaScript functions. Meanwhile, with the <a href="http://www.onjava.com/pub/a/onjava/2006/04/26/mustang-meets-rhino-java-se-6-scripting.html" target="_blank" rel="noopener">scripting support in Java 6</a>, we could actually be calling server-side JavaScript methods!</p>
 <p>Can you say <em>convergence</em>? … I knew you could :)</p>
 
       
@@ -166,7 +168,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Ted Husted&nbsp;
+      &copy; 2018 Ted Husted&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>

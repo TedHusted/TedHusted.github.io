@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>Hacking the Cathedral - ted.husted.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="A key reason we were able to use the Yahoo User Interface (YUI) Library is that the latest release includes a DataTable widget. Our application design uses lots of grids. Of course, there are grids fr">
+<meta name="keywords" content="YUI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hacking the Cathedral">
 <meta property="og:url" content="http://ted.husted.com/2007/hacking-the-cathedral/index.html">
 <meta property="og:site_name" content="ted.husted.com">
 <meta property="og:description" content="A key reason we were able to use the Yahoo User Interface (YUI) Library is that the latest release includes a DataTable widget. Our application design uses lots of grids. Of course, there are grids fr">
-<meta property="og:updated_time" content="2017-02-20T13:39:01.000Z">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-06T22:53:50.403Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hacking the Cathedral">
 <meta name="twitter:description" content="A key reason we were able to use the Yahoo User Interface (YUI) Library is that the latest release includes a DataTable widget. Our application design uses lots of grids. Of course, there are grids fr">
@@ -19,7 +21,7 @@
   
     <link rel="icon" href="/favicon.ico">
   
-  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/ptserif/main.css" rel="stylesheet" type="text/css">
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css">
   
@@ -38,7 +40,7 @@ ga('send', 'pageview');
 
 
 </head>
-
+</html>
 <body>
   <div id="container">
     <header id="header">
@@ -63,13 +65,13 @@ ga('send', 'pageview');
       </nav>
       <nav id="sub-nav">
         <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
         </div>
       </nav>
     </div>
   </div>
 </header>
-    <section id="main" class="outer"><article id="post-hacking-the-cathedral" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-hacking-the-cathedral" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -96,16 +98,16 @@ ga('send', 'pageview');
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>A key reason we were able to use the <a href="http://developer.yahoo.com/yui/" target="_blank" rel="external">Yahoo User Interface (YUI) Library</a> is that the latest release includes a DataTable widget. Our application design uses lots of grids. Of course, there are grids from other toolkits and libraries that we could have used. But, honestly, we would have standardized on that toolkit instead.</p>
-<p>Of course, the <a href="http://developer.yahoo.com/yui/datatable/" target="_blank" rel="external">YUI DataTable</a> is new and beta and not without its shortcomings. But, every time I found a flaw, I also cobbled a patch (and filed a <a href="http://www.blogger.com/post-create.g?blogID=5208774" target="_blank" rel="external">ticket</a>).</p>
+        <p>A key reason we were able to use the <a href="http://developer.yahoo.com/yui/" target="_blank" rel="noopener">Yahoo User Interface (YUI) Library</a> is that the latest release includes a DataTable widget. Our application design uses lots of grids. Of course, there are grids from other toolkits and libraries that we could have used. But, honestly, we would have standardized on that toolkit instead.</p>
+<p>Of course, the <a href="http://developer.yahoo.com/yui/datatable/" target="_blank" rel="noopener">YUI DataTable</a> is new and beta and not without its shortcomings. But, every time I found a flaw, I also cobbled a patch (and filed a <a href="http://www.blogger.com/post-create.g?blogID=5208774" target="_blank" rel="noopener">ticket</a>).</p>
 <p>Looking at our design, what we do over and over again is Find, List, Edit, and View. The entity we want to Find/List/Edit/View changes, but the core workflow holds.</p>
 <p>We did the last application module in ASP.NET. Most workflows were represented as pages that exposed one or more composite controls. Much of the page logic involved deciding which controls needed to be exposed.</p>
-<p>For the YUI module, I’d like to have a single “chimera” widget that can reveal itself four or five different ways. As a Finder (QBE Dialog), as a Lister (DataGrid), as an Editor (Data Entry Form), as a Lister (View Only Panel), and as both a Lister and Finder in the same view. Behind the scense, the DataTable (Lister) is powered by <a href="http://developer.yahoo.com/yui/docs/ColumnSet.html" target="_blank" rel="external">ColumnSet</a> and <a href="http://developer.yahoo.com/yui/docs/RecordSet.html" target="_blank" rel="external">RecordSet</a> objects, which could also power a Finder, Editor, and Viewer.</p>
-<p>For now, I’m referring to this as a <a href="http://code.google.com/p/anvil/issues/detail?id=22" target="_blank" rel="external">FLEV Widget</a>, and I’ve started coding it through the Anvil site.</p>
-<p>Meanwhile, another earnest YUI user <a href="http://tech.groups.yahoo.com/group/ydn-javascript/message/11247" target="_blank" rel="external">posted a DataTable subclass</a> that adds filtering on a column and hiding columns. Nice work, and a fine demonstrate of how easy it is to extend YUI widgets.</p>
+<p>For the YUI module, I’d like to have a single “chimera” widget that can reveal itself four or five different ways. As a Finder (QBE Dialog), as a Lister (DataGrid), as an Editor (Data Entry Form), as a Lister (View Only Panel), and as both a Lister and Finder in the same view. Behind the scense, the DataTable (Lister) is powered by <a href="http://developer.yahoo.com/yui/docs/ColumnSet.html" target="_blank" rel="noopener">ColumnSet</a> and <a href="http://developer.yahoo.com/yui/docs/RecordSet.html" target="_blank" rel="noopener">RecordSet</a> objects, which could also power a Finder, Editor, and Viewer.</p>
+<p>For now, I’m referring to this as a <a href="http://code.google.com/p/anvil/issues/detail?id=22" target="_blank" rel="noopener">FLEV Widget</a>, and I’ve started coding it through the Anvil site.</p>
+<p>Meanwhile, another earnest YUI user <a href="http://tech.groups.yahoo.com/group/ydn-javascript/message/11247" target="_blank" rel="noopener">posted a DataTable subclass</a> that adds filtering on a column and hiding columns. Nice work, and a fine demonstrate of how easy it is to extend YUI widgets.</p>
 <p>Since YUI doesn’t accept contributions from the user community, I wonder if we should setup a community site on SourceForge or GoogleCode, where we could contribute and jointly maintain extensions like FLEV and RowFilterDataTable.</p>
 <p>The idea would be that anyone with code to contribute would be welcome to join the site. Since widgets are granular, we could each retain our own copyrights to the original widgets, and just use the site as a one-stop shop for YUI extensions.</p>
-<p>Of course, there is already a <a href="http://www.yui-ext.com/deploy/yui-ext/docs/" target="_blank" rel="external">YUI-Ext project</a>, but that has evolved into a distinct library that supports both YUI and JQuery, and I expect other libraries one day. And YUI Ext was never a full-throttle open source project, it was always Jack Slocum’s baby.</p>
+<p>Of course, there is already a <a href="http://www.yui-ext.com/deploy/yui-ext/docs/" target="_blank" rel="noopener">YUI-Ext project</a>, but that has evolved into a distinct library that supports both YUI and JQuery, and I expect other libraries one day. And YUI Ext was never a full-throttle open source project, it was always Jack Slocum’s baby.</p>
 <p>The Yahoo! team has built a cathedral. Perhaps it’s time to open a companion bazaar – a yazaar! :)</p>
 
       
@@ -169,7 +171,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Ted Husted&nbsp;
+      &copy; 2018 Ted Husted&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>

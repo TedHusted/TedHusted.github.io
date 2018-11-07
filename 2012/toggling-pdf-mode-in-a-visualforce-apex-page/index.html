@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>Toggling PDF Mode In a Visualforce Apex Page - ted.husted.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Salesforce.com has made it easy to blend custom Visualforce pages into a standard Salesforce CRM site. Using the standard stylesheets and a smattering of markup, we can cobble up a custom Account, Con">
+<meta name="keywords" content="Salesforce,Visualforce">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Toggling PDF Mode In a Visualforce Apex Page">
 <meta property="og:url" content="http://ted.husted.com/2012/toggling-pdf-mode-in-a-visualforce-apex-page/index.html">
 <meta property="og:site_name" content="ted.husted.com">
 <meta property="og:description" content="Salesforce.com has made it easy to blend custom Visualforce pages into a standard Salesforce CRM site. Using the standard stylesheets and a smattering of markup, we can cobble up a custom Account, Con">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="http://screenshots.en.sftcdn.net/blog/en/2009/02/pdfbotoncico.png">
 <meta property="og:image" content="https://tedhusted.files.wordpress.com/2012/03/9173f-pdf-foo.png?w=300">
-<meta property="og:updated_time" content="2017-02-20T13:34:21.000Z">
+<meta property="og:updated_time" content="2018-11-06T22:53:50.012Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Toggling PDF Mode In a Visualforce Apex Page">
 <meta name="twitter:description" content="Salesforce.com has made it easy to blend custom Visualforce pages into a standard Salesforce CRM site. Using the standard stylesheets and a smattering of markup, we can cobble up a custom Account, Con">
@@ -22,7 +24,7 @@
   
     <link rel="icon" href="/favicon.ico">
   
-  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/ptserif/main.css" rel="stylesheet" type="text/css">
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css">
   
@@ -41,7 +43,7 @@ ga('send', 'pageview');
 
 
 </head>
-
+</html>
 <body>
   <div id="container">
     <header id="header">
@@ -66,13 +68,13 @@ ga('send', 'pageview');
       </nav>
       <nav id="sub-nav">
         <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
         </div>
       </nav>
     </div>
   </div>
 </header>
-    <section id="main" class="outer"><article id="post-toggling-pdf-mode-in-a-visualforce-apex-page" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-toggling-pdf-mode-in-a-visualforce-apex-page" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -99,14 +101,14 @@ ga('send', 'pageview');
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><div class="separator" style="clear:both;text-align:center;"><a href="http://onsoftware.en.softonic.com/top-free-tools-to-open-create-and-edit-pdf-documents" target="_blank" rel="external"><img src="http://screenshots.en.sftcdn.net/blog/en/2009/02/pdfbotoncico.png" alt=""></a></div>Salesforce.com has made it easy to blend custom Visualforce pages into a standard Salesforce CRM site. Using the standard stylesheets and a smattering of markup, we can cobble up a custom Account, Contact, or Opportunity page, with an absolute minimum of effort.  </p>
+        <p><div class="separator" style="clear:both;text-align:center;"><a href="http://onsoftware.en.softonic.com/top-free-tools-to-open-create-and-edit-pdf-documents" target="_blank" rel="noopener"><img src="http://screenshots.en.sftcdn.net/blog/en/2009/02/pdfbotoncico.png" alt=""></a></div>Salesforce.com has made it easy to blend custom Visualforce pages into a standard Salesforce CRM site. Using the standard stylesheets and a smattering of markup, we can cobble up a custom Account, Contact, or Opportunity page, with an absolute minimum of effort.  </p>
 <p>It’s also easy to construct a wholly custom page resemble a native Salesforce CRM page. While the page looks great, it may not be printer-friendly, and users may have trouble sharing the output with their non-Salesforce brethren. One solution is to render the pages as a very-printable PDF. Salesforce.com has also made the PDF option blazingly easy. Just include a “renderas=PDF” attribute at the top of your page and – voilà – instant PDF.   </p>
 <p><a name="more"></a>Of course,  we don’t want to maintain two versions of the page, or give either our pretty or printable versions, and so the next thing is be able to switch between the HTML and PDF versions.  </p>
-<p>Happily, there is a <a href="http://blogs.developerforce.com/developer-relations/2008/06/dynamically-cho.html" target="_blank" rel="external">venerable blog posting</a> that provides a great leg up, but I ran into an issue where I wanted to offer another option on top of PDF/HTML.  </p>
+<p>Happily, there is a <a href="http://blogs.developerforce.com/developer-relations/2008/06/dynamically-cho.html" target="_blank" rel="noopener">venerable blog posting</a> that provides a great leg up, but I ran into an issue where I wanted to offer another option on top of PDF/HTML.  </p>
 <p>Aside from PDF printing, we also wanted to support two flavors of the same database query. One version aggregated rows with a status column set to either “Value A” or “Value B”, and a second version aggregated rows set to “Value C”. Our case was different, but a common case might a report that showed “Cold or Warm” leads, and another that showed only “Hot” leads.  </p>
 <p>Bottom line is that we wanted to present the page as either HTML or PDF, using either Query A or Query B, and keep all the markup and source code together.  </p>
 <p>Here’s my solution:  </p>
-<p><div class="separator" style="clear:both;text-align:center;"></div><div class="separator" style="clear:both;text-align:center;"><a href="https://tedhusted.files.wordpress.com/2012/03/9173f-pdf-foo.png" target="_blank" rel="external"><img src="https://tedhusted.files.wordpress.com/2012/03/9173f-pdf-foo.png?w=300" alt=""></a></div><br><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;white-space:pre;">// and the backend </span></p>
+<p><div class="separator" style="clear:both;text-align:center;"></div><div class="separator" style="clear:both;text-align:center;"><a href="https://tedhusted.files.wordpress.com/2012/03/9173f-pdf-foo.png" target="_blank" rel="noopener"><img src="https://tedhusted.files.wordpress.com/2012/03/9173f-pdf-foo.png?w=300" alt=""></a></div><br><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;white-space:pre;">// and the backend </span></p>
 <p><pre><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;"><span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;"><br>/**</span></span></pre></p>
 <ul>
 <li><p>Computes and transforms data for use by the Campaign Profile page.<br>*/<br>public class Foo_Ctrl {</p>
@@ -233,7 +235,7 @@ static testMethod void ModeB_PDF_Test() {
     ctrlMode.isModeA = true;
     System.assertEquals(false,ctrlMode.isModeB);
 }
-</code></pre><p>}<span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;"><br></span><br><span class="Apple-style-span" style="font-family:inherit;">For more Visualforce PDF trickery, <a href="http://force.siddheshkabe.co.in/2011/04/some-pdf-tricks-on-visualforce.html" target="_blank" rel="external">see this nifty blog</a> on May The Force Be With You.  </span></p>
+</code></pre><p>}<span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;"><br></span><br><span class="Apple-style-span" style="font-family:inherit;">For more Visualforce PDF trickery, <a href="http://force.siddheshkabe.co.in/2011/04/some-pdf-tricks-on-visualforce.html" target="_blank" rel="noopener">see this nifty blog</a> on May The Force Be With You.  </span></p>
 
       
     </div>
@@ -296,7 +298,7 @@ static testMethod void ModeB_PDF_Test() {
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Ted Husted&nbsp;
+      &copy; 2018 Ted Husted&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>

@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>Catch me on the flip-side: Responding to Outbound Messages in Salesforce CRM - ted.husted.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="In a previous blog, we walked through example code for an Outbound Message Listener. We covered the essentials, but Salesforce CRM offers a nifty twist on just sending an outbound message to an extern">
+<meta name="keywords" content="Salesforce">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Catch me on the flip-side: Responding to Outbound Messages in Salesforce CRM">
 <meta property="og:url" content="http://ted.husted.com/2012/catch-me-on-the-flip-side-responding-to-outbound-messages-in-salesforce-crm/index.html">
 <meta property="og:site_name" content="ted.husted.com">
 <meta property="og:description" content="In a previous blog, we walked through example code for an Outbound Message Listener. We covered the essentials, but Salesforce CRM offers a nifty twist on just sending an outbound message to an extern">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="https://farm2.staticflickr.com/1130/1084139169_e272bc1f81_z.jpg">
-<meta property="og:updated_time" content="2017-02-20T13:34:21.000Z">
+<meta property="og:updated_time" content="2018-11-06T22:53:50.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Catch me on the flip-side: Responding to Outbound Messages in Salesforce CRM">
 <meta name="twitter:description" content="In a previous blog, we walked through example code for an Outbound Message Listener. We covered the essentials, but Salesforce CRM offers a nifty twist on just sending an outbound message to an extern">
@@ -21,7 +23,7 @@
   
     <link rel="icon" href="/favicon.ico">
   
-  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/ptserif/main.css" rel="stylesheet" type="text/css">
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css">
   
@@ -40,7 +42,7 @@ ga('send', 'pageview');
 
 
 </head>
-
+</html>
 <body>
   <div id="container">
     <header id="header">
@@ -65,13 +67,13 @@ ga('send', 'pageview');
       </nav>
       <nav id="sub-nav">
         <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
         </div>
       </nav>
     </div>
   </div>
 </header>
-    <section id="main" class="outer"><article id="post-catch-me-on-the-flip-side-responding-to-outbound-messages-in-salesforce-crm" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-catch-me-on-the-flip-side-responding-to-outbound-messages-in-salesforce-crm" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -98,8 +100,8 @@ ga('send', 'pageview');
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><div class="separator" style="clear:both;text-align:center;"><a href="https://www.flickr.com/photos/spacemanbob/1084139169" target="_blank" rel="external"><img src="https://farm2.staticflickr.com/1130/1084139169_e272bc1f81_z.jpg" alt=""></a></div><br>In a <a href="http://tedhusted.blogspot.com/2012/03/unloading-salesforce-crm-data-with.html" target="_blank" rel="external">previous blog</a>, we walked through example code for an Outbound Message Listener. We covered the essentials, but Salesforce CRM offers a nifty twist on just sending an outbound message to an external system. Not only can a system receive a message, it can send back a response. For example, if the outbound message inserts a record, the external system can send back the record’s key.</p>
-<p><a name="more"></a>Our example Listener called a worker method that handled the messages in a foreach loop. Using the case of returning an external key, we can add the keys to a hashtable, and send back a batch at the end all of the responses. We’ll pickup the live action towards the end of the foreach loop from the <a href="http://tedhusted.blogspot.com/2012/03/unloading-salesforce-crm-data-with.html" target="_blank" rel="external">previous example</a>.</p>
+        <p><div class="separator" style="clear:both;text-align:center;"><a href="https://www.flickr.com/photos/spacemanbob/1084139169" target="_blank" rel="noopener"><img src="https://farm2.staticflickr.com/1130/1084139169_e272bc1f81_z.jpg" alt=""></a></div><br>In a <a href="http://tedhusted.blogspot.com/2012/03/unloading-salesforce-crm-data-with.html" target="_blank" rel="noopener">previous blog</a>, we walked through example code for an Outbound Message Listener. We covered the essentials, but Salesforce CRM offers a nifty twist on just sending an outbound message to an external system. Not only can a system receive a message, it can send back a response. For example, if the outbound message inserts a record, the external system can send back the record’s key.</p>
+<p><a name="more"></a>Our example Listener called a worker method that handled the messages in a foreach loop. Using the case of returning an external key, we can add the keys to a hashtable, and send back a batch at the end all of the responses. We’ll pickup the live action towards the end of the foreach loop from the <a href="http://tedhusted.blogspot.com/2012/03/unloading-salesforce-crm-data-with.html" target="_blank" rel="noopener">previous example</a>.</p>
 <p><pre> <strong>Hashtable responsePayload = newHashtable();  // Returns IDs to SF</strong><br> foreach (AccountNotification message in n.Notification)<br> {<br>     sf = message.sObject;</pre></p>
 <p><pre>     // – Check cache –<br>     // …<br>     // – handle message –<br>     // …<br>     // Queue ID for return to SF<br>     <strong>responsePayload.Add(sf.Id, my.Id);</strong><br> } // end foreach loop<br> // – Return IDs to SF –<br> <strong>log.Info(“Info: Sending response to Salesforce …”);</strong><br> <strong>Response response = new Response();</strong></pre></p>
 <p><pre> <strong>log.Info(response.Send(“Account”, responsePayload));</strong><br> return;<br>}</pre><br>The Response class is a wrapper around a <span class="Apple-style-span" style="font-family:'Courier New', Courier, monospace;font-size:x-small;">SForceService</span> instance which returns a String we can use as a logging statement.</p>
@@ -108,8 +110,8 @@ ga('send', 'pageview');
 <p><pre>“{0} Response Sync Success : sf.id=\”{1}\””, objectName, sr.id) + “\n”;<br>                }<br>                else<br>                {<br>                    foreach (Error err in sr.errors)<br>                    {<br>                        output += String.Format(</pre></p>
 <p><pre>“{0} Response Sync Error : sf.id=\”{1}\”, {2}”, objectName, sr.id, err.message) +</pre></p>
 <p><pre>“\n”;<br>                    }<br>                }<br>            }<br>            return output;<br>        }<br>        catch (Exception ex)<br>        {<br>            return ex.Message + “ — “ + ex.StackTrace;<br>        }<br>    }<br>}</pre><br>The credentials and API service endpoint are declared in the Web.Config file.</p>
-<p><pre></pre><br><a href="https://test.salesforce.com/services/Soap/u/24.0" target="_blank" rel="external">https://test.salesforce.com/services/Soap/u/24.0</a></p>
-<p>(In a production environment, replace “test.salesforce.com” with “www.salesforce.com”.)</p>
+<p><pre></pre><br><a href="https://test.salesforce.com/services/Soap/u/24.0" target="_blank" rel="noopener">https://test.salesforce.com/services/Soap/u/24.0</a></p>
+<p>(In a production environment, replace “test.salesforce.com” with “<a href="http://www.salesforce.com&quot;." target="_blank" rel="noopener">www.salesforce.com&quot;.</a>)</p>
 <p>Some caveats are</p>
 <p>(1) The response needs credentials to login, and you might need to setup a system account for the response.</p>
 <p>(2) To keep the message from recursing, the Response User needs to have outbound messaging disabled, or be specifically excluded from the Outbound Messaging Workflow.</p>
@@ -179,7 +181,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Ted Husted&nbsp;
+      &copy; 2018 Ted Husted&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>

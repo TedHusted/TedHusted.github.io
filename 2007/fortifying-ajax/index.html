@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>Fortifying Ajax - ted.husted.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Last month, Fortify Software posted a white paper describing a security exploit dubbed JavaScript Hijacking. Being a slow news month, a number of online journals trotted out “the end is near” headline">
+<meta name="keywords" content="Ajax">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fortifying Ajax">
 <meta property="og:url" content="http://ted.husted.com/2007/fortifying-ajax/index.html">
 <meta property="og:site_name" content="ted.husted.com">
 <meta property="og:description" content="Last month, Fortify Software posted a white paper describing a security exploit dubbed JavaScript Hijacking. Being a slow news month, a number of online journals trotted out “the end is near” headline">
-<meta property="og:updated_time" content="2017-02-20T13:39:01.000Z">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-06T22:53:50.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fortifying Ajax">
 <meta name="twitter:description" content="Last month, Fortify Software posted a white paper describing a security exploit dubbed JavaScript Hijacking. Being a slow news month, a number of online journals trotted out “the end is near” headline">
@@ -19,7 +21,7 @@
   
     <link rel="icon" href="/favicon.ico">
   
-  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/ptserif/main.css" rel="stylesheet" type="text/css">
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css">
   
@@ -38,7 +40,7 @@ ga('send', 'pageview');
 
 
 </head>
-
+</html>
 <body>
   <div id="container">
     <header id="header">
@@ -63,13 +65,13 @@ ga('send', 'pageview');
       </nav>
       <nav id="sub-nav">
         <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
         </div>
       </nav>
     </div>
   </div>
 </header>
-    <section id="main" class="outer"><article id="post-fortifying-ajax" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-fortifying-ajax" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -96,7 +98,7 @@ ga('send', 'pageview');
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Last month, Fortify Software posted a <a href="http://www.fortifysoftware.com/servlet/downloads/public/JavaScript_Hijacking.pdf" target="_blank" rel="external">white paper</a> describing a security exploit dubbed JavaScript Hijacking. Being a slow news month, a number of online journals trotted out “the end is near” headlines.</p>
+        <p>Last month, Fortify Software posted a <a href="http://www.fortifysoftware.com/servlet/downloads/public/JavaScript_Hijacking.pdf" target="_blank" rel="noopener">white paper</a> describing a security exploit dubbed JavaScript Hijacking. Being a slow news month, a number of online journals trotted out “the end is near” headlines.</p>
 <p>Of course, Ajax development groups have been quick to post responses to the “advisory”. Despite the hyperbole, engines like Dojo, GWT, and YUI are not “vulnerable”. Certain applications using Ajax engines may fit a “vulnerability profile”, and if so, there are simple and concrete steps that developers can take.</p>
 <p>If your Ajax application exposes sensitive data via raw JSON, do this:</p>
 <ul>
@@ -108,9 +110,9 @@ ga('send', 'pageview');
 <p>The Yahoo! User Interface (YUI) Library is now adding a specific header to each request. The server side code looks for the header and refuses to service the request if the header is absent or not valid.</p>
 <p>For more about security Ajax applications, see</p>
 <ul>
-<li><a href="http://dojotoolkit.org/node/619" target="_blank" rel="external">A Note on “JavaScript Hijacking</a>“ (Dojo)</li>
-<li><a href="http://tech.groups.yahoo.com/group/ydn-javascript/message/11723" target="_blank" rel="external">YUI Security</a>“ and <a href="http://developer.yahoo.com/security/" target="_blank" rel="external">Yahoo! Developer Network - Security Best Practices</a></li>
-<li><a href="http://groups.google.com/group/Google-Web-Toolkit/web/security-for-gwt-applications" target="_blank" rel="external">Security for GWT Applications</a><br>Since many developers were not aware of this exploit, it is a Good Thing that a White Hat brought it to our attention before the Black Hats did. Though, I hope the next White Hat takes the high road and alerts the development group first. That way, we can have a response out the day the alert is posted, rather than a week or two later.</li>
+<li><a href="http://dojotoolkit.org/node/619" target="_blank" rel="noopener">A Note on “JavaScript Hijacking</a>“ (Dojo)</li>
+<li><a href="http://tech.groups.yahoo.com/group/ydn-javascript/message/11723" target="_blank" rel="noopener">YUI Security</a>“ and <a href="http://developer.yahoo.com/security/" target="_blank" rel="noopener">Yahoo! Developer Network - Security Best Practices</a></li>
+<li><a href="http://groups.google.com/group/Google-Web-Toolkit/web/security-for-gwt-applications" target="_blank" rel="noopener">Security for GWT Applications</a><br>Since many developers were not aware of this exploit, it is a Good Thing that a White Hat brought it to our attention before the Black Hats did. Though, I hope the next White Hat takes the high road and alerts the development group first. That way, we can have a response out the day the alert is posted, rather than a week or two later.</li>
 </ul>
 <p>But, of course, if you happen to be a security consultant, a blindside brouhaha is not bad for business!</p>
 
@@ -175,7 +177,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Ted Husted&nbsp;
+      &copy; 2018 Ted Husted&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>

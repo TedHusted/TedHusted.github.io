@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>To ORM or to Map? - ted.husted.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="The Java community (incuding Sun itself) have been working with SQL generators for several years now. Results have been mixed. The current wisdom is that SQL generation is a good thing when you
-(1) Ha">
+  <meta name="description" content="The Java community (incuding Sun itself) have been working with SQL generators for several years now. Results have been mixed. The current wisdom is that SQL generation is a good thing when you (1) Ha">
+<meta name="keywords" content="Programming">
 <meta property="og:type" content="article">
 <meta property="og:title" content="To ORM or to Map?">
 <meta property="og:url" content="http://ted.husted.com/2004/to-orm-or-to-map/index.html">
 <meta property="og:site_name" content="ted.husted.com">
-<meta property="og:description" content="The Java community (incuding Sun itself) have been working with SQL generators for several years now. Results have been mixed. The current wisdom is that SQL generation is a good thing when you
-(1) Ha">
-<meta property="og:updated_time" content="2017-02-20T13:33:36.000Z">
+<meta property="og:description" content="The Java community (incuding Sun itself) have been working with SQL generators for several years now. Results have been mixed. The current wisdom is that SQL generation is a good thing when you (1) Ha">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-06T22:53:50.106Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="To ORM or to Map?">
-<meta name="twitter:description" content="The Java community (incuding Sun itself) have been working with SQL generators for several years now. Results have been mixed. The current wisdom is that SQL generation is a good thing when you
-(1) Ha">
+<meta name="twitter:description" content="The Java community (incuding Sun itself) have been working with SQL generators for several years now. Results have been mixed. The current wisdom is that SQL generation is a good thing when you (1) Ha">
   
   
     <link rel="icon" href="/favicon.ico">
   
-  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/ptserif/main.css" rel="stylesheet" type="text/css">
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css">
   
@@ -41,7 +40,7 @@ ga('send', 'pageview');
 
 
 </head>
-
+</html>
 <body>
   <div id="container">
     <header id="header">
@@ -66,13 +65,13 @@ ga('send', 'pageview');
       </nav>
       <nav id="sub-nav">
         <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ted.husted.com"></form>
         </div>
       </nav>
     </div>
   </div>
 </header>
-    <section id="main" class="outer"><article id="post-to-orm-or-to-map" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-to-orm-or-to-map" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -111,9 +110,9 @@ ga('send', 'pageview');
 <p>(2) You have database administrators or SQL gurus on the team.</p>
 <p>(3) The database is being used to model the problem domain, and the application’s primary role is help the client use the database model.</p>
 <p>For a time, there was a feeling in the Java community that developers shouldn’t need to worry about SQL. After some bad experiences, this feeling is changing. More developers now recognize that SQL is here to stay. We’ve been using SQL and the Relational Model virtually unchanged for 40 years now — which is more than we can say for any other development platform. :) The question for many teams is not how we can “hide” SQL, but how we can ~manage~ SQL.</p>
-<p>For managing SQL, the <a href="http://ibatis.com/common/sqlmaps.html" target="_blank" rel="external">iBATIS Database Layer</a> for Java has become quite popular. There is also a .NET version called <a href="http://sourceforge.net/projects/nausicaa" target="_blank" rel="external">Nausicaa</a>. It’s code-complete and is now working on porting the iBATIS documentation.</p>
-<p>Of course, some projects have a rich business object layer that models the problem domain independently of the database. In other projects, the SQL is not complex and is mainly grunt work. Some projects need to migrate to different database systems, for example, from Access to SQL Server. In these cases, a solid object-to-relational “persistence layer” can be a very good thing. Many of these have been written for Java, most based in whole or in part on Scott Ambler’s famous <a href="http://www.ambysoft.com/persistenceLayer.html" target="_blank" rel="external">white papers</a>.</p>
-<p>Most Java implementations require developers to specify a good deal of metadata. There is a new implementation for .NET that cuts the redtape to a minimum and faithfully follows Ambler’s architecture, called <a href="http://www.mertner.com/projects/gentle/" target="_blank" rel="external">Gentle.NET</a>. I took Gentle for a test drive the other day, and it works very, very well.</p>
+<p>For managing SQL, the <a href="http://ibatis.com/common/sqlmaps.html" target="_blank" rel="noopener">iBATIS Database Layer</a> for Java has become quite popular. There is also a .NET version called <a href="http://sourceforge.net/projects/nausicaa" target="_blank" rel="noopener">Nausicaa</a>. It’s code-complete and is now working on porting the iBATIS documentation.</p>
+<p>Of course, some projects have a rich business object layer that models the problem domain independently of the database. In other projects, the SQL is not complex and is mainly grunt work. Some projects need to migrate to different database systems, for example, from Access to SQL Server. In these cases, a solid object-to-relational “persistence layer” can be a very good thing. Many of these have been written for Java, most based in whole or in part on Scott Ambler’s famous <a href="http://www.ambysoft.com/persistenceLayer.html" target="_blank" rel="noopener">white papers</a>.</p>
+<p>Most Java implementations require developers to specify a good deal of metadata. There is a new implementation for .NET that cuts the redtape to a minimum and faithfully follows Ambler’s architecture, called <a href="http://www.mertner.com/projects/gentle/" target="_blank" rel="noopener">Gentle.NET</a>. I took Gentle for a test drive the other day, and it works very, very well.</p>
 <p>But, at the end of the day, most of my projects work better with a mapping approach, like that taken by iBATIS and Nausicaa. But, then, I actually enjoy writing SQL :)</p>
 
       
@@ -177,7 +176,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Ted Husted&nbsp;
+      &copy; 2018 Ted Husted&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>
